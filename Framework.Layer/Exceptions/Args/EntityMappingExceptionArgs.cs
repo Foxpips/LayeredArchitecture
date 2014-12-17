@@ -2,11 +2,11 @@ using System;
 
 namespace Framework.Layer.Exceptions.Args
 {
-    public class EntityMappingExceptionArgsBase : ExceptionArgsBase
+    public class EntityMappingExceptionArgs : ExceptionArgsBase
     {
         public string PropertyName { get; set; }
 
-        public EntityMappingExceptionArgsBase(string propertyName)
+        public EntityMappingExceptionArgs(string propertyName)
         {
             PropertyName = propertyName;
         }
@@ -21,7 +21,6 @@ namespace Framework.Layer.Exceptions.Args
 
         public override void Handle()
         {
-            //Send email or do whatever to handle this exception
             Console.WriteLine(Message);
         }
     }

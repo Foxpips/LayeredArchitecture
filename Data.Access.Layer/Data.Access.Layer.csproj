@@ -54,7 +54,10 @@
     <Compile Include="EntityDomain\Attributes\DataParamAttribute.cs" />
     <Compile Include="EntityDomain\Attributes\SprocNameAttribute.cs" />
     <Compile Include="EntityFramework\Contexts\BloggingContext.cs" />
-    <Compile Include="EntityFramework\PersistenceManager.cs" />
+    <Compile Include="EntityFramework\Contexts\BooksContext.cs" />
+    <Compile Include="EntityFramework\Managers\BlogsManager.cs" />
+    <Compile Include="EntityFramework\Managers\BooksManager.cs" />
+    <Compile Include="EntityFramework\Managers\DbManager.cs" />
     <Compile Include="EntityDomain\Repositories\CustomerRepository.cs" />
     <Compile Include="EntityDomain\Repositories\RepositoryBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,7 +80,6 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

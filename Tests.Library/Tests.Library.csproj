@@ -60,16 +60,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core.Library.Tests\Extensions\CollectionExtenderTests.cs" />
+    <Compile Include="Core.Library.Tests\Helpers\JsonHelper_Tests.cs" />
+    <Compile Include="Framework.Layer.Tests\TransactionTests\Unit\Transactional_Tests.cs" />
     <Compile Include="Service.Layer.Tests\EncryptionTests\TestAsymmetricEncryption.cs" />
     <Compile Include="Service.Layer.Tests\EncryptionTests\TestKeyCreation.cs" />
     <Compile Include="Service.Layer.Tests\EncryptionTests\TestSymmetricEncryption.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Framework.Layer.Tests\LoggingTests\ResourceLoaderTests.cs" />
-    <Compile Include="Framework.Layer.Tests\TransactionTests\TransactionHandlerTests.cs" />
+    <Compile Include="Framework.Layer.Tests\TransactionTests\Integration\BloggingContext_Tests.cs" />
     <Compile Include="Core.Library.Tests\Helpers\NativeTypeCheckerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Core.Library.Tests\SampleJson\SampleJson.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data.Access.Layer\" />
+    <Folder Include="Rhino.Mocks\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

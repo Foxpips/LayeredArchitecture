@@ -47,10 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\Args\DatabaseErrorExceptionArgs.cs" />
+    <Compile Include="Exceptions\Args\JsonConvertErrorArgs.cs" />
     <Compile Include="Exceptions\CustomException.cs" />
-    <Compile Include="Exceptions\Args\EntityMappingExceptionArgsBase.cs" />
+    <Compile Include="Exceptions\Args\EntityMappingExceptionArgs.cs" />
     <Compile Include="Exceptions\Args\ExceptionArgsBase.cs" />
-    <Compile Include="Exceptions\SafeExecutionHandler.cs" />
+    <Compile Include="Handlers\SafeExecutionHandler.cs" />
     <Compile Include="Logging\CustomLogger.cs" />
     <Compile Include="Logging\Resource\ResourceLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,4 +1,3 @@
-using Business.Logic.Layer.DataTypes;
 using Business.Logic.Layer.Interfaces;
 
 using Framework.Layer.Exceptions;
@@ -14,24 +13,24 @@ namespace Data.Access.Layer.EntityDomain.Repositories
             {
                 SaveEntity(entity);
             }
-            catch (CustomException<EntityMappingExceptionArgsBase> ex)
+            catch (CustomException<EntityMappingExceptionArgs> ex)
             {
                 ex.Args.Handle();
                 throw;
             }
         }
 
-        public static Customer Get()
-        {
-            try
-            {
-                return GetEntity<Customer>();
-            }
-            catch (CustomException<EntityMappingExceptionArgsBase> ex)
-            {
-                ex.Args.Handle();
-                throw;
-            }
-        }
+//        public static Customer Get()
+//        {
+//            try
+//            {
+//                return GetEntity<Customer>();
+//            }
+//            catch (CustomException<EntityMappingExceptionArgs> ex)
+//            {
+//                ex.Args.Handle();
+//                throw;
+//            }
+//        }
     }
 }

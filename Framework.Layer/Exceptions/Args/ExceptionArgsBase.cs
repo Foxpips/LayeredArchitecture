@@ -10,11 +10,11 @@ namespace Framework.Layer.Exceptions.Args
             get { return string.Empty; }
         }
 
-        public abstract void Handle();
-
         public override string ToString()
         {
             return Message;
         }
+
+        public abstract void Handle();
     }
 }

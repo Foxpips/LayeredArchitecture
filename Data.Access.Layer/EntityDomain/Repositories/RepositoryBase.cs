@@ -57,8 +57,8 @@ namespace Data.Access.Layer.EntityDomain.Repositories
                 catch (Exception)
                 {
                     Console.WriteLine("Type not recognised!");
-                    throw new CustomException<EntityMappingExceptionArgsBase>(
-                        new EntityMappingExceptionArgsBase(property.Name));
+                    throw new CustomException<EntityMappingExceptionArgs>(
+                        new EntityMappingExceptionArgs(property.Name));
                 }
             }
 
