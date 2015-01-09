@@ -33,6 +33,8 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -52,6 +54,19 @@
     <Compile Include="EncryptionService\Services\EncryptionProviderService.cs" />
     <Compile Include="EncryptionService\Services\IEncryptionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Framework.Layer\Framework.Layer.csproj">
+      <Project>{17AAADA3-939E-41DD-A5AA-851F93EE6B17}</Project>
+      <Name>Framework.Layer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskRunner.Common\TaskRunner.Common.csproj">
+      <Project>{9e99e507-03dd-4be3-a7ca-2627937ef93c}</Project>
+      <Name>TaskRunner.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -20,8 +20,8 @@ namespace Tests.Library.Framework.Layer.Tests.LoggingTests
         [Test]
         public void TestLogger_TestedBehavior_ExpectedResult()
         {
-            var logger = new CustomLogger();
-            logger.Log(log => log.Info("Test.."));
+//            var logger = new CustomLogger();
+//            logger.Log(log => log.Info("Test.."));
         }
     }
 }
