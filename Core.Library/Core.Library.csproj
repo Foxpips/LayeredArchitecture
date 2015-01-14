@@ -53,16 +53,24 @@
     <Compile Include="Extensions\CollectionExtender.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Helpers\TypeChecker.cs" />
+    <Compile Include="Helpers\XmlHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Business.Logic.Layer\Business.Logic.Layer.csproj">
+      <Project>{C5C0BDBF-F2F8-4A3B-98C8-306A12918702}</Project>
+      <Name>Business.Logic.Layer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Framework.Layer\Framework.Layer.csproj">
       <Project>{17aaada3-939e-41dd-a5aa-851f93ee6b17}</Project>
       <Name>Framework.Layer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

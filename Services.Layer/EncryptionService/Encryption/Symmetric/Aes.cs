@@ -10,16 +10,6 @@ namespace Service.Layer.EncryptionService.Encryption.Symmetric
         {
         }
 
-        public override string Decrypt(string ciphertext)
-        {
-            var aesCryptoServiceProvider = new AesCryptoServiceProvider();
-
-            var cryptoTransform = aesCryptoServiceProvider.CreateDecryptor(_key, _iv);
-            var fromBase64String = Convert.FromBase64String(ciphertext);
-            var executeCryptoServiceProvider = ExecuteCryptoServiceProvider(fromBase64String, cryptoTransform);
-            return Encoding.ASCII.GetString(executeCryptoServiceProvider);
-        }
-
         public override string Encrypt(string plaintext)
         {
             var aesCryptoServiceProvider = new AesCryptoServiceProvider();
@@ -27,6 +17,15 @@ namespace Service.Layer.EncryptionService.Encryption.Symmetric
             var bytes = Encoding.ASCII.GetBytes(plaintext);
             var executeCryptoServiceProvider = ExecuteCryptoServiceProvider(bytes, cryptoTransform);
             return Convert.ToBase64String(executeCryptoServiceProvider);
+        }
+
+        public override string Decrypt(string ciphertext)
+        {
+            var aesCryptoServiceProvider = new AesCryptoServiceProvider();
+            var cryptoTransform = aesCryptoServiceProvider.CreateDecryptor(_key, _iv);
+            var fromBase64String = Convert.FromBase64String(ciphertext);
+            var executeCryptoServiceProvider = ExecuteCryptoServiceProvider(fromBase64String, cryptoTransform);
+            return Encoding.ASCII.GetString(executeCryptoServiceProvider);
         }
     }
 }

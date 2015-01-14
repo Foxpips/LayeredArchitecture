@@ -1,14 +1,20 @@
 ﻿using System;
 
+using Framework.Layer.Logging;
+
 namespace Framework.Layer.Exceptions.Args
 {
     [Serializable]
     public abstract class ExceptionArgsBase
     {
-        protected virtual string Message
+        protected CustomLogger Logger { get; set; }
+
+        protected ExceptionArgsBase()
         {
-            get { return string.Empty; }
+            Logger = new CustomLogger();
         }
+
+        protected abstract string Message { get; }
 
         public override string ToString()
         {

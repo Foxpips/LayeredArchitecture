@@ -3,6 +3,9 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
+using Framework.Layer.Exceptions;
+using Framework.Layer.Exceptions.Args;
+
 namespace Service.Layer.EncryptionService.Encryption.Symmetric
 {
     public class SymmetricEncryptionProviderBase : IEncrpytionProvider
@@ -41,7 +44,13 @@ namespace Service.Layer.EncryptionService.Encryption.Symmetric
                     }
                     catch (Exception ex)
                     {
-                        throw new Exception("Error while writing encrypted data to the stream: \n" + ex.Message);
+                        throw new CustomException<CryptoServiceExceptionArgs>(
+                            new CryptoServiceExceptionArgs("Error while writing encrypted data to the stream: \n" +
+                                                           ex.Message));
+                    }
+                    finally
+                    {
+                        cryptoStream.Dispose();
                     }
                 }
 

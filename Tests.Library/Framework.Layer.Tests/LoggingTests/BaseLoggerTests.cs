@@ -1,0 +1,56 @@
+﻿
+using System.Security.Cryptography;
+
+using NUnit.Framework;
+
+using Service.Layer.EncryptionService.Encryption.Symmetric;
+using Service.Layer.EncryptionService.Services;
+
+using Aes = Service.Layer.EncryptionService.Encryption.Symmetric.Aes;
+
+namespace Tests.Library.Framework.Layer.Tests.LoggingTests
+{
+    public class BaseLoggerTests : SymmetricEncryptionProviderBase
+    {
+        public BaseLoggerTests(string key, string initializationVector) : base(key, initializationVector)
+        {
+        }
+
+        public BaseLoggerTests() : this("adfhdsiajnlfo4389525j329", "I%d*2K5G91Vb+~#|")
+        {
+        }
+
+        [Test]
+        public void MethodUnderTest_TestedBehavior_Array()
+        {
+//            var aesCryptoServiceProvider = new AesCryptoServiceProvider();
+//            var encryptor = aesCryptoServiceProvider.CreateEncryptor(_key, _iv);
+//
+//            byte[] cryptoServiceProvider = ExecuteCryptoServiceProvider(Encoding.ASCII.GetBytes("Test Text"),
+//                encryptor);
+//
+//            var decryptor = aesCryptoServiceProvider.CreateDecryptor(_key, _iv);
+//
+//            var bytes = ExecuteCryptoServiceProvider(cryptoServiceProvider, decryptor);
+//
+//            var text = Encoding.ASCII.GetString(bytes);
+
+            var encryptionProviderService = new EncryptionProviderService<Aes>();
+            var encrypt = encryptionProviderService.Encrypt("Test Text");
+            var decrypt = encryptionProviderService.Decrypt(encrypt);
+            Assert.That(decrypt, Is.EqualTo("Test Text"));
+        }
+
+        [Test]
+        public void MethodUnderTest_TestedBehavior_ExpectedResult()
+        {
+            var decryptor = new AesCryptoServiceProvider().CreateDecryptor(_key, _iv);
+
+            Assert.Throws<CryptographicException>(
+                () => ExecuteCryptoServiceProvider(new byte[10], decryptor));
+
+//            Assert.Throws<CustomException<CryptoServiceExceptionArgs>>(
+//                () => ExecuteCryptoServiceProvider(new byte[10], decryptor));
+        }
+    }
+}

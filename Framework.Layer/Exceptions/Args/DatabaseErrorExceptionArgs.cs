@@ -1,5 +1,7 @@
 ﻿using System;
 
+using Framework.Layer.Logging;
+
 namespace Framework.Layer.Exceptions.Args
 {
     public class DatabaseErrorExceptionArgs : ExceptionArgsBase
@@ -13,6 +15,7 @@ namespace Framework.Layer.Exceptions.Args
 
         public override void Handle()
         {
+            new CustomLogger().Log(log => log.Error(Message));
             Console.WriteLine(Message);
         }
 

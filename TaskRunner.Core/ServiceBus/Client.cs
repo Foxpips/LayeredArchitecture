@@ -13,11 +13,14 @@ namespace TaskRunner.Core.ServiceBus
 
         public Client()
         {
-            new OnewayRhinoServiceBusConfiguration()
-                .UseStructureMap(ObjectFactory.Container)
-                .Configure();
+            if (Bus == null)
+            {
+                new OnewayRhinoServiceBusConfiguration()
+                    .UseStructureMap(ObjectFactory.Container)
+                    .Configure();
 
-            Bus = ObjectFactory.GetInstance<TBusType>();
+                Bus = ObjectFactory.GetInstance<TBusType>();
+            }
         }
 
         public void Dispose()

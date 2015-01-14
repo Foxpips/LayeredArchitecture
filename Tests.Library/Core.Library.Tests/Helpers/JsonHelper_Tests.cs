@@ -11,15 +11,17 @@ using NUnit.Framework;
 
 namespace Tests.Library.Core.Library.Tests.Helpers
 {
+    [TestFixture]
     public class JsonHelperTests
     {
         [Test]
         public void Test_Json_Serialize()
         {
             var item = new Book();
-            var path = Environment.CurrentDirectory + "outputJson.json";
+            string path = Path.GetFullPath(@"..\..\Core.Library.Tests\SampleJson\SampleJson - BookTest.json");
             JsonHelper.SerializeJson(item, path);
-            Assert.That(Directory.Exists(path), Is.True);
+            Console.WriteLine(path);
+            Assert.That(File.Exists(path), Is.True);
         }
 
         [Test]
@@ -28,13 +30,14 @@ namespace Tests.Library.Core.Library.Tests.Helpers
             var book = JsonHelper.DeserializeJson<Book>("SampleJson.json",
                 @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Tests.Library\Core.Library.Tests\SampleJson");
             Assert.That(book, Is.Not.Null.Or.Empty);
+            Assert.That(book.Name, Is.EqualTo("John Carter"));
         }
 
         [Test]
         public void Test_Json_Deserialize_Collection()
         {
-            var books = JsonHelper.DeserializeJson<List<Book>>("SampleJson.json",
-                @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Tests.Library\Core.Library.Tests\SampleJsonList");
+            var books = JsonHelper.DeserializeJson<List<Book>>("SampleJson - Books.json",
+                @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Tests.Library\Core.Library.Tests\SampleJson");
             Assert.That(books.Any());
         }
     }

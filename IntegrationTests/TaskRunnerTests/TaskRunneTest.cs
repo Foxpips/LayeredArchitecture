@@ -13,8 +13,19 @@ namespace IntegrationTests.TaskRunnerTests
 {
     public class TaskRunneTest
     {
+        [SetUp]
+        public void Setup()
+        {
+//            SendMessageToBus();
+        }
+
         [Test]
-        public void MethodUnderTest_TestedBehavior_ExpectedResult()
+        public void Send_ClientMessage_ToServiceBus_Server()
+        {
+            SendMessageToBus();
+        }
+
+        private static void SendMessageToBus()
         {
             using (var client = new Client<IOnewayBus>())
             {
@@ -28,8 +39,14 @@ namespace IntegrationTests.TaskRunnerTests
         [Test]
         public void Server_TestedBehavior_ExpectedResult()
         {
+            var client = new Client<IOnewayBus>();
+            client.Bus.Send(new HelloWorldCommand
+            {
+                Text = "Hello there world!"
+            });
+
             Server<TaskRunnerBootStrapper>.Start();
-            Thread.Sleep(TimeSpan.FromSeconds(5));
+            Thread.Sleep(TimeSpan.FromSeconds(2));
         }
     }
 }

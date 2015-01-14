@@ -13,7 +13,7 @@ namespace Core.Library.Extensions
             }
         }
 
-        public static void AddRange<TItem>(ICollection<TItem> collection1, ICollection<TItem> collection2)
+        public static void AddRange<TItem>(this ICollection<TItem> collection1, ICollection<TItem> collection2)
         {
             foreach (var item in collection2)
             {

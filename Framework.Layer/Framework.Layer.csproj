@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\Args\CryptoServiceExceptionArgs.cs" />
     <Compile Include="Exceptions\Args\DatabaseErrorExceptionArgs.cs" />
     <Compile Include="Exceptions\Args\JsonConvertErrorArgs.cs" />
     <Compile Include="Exceptions\CustomException.cs" />

@@ -50,6 +50,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
@@ -59,8 +60,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business.Logic.Layer\BlogTests.cs" />
     <Compile Include="Core.Library.Tests\Extensions\CollectionExtenderTests.cs" />
     <Compile Include="Core.Library.Tests\Helpers\JsonHelper_Tests.cs" />
+    <Compile Include="Core.Library.Tests\Helpers\XmlHelper_Tests.cs" />
+    <Compile Include="Framework.Layer.Tests\CustomExceptionTests\CustomExceptionTests.cs" />
+    <Compile Include="Framework.Layer.Tests\ExecutionTests\SafeExecution_Tests.cs" />
+    <Compile Include="Framework.Layer.Tests\LoggingTests\BaseLoggerTests.cs" />
     <Compile Include="Framework.Layer.Tests\TransactionTests\Unit\Transactional_Tests.cs" />
     <Compile Include="Service.Layer.Tests\EncryptionTests\TestAsymmetricEncryption.cs" />
     <Compile Include="Service.Layer.Tests\EncryptionTests\TestKeyCreation.cs" />

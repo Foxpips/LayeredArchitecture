@@ -1,3 +1,5 @@
+using System;
+
 namespace Framework.Layer.Exceptions.Args
 {
     public class JsonConvertErrorArgs : ExceptionArgsBase
@@ -22,6 +24,8 @@ namespace Framework.Layer.Exceptions.Args
 
         public override void Handle()
         {
+            Logger.Log(log => log.Error(Message));
+            Console.WriteLine(Message);
         }
     }
 }

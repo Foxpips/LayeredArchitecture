@@ -1,52 +1,6 @@
-﻿[
-   {
-      "name":"Liverpool",
-      "players":[
-         {
-            "name":"Mario Balotelli",
-            "team":"Liverpool",
-            "skillLevel":"5"
-         },
-         {
-            "name":"Jose",
-            "team":"Liverpool",
-            "skillLevel":"2"
-         },
-         {
-            "name":"Sturridge",
-            "team":"Liverpool",
-            "skillLevel":"4"
-         },
-         {
-            "name":"Sterling",
-            "team":"Liverpool",
-            "skillLevel":"2"
-         }
-      ]
-   },
-   {
-      "name":"Manchester United",
-      "players":[
-         {
-            "name":"Wayne Rooney",
-            "team":"Manchester United",
-            "skillLevel":"4"
-         },
-         {
-            "name":"Simon Marchini",
-            "team":"Manchester United",
-            "skillLevel":"5"
-         },
-         {
-            "name":"Robin Van Persie",
-            "team":"Manchester United",
-            "skillLevel":"3"
-         },
-         {
-            "name":"Tom Cleverley",
-            "team":"Manchester United",
-            "skillLevel":"2"
-         }
-      ]
-   }
-]
+{  
+   "Id":0,
+   "Name":"John Carter",
+   "Isbn":"23423",
+   "Reviews":null
+}
