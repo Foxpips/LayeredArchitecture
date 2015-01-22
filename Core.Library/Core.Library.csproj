@@ -43,6 +43,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\CollectionExtender.cs" />
+    <Compile Include="Helpers\CustomSerializer.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Helpers\TypeChecker.cs" />
     <Compile Include="Helpers\XmlHelper.cs" />

@@ -1,0 +1,41 @@
+﻿@using System.Web.Mvc.Html
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title</h1>
+            </hgroup>
+        </div>
+    </section>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script type="text/javascript">
+    </script>
+}
+
+<h2>Database</h2>
+
+@using (Html.BeginForm("Progress", "Thread", FormMethod.Post, new { id = "IndexForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Index</legend>
+        <input type="submit" id="updateBtn" value="Update" />
+        <div class="row">
+            <div class="col-md-12">
+                @Html.ActionLink("Home", "Index", "Home")
+            </div>
+        </div>
+    </fieldset>
+}

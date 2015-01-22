@@ -1,0 +1,46 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title</h1>
+            </hgroup>
+        </div>
+    </section>
+}
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-xs-6 col-md-3">
+        <h3>Compare Database</h3>
+        <a href="@Url.Action("Index", "Comparison")" class="thumbnail">
+            <img src=@Href("~/Images/compare.png") alt="Update" />
+        </a>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-xs-6 col-md-3">
+        <h3>Backup Database</h3>
+        <a href="@Url.Action("Index", "Backup")" class="thumbnail">
+            <img src=@Href("~/Images/backup.png") alt="Update" />
+        </a>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-xs-6 col-md-3">
+        <h3>Update Database</h3>
+        <a href="@Url.Action("Index", "Update")" class="thumbnail">
+            <img src=@Href("~/Images/update.png") alt="Update" />
+        </a>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-xs-6 col-md-3">
+        <h3>Purge Database</h3>
+        <a href="@Url.Action("Index", "Thread")" class="thumbnail">
+            <img src=@Href("~/Images/purge.png") alt="Update" />
+        </a>
+    </div>
+</div>
+

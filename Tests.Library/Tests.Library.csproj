@@ -52,6 +52,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -62,8 +63,11 @@
   <ItemGroup>
     <Compile Include="Business.Logic.Layer\BlogTests.cs" />
     <Compile Include="Core.Library.Tests\Extensions\CollectionExtenderTests.cs" />
+    <Compile Include="Core.Library.Tests\Helpers\CustomSerializerTests.cs" />
     <Compile Include="Core.Library.Tests\Helpers\JsonHelper_Tests.cs" />
     <Compile Include="Core.Library.Tests\Helpers\XmlHelper_Tests.cs" />
+    <Compile Include="Misc\MyObject.cs" />
+    <Compile Include="Misc\TestClass.cs" />
     <Compile Include="Framework.Layer.Tests\CustomExceptionTests\CustomExceptionTests.cs" />
     <Compile Include="Framework.Layer.Tests\ExecutionTests\SafeExecution_Tests.cs" />
     <Compile Include="Framework.Layer.Tests\LoggingTests\BaseLoggerTests.cs" />

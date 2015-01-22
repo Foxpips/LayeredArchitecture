@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Progress";
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jqueryui")
+}
+
+
+<section class="featured">
+    <div class="content-wrapper">
+        <hgroup class="title">
+            <h1>@ViewBag.Title</h1>
+        </hgroup>
+    </div>
+</section>
+
+<h2>Database</h2>
+
+@using (Html.BeginForm("PollProgress", "Thread", FormMethod.Post, new { id = "ProgressForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Progress</legend>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                @Html.ActionLink("Home", "Index", "Home")
+            </div>
+        </div>
+    </fieldset>
+}

@@ -1,0 +1,51 @@
+﻿@using System.Web.UI.WebControls
+@{
+    ViewBag.Title = "Comparison";
+}
+
+@{
+    var listItems = new List<ListItem>
+    {
+        new ListItem {Text = "Development", Value = "dev"},
+        new ListItem {Text = "System Test", Value = "st"},
+        new ListItem {Text = "System Test Cat", Value = "stcat"},
+        new ListItem {Text = "User Acceptance Test", Value = "uat"},
+        new ListItem {Text = "User Acceptance Test Cat", Value = "uatcat"},
+        new ListItem {Text = "User Acceptance Test Prod", Value = "uatprod"}
+    };
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title</h1>
+            </hgroup>
+        </div>
+    </section>
+}
+
+<h2>Comparison</h2>
+@using (Html.BeginForm("Compare", "Comparison", FormMethod.Post, new { id = "updateForm" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>SprocRunner</legend>
+        <div class="row">
+            <div class="col-md-3">
+                @Html.DropDownList("environmentDdl", new SelectList(listItems, "Value", "Text"), new { @class = "styled-select" })
+            </div>
+            <div class="col-md-9">
+                <button type="submit" id="compareBtn" class="btn btn-default">Compare Database</button>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                @Html.ActionLink("Back to List", "Index", "Home")
+            </div>
+        </div>
+    </fieldset>
+}

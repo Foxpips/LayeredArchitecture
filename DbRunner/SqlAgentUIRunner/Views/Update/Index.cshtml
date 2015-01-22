@@ -1,0 +1,55 @@
+﻿@using System.Web.UI.WebControls
+
+@{
+    ViewBag.Title = "Update";
+}
+
+@{
+    var listItems = new List<ListItem>
+    {
+        new ListItem {Text = "Development", Value = "dev"},
+        new ListItem {Text = "System Test", Value = "st"},
+        new ListItem {Text = "System Test Cat", Value = "stcat"},
+        new ListItem {Text = "User Acceptance Test", Value = "uat"},
+        new ListItem {Text = "User Acceptance Test Cat", Value = "uatcat"},
+        new ListItem {Text = "User Acceptance Test Prod", Value = "uatprod"}
+    };
+}
+
+@section featured
+{
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title</h1>
+            </hgroup>
+        </div>
+    </section>
+}
+<h2>Database</h2>
+
+@using (Html.BeginForm("Update", "Update", FormMethod.Post, new {id = "updateForm"}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>SprocRunner</legend>
+        <div class="row">
+            <div class="col-md-3">
+                @Html.DropDownList("environmentDdl", new SelectList(listItems, "Value", "Text"), new { @class = "styled-select" })
+            </div>
+            <div class="col-md-2">
+                <button type="submit" id="updateBtn" class="btn btn-default">Update Database</button>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                @Html.ActionLink("Back to List", "Index", "Home")
+            </div>
+        </div>
+    </fieldset>
+}
+
+<script src="~/Scripts/jquery-1.9.1.js"></script>
