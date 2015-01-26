@@ -1,0 +1,134 @@
+﻿@model SqlAgentUIRunner.Models.TaskRunnerModel
+
+@{
+    ViewBag.Title = "Message Bus";
+}
+
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title</h1>
+            </hgroup>
+        </div>
+    </section>
+}
+<h2>Send Message to Bus</h2>
+<fieldset>
+    <legend>SprocRunner</legend>
+    <div class="row">
+        <div class="col-md-3">
+            @Html.DropDownList("MessagesDdl", new SelectList(Model.Messages), new {@class = "styled-select"})
+
+            @foreach (var prop in @Model.Properties)
+            {
+                @Html.DisplayFor(modelItem => @prop)
+                @Html.TextBox("asd")
+            }
+
+        </div>
+        <div class="col-md-9">
+            <button type="submit" id="Select" class="btn btn-default">Send Message</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="PropertyListDiv"></div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            @Html.ActionLink("Back to List", "Index", "Home")
+        </div>
+    </div>
+</fieldset>
+<script src="~/Scripts/jquery-1.8.2.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        var sendBtn = $('#Select');
+        var messagesDdl = $("#MessagesDdl");
+        var properties = $("#PropertyListDiv");
+
+        sendBtn.click(function() {
+            var propertiesWithValues = [];
+            var messageProperties = $('.messageProperty');
+            if (messageProperties.length > 0) {
+
+                for (var i = 0; i < messageProperties.length; i++) {
+                    var currObject = $(messageProperties[i]);
+                    console.log(currObject.val());
+                    console.log(currObject.attr('id'));
+
+                    propertiesWithValues.push({ Name: currObject.attr('id'), Value: currObject.val() });
+                    console.log(propertiesWithValues);
+                }
+
+         
+                var stringify = JSON.stringify( {
+                    typeName: messagesDdl.val(),
+                    propertiesForMessage: propertiesWithValues
+                });
+
+                $.ajax({
+                    cache: true,
+                    async: true,
+                    contentType: "application/json; charset=utf-8",
+                    type: 'POST',
+                    url: 'SendMessageWithParams/',
+                    dataType: 'json',
+                    data: stringify
+                }).success(function(response) {
+                    if (response.hasOwnProperty("errorMessage")) {
+                        alert(response.errorMessage);
+                    } else {
+                        alert("Message sent successfully!");
+                    }
+                }).error(function() {
+                    alert('error');
+                }).complete(function() {
+                });
+            } else {
+                $.ajax({
+                    type: 'POST',
+                    url: 'SendMessage/',
+                    dataType: 'json',
+                    data: {
+                        typeName: messagesDdl.val()
+                        //                    propertiesForMessage: properties
+                    }
+                }).success(function(response) {
+                    if (response.hasOwnProperty("errorMessage")) {
+                        alert(response.errorMessage);
+                    } else {
+                        alert("Message sent successfully!");
+                    }
+                }).error(function() {
+                    alert('error');
+                }).complete(function() {
+                });
+            }
+        });
+
+        messagesDdl.change(function() {
+            properties.empty();
+            $.ajax({
+                type: 'POST',
+                url: 'GetProperties/',
+                dataType: 'json',
+                data: { typeName: messagesDdl.val() },
+                success: function(props) {
+                    $.each(props, function(i, prop) {
+                        properties.append('<option value="' + prop.Value + '">' +
+                            prop.Text + '</option>');
+                        properties.append('<input id =' + prop.Text + ' type="text" class="messageProperty" />');
+                    });
+                },
+                error: function(ex) {
+                    alert('Failed to get command/event properties!');
+                }
+            });
+            return false;
+        });
+    });
+</script>

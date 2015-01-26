@@ -7,8 +7,8 @@ using Rhino.ServiceBus;
 
 using TaskRunner.Common.Messages.Test;
 using TaskRunner.Core.BootStrappers;
+using TaskRunner.Core.Reflector;
 using TaskRunner.Core.ServiceBus;
-using TaskRunner.Dash.Helpers;
 
 namespace IntegrationTests.TaskRunnerTests
 {
@@ -40,6 +40,13 @@ namespace IntegrationTests.TaskRunnerTests
             {
                 Console.WriteLine(type.Name);
             }
+        }
+
+        [Test]
+        public void ConsumeMessage_Only_MessageConsumed()
+        {
+            Server<TaskRunnerBootStrapper>.Start();
+            Thread.Sleep(TimeSpan.FromSeconds(5));
         }
     }
 }

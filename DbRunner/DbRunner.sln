@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30110.0
+VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlAgentUIRunner", "SqlAgentUIRunner\SqlAgentUIRunner.csproj", "{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}"
 EndProject
@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Buy4Now.Three.SqlRunner.Cor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{88772432-7628-4337-8908-08AFCD2B6620}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Buy4Now.Three.Database", "..\..\Buy4Now.Three.Database\Buy4Now.Three.Database.csproj", "{B6535DFF-2661-4AFF-B593-DCFCCAD342C6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskRunner.Core", "..\TaskRunner.Core\TaskRunner.Core.csproj", "{7A069A5C-21EC-4222-A1E1-759F1344DB66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskRunner.Common", "..\TaskRunner.Common\TaskRunner.Common.csproj", "{9E99E507-03DD-4BE3-A7CA-2627937EF93C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,7 @@ Global
 		st3cat|Any CPU = st3cat|Any CPU
 		uat_contract_upgrade|Any CPU = uat_contract_upgrade|Any CPU
 		uat_prepay_upgrade|Any CPU = uat_prepay_upgrade|Any CPU
+		uat|Any CPU = uat|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -39,6 +42,8 @@ Global
 		{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}.uat_contract_upgrade|Any CPU.Build.0 = Release|Any CPU
 		{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}.uat_prepay_upgrade|Any CPU.ActiveCfg = Release|Any CPU
 		{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}.uat_prepay_upgrade|Any CPU.Build.0 = Release|Any CPU
+		{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}.uat|Any CPU.ActiveCfg = Release|Any CPU
+		{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}.uat|Any CPU.Build.0 = Release|Any CPU
 		{48B16492-0E6E-4499-BC48-D86ADF928B7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{48B16492-0E6E-4499-BC48-D86ADF928B7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48B16492-0E6E-4499-BC48-D86ADF928B7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -55,6 +60,8 @@ Global
 		{48B16492-0E6E-4499-BC48-D86ADF928B7B}.uat_contract_upgrade|Any CPU.Build.0 = Release|Any CPU
 		{48B16492-0E6E-4499-BC48-D86ADF928B7B}.uat_prepay_upgrade|Any CPU.ActiveCfg = Release|Any CPU
 		{48B16492-0E6E-4499-BC48-D86ADF928B7B}.uat_prepay_upgrade|Any CPU.Build.0 = Release|Any CPU
+		{48B16492-0E6E-4499-BC48-D86ADF928B7B}.uat|Any CPU.ActiveCfg = Release|Any CPU
+		{48B16492-0E6E-4499-BC48-D86ADF928B7B}.uat|Any CPU.Build.0 = Release|Any CPU
 		{88772432-7628-4337-8908-08AFCD2B6620}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{88772432-7628-4337-8908-08AFCD2B6620}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88772432-7628-4337-8908-08AFCD2B6620}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -71,22 +78,44 @@ Global
 		{88772432-7628-4337-8908-08AFCD2B6620}.uat_contract_upgrade|Any CPU.Build.0 = Release|Any CPU
 		{88772432-7628-4337-8908-08AFCD2B6620}.uat_prepay_upgrade|Any CPU.ActiveCfg = Release|Any CPU
 		{88772432-7628-4337-8908-08AFCD2B6620}.uat_prepay_upgrade|Any CPU.Build.0 = Release|Any CPU
-		{B6535DFF-2661-4AFF-B593-DCFCCAD342C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B6535DFF-2661-4AFF-B593-DCFCCAD342C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B6535DFF-2661-4AFF-B593-DCFCCAD342C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B6535DFF-2661-4AFF-B593-DCFCCAD342C6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B6535DFF-2661-4AFF-B593-DCFCCAD342C6}.st3_contract_upgrade|Any CPU.ActiveCfg = st3_contract_upgrade|Any CPU
-		{B6535DFF-2661-4AFF-B593-DCFCCAD342C6}.st3_contract_upgrade|Any CPU.Build.0 = st3_contract_upgrade|Any CPU
-		{B6535DFF-2661-4AFF-B593-DCFCCAD342C6}.st3_prepay_upgrade|Any CPU.ActiveCfg = st3_prepay_upgrade|Any CPU
-		{B6535DFF-2661-4AFF-B593-DCFCCAD342C6}.st3_prepay_upgrade|Any CPU.Build.0 = st3_prepay_upgrade|Any CPU
-		{B6535DFF-2661-4AFF-B593-DCFCCAD342C6}.st3|Any CPU.ActiveCfg = st3|Any CPU
-		{B6535DFF-2661-4AFF-B593-DCFCCAD342C6}.st3|Any CPU.Build.0 = st3|Any CPU
-		{B6535DFF-2661-4AFF-B593-DCFCCAD342C6}.st3cat|Any CPU.ActiveCfg = st3cat|Any CPU
-		{B6535DFF-2661-4AFF-B593-DCFCCAD342C6}.st3cat|Any CPU.Build.0 = st3cat|Any CPU
-		{B6535DFF-2661-4AFF-B593-DCFCCAD342C6}.uat_contract_upgrade|Any CPU.ActiveCfg = uat_contract_upgrade|Any CPU
-		{B6535DFF-2661-4AFF-B593-DCFCCAD342C6}.uat_contract_upgrade|Any CPU.Build.0 = uat_contract_upgrade|Any CPU
-		{B6535DFF-2661-4AFF-B593-DCFCCAD342C6}.uat_prepay_upgrade|Any CPU.ActiveCfg = uat_prepay_upgrade|Any CPU
-		{B6535DFF-2661-4AFF-B593-DCFCCAD342C6}.uat_prepay_upgrade|Any CPU.Build.0 = uat_prepay_upgrade|Any CPU
+		{88772432-7628-4337-8908-08AFCD2B6620}.uat|Any CPU.ActiveCfg = Release|Any CPU
+		{88772432-7628-4337-8908-08AFCD2B6620}.uat|Any CPU.Build.0 = Release|Any CPU
+		{7A069A5C-21EC-4222-A1E1-759F1344DB66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A069A5C-21EC-4222-A1E1-759F1344DB66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A069A5C-21EC-4222-A1E1-759F1344DB66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A069A5C-21EC-4222-A1E1-759F1344DB66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A069A5C-21EC-4222-A1E1-759F1344DB66}.st3_contract_upgrade|Any CPU.ActiveCfg = Release|Any CPU
+		{7A069A5C-21EC-4222-A1E1-759F1344DB66}.st3_contract_upgrade|Any CPU.Build.0 = Release|Any CPU
+		{7A069A5C-21EC-4222-A1E1-759F1344DB66}.st3_prepay_upgrade|Any CPU.ActiveCfg = Release|Any CPU
+		{7A069A5C-21EC-4222-A1E1-759F1344DB66}.st3_prepay_upgrade|Any CPU.Build.0 = Release|Any CPU
+		{7A069A5C-21EC-4222-A1E1-759F1344DB66}.st3|Any CPU.ActiveCfg = Release|Any CPU
+		{7A069A5C-21EC-4222-A1E1-759F1344DB66}.st3|Any CPU.Build.0 = Release|Any CPU
+		{7A069A5C-21EC-4222-A1E1-759F1344DB66}.st3cat|Any CPU.ActiveCfg = Release|Any CPU
+		{7A069A5C-21EC-4222-A1E1-759F1344DB66}.st3cat|Any CPU.Build.0 = Release|Any CPU
+		{7A069A5C-21EC-4222-A1E1-759F1344DB66}.uat_contract_upgrade|Any CPU.ActiveCfg = Release|Any CPU
+		{7A069A5C-21EC-4222-A1E1-759F1344DB66}.uat_contract_upgrade|Any CPU.Build.0 = Release|Any CPU
+		{7A069A5C-21EC-4222-A1E1-759F1344DB66}.uat_prepay_upgrade|Any CPU.ActiveCfg = Release|Any CPU
+		{7A069A5C-21EC-4222-A1E1-759F1344DB66}.uat_prepay_upgrade|Any CPU.Build.0 = Release|Any CPU
+		{7A069A5C-21EC-4222-A1E1-759F1344DB66}.uat|Any CPU.ActiveCfg = Release|Any CPU
+		{7A069A5C-21EC-4222-A1E1-759F1344DB66}.uat|Any CPU.Build.0 = Release|Any CPU
+		{9E99E507-03DD-4BE3-A7CA-2627937EF93C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E99E507-03DD-4BE3-A7CA-2627937EF93C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E99E507-03DD-4BE3-A7CA-2627937EF93C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E99E507-03DD-4BE3-A7CA-2627937EF93C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E99E507-03DD-4BE3-A7CA-2627937EF93C}.st3_contract_upgrade|Any CPU.ActiveCfg = st3_contract_upgrade|Any CPU
+		{9E99E507-03DD-4BE3-A7CA-2627937EF93C}.st3_contract_upgrade|Any CPU.Build.0 = st3_contract_upgrade|Any CPU
+		{9E99E507-03DD-4BE3-A7CA-2627937EF93C}.st3_prepay_upgrade|Any CPU.ActiveCfg = st3_prepay_upgrade|Any CPU
+		{9E99E507-03DD-4BE3-A7CA-2627937EF93C}.st3_prepay_upgrade|Any CPU.Build.0 = st3_prepay_upgrade|Any CPU
+		{9E99E507-03DD-4BE3-A7CA-2627937EF93C}.st3|Any CPU.ActiveCfg = st3|Any CPU
+		{9E99E507-03DD-4BE3-A7CA-2627937EF93C}.st3|Any CPU.Build.0 = st3|Any CPU
+		{9E99E507-03DD-4BE3-A7CA-2627937EF93C}.st3cat|Any CPU.ActiveCfg = st3cat|Any CPU
+		{9E99E507-03DD-4BE3-A7CA-2627937EF93C}.st3cat|Any CPU.Build.0 = st3cat|Any CPU
+		{9E99E507-03DD-4BE3-A7CA-2627937EF93C}.uat_contract_upgrade|Any CPU.ActiveCfg = uat_contract_upgrade|Any CPU
+		{9E99E507-03DD-4BE3-A7CA-2627937EF93C}.uat_contract_upgrade|Any CPU.Build.0 = uat_contract_upgrade|Any CPU
+		{9E99E507-03DD-4BE3-A7CA-2627937EF93C}.uat_prepay_upgrade|Any CPU.ActiveCfg = uat_prepay_upgrade|Any CPU
+		{9E99E507-03DD-4BE3-A7CA-2627937EF93C}.uat_prepay_upgrade|Any CPU.Build.0 = uat_prepay_upgrade|Any CPU
+		{9E99E507-03DD-4BE3-A7CA-2627937EF93C}.uat|Any CPU.ActiveCfg = uat|Any CPU
+		{9E99E507-03DD-4BE3-A7CA-2627937EF93C}.uat|Any CPU.Build.0 = uat|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

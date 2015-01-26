@@ -6,7 +6,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-using Buy4Now.Three.Database;
 using Buy4Now.Three.SqlRunner.Core.Helpers;
 
 namespace Buy4Now.Three.SqlRunner.Core.Managers
@@ -36,7 +35,7 @@ namespace Buy4Now.Three.SqlRunner.Core.Managers
             var dbSprocList = new List<string>();
             using (var con = new SqlConnection(connectionString))
             {
-                using (var cmd = new SqlCommand("b4nCheckProcsExist", con) { CommandType = CommandType.StoredProcedure })
+                using (var cmd = new SqlCommand("b4nCheckProcsExist", con) {CommandType = CommandType.StoredProcedure})
                 {
                     con.Open();
                     var sqlDataAdapter = new SqlDataAdapter(cmd);
@@ -55,19 +54,19 @@ namespace Buy4Now.Three.SqlRunner.Core.Managers
             var contents = new StringBuilder();
             using (var conn = new SqlConnection(connectionString))
             {
-                using (var cmd = new SqlCommand("sp_helptext", conn) { CommandType = CommandType.StoredProcedure })
+                using (var cmd = new SqlCommand("sp_helptext", conn) {CommandType = CommandType.StoredProcedure})
                 {
                     conn.Open();
                     cmd.Parameters.Add(new SqlParameter("@objname", sprocName));
                     SqlDataReader sqlDataReader = cmd.ExecuteReader();
 
-                    using (var reader = new SafeDataReader(sqlDataReader))
+//                    using (var reader = new SafeDataReader(sqlDataReader))
+//                    {
+                    while (sqlDataReader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            contents.Append(reader.GetString("text"));
-                        }
+                        contents.Append(sqlDataReader.GetOrdinal("text"));
                     }
+//                    }
                     conn.Close();
                 }
 
@@ -78,22 +77,23 @@ namespace Buy4Now.Three.SqlRunner.Core.Managers
 
         private static void GetSprocPermissions(string sprocName, SqlConnection conn, StringBuilder contents)
         {
-            using (var cmd = new SqlCommand("h3giGetSprocPermissions", conn) { CommandType = CommandType.StoredProcedure })
+            using (var cmd = new SqlCommand("h3giGetSprocPermissions", conn) {CommandType = CommandType.StoredProcedure}
+                )
             {
                 conn.Open();
                 cmd.Parameters.Add(new SqlParameter("@objname", sprocName));
                 SqlDataReader sqlDataReader = cmd.ExecuteReader();
 
-                using (var reader = new SafeDataReader(sqlDataReader))
-                {
-                    while (reader.Read())
+//                using (var reader = new SafeDataReader(sqlDataReader))
+//                {
+                while (sqlDataReader.Read())
                     {
-                        contents.Append(reader.GetString(0) + " " + reader.GetString(1) + " " + reader.GetString(2) +
-                         " " + reader.GetString(3) + " " + reader.GetString(4) + " " +
-                           reader.GetString(5));
+                        contents.Append(sqlDataReader.GetString(0) + " " + sqlDataReader.GetString(1) + " " + sqlDataReader.GetString(2) +
+                                        " " + sqlDataReader.GetString(3) + " " + sqlDataReader.GetString(4) + " " +
+                                        sqlDataReader.GetString(5));
                         contents.Append("\nGO" + "\n");
                     }
-                }
+//                }
                 conn.Close();
             }
         }
@@ -120,20 +120,20 @@ namespace Buy4Now.Three.SqlRunner.Core.Managers
                     connection.Open();
                     SqlDataReader sqlDataReader = command.ExecuteReader();
                     var contents = new StringBuilder();
-                    using (var reader = new SafeDataReader(sqlDataReader))
-                    {
-                        while (reader.Read())
+//                    using (var reader = new SafeDataReader(sqlDataReader))
+//                    {
+                    while (sqlDataReader.Read())
                         {
-                            contents.Append(reader.GetString(0));
-                            contents.Append(reader.GetString(1));
-                            contents.Append(reader.GetString(2));
-                            contents.Append(reader.GetString(3));
-                            contents.Append(reader.GetString(4));
-                            contents.Append(reader.GetString(5));
+                            contents.Append(sqlDataReader.GetString(0));
+                            contents.Append(sqlDataReader.GetString(1));
+                            contents.Append(sqlDataReader.GetString(2));
+                            contents.Append(sqlDataReader.GetString(3));
+                            contents.Append(sqlDataReader.GetString(4));
+                            contents.Append(sqlDataReader.GetString(5));
                             contents.Append("\n");
                         }
                         SqlHelper.CreateFile("Grant_Permissions", contents.ToString());
-                    }
+//                    }
                 }
             }
         }

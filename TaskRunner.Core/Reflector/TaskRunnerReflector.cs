@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
+using NUnit.Framework;
+
 using Rhino.ServiceBus;
 using Rhino.ServiceBus.Impl;
 
 using StructureMap;
 
-namespace TaskRunner.Dash.Helpers
+using TaskRunner.Common.Messages.Test;
+
+namespace TaskRunner.Core.Reflector
 {
     public class TaskRunnerReflector
     {
@@ -17,6 +21,14 @@ namespace TaskRunner.Dash.Helpers
             new OnewayRhinoServiceBusConfiguration()
                 .UseStructureMap(ObjectFactory.Container)
                 .Configure();
+        }
+
+        [Test]
+        public void MethodUnderTest_TestedBehavior_ExpectedResult()
+        {
+            Assembly assembly =
+                Assembly.LoadFile(
+                    @"c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\TaskRunner.Common\bin\Debug\TaskRunner.Common.dll");
         }
 
         public IEnumerable<Type> GetTypesFromDll(string assemblyPath)
@@ -42,11 +54,42 @@ namespace TaskRunner.Dash.Helpers
             var bus = ObjectFactory.GetInstance<IOnewayBus>();
             bus.Send(instance);
         }
-    }
-}
 
-namespace TaskRunner.Dash.Helpers
-{
+        public void SendMessage(Type messageType)
+        {
+            object instance = Activator.CreateInstance(messageType);
+            var bus = ObjectFactory.GetInstance<IOnewayBus>();
+            bus.Send(instance);
+        }
+
+        public void SendMessage(Type messageType, PropertyWithValue[] props)
+        {
+            object instance = Activator.CreateInstance(messageType);
+
+            PropertyInfo[] propertyInfos = messageType.GetProperties();
+            foreach (PropertyInfo propertyInfo in propertyInfos)
+            {
+                foreach (PropertyWithValue prop in props)
+                {
+                    if (propertyInfo.Name.Equals(prop.Name))
+                    {
+                        propertyInfo.SetValue(instance, prop.Value);
+                    }
+                }
+            }
+
+            var bus = ObjectFactory.GetInstance<IOnewayBus>();
+
+            bus.Send(instance);
+        }
+    }
+
+    public class PropertyWithValue
+    {
+        public string Name { get; set; }
+        public string Value { get; set; }
+    }
+
     public static class Extensions
     {
         public static PropertyInfo[] GetPublicProperties(this IReflect type)

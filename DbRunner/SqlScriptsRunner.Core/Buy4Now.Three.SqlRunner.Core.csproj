@@ -70,12 +70,6 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Buy4Now.Three.Database\Buy4Now.Three.Database.csproj">
-      <Project>{b6535dff-2661-4aff-b593-dcfccad342c6}</Project>
-      <Name>Buy4Now.Three.Database</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
