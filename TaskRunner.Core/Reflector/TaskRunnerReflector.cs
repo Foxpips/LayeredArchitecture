@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-using NUnit.Framework;
-
 using Rhino.ServiceBus;
 using Rhino.ServiceBus.Impl;
 
 using StructureMap;
-
-using TaskRunner.Common.Messages.Test;
 
 namespace TaskRunner.Core.Reflector
 {
@@ -23,14 +19,6 @@ namespace TaskRunner.Core.Reflector
                 .Configure();
         }
 
-        [Test]
-        public void MethodUnderTest_TestedBehavior_ExpectedResult()
-        {
-            Assembly assembly =
-                Assembly.LoadFile(
-                    @"c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\TaskRunner.Common\bin\Debug\TaskRunner.Common.dll");
-        }
-
         public IEnumerable<Type> GetTypesFromDll(string assemblyPath)
         {
             Assembly assembly = Assembly.LoadFile(assemblyPath);
@@ -40,40 +28,20 @@ namespace TaskRunner.Core.Reflector
                 x.Name.EndsWith("Command", StringComparison.OrdinalIgnoreCase));
         }
 
-        public void SendMessage(Type messageType, Func<string, string> getPropValue)
+        public void SendMessage(Type messageType, PropertyWithValue[] props = null)
         {
             object instance = Activator.CreateInstance(messageType);
-            foreach (PropertyInfo propertyInfo in messageType.GetPublicProperties())
+            if (props != null)
             {
-                string value = getPropValue(propertyInfo.Name);
-                object realObjectType = Convert.ChangeType(value, propertyInfo.PropertyType);
-
-                propertyInfo.SetValue(instance, realObjectType, new object[] {});
-            }
-
-            var bus = ObjectFactory.GetInstance<IOnewayBus>();
-            bus.Send(instance);
-        }
-
-        public void SendMessage(Type messageType)
-        {
-            object instance = Activator.CreateInstance(messageType);
-            var bus = ObjectFactory.GetInstance<IOnewayBus>();
-            bus.Send(instance);
-        }
-
-        public void SendMessage(Type messageType, PropertyWithValue[] props)
-        {
-            object instance = Activator.CreateInstance(messageType);
-
-            PropertyInfo[] propertyInfos = messageType.GetProperties();
-            foreach (PropertyInfo propertyInfo in propertyInfos)
-            {
-                foreach (PropertyWithValue prop in props)
+                PropertyInfo[] propertyInfos = messageType.GetProperties();
+                foreach (PropertyInfo propertyInfo in propertyInfos)
                 {
-                    if (propertyInfo.Name.Equals(prop.Name))
+                    foreach (PropertyWithValue prop in props)
                     {
-                        propertyInfo.SetValue(instance, prop.Value);
+                        if (propertyInfo.Name.Equals(prop.Name))
+                        {
+                            propertyInfo.SetValue(instance, prop.Value);
+                        }
                     }
                 }
             }
@@ -82,19 +50,17 @@ namespace TaskRunner.Core.Reflector
 
             bus.Send(instance);
         }
-    }
 
-    public class PropertyWithValue
-    {
-        public string Name { get; set; }
-        public string Value { get; set; }
-    }
-
-    public static class Extensions
-    {
-        public static PropertyInfo[] GetPublicProperties(this IReflect type)
+        public Type GetMessageType(string typeName, string path)
         {
-            return type.GetProperties(BindingFlags.CreateInstance | BindingFlags.Public);
+            Assembly.LoadFile(
+                path);
+
+            var selectedType = AppDomain.CurrentDomain.GetAssemblies()
+                .SelectMany(x => x.GetTypes())
+                .FirstOrDefault(x => x.Name == typeName);
+
+            return selectedType;
         }
     }
 }

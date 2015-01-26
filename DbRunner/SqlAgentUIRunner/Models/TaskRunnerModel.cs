@@ -1,32 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using SqlAgentUIRunner.Controllers;
+
 namespace SqlAgentUIRunner.Models
 {
     public class TaskRunnerModel
     {
+        public List<string> Messages { get; set; }
+
         public TaskRunnerModel(IEnumerable<Type> typesFromDll)
         {
             Messages = new List<string>();
-            Properties = new List<string>();
 
             foreach (var type in typesFromDll)
             {
                 Messages.Add(type.Name);
             }
         }
-
-        public List<string> Messages { get; set; }
-        public List<string> Properties { get; set; }
     }
 
-    public class MessageCommand
+    public class TaskRunnerPropertiesModel
     {
-        public string Name { get; set; }
+        public List<CustomTypeProperty> Properties { get; set; }
 
-        public MessageCommand(string name)
+        public TaskRunnerPropertiesModel()
         {
-            Name = name;
+            Properties = new List<CustomTypeProperty>();
         }
     }
 }

@@ -4,8 +4,6 @@ using System.Linq;
 using System.Reflection;
 using System.Web.Mvc;
 
-using NUnit.Framework;
-
 using SqlAgentUIRunner.Models;
 
 using TaskRunner.Core.Reflector;
@@ -19,6 +17,12 @@ namespace SqlAgentUIRunner.Controllers
 
         public ActionResult Index()
         {
+//            return View(message);
+            return View();
+        }
+
+        public JsonResult GetMessages()
+        {
             var reflector = new TaskRunnerReflector();
             var typesFromDll = reflector.GetTypesFromDll(
                 PATH);
@@ -26,59 +30,52 @@ namespace SqlAgentUIRunner.Controllers
             var fromDll = typesFromDll as IList<Type> ?? typesFromDll.ToList();
             var message = new TaskRunnerModel(fromDll);
 
-            return View(message);
+            return Json(message);
         }
 
-        [TestCase("TaskRunner.Common.Messages.Test.HelloWorldCommand")]
-        public JsonResult GetProperties(string typeName)
+        public JsonResult GetProperties(string selectedMessage)
         {
-            Assembly.LoadFile(
-                PATH);
+            Assembly.LoadFile(PATH);
 
             IEnumerable<Assembly> assemblies =
                 AppDomain.CurrentDomain.GetAssemblies().Where(assembly => assembly.FullName.Contains("TaskRunner"));
             Type selectedType = assemblies
                 .SelectMany(x => x.GetTypes())
-                .FirstOrDefault(x => x.Name == typeName);
+                .FirstOrDefault(x => x.Name == selectedMessage);
 
-            var message = new List<SelectListItem>();
+            var message = new TaskRunnerPropertiesModel();
             if (selectedType != null)
             {
                 var propertyInfos = selectedType.GetProperties();
 
-                message.AddRange(propertyInfos.Select(publicProperty => new SelectListItem {Text = publicProperty.Name}));
+                message.Properties.AddRange(
+                    propertyInfos.Select(property => new CustomTypeProperty {Name = property.Name,  Id = property.Name}));
             }
 
-            JsonResult s = Json(message);
-            return s;
+            return Json(message);
         }
 
-        public JsonResult SendMessageWithParams(string typeName, PropertyWithValue[] propertiesForMessage)
+        public JsonResult SendMessage(string typeName, PropertyWithValue[] propertiesForMessage)
         {
-            Type messageType = GetMessageType(typeName, PATH);
             var reflector = new TaskRunnerReflector();
-            reflector.SendMessage(messageType,propertiesForMessage);
-            return Json(new { success = true });
+            var messageType = reflector.GetMessageType(typeName, PATH);
+
+            if (!propertiesForMessage.Any())
+            {
+                reflector.SendMessage(messageType, propertiesForMessage);
+            }
+            else
+            {
+                reflector.SendMessage(messageType);
+            }
+
+            return Json(new {success = true});
         }
+    }
 
-        public JsonResult SendMessage(string typeName)
-        {
-            Type messageType = GetMessageType(typeName, PATH);
-            var reflector = new TaskRunnerReflector();
-            reflector.SendMessage(messageType);
-            return Json(new { success = true });
-        }
-
-        private static Type GetMessageType(string typeName, string path)
-        {
-            Assembly.LoadFile(
-                path);
-
-            Type selectedType = AppDomain.CurrentDomain.GetAssemblies()
-                .SelectMany(x => x.GetTypes())
-                .FirstOrDefault(x => x.Name == typeName);
-
-            return selectedType;
-        }
+    public class CustomTypeProperty
+    {
+        public string Name { get; set; }
+        public string Id { get; set; }
     }
 }

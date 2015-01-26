@@ -120,6 +120,8 @@
     <Compile Include="Infrastructure\ServiceBus\TrackFailedMessagesModule.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Reflector\Extensions.cs" />
+    <Compile Include="Reflector\PropertyWithValue.cs" />
     <Compile Include="Reflector\TaskRunnerReflector.cs" />
     <Compile Include="ServiceBus\Client.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
