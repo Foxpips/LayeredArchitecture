@@ -71,7 +71,7 @@ function ServiceBusViewModel(data) {
             type: "POST",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            data: JSON.stringify(dataToSend),
+            data: ko.toJSON(dataToSend),
             url: 'SendMessage'
         })
             .done(function (response) {

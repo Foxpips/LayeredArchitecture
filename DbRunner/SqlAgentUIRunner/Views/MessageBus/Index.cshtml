@@ -1,4 +1,4 @@
-﻿@*@model SqlAgentUIRunner.Models.TaskRunnerModel*@
+﻿@*@model SqlAgentUIRunner.Models.BuildMessagesModel*@
 
 @{
     ViewBag.Title = "Message Bus";
@@ -40,7 +40,7 @@
 
             <div data-bind="foreach: messageProperties, visible: messageTypeSelected">
                 <span data-bind="text: name"></span>
-                <input type="text" data-bind="value: propValue" />
+                <input type="text" data-bind="value: value" />
                 <br />
             </div>
 

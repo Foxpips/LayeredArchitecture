@@ -4,5 +4,5 @@ function MessagePropertyViewModel(data) {
 
     self.name = data.Name;
     self.id = data.id;
-    self.propValue = ko.observable();
+    self.value = ko.observable();
 }

@@ -204,12 +204,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Classes\Helpers\HtmlHelpers.cs" />
+    <Compile Include="Infrastructure\Helpers\HtmlHelpers.cs" />
+    <Compile Include="Infrastructure\Manager\ServiceBusMessageManager.cs" />
+    <Compile Include="Models\TaskRunnerModels\CustomTypePropertyModel.cs" />
     <Compile Include="Controllers\MessageBusController.cs" />
     <Compile Include="Controllers\BackupController.cs" />
     <Compile Include="Controllers\ComparisonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Classes\Tasks\TaskManager.cs" />
+    <Compile Include="Infrastructure\Tasks\TaskManager.cs" />
     <Compile Include="Controllers\ThreadController.cs" />
     <Compile Include="Controllers\UpdateController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -217,7 +219,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\TaskRunnerModel.cs" />
+    <Compile Include="Models\TaskRunnerModels\TaskRunnerMessagesModel.cs" />
+    <Compile Include="Models\TaskRunnerModels\TaskRunnerPropertiesModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

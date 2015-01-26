@@ -4,8 +4,6 @@
 /// <reference path="../ViewModels/serviceBusViewModel.js" />
 $(function () {
 
-    var sendBtn = $('#Select');
-    var messagesDdl = $("#MessagesDdl");
     var messageViewModel;
 
     getData();
@@ -17,7 +15,6 @@ $(function () {
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-//                data: JSON.stringify(data),
                 url: 'GetMessages/'
             })
             .done(function(response) {
@@ -29,7 +26,7 @@ $(function () {
                     toastr.error('An unexpected error occured please try again!');
                 }
             })
-            .fail(function(xhr, status, error) {
+            .fail(function(xhr) {
                 console.log(xhr.responseText);
                 toastr.error("An unexpected error occured please try again!");
             }).complete(function() {

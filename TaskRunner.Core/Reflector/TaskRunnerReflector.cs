@@ -10,7 +10,7 @@ using StructureMap;
 
 namespace TaskRunner.Core.Reflector
 {
-    public class TaskRunnerReflector
+    public class TaskRunnerReflector : IReflector
     {
         public TaskRunnerReflector()
         {
@@ -21,7 +21,7 @@ namespace TaskRunner.Core.Reflector
 
         public IEnumerable<Type> GetTypesFromDll(string assemblyPath)
         {
-            Assembly assembly = Assembly.LoadFile(assemblyPath);
+            var assembly = Assembly.LoadFile(assemblyPath);
 
             return assembly.GetExportedTypes().Where(x =>
                 x.Name.EndsWith("Event", StringComparison.OrdinalIgnoreCase) ||
@@ -30,37 +30,29 @@ namespace TaskRunner.Core.Reflector
 
         public void SendMessage(Type messageType, PropertyWithValue[] props = null)
         {
-            object instance = Activator.CreateInstance(messageType);
+            var instance = Activator.CreateInstance(messageType);
             if (props != null)
             {
-                PropertyInfo[] propertyInfos = messageType.GetProperties();
-                foreach (PropertyInfo propertyInfo in propertyInfos)
+                var propertyInfos = messageType.GetProperties();
+                foreach (var propertyInfo in propertyInfos)
                 {
-                    foreach (PropertyWithValue prop in props)
+                    var info = propertyInfo;
+                    foreach (var prop in props.Where(prop => info.Name.Equals(prop.Name)))
                     {
-                        if (propertyInfo.Name.Equals(prop.Name))
-                        {
-                            propertyInfo.SetValue(instance, prop.Value);
-                        }
+                        propertyInfo.SetValue(instance, prop.Value);
                     }
                 }
             }
 
             var bus = ObjectFactory.GetInstance<IOnewayBus>();
-
             bus.Send(instance);
         }
 
         public Type GetMessageType(string typeName, string path)
         {
-            Assembly.LoadFile(
-                path);
+            Assembly.LoadFile(path);
 
-            var selectedType = AppDomain.CurrentDomain.GetAssemblies()
-                .SelectMany(x => x.GetTypes())
-                .FirstOrDefault(x => x.Name == typeName);
-
-            return selectedType;
+            return DomainHelper.GetTypeFromAssembly(typeName);
         }
     }
 }
