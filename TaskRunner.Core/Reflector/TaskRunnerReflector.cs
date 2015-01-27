@@ -50,8 +50,6 @@ namespace TaskRunner.Core.Reflector
 
         public Type GetMessageType(string typeName, string path)
         {
-            Assembly.LoadFile(path);
-
             return DomainHelper.GetTypeFromAssembly(typeName);
         }
     }
