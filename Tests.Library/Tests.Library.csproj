@@ -54,6 +54,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -66,6 +67,7 @@
     <Compile Include="Core.Library.Tests\Helpers\CustomSerializerTests.cs" />
     <Compile Include="Core.Library.Tests\Helpers\JsonHelper_Tests.cs" />
     <Compile Include="Core.Library.Tests\Helpers\XmlHelper_Tests.cs" />
+    <Compile Include="Framework.Layer.Tests\LoggingTests\CustomLoggerTests.cs" />
     <Compile Include="Misc\MyObject.cs" />
     <Compile Include="Misc\TestClass.cs" />
     <Compile Include="Framework.Layer.Tests\CustomExceptionTests\CustomExceptionTests.cs" />
@@ -97,6 +99,10 @@
     <ProjectReference Include="..\Data.Access.Layer\Data.Access.Layer.csproj">
       <Project>{15ba6380-3ef7-4450-9556-643be8a68d04}</Project>
       <Name>Data.Access.Layer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DbRunner\SqlAgentUIRunner\SqlAgentUIRunner.csproj">
+      <Project>{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}</Project>
+      <Name>SqlAgentUIRunner</Name>
     </ProjectReference>
     <ProjectReference Include="..\Framework.Layer\Framework.Layer.csproj">
       <Project>{17aaada3-939e-41dd-a5aa-851f93ee6b17}</Project>

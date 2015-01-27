@@ -61,20 +61,20 @@ namespace Tests.Library.Misc
             }
         }
 
-        [Test]
-        public void MethodUnderTest_TestedBehavior_Deserialize()
-        {
-            IFormatter formatter = new SoapFormatter();
-            Stream stream = new FileStream(@"C:\Users\smarkey\Desktop\MyFile.xml", FileMode.Open, FileAccess.Read,
-                FileShare.Read);
-            var obj = (MyObject) formatter.Deserialize(stream);
-            stream.Close();
-
-            // Here's the proof.
-            Console.WriteLine("n1: {0}", obj._n1);
-            Console.WriteLine("n2: {0}", obj._n2);
-            Console.WriteLine("str: {0}", obj._str);
-        }
+//        [Test]
+//        public void MethodUnderTest_TestedBehavior_Deserialize()
+//        {
+//            IFormatter formatter = new SoapFormatter();
+//            Stream stream = new FileStream(@"C:\Users\smarkey\Desktop\MyFile.xml", FileMode.Open, FileAccess.Read,
+//                FileShare.Read);
+//            var obj = (MyObject) formatter.Deserialize(stream);
+//            stream.Close();
+//
+//            // Here's the proof.
+//            Console.WriteLine("n1: {0}", obj._n1);
+//            Console.WriteLine("n2: {0}", obj._n2);
+//            Console.WriteLine("str: {0}", obj._str);
+//        }
     }
 
     public class TestInstance

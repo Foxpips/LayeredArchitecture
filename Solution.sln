@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "Integra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Logic.Layer", "Business.Logic.Layer\Business.Logic.Layer.csproj", "{C5C0BDBF-F2F8-4A3B-98C8-306A12918702}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlAgentUIRunner", "DbRunner\SqlAgentUIRunner\SqlAgentUIRunner.csproj", "{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -101,6 +103,14 @@ Global
 		{C5C0BDBF-F2F8-4A3B-98C8-306A12918702}.st3|Any CPU.Build.0 = Release|Any CPU
 		{C5C0BDBF-F2F8-4A3B-98C8-306A12918702}.st3cat|Any CPU.ActiveCfg = Release|Any CPU
 		{C5C0BDBF-F2F8-4A3B-98C8-306A12918702}.st3cat|Any CPU.Build.0 = Release|Any CPU
+		{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}.st3|Any CPU.ActiveCfg = Release|Any CPU
+		{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}.st3|Any CPU.Build.0 = Release|Any CPU
+		{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}.st3cat|Any CPU.ActiveCfg = Release|Any CPU
+		{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}.st3cat|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

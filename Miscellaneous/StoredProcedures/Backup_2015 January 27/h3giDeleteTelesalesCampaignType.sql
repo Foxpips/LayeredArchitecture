@@ -1,0 +1,2 @@
+0000000000000000000GRANT EXECUTE ON h3giDeleteTelesalesCampaignType TO b4nuser
+GO

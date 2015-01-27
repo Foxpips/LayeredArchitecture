@@ -14,6 +14,7 @@ namespace IntegrationTests.TaskRunnerTests
 {
     public class TaskRunnerTest
     {
+        
         [Test]
         public void TaskRunner_SendReceive_Message_Tests()
         {
@@ -27,6 +28,7 @@ namespace IntegrationTests.TaskRunnerTests
             Thread.Sleep(TimeSpan.FromSeconds(2));
         }
 
+      
         [Test]
         public void TaskRunnerReflector_Tests()
         {
@@ -42,6 +44,7 @@ namespace IntegrationTests.TaskRunnerTests
             }
         }
 
+      
         [Test]
         public void ConsumeMessage_Only_MessageConsumed()
         {

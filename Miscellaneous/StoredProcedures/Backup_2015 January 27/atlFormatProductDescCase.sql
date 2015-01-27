@@ -1,0 +1,12 @@
+000000000000000000000000000000000000000000000000000000000000000000000000000000GRANT EXECUTE ON atlFormatProductDescCase TO b4nuser
+GO
+GRANT EXECUTE ON atlFormatProductDescCase TO helpdesk
+GO
+GRANT EXECUTE ON atlFormatProductDescCase TO ofsuser
+GO
+GRANT EXECUTE ON atlFormatProductDescCase TO reportuser
+GO
+GRANT EXECUTE ON atlFormatProductDescCase TO b4nexcel
+GO
+GRANT EXECUTE ON atlFormatProductDescCase TO b4nloader
+GO

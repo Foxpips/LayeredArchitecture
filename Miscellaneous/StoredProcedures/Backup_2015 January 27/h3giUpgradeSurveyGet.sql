@@ -1,0 +1,4 @@
+00000000000000000000000GRANT EXECUTE ON h3giUpgradeSurveyGet TO b4nuser
+GO
+GRANT EXECUTE ON h3giUpgradeSurveyGet TO reportuser
+GO

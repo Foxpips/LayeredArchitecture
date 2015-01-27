@@ -16,6 +16,7 @@
       </layout>
     </appender>
     <appender name="RollingFileAppender" type="log4net.Appender.RollingFileAppender">
+      <lockingModel type="log4net.Appender.FileAppender+MinimalLock"/>
       <file value="log/log.txt" />
       <appendToFile value="true" />
       <rollingStyle value="Size" />

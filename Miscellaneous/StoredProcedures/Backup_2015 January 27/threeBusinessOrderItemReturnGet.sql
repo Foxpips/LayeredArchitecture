@@ -1,0 +1,6 @@
+00000000000000000000000000000000000000000000000000000GRANT EXECUTE ON threeBusinessOrderItemReturnGet TO b4nuser
+GO
+GRANT EXECUTE ON threeBusinessOrderItemReturnGet TO ofsuser
+GO
+GRANT EXECUTE ON threeBusinessOrderItemReturnGet TO reportuser
+GO

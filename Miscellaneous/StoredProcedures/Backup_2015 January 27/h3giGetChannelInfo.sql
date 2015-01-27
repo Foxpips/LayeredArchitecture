@@ -1,0 +1,8 @@
+00000000000000000000000000000000000000GRANT EXECUTE ON h3giGetChannelInfo TO b4nuser
+GO
+GRANT EXECUTE ON h3giGetChannelInfo TO ofsuser
+GO
+GRANT EXECUTE ON h3giGetChannelInfo TO reportuser
+GO
+GRANT EXECUTE ON h3giGetChannelInfo TO b4nloader
+GO

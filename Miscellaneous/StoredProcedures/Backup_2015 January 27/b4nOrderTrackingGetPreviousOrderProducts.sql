@@ -1,0 +1,2 @@
+000000000000000000000000000000GRANT EXECUTE ON b4nOrderTrackingGetPreviousOrderProducts TO b4nuser
+GO

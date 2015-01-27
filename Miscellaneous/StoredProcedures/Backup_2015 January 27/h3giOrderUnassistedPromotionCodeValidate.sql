@@ -1,0 +1,4 @@
+00000000000000000000000000000000000000000GRANT EXECUTE ON h3giOrderUnassistedPromotionCodeValidate TO b4nuser
+GO
+GRANT EXECUTE ON h3giOrderUnassistedPromotionCodeValidate TO reportuser
+GO

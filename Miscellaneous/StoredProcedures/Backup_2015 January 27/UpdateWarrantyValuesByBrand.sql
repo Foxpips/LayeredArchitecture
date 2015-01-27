@@ -1,0 +1,12 @@
+0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000GRANT EXECUTE ON UpdateWarrantyValuesByBrand TO b4nuser
+GO
+GRANT EXECUTE ON UpdateWarrantyValuesByBrand TO helpdesk
+GO
+GRANT EXECUTE ON UpdateWarrantyValuesByBrand TO ofsuser
+GO
+GRANT EXECUTE ON UpdateWarrantyValuesByBrand TO reportuser
+GO
+GRANT EXECUTE ON UpdateWarrantyValuesByBrand TO b4nexcel
+GO
+GRANT EXECUTE ON UpdateWarrantyValuesByBrand TO b4nloader
+GO

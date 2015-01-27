@@ -1,0 +1,2 @@
+0000000000000000GRANT EXECUTE ON SetUserPasswordExpiryDate TO b4nuser
+GO

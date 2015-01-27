@@ -1,0 +1,12 @@
+0000000000000000GRANT EXECUTE ON h3giGetUsers TO b4nuser
+GO
+GRANT EXECUTE ON h3giGetUsers TO helpdesk
+GO
+GRANT EXECUTE ON h3giGetUsers TO ofsuser
+GO
+GRANT EXECUTE ON h3giGetUsers TO reportuser
+GO
+GRANT EXECUTE ON h3giGetUsers TO b4nexcel
+GO
+GRANT EXECUTE ON h3giGetUsers TO b4nloader
+GO

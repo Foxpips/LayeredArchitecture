@@ -1,0 +1,4 @@
+0000000000000000000000000000GRANT EXECUTE ON h3giOrderSequenceSet TO b4nuser
+GO
+GRANT EXECUTE ON h3giOrderSequenceSet TO reportuser
+GO

@@ -34,6 +34,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.SqlServer.Smo, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -59,7 +62,15 @@
     <Compile Include="EncryptionService\Services\EncryptionProviderService.cs" />
     <Compile Include="EncryptionService\Services\IEncryptionHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebService\WebServiceUtilities.cs" />
+    <Compile Include="ScriptRunnerService\Agents\SqlAgent.cs" />
+    <Compile Include="ScriptRunnerService\Collections\SqlCollection.cs" />
+    <Compile Include="ScriptRunnerService\Executors\SqlExecutor.cs" />
+    <Compile Include="ScriptRunnerService\Helpers\SqlHelper.cs" />
+    <Compile Include="ScriptRunnerService\Managers\SqlManager.cs" />
+    <Compile Include="ScriptRunnerService\Runner\BackupRunner.cs" />
+    <Compile Include="ScriptRunnerService\Runner\Base\RunnerBase.cs" />
+    <Compile Include="ScriptRunnerService\Runner\ComparisonRunner.cs" />
+    <Compile Include="ScriptRunnerService\Runner\SprocRunner.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Framework.Layer\Framework.Layer.csproj">

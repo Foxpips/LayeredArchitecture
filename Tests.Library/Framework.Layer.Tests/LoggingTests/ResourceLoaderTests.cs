@@ -16,12 +16,5 @@ namespace Tests.Library.Framework.Layer.Tests.LoggingTests
             Console.WriteLine(resourceName);
             Assert.That(resourceName, Is.Not.Null.Or.Empty);
         }
-
-        [Test]
-        public void TestLogger_TestedBehavior_ExpectedResult()
-        {
-//            var logger = new CustomLogger();
-//            logger.Log(log => log.Info("Test.."));
-        }
     }
 }

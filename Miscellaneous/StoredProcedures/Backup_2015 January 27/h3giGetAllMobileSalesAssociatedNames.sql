@@ -1,0 +1,6 @@
+000000000000000000000000GRANT EXECUTE ON h3giGetAllMobileSalesAssociatedNames TO b4nuser
+GO
+GRANT EXECUTE ON h3giGetAllMobileSalesAssociatedNames TO ofsuser
+GO
+GRANT EXECUTE ON h3giGetAllMobileSalesAssociatedNames TO reportuser
+GO

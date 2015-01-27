@@ -8,6 +8,16 @@ namespace Core.Library.Helpers
 {
     public class JsonHelper
     {
+        public static TType DeserializeJson<TType>(string json)
+        {
+            return SafeExecutionHandler.Try(() => JsonConvert.DeserializeObject<TType>(json));
+        }
+
+        public static string SerializeJson<TType>(TType item)
+        {
+            return SafeExecutionHandler.Try(() => JsonConvert.SerializeObject(item));
+        }
+
         public static TType DeserializeJson<TType>(string filename, string directory)
         {
             return SafeExecutionHandler.Try(() =>

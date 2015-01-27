@@ -1,0 +1,2 @@
+00000000000GRANT EXECUTE ON h3giGetActiveAccessoryReferentialsForDevice TO b4nuser
+GO

@@ -1,5 +1,4 @@
-﻿
-using System.Security.Cryptography;
+﻿using System.Security.Cryptography;
 
 using NUnit.Framework;
 
@@ -23,18 +22,6 @@ namespace Tests.Library.Framework.Layer.Tests.LoggingTests
         [Test]
         public void MethodUnderTest_TestedBehavior_Array()
         {
-//            var aesCryptoServiceProvider = new AesCryptoServiceProvider();
-//            var encryptor = aesCryptoServiceProvider.CreateEncryptor(_key, _iv);
-//
-//            byte[] cryptoServiceProvider = ExecuteCryptoServiceProvider(Encoding.ASCII.GetBytes("Test Text"),
-//                encryptor);
-//
-//            var decryptor = aesCryptoServiceProvider.CreateDecryptor(_key, _iv);
-//
-//            var bytes = ExecuteCryptoServiceProvider(cryptoServiceProvider, decryptor);
-//
-//            var text = Encoding.ASCII.GetString(bytes);
-
             var encryptionProviderService = new EncryptionProviderService<Aes>();
             var encrypt = encryptionProviderService.Encrypt("Test Text");
             var decrypt = encryptionProviderService.Decrypt(encrypt);
@@ -48,9 +35,6 @@ namespace Tests.Library.Framework.Layer.Tests.LoggingTests
 
             Assert.Throws<CryptographicException>(
                 () => ExecuteCryptoServiceProvider(new byte[10], decryptor));
-
-//            Assert.Throws<CustomException<CryptoServiceExceptionArgs>>(
-//                () => ExecuteCryptoServiceProvider(new byte[10], decryptor));
         }
     }
 }

@@ -65,6 +65,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -72,6 +73,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ScriptRunnerService\SqlCoreAgentTest.cs" />
+    <Compile Include="ScriptRunnerService\SqlCoreBackupTest.cs" />
+    <Compile Include="ScriptRunnerService\SqlCoreManagerTest.cs" />
+    <Compile Include="ScriptRunnerService\SqlTaskRunnerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaskRunnerTests\TaskRunnerTest.cs" />
   </ItemGroup>
@@ -82,6 +87,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core.Library\Core.Library.csproj">
+      <Project>{C3B4C1F9-0E06-49A3-88F4-FA63749D2D0D}</Project>
+      <Name>Core.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DbRunner\SqlAgentUIRunner\SqlAgentUIRunner.csproj">
+      <Project>{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}</Project>
+      <Name>SqlAgentUIRunner</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Services.Layer\Service.Layer.csproj">
       <Project>{E0BD0195-8064-4B0A-AAAC-94BA8852422B}</Project>
       <Name>Service.Layer</Name>

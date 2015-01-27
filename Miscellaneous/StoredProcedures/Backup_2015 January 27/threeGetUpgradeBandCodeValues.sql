@@ -1,0 +1,2 @@
+00000000000000000000000GRANT EXECUTE ON threeGetUpgradeBandCodeValues TO b4nuser
+GO

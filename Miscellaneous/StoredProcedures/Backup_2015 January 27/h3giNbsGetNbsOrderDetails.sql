@@ -1,0 +1,2 @@
+00000000GRANT EXECUTE ON h3giNbsGetNbsOrderDetails TO b4nuser
+GO

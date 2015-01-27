@@ -122,3 +122,25 @@ Parameter name: source
 2015-01-27 12:58:42,927 [54] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
 2015-01-27 12:58:43,464 [54] INFO Framework.Layer.Logging.CustomLogger - Sending message to the bus: HelloWorldCommand
 2015-01-27 12:58:43,552 [54] INFO Framework.Layer.Logging.CustomLogger - Message sent successfully!
+2015-01-27 16:32:14,579 [6] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-27 16:32:15,772 [10] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-27 16:32:18,551 [6] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-27 16:32:19,095 [10] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-27 16:32:19,120 [10] INFO Framework.Layer.Logging.CustomLogger - Sending message to the bus: CleanBackupsCommand
+2015-01-27 16:32:19,222 [10] INFO Framework.Layer.Logging.CustomLogger - Message sent successfully!
+2015-01-27 16:32:20,833 [6] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-27 16:32:23,041 [6] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-27 16:32:23,095 [6] INFO Framework.Layer.Logging.CustomLogger - Sending message to the bus: HelloWorldCommand
+2015-01-27 16:32:23,102 [6] INFO Framework.Layer.Logging.CustomLogger - Message sent successfully!
+2015-01-27 18:33:43,403 [13] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-27 18:33:45,711 [15] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-27 18:33:47,301 [11] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-27 18:33:48,837 [13] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-27 18:33:50,026 [6] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-27 18:34:20,925 [11] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-27 18:34:20,963 [11] INFO Framework.Layer.Logging.CustomLogger - Sending message to the bus: CleanBackupsEvent
+2015-01-27 18:34:21,063 [11] INFO Framework.Layer.Logging.CustomLogger - Message sent successfully!
+2015-01-27 18:34:24,843 [15] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-27 18:34:29,292 [6] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-27 18:34:29,354 [6] INFO Framework.Layer.Logging.CustomLogger - Sending message to the bus: HelloWorldCommand
+2015-01-27 18:34:29,365 [6] INFO Framework.Layer.Logging.CustomLogger - Message sent successfully!

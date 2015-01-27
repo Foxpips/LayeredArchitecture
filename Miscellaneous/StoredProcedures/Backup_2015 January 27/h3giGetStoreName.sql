@@ -1,0 +1,12 @@
+00000000000000000000000000000000000GRANT EXECUTE ON h3giGetStoreName TO b4nuser
+GO
+GRANT EXECUTE ON h3giGetStoreName TO helpdesk
+GO
+GRANT EXECUTE ON h3giGetStoreName TO ofsuser
+GO
+GRANT EXECUTE ON h3giGetStoreName TO reportuser
+GO
+GRANT EXECUTE ON h3giGetStoreName TO b4nexcel
+GO
+GRANT EXECUTE ON h3giGetStoreName TO b4nloader
+GO

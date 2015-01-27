@@ -1,0 +1,6 @@
+000000000000000000000GRANT EXECUTE ON threeReleaseUserUpgradeBlendedDiscountCaseLock TO b4nuser
+GO
+GRANT EXECUTE ON threeReleaseUserUpgradeBlendedDiscountCaseLock TO ofsuser
+GO
+GRANT EXECUTE ON threeReleaseUserUpgradeBlendedDiscountCaseLock TO reportuser
+GO
