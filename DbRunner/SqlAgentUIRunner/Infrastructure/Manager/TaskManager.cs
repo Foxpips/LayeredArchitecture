@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SqlAgentUIRunner.Infrastructure.Tasks
+namespace SqlAgentUIRunner.Infrastructure.Manager
 {
     public class TaskManager
     {

@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace TaskRunner.Core.Reflector
 {
-    public class DomainHelper
+    internal class DomainHelper
     {
         public static Type GetTypeFromAssembly(string typeName)
         {

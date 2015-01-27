@@ -6,7 +6,7 @@ namespace TaskRunner.Core.Reflector
     public interface IReflector
     {
         IEnumerable<Type> GetTypesFromDll(string assemblyPath);
-        Type GetMessageType(string typeName, string path);
+        Type GetMessageType(string typeName);
         void SendMessage(Type messageType, PropertyWithValue[] props = null);
     }
 }

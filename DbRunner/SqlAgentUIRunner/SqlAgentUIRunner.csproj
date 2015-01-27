@@ -204,14 +204,16 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Infrastructure\Factories\CustomControllerFactory.cs" />
     <Compile Include="Infrastructure\Helpers\HtmlHelpers.cs" />
+    <Compile Include="Infrastructure\Manager\IServiceBusMessageManager.cs" />
     <Compile Include="Infrastructure\Manager\ServiceBusMessageManager.cs" />
     <Compile Include="Models\TaskRunnerModels\CustomTypePropertyModel.cs" />
     <Compile Include="Controllers\MessageBusController.cs" />
     <Compile Include="Controllers\BackupController.cs" />
     <Compile Include="Controllers\ComparisonController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Infrastructure\Tasks\TaskManager.cs" />
+    <Compile Include="Infrastructure\Manager\TaskManager.cs" />
     <Compile Include="Controllers\ThreadController.cs" />
     <Compile Include="Controllers\UpdateController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
@@ -228,6 +230,11 @@
     <Content Include="Content\Bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\Bootstrap\bootstrap.css" />
     <Content Include="Content\Bootstrap\bootstrap.min.css" />
+    <Content Include="Content\images\toastr-error.png" />
+    <Content Include="Content\images\toastr-info.png" />
+    <Content Include="Content\images\toastr-success.png" />
+    <Content Include="Content\images\toastr-warning.png" />
+    <Content Include="Content\Styles\toastr.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -364,6 +371,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Framework.Layer\Framework.Layer.csproj">
+      <Project>{17AAADA3-939E-41DD-A5AA-851F93EE6B17}</Project>
+      <Name>Framework.Layer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\TaskRunner.Common\TaskRunner.Common.csproj">
       <Project>{9e99e507-03dd-4be3-a7ca-2627937ef93c}</Project>
       <Name>TaskRunner.Common</Name>

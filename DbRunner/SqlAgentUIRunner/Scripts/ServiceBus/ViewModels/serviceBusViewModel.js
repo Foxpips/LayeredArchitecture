@@ -60,7 +60,7 @@ function ServiceBusViewModel(data) {
 
     function submitMessage() {
 
-        var dataToSend ={
+        var dataToSend = {
             typeName: self.selectedMessageId(),
             propertiesForMessage: self.messageProperties()
         };
@@ -76,10 +76,9 @@ function ServiceBusViewModel(data) {
         })
             .done(function (response) {
                 try {
-                    alert("Sent Message Successfully!");
+                    toastr.success(response.Message);
                 } catch (e) {
-                    console.log(e.message);
-                    console.log(response);
+                    console.log(e.message + ' ' + response);
                     toastr.error('An unexpected error occured please try again!');
                 }
             })

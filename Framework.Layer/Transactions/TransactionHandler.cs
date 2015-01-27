@@ -21,20 +21,5 @@ namespace Framework.Layer.Transactions
                 scope.Complete();
             }
         }
-
-//        public static void Begin<TExceptionArgs>(Action work) where TExceptionArgs : ExceptionArgsBase, new()
-//        {
-//            using (var scope = new TransactionScope(TransactionScopeOption.Required,
-//                new TransactionOptions
-//                {
-//                    IsolationLevel = IsolationLevel.ReadCommitted,
-//                    Timeout = TransactionManager.MaximumTimeout
-//                })
-//                )
-//            {
-//                SafeExecutionHandler.Try<TExceptionArgs>(work);
-//                scope.Complete();
-//            }
-//        }
     }
 }

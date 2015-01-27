@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
+using Framework.Layer.Logging;
+
 using Rhino.ServiceBus;
 using Rhino.ServiceBus.Impl;
 
@@ -12,8 +14,11 @@ namespace TaskRunner.Core.Reflector
 {
     public class TaskRunnerReflector : IReflector
     {
+        private readonly CustomLogger _logger = new CustomLogger();
+
         public TaskRunnerReflector()
         {
+            _logger.Log(msg => msg.Info("Configuring the service bus"));
             new OnewayRhinoServiceBusConfiguration()
                 .UseStructureMap(ObjectFactory.Container)
                 .Configure();
@@ -30,6 +35,8 @@ namespace TaskRunner.Core.Reflector
 
         public void SendMessage(Type messageType, PropertyWithValue[] props = null)
         {
+            _logger.Log(msg => msg.Info("Sending message to the bus: " + messageType.Name));
+
             var instance = Activator.CreateInstance(messageType);
             if (props != null)
             {
@@ -46,9 +53,11 @@ namespace TaskRunner.Core.Reflector
 
             var bus = ObjectFactory.GetInstance<IOnewayBus>();
             bus.Send(instance);
+
+            _logger.Log(msg => msg.Info("Message sent successfully!"));
         }
 
-        public Type GetMessageType(string typeName, string path)
+        public Type GetMessageType(string typeName)
         {
             return DomainHelper.GetTypeFromAssembly(typeName);
         }

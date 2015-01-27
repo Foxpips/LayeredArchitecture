@@ -1,5 +1,7 @@
 ﻿using System.Web.Mvc;
 
+using Framework.Layer.Handlers;
+
 using SqlAgentUIRunner.Infrastructure.Manager;
 
 using TaskRunner.Core.Reflector;
@@ -8,9 +10,12 @@ namespace SqlAgentUIRunner.Controllers
 {
     public class MessageBusController : Controller
     {
-        private readonly ServiceBusMessageManager _messageManager = new ServiceBusMessageManager(
-            new TaskRunnerReflector(),
-            @"c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\TaskRunner.Common\bin\Debug\TaskRunner.Common.dll");
+        private readonly IServiceBusMessageManager _messageManager;
+
+        public MessageBusController(IServiceBusMessageManager manager)
+        {
+            _messageManager = manager;
+        }
 
         public ActionResult Index()
         {
@@ -19,19 +24,21 @@ namespace SqlAgentUIRunner.Controllers
 
         public JsonResult GetMessages()
         {
-            return Json(_messageManager.BuildMessagesModel());
+            return Json(SafeExecutionHandler.Try(() => _messageManager.BuildMessagesModel()));
         }
 
         public JsonResult GetProperties(string selectedMessage)
         {
-            return Json(_messageManager.BuildPropertiesModel(selectedMessage));
+            return Json(SafeExecutionHandler.Try(() => _messageManager.BuildPropertiesModel(selectedMessage)));
         }
 
         public JsonResult SendMessage(string typeName, PropertyWithValue[] propertiesForMessage)
         {
-            _messageManager.SendMessage(typeName, propertiesForMessage);
-
-            return Json(new {success = true});
+            return SafeExecutionHandler.Try(() =>
+            {
+                _messageManager.SendMessage(typeName, propertiesForMessage);
+                return Json(new {Message = "Sent message " + typeName + "successfully"});
+            });
         }
     }
 }

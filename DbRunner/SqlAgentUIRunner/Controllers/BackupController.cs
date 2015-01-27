@@ -2,7 +2,7 @@
 
 using Buy4Now.Three.SqlRunner.Core.Runner;
 
-using SqlAgentUIRunner.Infrastructure.Tasks;
+using SqlAgentUIRunner.Infrastructure.Manager;
 
 namespace SqlAgentUIRunner.Controllers
 {

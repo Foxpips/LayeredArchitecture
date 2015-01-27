@@ -1,0 +1,164 @@
+﻿.toast-title
+{
+    font-weight: bold;
+}
+
+.toast-message
+{
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+    .toast-message a,
+    .toast-message label
+    {
+        color: #FFF;
+    }
+
+        .toast-message a:hover
+        {
+            color: #CCC;
+            text-decoration: none;
+        }
+
+.toast-top-left
+{
+    left: 12px;
+    top: 12px;
+}
+
+.toast-bottom-right
+{
+    bottom: 12px;
+    right: 12px;
+}
+
+.toast-bottom-left
+{
+    bottom: 12px;
+    left: 12px;
+}
+
+/* The CSS specification allows browsers to use an underscore (_) or hyphen (-) as a prefix for a vendor-specific property name with the guarantee that such 
+    properties will never be used in a future CSS standard. Because of this guarantee, these two prefix characters are ideal options for this IE7 hack.*/
+#toast-container
+{
+    position: fixed;
+    _position: absolute;    
+    _top:expression(eval(document.body.scrollTop + 50));
+    z-index: 9999;
+}
+
+.toastr-element {
+    background-position: 15px center;
+    background-repeat: no-repeat;
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    border-radius: 3px 3px 3px 3px;
+    -moz-box-shadow: 0 0 12px #999999;
+    -webkit-box-shadow: 0 0 12px #999999;
+    box-shadow: 0 0 12px #999999;
+    color: #FFFFFF;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: alpha(opacity=80);
+    margin: 0 0 6px;
+    -moz-opacity: 0.8;
+    opacity: 0.8;
+    padding: 15px 15px 15px 50px;
+    width: 300px;
+}
+
+.toast
+{
+    background-color: #030303;
+}
+
+.toast-success
+{
+    background-color: #51A351;
+    background-image: url("../images/toastr-success.png") !important;
+}
+
+.toast-error
+{
+    background-color: #BD362F;
+    background-image: url("../images/toastr-error.png") !important;
+}
+
+.toast-info
+{
+    background-color: #2F96B4;
+    background-image: url("../images/toastr-info.png") !important;
+}
+
+.toast-warning
+{
+    background-color: #F89406;
+    background-image: url("../images/toastr-warning.png") !important;
+}
+
+.toast-top-right
+{
+    right: 12px;
+    top: 50px;
+}
+
+#toast-container > :hover
+{
+    -moz-box-shadow: 0 0 12px #000000;
+    -webkit-box-shadow: 0 0 12px #000000;
+    box-shadow: 0 0 12px #000000;
+    cursor: pointer;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: alpha(opacity=100);
+    -moz-opacity: 1;
+    opacity: 1;
+}
+
+
+/*Responsive Design*/
+
+@media all and (max-width: 240px)
+{
+    #toast-container > div
+    {
+        padding: 8px 8px 8px 50px;
+        width: 108px;
+    }
+}
+
+@media all and (min-width: 241px) and (max-width: 320px)
+{
+    #toast-container > div
+    {
+        padding: 8px 8px 8px 50px;
+        width: 128px;
+    }
+}
+
+@media all and (min-width: 321px) and (max-width: 480px)
+{
+    #toast-container > div
+    {
+        padding: 8px 8px 8px 50px;
+        width: 192px;
+    }
+}
+
+@media all and (min-width: 481px) and (max-width: 768px)
+{
+    #toast-container > div
+    {
+        padding: 15px 15px 15px 50px;
+        width: 300px;
+    }
+}
+
+@media all and (min-width: 769px)
+{
+    #toast-container > div
+    {
+        padding: 15px 15px 15px 50px;
+        width: 300px;
+    }
+}
