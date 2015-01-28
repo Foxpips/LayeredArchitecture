@@ -4,11 +4,11 @@ namespace SqlAgentUIRunner.Models.TaskRunnerModels
 {
     public class TaskRunnerPropertiesModel
     {
-        public List<CustomTypePropertyModel> Properties { get; set; }
+        public List<TaskRunnerPropertyModel> Properties { get; set; }
 
         public TaskRunnerPropertiesModel()
         {
-            Properties = new List<CustomTypePropertyModel>();
+            Properties = new List<TaskRunnerPropertyModel>();
         }
     }
 }

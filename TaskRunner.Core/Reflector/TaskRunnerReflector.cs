@@ -40,15 +40,7 @@ namespace TaskRunner.Core.Reflector
             var instance = Activator.CreateInstance(messageType);
             if (props != null)
             {
-                var propertyInfos = messageType.GetProperties();
-                foreach (var propertyInfo in propertyInfos)
-                {
-                    var info = propertyInfo;
-                    foreach (var prop in props.Where(prop => info.Name.Equals(prop.Name)))
-                    {
-                        propertyInfo.SetValue(instance, prop.Value);
-                    }
-                }
+                instance.SetPublicProperties(props);
             }
 
             var bus = ObjectFactory.GetInstance<IOnewayBus>();

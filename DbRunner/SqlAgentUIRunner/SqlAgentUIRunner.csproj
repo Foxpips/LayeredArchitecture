@@ -40,6 +40,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=4.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\AutoMapper.4.0.0-ci1017\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\..\packages\AutoMapper.4.0.0-ci1017\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
@@ -208,7 +215,11 @@
     <Compile Include="Infrastructure\Helpers\HtmlHelpers.cs" />
     <Compile Include="Infrastructure\Manager\IServiceBusMessageManager.cs" />
     <Compile Include="Infrastructure\Manager\ServiceBusMessageManager.cs" />
-    <Compile Include="Models\TaskRunnerModels\CustomTypePropertyModel.cs" />
+    <Compile Include="Infrastructure\Mappers\AutoMapperConfig.cs" />
+    <Compile Include="Infrastructure\Mappers\AutoMapperHelper.cs" />
+    <Compile Include="Infrastructure\Mappers\IMapCustom.cs" />
+    <Compile Include="Infrastructure\Mappers\IMapFrom.cs" />
+    <Compile Include="Models\TaskRunnerModels\TaskRunnerPropertyModel.cs" />
     <Compile Include="Controllers\MessageBusController.cs" />
     <Compile Include="Controllers\BackupController.cs" />
     <Compile Include="Controllers\ComparisonController.cs" />
@@ -419,6 +430,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\..\packages\AutoMapper.4.0.0-ci1017\tools\AutoMapper.targets" Condition="Exists('..\..\packages\AutoMapper.4.0.0-ci1017\tools\AutoMapper.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

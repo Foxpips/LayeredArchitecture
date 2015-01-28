@@ -31,22 +31,5 @@ namespace Framework.Layer.Handlers
                 throw;
             }
         }
-
-//        public static void Try<TExceptionArgs>(Action work) where TExceptionArgs : ExceptionArgsBase, new()
-//        {
-//            try
-//            {
-//                work();
-//            }
-//            catch (Exception ex)
-//            {
-//                new CustomLogger().Log(log => log.Error(ex));
-//
-//                var exception = new TExceptionArgs();
-//                exception.Consume(new ExceptionDetails(ex, work.GetMethodInfo()));
-//                
-//                throw new CustomException<TExceptionArgs>(exception);
-//            }
-//        }
     }
 }

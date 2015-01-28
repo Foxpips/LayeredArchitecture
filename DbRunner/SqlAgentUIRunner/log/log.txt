@@ -144,3 +144,45 @@ Parameter name: source
 2015-01-27 18:34:29,292 [6] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
 2015-01-27 18:34:29,354 [6] INFO Framework.Layer.Logging.CustomLogger - Sending message to the bus: HelloWorldCommand
 2015-01-27 18:34:29,365 [6] INFO Framework.Layer.Logging.CustomLogger - Message sent successfully!
+2015-01-28 10:56:46,142 [7] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 10:56:47,475 [8] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 10:56:50,382 [6] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 10:56:55,229 [6] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 10:57:18,137 [6] ERROR Framework.Layer.Logging.CustomLogger - AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+TaskRunnerPropertyModel -> PropertyWithValue
+SqlAgentUIRunner.Models.TaskRunnerModels.TaskRunnerPropertyModel -> TaskRunner.Core.Reflector.PropertyWithValue
+
+Destination path:
+PropertyWithValue[][0]
+
+Source value:
+SqlAgentUIRunner.Models.TaskRunnerModels.TaskRunnerPropertyModel
+   at AutoMapper.MappingEngine.AutoMapper.IMappingEngineRunner.Map(ResolutionContext context)
+   at AutoMapper.Mappers.EnumerableMapperBase`1.Map(ResolutionContext context, IMappingEngineRunner mapper)
+   at AutoMapper.MappingEngine.AutoMapper.IMappingEngineRunner.Map(ResolutionContext context)
+   at AutoMapper.MappingEngine.MapCore(Object source, Type sourceType, Type destinationType, MappingOperationOptions options)
+   at AutoMapper.MappingEngine.Map(Object source, Type sourceType, Type destinationType, Action`1 opts)
+   at AutoMapper.MappingEngine.Map[TDestination](Object source, Action`1 opts)
+   at AutoMapper.MappingEngine.Map[TDestination](Object source)
+   at AutoMapper.Mapper.Map[TDestination](Object source)
+   at SqlAgentUIRunner.Infrastructure.Manager.ServiceBusMessageManager.SendMessage(String typeName, TaskRunnerPropertyModel[] propertiesForMessage) in c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\DbRunner\SqlAgentUIRunner\Infrastructure\Manager\ServiceBusMessageManager.cs:line 49
+   at SqlAgentUIRunner.Controllers.MessageBusController.<>c__DisplayClass5.<SendMessage>b__4() in c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\DbRunner\SqlAgentUIRunner\Controllers\MessageBusController.cs:line 38
+   at Framework.Layer.Handlers.SafeExecutionHandler.Try[TType](Func`1 work) in c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Framework.Layer\Handlers\SafeExecutionHandler.cs:line 26
+2015-01-28 10:59:00,264 [22] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 10:59:03,547 [15] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 10:59:05,331 [15] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 10:59:16,035 [15] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 10:59:26,959 [15] INFO Framework.Layer.Logging.CustomLogger - Sending message to the bus: HelloWorldCommand
+2015-01-28 11:01:49,647 [15] INFO Framework.Layer.Logging.CustomLogger - Message sent successfully!
+2015-01-28 11:12:08,504 [42] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 11:12:12,755 [42] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 11:12:14,113 [42] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 11:12:14,597 [62] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 11:12:24,938 [62] INFO Framework.Layer.Logging.CustomLogger - Sending message to the bus: CleanBackupsCommand
+2015-01-28 11:12:29,889 [62] INFO Framework.Layer.Logging.CustomLogger - Message sent successfully!
+2015-01-28 11:12:38,587 [42] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 11:12:45,548 [34] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 11:12:52,401 [34] INFO Framework.Layer.Logging.CustomLogger - Sending message to the bus: HelloWorldCommand
+2015-01-28 11:13:31,592 [34] INFO Framework.Layer.Logging.CustomLogger - Message sent successfully!

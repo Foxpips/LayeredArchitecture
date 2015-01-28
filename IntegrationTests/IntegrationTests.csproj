@@ -76,7 +76,7 @@
     <Compile Include="ScriptRunnerService\SqlCoreAgentTest.cs" />
     <Compile Include="ScriptRunnerService\SqlCoreBackupTest.cs" />
     <Compile Include="ScriptRunnerService\SqlCoreManagerTest.cs" />
-    <Compile Include="ScriptRunnerService\SqlTaskRunnerTests.cs" />
+    <Compile Include="TaskRunnerTests\SqlTaskRunnerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaskRunnerTests\TaskRunnerTest.cs" />
   </ItemGroup>

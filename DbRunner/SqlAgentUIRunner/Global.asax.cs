@@ -5,6 +5,7 @@ using System.Web.Optimization;
 using System.Web.Routing;
 
 using SqlAgentUIRunner.Infrastructure.Factories;
+using SqlAgentUIRunner.Infrastructure.Mappers;
 
 namespace SqlAgentUIRunner
 {
@@ -15,6 +16,7 @@ namespace SqlAgentUIRunner
     {
         protected void Application_Start()
         {
+            InitializeAutoMapper();
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
@@ -24,6 +26,11 @@ namespace SqlAgentUIRunner
             AuthConfig.RegisterAuth();
 
             ControllerBuilder.Current.SetControllerFactory(new CustomControllerFactory());
+        }
+
+        private static void InitializeAutoMapper()
+        {
+            AutoMapperConfig.RegisterMappings();
         }
     }
 }

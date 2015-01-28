@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using System.Reflection;
 
+using AutoMapper;
+
 using SqlAgentUIRunner.Models.TaskRunnerModels;
 
 using TaskRunner.Core.Reflector;
@@ -33,23 +35,22 @@ namespace SqlAgentUIRunner.Infrastructure.Manager
             {
                 propertiesModel.Properties.AddRange(selectedType
                     .GetProperties()
-                    .Select(property => new CustomTypePropertyModel {Name = property.Name, Id = property.Name}));
+                    .Select(property => new TaskRunnerPropertyModel {Name = property.Name, Id = property.Name}));
             }
             return propertiesModel;
         }
 
-        public void SendMessage(string typeName, PropertyWithValue[] propertiesForMessage)
+        public void SendMessage(string typeName, TaskRunnerPropertyModel[] propertiesForMessage)
         {
             var messageType = Reflector.GetMessageType(typeName);
 
             if (propertiesForMessage != null && propertiesForMessage.Any())
             {
-                Reflector.SendMessage(messageType, propertiesForMessage);
+                Reflector.SendMessage(messageType, Mapper.Map<PropertyWithValue[]>(propertiesForMessage));
+                return;
             }
-            else
-            {
-                Reflector.SendMessage(messageType);
-            }
+
+            Reflector.SendMessage(messageType);
         }
     }
 }
