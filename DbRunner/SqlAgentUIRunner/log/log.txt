@@ -186,3 +186,25 @@ SqlAgentUIRunner.Models.TaskRunnerModels.TaskRunnerPropertyModel
 2015-01-28 11:12:45,548 [34] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
 2015-01-28 11:12:52,401 [34] INFO Framework.Layer.Logging.CustomLogger - Sending message to the bus: HelloWorldCommand
 2015-01-28 11:13:31,592 [34] INFO Framework.Layer.Logging.CustomLogger - Message sent successfully!
+2015-01-28 11:32:19,007 [57] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 11:32:21,958 [36] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 11:32:24,492 [57] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 11:32:43,084 [57] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 11:33:34,760 [57] INFO Framework.Layer.Logging.CustomLogger - Sending message to the bus: HelloWorldCommand
+2015-01-28 11:34:08,992 [57] ERROR Framework.Layer.Logging.CustomLogger - System.ArgumentException: Object of type 'System.String' cannot be converted to type 'System.Int32'.
+   at System.RuntimeType.TryChangeType(Object value, Binder binder, CultureInfo culture, Boolean needsSpecialCast)
+   at System.Reflection.MethodBase.CheckArguments(Object[] parameters, Binder binder, BindingFlags invokeAttr, CultureInfo culture, Signature sig)
+   at System.Reflection.RuntimeMethodInfo.InvokeArgumentsCheck(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimePropertyInfo.SetValue(Object obj, Object value, Object[] index)
+   at TaskRunner.Core.Reflector.Extensions.SetPublicProperties(Object instance, PropertyWithValue[] props) in c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\TaskRunner.Core\Reflector\Extensions.cs:line 21
+   at TaskRunner.Core.Reflector.TaskRunnerReflector.SendMessage(Type messageType, PropertyWithValue[] props) in c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\TaskRunner.Core\Reflector\TaskRunnerReflector.cs:line 43
+   at SqlAgentUIRunner.Infrastructure.Manager.ServiceBusMessageManager.SendMessage(String typeName, TaskRunnerPropertyModel[] propertiesForMessage) in c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\DbRunner\SqlAgentUIRunner\Infrastructure\Manager\ServiceBusMessageManager.cs:line 49
+   at SqlAgentUIRunner.Controllers.MessageBusController.<>c__DisplayClass5.<SendMessage>b__4() in c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\DbRunner\SqlAgentUIRunner\Controllers\MessageBusController.cs:line 38
+   at Framework.Layer.Handlers.SafeExecutionHandler.Try[TType](Func`1 work) in c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Framework.Layer\Handlers\SafeExecutionHandler.cs:line 26
+2015-01-28 11:38:51,419 [49] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 11:38:55,518 [49] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 11:38:57,558 [49] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 11:39:10,954 [49] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-01-28 11:39:13,045 [49] INFO Framework.Layer.Logging.CustomLogger - Sending message to the bus: HelloWorldCommand
+2015-01-28 11:39:23,347 [49] INFO Framework.Layer.Logging.CustomLogger - Message sent successfully!

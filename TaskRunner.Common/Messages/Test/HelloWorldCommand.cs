@@ -1,9 +1,8 @@
-﻿using System;
-
-namespace TaskRunner.Common.Messages.Test
+﻿namespace TaskRunner.Common.Messages.Test
 {
     public class HelloWorldCommand
     {
-        public String Text { get; set; }
+        public string Text { get; set; }
+        public int Count { get; set; }
     }
 }

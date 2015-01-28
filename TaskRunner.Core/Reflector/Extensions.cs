@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Reflection;
 
 namespace TaskRunner.Core.Reflector
@@ -18,7 +19,8 @@ namespace TaskRunner.Core.Reflector
                 var info = propertyInfo;
                 foreach (var prop in props.Where(prop => info.Name.Equals(prop.Name)))
                 {
-                    propertyInfo.SetValue(instance, prop.Value);
+                    var convertedValue = Convert.ChangeType(prop.Value, propertyInfo.PropertyType);
+                    propertyInfo.SetValue(instance, convertedValue);
                 }
             }
         }
