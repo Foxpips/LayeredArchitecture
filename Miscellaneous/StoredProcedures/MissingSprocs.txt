@@ -468,7 +468,6 @@ h3giGetTelesalesCampaignTypes
 h3giDepoitAmountRemove
 h3giCatalogueActivateProductAcrossAllChannels
 h3giOrderInsuranceStorePolicyDetails
-smVerifyUserRight
 b4nGetProductExclusions
 h3giPromotionVoucherGetCodes
 h3giGetTelesalesDashboardInfo
@@ -551,6 +550,7 @@ h3giRetrieveImeiIccid
 h3giGetWhitemailAddressData
 h3giCatalogueCreateSingleTariffForUSIM
 threeBusinessOrderStatusSet
+smVerifyUserRight
 b4nGetStoreAreas
 h3giSaveCAF
 h3giHasDirectOrderBeenConfirmed

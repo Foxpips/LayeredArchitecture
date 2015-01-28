@@ -1,0 +1,12 @@
+0000000000000000000000000000000000000000000000000000000000000000000000000000000GRANT EXECUTE ON smUpdateUserPassword TO b4nuser
+GO
+GRANT EXECUTE ON smUpdateUserPassword TO helpdesk
+GO
+GRANT EXECUTE ON smUpdateUserPassword TO ofsuser
+GO
+GRANT EXECUTE ON smUpdateUserPassword TO reportuser
+GO
+GRANT EXECUTE ON smUpdateUserPassword TO b4nexcel
+GO
+GRANT EXECUTE ON smUpdateUserPassword TO b4nloader
+GO

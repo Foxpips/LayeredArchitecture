@@ -1,0 +1,12 @@
+00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000GRANT EXECUTE ON h3giGetTelesalesDashboardInfo TO b4nuser
+GO
+GRANT EXECUTE ON h3giGetTelesalesDashboardInfo TO helpdesk
+GO
+GRANT EXECUTE ON h3giGetTelesalesDashboardInfo TO ofsuser
+GO
+GRANT EXECUTE ON h3giGetTelesalesDashboardInfo TO reportuser
+GO
+GRANT EXECUTE ON h3giGetTelesalesDashboardInfo TO b4nexcel
+GO
+GRANT EXECUTE ON h3giGetTelesalesDashboardInfo TO b4nloader
+GO

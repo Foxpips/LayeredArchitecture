@@ -1,0 +1,4 @@
+000000000000000000000000000000000000000000000GRANT EXECUTE ON threeBusinessProvisioningSearch TO b4nuser
+GO
+GRANT EXECUTE ON threeBusinessProvisioningSearch TO reportuser
+GO

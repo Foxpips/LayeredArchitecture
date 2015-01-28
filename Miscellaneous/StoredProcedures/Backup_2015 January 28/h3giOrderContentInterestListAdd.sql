@@ -1,0 +1,6 @@
+00000000000000000000000000000000000000000000000000000000000GRANT EXECUTE ON h3giOrderContentInterestListAdd TO b4nuser
+GO
+GRANT EXECUTE ON h3giOrderContentInterestListAdd TO ofsuser
+GO
+GRANT EXECUTE ON h3giOrderContentInterestListAdd TO reportuser
+GO

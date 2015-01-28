@@ -13,11 +13,13 @@ namespace IntegrationTests.ScriptRunnerService
     internal sealed class SqlCoreBackupTest
     {
         private string _connectionString;
+        private string _rootdirString;
 
         [SetUp]
         public void Setup()
         {
             _connectionString = "server=sth3gisql;database=h3gi;uid=sa;pwd=kAnUTr@na5we;app=SqlScriptsRunner";
+            _rootdirString = @"../../../Miscellaneous\StoredProcedures\";
         }
 
         [Test]
@@ -26,7 +28,7 @@ namespace IntegrationTests.ScriptRunnerService
             const string sprocName = "b4nCheckProcsExist";
             SqlManager.BackupSproc(_connectionString, sprocName);
 
-            string path = @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Miscellaneous\StoredProcedures\Backup_" + DateTime.Now.ToString("yyyy MMMM dd");
+            string path = _rootdirString + @"\Backup_" + DateTime.Now.ToString("yyyy MMMM dd");
             IEnumerable<string> lines = File.ReadLines(path + @"\b4nCheckProcsExist.sql");
             Assert.That(lines.Any(x => x.Contains("b4nCheckProcsExist")));
         }

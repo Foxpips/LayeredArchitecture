@@ -1,0 +1,2 @@
+000000000GRANT EXECUTE ON b4nGetAdminSendMail TO b4nuser
+GO

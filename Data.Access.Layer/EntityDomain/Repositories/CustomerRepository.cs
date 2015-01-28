@@ -1,7 +1,8 @@
 using Business.Logic.Layer.Interfaces;
 
-using Framework.Layer.Exceptions;
-using Framework.Layer.Exceptions.Args;
+using Core.Library.Exceptions;
+using Core.Library.Exceptions.Generic;
+using Core.Library.Exceptions.Generic.Args;
 
 namespace Data.Access.Layer.EntityDomain.Repositories
 {

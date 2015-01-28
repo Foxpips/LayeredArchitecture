@@ -1,0 +1,6 @@
+0000000000000000000000000000000000000000000GRANT EXECUTE ON h3giAccessoryOrderBatchGet TO b4nuser
+GO
+GRANT EXECUTE ON h3giAccessoryOrderBatchGet TO ofsuser
+GO
+GRANT EXECUTE ON h3giAccessoryOrderBatchGet TO reportuser
+GO

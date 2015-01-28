@@ -1,0 +1,12 @@
+000000000000000000000000000000000000000000000GRANT EXECUTE ON b4nCheckProductLevelAttributes TO b4nuser
+GO
+GRANT EXECUTE ON b4nCheckProductLevelAttributes TO helpdesk
+GO
+GRANT EXECUTE ON b4nCheckProductLevelAttributes TO ofsuser
+GO
+GRANT EXECUTE ON b4nCheckProductLevelAttributes TO reportuser
+GO
+GRANT EXECUTE ON b4nCheckProductLevelAttributes TO b4nexcel
+GO
+GRANT EXECUTE ON b4nCheckProductLevelAttributes TO b4nloader
+GO

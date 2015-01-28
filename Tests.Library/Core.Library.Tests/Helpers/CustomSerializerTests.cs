@@ -24,7 +24,7 @@ namespace Tests.Library.Core.Library.Tests.Helpers
         public void CustomSerializer_Soap_Serialize()
         {
             File.Delete(Path);
-            CustomSerializer.Serializer<SoapFormatter, Movie>(Path,
+            SerializerHelper.Serializer<SoapFormatter, Movie>(Path,
                 new Movie {Id = 1, Rating = 10, Name = "Beverly hills cop"});
 
             Assert.That(File.Exists(Path));
@@ -35,9 +35,9 @@ namespace Tests.Library.Core.Library.Tests.Helpers
         {
             const string beverlyHillsCop = "Beverly hills cop";
 
-            CustomSerializer.Serializer<SoapFormatter, Movie>(Path,
+            SerializerHelper.Serializer<SoapFormatter, Movie>(Path,
                 new Movie {Id = 1, Rating = 10, Name = beverlyHillsCop});
-            var movie = CustomSerializer.DeSerializer<SoapFormatter, Movie>(Path);
+            var movie = SerializerHelper.DeSerializer<SoapFormatter, Movie>(Path);
 
             Assert.NotNull(movie);
             Assert.True(movie.Name.Equals(beverlyHillsCop, StringComparison.OrdinalIgnoreCase));

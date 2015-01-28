@@ -1,0 +1,12 @@
+0000000000000000000000000000000000000000000000000000000000000000000000000GRANT EXECUTE ON b4nGetCategoryMenuTreeAll TO b4nuser
+GO
+GRANT EXECUTE ON b4nGetCategoryMenuTreeAll TO helpdesk
+GO
+GRANT EXECUTE ON b4nGetCategoryMenuTreeAll TO ofsuser
+GO
+GRANT EXECUTE ON b4nGetCategoryMenuTreeAll TO reportuser
+GO
+GRANT EXECUTE ON b4nGetCategoryMenuTreeAll TO b4nexcel
+GO
+GRANT EXECUTE ON b4nGetCategoryMenuTreeAll TO b4nloader
+GO

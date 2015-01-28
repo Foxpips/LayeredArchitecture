@@ -1,0 +1,6 @@
+00000000000000000000000000000000000000000GRANT EXECUTE ON h3giOrderAmalgationSelection TO b4nuser
+GO
+GRANT EXECUTE ON h3giOrderAmalgationSelection TO ofsuser
+GO
+GRANT EXECUTE ON h3giOrderAmalgationSelection TO reportuser
+GO

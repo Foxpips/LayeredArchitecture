@@ -1,0 +1,12 @@
+00000000000000000000000000000GRANT EXECUTE ON b4nDeleteCategoryProductDuplicates TO b4nuser
+GO
+GRANT EXECUTE ON b4nDeleteCategoryProductDuplicates TO helpdesk
+GO
+GRANT EXECUTE ON b4nDeleteCategoryProductDuplicates TO ofsuser
+GO
+GRANT EXECUTE ON b4nDeleteCategoryProductDuplicates TO reportuser
+GO
+GRANT EXECUTE ON b4nDeleteCategoryProductDuplicates TO b4nexcel
+GO
+GRANT EXECUTE ON b4nDeleteCategoryProductDuplicates TO b4nloader
+GO

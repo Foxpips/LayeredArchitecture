@@ -3,11 +3,13 @@ using System.Linq;
 
 using Business.Logic.Layer.Pocos;
 
+using Core.Library.Exceptions;
+using Core.Library.Exceptions.Generic;
+using Core.Library.Exceptions.Generic.Args;
+
 using Data.Access.Layer.EntityFramework.Contexts;
 using Data.Access.Layer.EntityFramework.Managers;
 
-using Framework.Layer.Exceptions;
-using Framework.Layer.Exceptions.Args;
 using Framework.Layer.Transactions;
 
 using NUnit.Framework;

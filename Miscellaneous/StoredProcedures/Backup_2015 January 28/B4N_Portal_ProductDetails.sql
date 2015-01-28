@@ -1,0 +1,12 @@
+000000000000000000000000000000000000000000000000000000000000000000GRANT EXECUTE ON B4N_Portal_ProductDetails TO b4nuser
+GO
+GRANT EXECUTE ON B4N_Portal_ProductDetails TO helpdesk
+GO
+GRANT EXECUTE ON B4N_Portal_ProductDetails TO ofsuser
+GO
+GRANT EXECUTE ON B4N_Portal_ProductDetails TO reportuser
+GO
+GRANT EXECUTE ON B4N_Portal_ProductDetails TO b4nexcel
+GO
+GRANT EXECUTE ON B4N_Portal_ProductDetails TO b4nloader
+GO

@@ -1,0 +1,12 @@
+00000000000000000000000000000000000000000000GRANT EXECUTE ON testSearch TO b4nuser
+GO
+GRANT EXECUTE ON testSearch TO helpdesk
+GO
+GRANT EXECUTE ON testSearch TO ofsuser
+GO
+GRANT EXECUTE ON testSearch TO reportuser
+GO
+GRANT EXECUTE ON testSearch TO b4nexcel
+GO
+GRANT EXECUTE ON testSearch TO b4nloader
+GO

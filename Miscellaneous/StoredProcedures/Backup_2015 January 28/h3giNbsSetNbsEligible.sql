@@ -1,0 +1,2 @@
+000000000GRANT EXECUTE ON h3giNbsSetNbsEligible TO b4nuser
+GO

@@ -1,0 +1,2 @@
+0000000GRANT EXECUTE ON h3giNbsGetDefaultImeiForSatellite TO b4nuser
+GO

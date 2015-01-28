@@ -40,5 +40,16 @@ namespace Tests.Library.Core.Library.Tests.Helpers
                 @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Tests.Library\Core.Library.Tests\SampleJson");
             Assert.That(books.Any());
         }
+
+        [Test]
+        public void DeserializeJson_Test()
+        {
+            var testBook = new Book {Id = 10, Isbn = "213789", Name = "Harry Potter"};
+            var serializeJson = JsonHelper.SerializeJson(testBook);
+
+            var deserializeJson = JsonHelper.DeserializeJson<Book>(serializeJson);
+
+            Assert.That(deserializeJson.Name.Equals(testBook.Name), Is.True);
+        }
     }
 }

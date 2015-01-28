@@ -1,0 +1,2 @@
+00000000000000000000000GRANT EXECUTE ON threeUpgradeGetCaseEmailAddress TO b4nuser
+GO

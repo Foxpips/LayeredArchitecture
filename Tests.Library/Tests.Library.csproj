@@ -55,6 +55,7 @@
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -64,12 +65,20 @@
   <ItemGroup>
     <Compile Include="Business.Logic.Layer\BlogTests.cs" />
     <Compile Include="Core.Library.Tests\Extensions\CollectionExtenderTests.cs" />
+    <Compile Include="Core.Library.Tests\Extensions\ReflectionExtenderTests.cs" />
     <Compile Include="Core.Library.Tests\Helpers\CustomSerializerTests.cs" />
+    <Compile Include="Core.Library.Tests\Helpers\DomainHelperTests.cs" />
     <Compile Include="Core.Library.Tests\Helpers\JsonHelper_Tests.cs" />
     <Compile Include="Core.Library.Tests\Helpers\XmlHelper_Tests.cs" />
+    <Compile Include="Mocks\ApiMocks\Requests\IServiceRequest.cs" />
+    <Compile Include="Mocks\ApiMocks\Requests\PurchaseRequest.cs" />
+    <Compile Include="Mocks\ApiMocks\ReflectorApiMock.cs" />
+    <Compile Include="Mocks\ApiMocks\Responses\Response.cs" />
+    <Compile Include="Mocks\ApiMocks\Requests\ReturnRequest.cs" />
+    <Compile Include="Core.Library.Tests\Utilities\SafeApiBaseTests.cs" />
+    <Compile Include="Mocks\ApiMocks\Requests\SellRequest.cs" />
+    <Compile Include="Mocks\ApiMocks\Clients\ServiceClient.cs" />
     <Compile Include="Framework.Layer.Tests\LoggingTests\CustomLoggerTests.cs" />
-    <Compile Include="Misc\MyObject.cs" />
-    <Compile Include="Misc\TestClass.cs" />
     <Compile Include="Framework.Layer.Tests\CustomExceptionTests\CustomExceptionTests.cs" />
     <Compile Include="Framework.Layer.Tests\ExecutionTests\SafeExecution_Tests.cs" />
     <Compile Include="Framework.Layer.Tests\LoggingTests\BaseLoggerTests.cs" />
@@ -127,7 +136,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data.Access.Layer\" />
-    <Folder Include="Rhino.Mocks\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />

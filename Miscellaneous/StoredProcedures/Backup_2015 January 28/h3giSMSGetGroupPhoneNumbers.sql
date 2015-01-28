@@ -1,0 +1,6 @@
+00000000000000000000000000GRANT EXECUTE ON h3giSMSGetGroupPhoneNumbers TO b4nuser
+GO
+GRANT EXECUTE ON h3giSMSGetGroupPhoneNumbers TO ofsuser
+GO
+GRANT EXECUTE ON h3giSMSGetGroupPhoneNumbers TO reportuser
+GO

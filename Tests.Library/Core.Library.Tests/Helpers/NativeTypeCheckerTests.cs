@@ -14,8 +14,8 @@ namespace Tests.Library.Core.Library.Tests.Helpers
             const string testString = "asd";
 
             var rsaKey = new RsaKey();
-            Assert.That(() => TypeChecker.IsNativeType(testString), Is.True);
-            Assert.That(() => TypeChecker.IsNativeType(rsaKey), Is.False);
+            Assert.That(() => TypeCheckerHelper.IsNativeType(testString), Is.True);
+            Assert.That(() => TypeCheckerHelper.IsNativeType(rsaKey), Is.False);
         }
     }
 }

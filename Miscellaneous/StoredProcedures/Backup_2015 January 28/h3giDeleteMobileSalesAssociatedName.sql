@@ -1,0 +1,6 @@
+00000000000000000GRANT EXECUTE ON h3giDeleteMobileSalesAssociatedName TO b4nuser
+GO
+GRANT EXECUTE ON h3giDeleteMobileSalesAssociatedName TO ofsuser
+GO
+GRANT EXECUTE ON h3giDeleteMobileSalesAssociatedName TO reportuser
+GO

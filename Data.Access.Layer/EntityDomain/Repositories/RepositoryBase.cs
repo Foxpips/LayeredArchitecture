@@ -9,12 +9,12 @@ using System.Reflection;
 
 using Business.Logic.Layer.Interfaces;
 
+using Core.Library.Exceptions;
+using Core.Library.Exceptions.Generic;
+using Core.Library.Exceptions.Generic.Args;
 using Core.Library.Helpers;
 
 using Data.Access.Layer.EntityDomain.Attributes;
-
-using Framework.Layer.Exceptions;
-using Framework.Layer.Exceptions.Args;
 
 namespace Data.Access.Layer.EntityDomain.Repositories
 {
@@ -45,7 +45,7 @@ namespace Data.Access.Layer.EntityDomain.Repositories
                 try
                 {
                     var propertyValue = property.GetValue(type, null);
-                    if (TypeChecker.IsNativeType(propertyValue))
+                    if (TypeCheckerHelper.IsNativeType(propertyValue))
                     {
                         paramList.Add(CreateSqlEntityProperty(property, propertyValue));
                     }

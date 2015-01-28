@@ -1,0 +1,2 @@
+00000000000000000000GRANT EXECUTE ON h3giInsuranceGetChannels TO b4nuser
+GO

@@ -1,0 +1,6 @@
+000000000000000000000000000000000000000000000GRANT EXECUTE ON threeOrganizationGet TO b4nuser
+GO
+GRANT EXECUTE ON threeOrganizationGet TO ofsuser
+GO
+GRANT EXECUTE ON threeOrganizationGet TO reportuser
+GO

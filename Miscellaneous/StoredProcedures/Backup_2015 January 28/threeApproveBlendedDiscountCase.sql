@@ -1,0 +1,2 @@
+000000000000000000000000000GRANT EXECUTE ON threeApproveBlendedDiscountCase TO b4nuser
+GO

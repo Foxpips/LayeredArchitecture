@@ -3,8 +3,9 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-using Framework.Layer.Exceptions;
-using Framework.Layer.Exceptions.Args;
+using Core.Library.Exceptions;
+using Core.Library.Exceptions.Generic;
+using Core.Library.Exceptions.Generic.Args;
 
 namespace Service.Layer.EncryptionService.Encryption.Symmetric
 {

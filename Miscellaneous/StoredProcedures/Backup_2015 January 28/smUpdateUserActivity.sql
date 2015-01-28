@@ -1,0 +1,12 @@
+0000000000000000000000000000000000000000000000000000000000000000000GRANT EXECUTE ON smUpdateUserActivity TO b4nuser
+GO
+GRANT EXECUTE ON smUpdateUserActivity TO helpdesk
+GO
+GRANT EXECUTE ON smUpdateUserActivity TO ofsuser
+GO
+GRANT EXECUTE ON smUpdateUserActivity TO reportuser
+GO
+GRANT EXECUTE ON smUpdateUserActivity TO b4nexcel
+GO
+GRANT EXECUTE ON smUpdateUserActivity TO b4nloader
+GO
