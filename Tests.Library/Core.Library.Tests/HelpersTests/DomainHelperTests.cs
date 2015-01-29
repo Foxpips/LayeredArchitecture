@@ -4,7 +4,7 @@ using Core.Library.Helpers;
 
 using NUnit.Framework;
 
-namespace Tests.Library.Core.Library.Tests.Helpers
+namespace Tests.Library.Core.Library.Tests.HelpersTests
 {
     public class DomainHelperTests
     {

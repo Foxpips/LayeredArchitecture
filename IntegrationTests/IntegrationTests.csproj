@@ -47,6 +47,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\Common.Logging.Log4Net1211.2.1.2\lib\net40\Common.Logging.Log4Net1211.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.2-beta2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2-beta2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
@@ -64,6 +71,7 @@
       <HintPath>..\..\..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
@@ -79,6 +87,8 @@
     <Compile Include="TaskRunnerTests\SqlTaskRunnerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaskRunnerTests\TaskRunnerTest.cs" />
+    <Compile Include="TransactionTests\BloggingContext_Tests.cs" />
+    <Compile Include="TransactionTests\Transactional_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -95,9 +105,17 @@
       <Project>{C3B4C1F9-0E06-49A3-88F4-FA63749D2D0D}</Project>
       <Name>Core.Library</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Data.Access.Layer\Data.Access.Layer.csproj">
+      <Project>{15BA6380-3EF7-4450-9556-643BE8A68D04}</Project>
+      <Name>Data.Access.Layer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DbRunner\SqlAgentUIRunner\SqlAgentUIRunner.csproj">
       <Project>{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}</Project>
       <Name>SqlAgentUIRunner</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Framework.Layer\Framework.Layer.csproj">
+      <Project>{17AAADA3-939E-41DD-A5AA-851F93EE6B17}</Project>
+      <Name>Framework.Layer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Services.Layer\Service.Layer.csproj">
       <Project>{E0BD0195-8064-4B0A-AAAC-94BA8852422B}</Project>

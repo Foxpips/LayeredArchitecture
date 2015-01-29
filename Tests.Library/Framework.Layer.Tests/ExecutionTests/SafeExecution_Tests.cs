@@ -1,19 +1,18 @@
 ﻿using System;
 
-using Framework.Layer.Handlers;
-using Framework.Layer.Handlers.Methods;
+using Core.Library.Helpers;
 
 using NUnit.Framework;
 
 namespace Tests.Library.Framework.Layer.Tests.ExecutionTests
 {
     [TestFixture]
-    public class SafeExecution_Tests
+    public class SafeExecutionTests
     {
         [Test]
         public void SafeExecution_TryCatch_WithResultTest()
         {
-            Assert.That(() => SafeExecutionHandler.Try(() =>
+            Assert.That(() => SafeExecutionHelper.Try(() =>
             {
                 Console.WriteLine("");
                 throw new NullReferenceException();
@@ -25,7 +24,7 @@ namespace Tests.Library.Framework.Layer.Tests.ExecutionTests
         {
             try
             {
-                SafeExecutionHandler.Try(() =>
+                SafeExecutionHelper.Try(() =>
                 {
                     Console.WriteLine("");
                     throw new NullReferenceException();
@@ -40,7 +39,7 @@ namespace Tests.Library.Framework.Layer.Tests.ExecutionTests
         [Test]
         public void SafeExecution_TryCatch_WithResultReturned_Test()
         {
-            Assert.That(() => SafeExecutionHandler.Try(() =>
+            Assert.That(() => SafeExecutionHelper.Try(() =>
             {
                 throw new NullReferenceException();
                 return "Test";
@@ -52,7 +51,7 @@ namespace Tests.Library.Framework.Layer.Tests.ExecutionTests
         {
             try
             {
-                SafeExecutionHandler.Try(() =>
+                SafeExecutionHelper.Try(() =>
                 {
                     throw new NullReferenceException();
                     return "Test";

@@ -1,41 +1,48 @@
 ﻿using System;
 using System.Linq;
 
-using Business.Logic.Layer.Pocos;
 using Business.Logic.Layer.Pocos.Data;
 
-using Core.Library.Exceptions;
 using Core.Library.Exceptions.Generic;
 using Core.Library.Exceptions.Generic.Args;
+using Core.Library.Helpers;
 
 using Data.Access.Layer.EntityFramework.Contexts;
 using Data.Access.Layer.EntityFramework.Managers;
 
-using Framework.Layer.Handlers.Transactions;
-
 using NUnit.Framework;
 
-namespace Tests.Library.Framework.Layer.Tests.TransactionTests.Unit
+namespace IntegrationTests.TransactionTests
 {
-    public class TransactionalTests
+    public class RollbackOnExceptionTransactionalTests
     {
         [Test]
-        public void TransactionTests_TestedBehavior_ExpectedResult()
+        public void ThrowCustomException_DatabaseError_ConfirmRollBackSuccessful()
         {
             var dbManager = new DbManager<BooksContext>();
 
-            var before = 0;
+            var bookInitialCount = 0;
 
-            Assert.Throws<CustomException<DatabaseErrorExceptionArgs>>(() => before = TestConnection());
+            //Cant use this as we need log4net 1.2.13 and that doesnt work with rhino service bus for some unknown reason.
+//            Assert.Throws<CustomException<DatabaseErrorExceptionArgs>>(() => before = TestSqlConnection_AddNewBookthenRollback_ReturnBookInitialCount());
+
+            try
+            {
+                bookInitialCount = TestSqlConnection_AddNewBookthenRollback_ReturnBookInitialCount();
+            }
+            catch (Exception ex)
+            {
+                Assert.That(ex.GetType() == typeof (CustomException<DatabaseErrorExceptionArgs>));
+            }
 
             dbManager.Connect(data =>
             {
                 var after = data.Books.Count();
-                Assert.That(before == after);
+                Assert.That(bookInitialCount == after);
             });
         }
 
-        private static int TestConnection()
+        private static int TestSqlConnection_AddNewBookthenRollback_ReturnBookInitialCount()
         {
             var dbManager = new DbManager<BooksContext>();
             var before = 0;
@@ -43,7 +50,7 @@ namespace Tests.Library.Framework.Layer.Tests.TransactionTests.Unit
             {
                 try
                 {
-                    TransactionHandler.Begin(() =>
+                    TransactionHelper.Begin(() =>
                     {
                         before = database.Books.Count();
                         database.Books.Add(new Book

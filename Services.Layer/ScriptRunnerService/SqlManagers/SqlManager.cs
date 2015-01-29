@@ -6,9 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
-using Service.Layer.ScriptRunnerService.Helpers;
+using Service.Layer.ScriptRunnerService.SqlHelpers;
 
-namespace Service.Layer.ScriptRunnerService.Managers
+namespace Service.Layer.ScriptRunnerService.SqlManagers
 {
     public sealed class SqlManager
     {

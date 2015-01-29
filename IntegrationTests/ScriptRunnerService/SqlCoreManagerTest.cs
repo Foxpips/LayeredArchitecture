@@ -1,7 +1,7 @@
 ﻿using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 
-using Service.Layer.ScriptRunnerService.Managers;
+using Service.Layer.ScriptRunnerService.SqlManagers;
 
 namespace IntegrationTests.ScriptRunnerService
 {

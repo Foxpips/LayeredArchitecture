@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Linq;
 
-using Business.Logic.Layer.Pocos;
 using Business.Logic.Layer.Pocos.Data;
+
+using Core.Library.Helpers;
 
 using Data.Access.Layer.EntityFramework.Contexts;
 using Data.Access.Layer.EntityFramework.Managers;
 
-using Framework.Layer.Handlers.Transactions;
-
 using NUnit.Framework;
 
-namespace Tests.Library.Framework.Layer.Tests.TransactionTests.Integration
+namespace IntegrationTests.TransactionTests
 {
     public class BloggingContextTests
     {
@@ -25,7 +24,7 @@ namespace Tests.Library.Framework.Layer.Tests.TransactionTests.Integration
 
             try
             {
-                TransactionHandler.Begin(() => database.Save(blog));
+                TransactionHelper.Begin(() => database.Save(blog));
             }
             catch (Exception ex)
             {
@@ -43,7 +42,7 @@ namespace Tests.Library.Framework.Layer.Tests.TransactionTests.Integration
             var database = new BooksManager();
             try
             {
-                TransactionHandler.Begin(() => database.GetList2().ForEach(book => Console.WriteLine(book.Name)));
+                TransactionHelper.Begin(() => database.GetList2().ForEach(book => Console.WriteLine(book.Name)));
             }
             catch (Exception ex)
             {

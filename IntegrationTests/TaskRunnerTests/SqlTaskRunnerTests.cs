@@ -39,11 +39,12 @@ namespace IntegrationTests.TaskRunnerTests
         [Test]
         public void Test_MessageBusController_Properties()
         {
-            var messagesModel = ((TaskRunnerPropertiesModel) Controller.GetProperties(MessageType.Name).Data).Properties;
+            var messageModelProperties =
+                ((TaskRunnerPropertiesModel) Controller.GetProperties(MessageType.Name).Data).Properties;
 
-            var type = MessageType.GetProperties().First().Name;
+            var typeName = MessageType.GetProperties().First().Name;
 
-            Assert.That(messagesModel.First().Name.Equals(type), Is.True);
+            Assert.That(messageModelProperties.Any(x => x.Name.Equals(typeName)));
         }
     }
 }

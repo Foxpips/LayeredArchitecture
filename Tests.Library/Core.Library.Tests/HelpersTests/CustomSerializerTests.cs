@@ -2,14 +2,13 @@
 using System.IO;
 using System.Runtime.Serialization.Formatters.Soap;
 
-using Business.Logic.Layer.Pocos;
 using Business.Logic.Layer.Pocos.Data;
 
 using Core.Library.Helpers;
 
 using NUnit.Framework;
 
-namespace Tests.Library.Core.Library.Tests.Helpers
+namespace Tests.Library.Core.Library.Tests.HelpersTests
 {
     public class CustomSerializerTests
     {

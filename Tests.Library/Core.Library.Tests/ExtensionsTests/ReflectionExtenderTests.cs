@@ -4,7 +4,7 @@ using Core.Library.Extensions;
 
 using NUnit.Framework;
 
-namespace Tests.Library.Core.Library.Tests.Extensions
+namespace Tests.Library.Core.Library.Tests.ExtensionsTests
 {
     public class ReflectionExtenderTests
     {

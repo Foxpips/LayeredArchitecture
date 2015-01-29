@@ -10,7 +10,7 @@ using Core.Library.Helpers;
 
 using NUnit.Framework;
 
-namespace Tests.Library.Core.Library.Tests.Helpers
+namespace Tests.Library.Core.Library.Tests.HelpersTests
 {
     [TestFixture]
     public class JsonHelperTests
@@ -19,7 +19,7 @@ namespace Tests.Library.Core.Library.Tests.Helpers
         public void Test_Json_Serialize()
         {
             var item = new Book();
-            string path = Path.GetFullPath(@"..\..\Core.Library.Tests\SampleJson\SampleJson - BookTest.json");
+            string path = Path.GetFullPath(@"..\..\Core.Library.Tests\SampleJsonTests\SampleJsonTests - BookTest.json");
             JsonHelper.SerializeJsonToFile(item, path);
             Console.WriteLine(path);
             Assert.That(File.Exists(path), Is.True);
@@ -29,7 +29,7 @@ namespace Tests.Library.Core.Library.Tests.Helpers
         public void Test_Json_Deserialize()
         {
             var book = JsonHelper.DeserializeJsonFromFile<Book>(
-                @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Tests.Library\Core.Library.Tests\SampleJson\SampleJson.json");
+                @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Tests.Library\Core.Library.Tests\SampleJsonTests\SampleJson.json");
             Assert.That(book, Is.Not.Null.Or.Empty);
             Assert.That(book.Name, Is.EqualTo("John Carter"));
         }
@@ -38,7 +38,7 @@ namespace Tests.Library.Core.Library.Tests.Helpers
         public void Test_Json_Deserialize_Collection()
         {
             var books = JsonHelper.DeserializeJsonFromFile<List<Book>>(
-                @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Tests.Library\Core.Library.Tests\SampleJson\SampleJson - Books.json");
+                @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Tests.Library\Core.Library.Tests\SampleJsonTests\SampleJson - Books.json");
             Assert.That(books.Any());
         }
 

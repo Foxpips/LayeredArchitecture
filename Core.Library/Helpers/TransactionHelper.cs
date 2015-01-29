@@ -1,22 +1,21 @@
 ﻿using System;
 using System.Transactions;
 
-using Framework.Layer.Handlers.Methods;
-
-namespace Framework.Layer.Handlers.Transactions
+namespace Core.Library.Helpers
 {
-    public class TransactionHandler
+    public class TransactionHelper
     {
         public static void Begin(Action work)
         {
-            using (new TransactionScope(TransactionScopeOption.Required,
+            using (var scope = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions
                 {
                     IsolationLevel = IsolationLevel.ReadCommitted,
                     Timeout = TransactionManager.MaximumTimeout
                 }))
             {
-                SafeExecutionHandler.Try(work);
+                SafeExecutionHelper.Try(work);
+                scope.Complete();
             }
         }
     }

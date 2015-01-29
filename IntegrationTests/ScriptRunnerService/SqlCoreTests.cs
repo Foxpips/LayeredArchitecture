@@ -11,8 +11,8 @@ using Core.Library.Managers;
 
 using NUnit.Framework;
 
-using Service.Layer.ScriptRunnerService.Managers;
 using Service.Layer.ScriptRunnerService.Runner;
+using Service.Layer.ScriptRunnerService.SqlManagers;
 
 using SqlAgentUIRunner.Controllers;
 

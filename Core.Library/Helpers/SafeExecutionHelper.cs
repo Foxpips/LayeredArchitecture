@@ -2,9 +2,9 @@
 
 using Framework.Layer.Logging;
 
-namespace Framework.Layer.Handlers.Methods
+namespace Core.Library.Helpers
 {
-    public class SafeExecutionHandler
+    public class SafeExecutionHelper
     {
         public static void Try(Action work)
         {

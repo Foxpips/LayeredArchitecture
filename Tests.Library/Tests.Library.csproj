@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=2.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\TaskRunner.Common\bin\Debug\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.2-beta2\lib\net45\EntityFramework.dll</HintPath>
@@ -64,39 +68,38 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business.Logic.Layer\BlogTests.cs" />
-    <Compile Include="Core.Library.Tests\Extensions\CollectionExtenderTests.cs" />
-    <Compile Include="Core.Library.Tests\Extensions\ReflectionExtenderTests.cs" />
-    <Compile Include="Core.Library.Tests\Helpers\CustomSerializerTests.cs" />
-    <Compile Include="Core.Library.Tests\Helpers\DomainHelperTests.cs" />
-    <Compile Include="Core.Library.Tests\Helpers\JsonHelper_Tests.cs" />
-    <Compile Include="Core.Library.Tests\Helpers\XmlHelper_Tests.cs" />
-    <Compile Include="Core.Library.Tests\Utilities\SafeWebServiceTests.cs">
+    <Compile Include="Core.Library.Tests\ExtensionsTests\CollectionExtenderTests.cs" />
+    <Compile Include="Core.Library.Tests\ExtensionsTests\ReflectionExtenderTests.cs" />
+    <Compile Include="Core.Library.Tests\HelpersTests\CustomSerializerTests.cs" />
+    <Compile Include="Core.Library.Tests\HelpersTests\DomainHelperTests.cs" />
+    <Compile Include="Core.Library.Tests\HelpersTests\JsonHelper_Tests.cs" />
+    <Compile Include="Core.Library.Tests\HelpersTests\XmlHelper_Tests.cs" />
+    <Compile Include="Core.Library.Tests\UtilitiesTests\SafeWebServiceTests.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Framework.Layer.Tests\MappingTests\AutoMapperLoaderTests.cs" />
     <Compile Include="Mocks\ApiMocks\Requests\IServiceRequest.cs" />
     <Compile Include="Mocks\ApiMocks\Requests\PurchaseRequest.cs" />
     <Compile Include="Mocks\ApiMocks\ReflectorApiMock.cs" />
     <Compile Include="Mocks\ApiMocks\Responses\Response.cs" />
     <Compile Include="Mocks\ApiMocks\Requests\ReturnRequest.cs" />
-    <Compile Include="Core.Library.Tests\Utilities\SafeApiBaseTests.cs" />
+    <Compile Include="Core.Library.Tests\UtilitiesTests\SafeApiBaseTests.cs" />
     <Compile Include="Mocks\ApiMocks\Requests\SellRequest.cs" />
     <Compile Include="Mocks\ApiMocks\Clients\ServiceClient.cs" />
     <Compile Include="Framework.Layer.Tests\LoggingTests\CustomLoggerTests.cs" />
     <Compile Include="Framework.Layer.Tests\CustomExceptionTests\CustomExceptionTests.cs" />
     <Compile Include="Framework.Layer.Tests\ExecutionTests\SafeExecution_Tests.cs" />
     <Compile Include="Framework.Layer.Tests\LoggingTests\BaseLoggerTests.cs" />
-    <Compile Include="Framework.Layer.Tests\TransactionTests\Unit\Transactional_Tests.cs" />
     <Compile Include="Service.Layer.Tests\EncryptionTests\TestAsymmetricEncryption.cs" />
     <Compile Include="Service.Layer.Tests\EncryptionTests\TestKeyCreation.cs" />
     <Compile Include="Service.Layer.Tests\EncryptionTests\TestSymmetricEncryption.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Framework.Layer.Tests\LoggingTests\ResourceLoaderTests.cs" />
-    <Compile Include="Framework.Layer.Tests\TransactionTests\Integration\BloggingContext_Tests.cs" />
-    <Compile Include="Core.Library.Tests\Helpers\NativeTypeCheckerTests.cs" />
+    <Compile Include="Core.Library.Tests\HelpersTests\NativeTypeCheckerTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Core.Library.Tests\SampleJson\SampleJson.json" />
+    <None Include="Core.Library.Tests\SampleJsonTests\SampleJson.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

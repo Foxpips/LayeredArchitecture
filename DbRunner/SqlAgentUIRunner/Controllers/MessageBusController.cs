@@ -1,7 +1,6 @@
 ﻿using System.Web.Mvc;
 
-using Framework.Layer.Handlers;
-using Framework.Layer.Handlers.Methods;
+using Core.Library.Helpers;
 
 using SqlAgentUIRunner.Infrastructure.Manager;
 using SqlAgentUIRunner.Models.TaskRunnerModels;
@@ -24,17 +23,17 @@ namespace SqlAgentUIRunner.Controllers
 
         public JsonResult GetMessages()
         {
-            return Json(SafeExecutionHandler.Try(() => _messageManager.BuildMessagesModel()));
+            return Json(SafeExecutionHelper.Try(() => _messageManager.BuildMessagesModel()));
         }
 
         public JsonResult GetProperties(string selectedMessage)
         {
-            return Json(SafeExecutionHandler.Try(() => _messageManager.BuildPropertiesModel(selectedMessage)));
+            return Json(SafeExecutionHelper.Try(() => _messageManager.BuildPropertiesModel(selectedMessage)));
         }
 
         public JsonResult SendMessage(string typeName, TaskRunnerPropertyModel[] propertiesForMessage)
         {
-            return SafeExecutionHandler.Try(() =>
+            return SafeExecutionHelper.Try(() =>
             {
                 _messageManager.SendMessage(typeName, propertiesForMessage);
                 return Json(new {Message = "Sent message " + typeName + " successfully"});

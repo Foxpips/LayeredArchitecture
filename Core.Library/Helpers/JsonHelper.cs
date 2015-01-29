@@ -1,8 +1,5 @@
 ﻿using System.IO;
 
-using Framework.Layer.Handlers;
-using Framework.Layer.Handlers.Methods;
-
 using Newtonsoft.Json;
 
 namespace Core.Library.Helpers
@@ -11,17 +8,17 @@ namespace Core.Library.Helpers
     {
         public static TType DeserializeJson<TType>(string json)
         {
-            return SafeExecutionHandler.Try(() => JsonConvert.DeserializeObject<TType>(json));
+            return SafeExecutionHelper.Try(() => JsonConvert.DeserializeObject<TType>(json));
         }
 
         public static string SerializeJson<TType>(TType item)
         {
-            return SafeExecutionHandler.Try(() => JsonConvert.SerializeObject(item));
+            return SafeExecutionHelper.Try(() => JsonConvert.SerializeObject(item));
         }
 
         public static TType DeserializeJsonFromFile<TType>(string filePath)
         {
-            return SafeExecutionHandler.Try(() =>
+            return SafeExecutionHelper.Try(() =>
             {
                 var content = File.ReadAllText(filePath);
                 return JsonConvert.DeserializeObject<TType>(content);
@@ -30,7 +27,7 @@ namespace Core.Library.Helpers
 
         public static void SerializeJsonToFile<TType>(TType item, string path)
         {
-            SafeExecutionHandler.Try(() =>
+            SafeExecutionHelper.Try(() =>
             {
                 var serializedObject = JsonConvert.SerializeObject(item);
                 File.WriteAllText(path, serializedObject);

@@ -4,7 +4,7 @@ using System.Linq;
 
 using Service.Layer.ScriptRunnerService.Collections;
 using Service.Layer.ScriptRunnerService.Executors;
-using Service.Layer.ScriptRunnerService.Managers;
+using Service.Layer.ScriptRunnerService.SqlManagers;
 
 namespace Service.Layer.ScriptRunnerService.Agents
 {

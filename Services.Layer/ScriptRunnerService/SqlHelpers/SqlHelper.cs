@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Service.Layer.ScriptRunnerService.Helpers
+namespace Service.Layer.ScriptRunnerService.SqlHelpers
 {
     internal sealed class SqlHelper
     {

@@ -7,7 +7,7 @@ using NUnit.Framework;
 using Tests.Library.Mocks.ApiMocks;
 using Tests.Library.Mocks.ApiMocks.Responses;
 
-namespace Tests.Library.Core.Library.Tests.Utilities
+namespace Tests.Library.Core.Library.Tests.UtilitiesTests
 {
     public class SafeApiBaseTests
     {

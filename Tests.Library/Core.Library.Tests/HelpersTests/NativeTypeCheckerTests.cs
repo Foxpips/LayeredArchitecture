@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 using Service.Layer.EncryptionService.KeyCreation.Keys;
 
-namespace Tests.Library.Core.Library.Tests.Helpers
+namespace Tests.Library.Core.Library.Tests.HelpersTests
 {
     public class NativeTypeCheckerTests
     {

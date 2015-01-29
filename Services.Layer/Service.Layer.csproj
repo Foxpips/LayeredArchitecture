@@ -65,8 +65,8 @@
     <Compile Include="ScriptRunnerService\Agents\SqlAgent.cs" />
     <Compile Include="ScriptRunnerService\Collections\SqlCollection.cs" />
     <Compile Include="ScriptRunnerService\Executors\SqlExecutor.cs" />
-    <Compile Include="ScriptRunnerService\Helpers\SqlHelper.cs" />
-    <Compile Include="ScriptRunnerService\Managers\SqlManager.cs" />
+    <Compile Include="ScriptRunnerService\SqlHelpers\SqlHelper.cs" />
+    <Compile Include="ScriptRunnerService\SqlManagers\SqlManager.cs" />
     <Compile Include="ScriptRunnerService\Runner\BackupRunner.cs" />
     <Compile Include="ScriptRunnerService\Runner\Base\RunnerBase.cs" />
     <Compile Include="ScriptRunnerService\Runner\ComparisonRunner.cs" />
