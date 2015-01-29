@@ -1,6 +1,0 @@
-00000000000000000000000000000000000000000GRANT EXECUTE ON h3giDeleteTopUpLocation TO b4nuser
-GO
-GRANT EXECUTE ON h3giDeleteTopUpLocation TO ofsuser
-GO
-GRANT EXECUTE ON h3giDeleteTopUpLocation TO reportuser
-GO

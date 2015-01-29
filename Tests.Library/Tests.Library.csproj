@@ -70,6 +70,9 @@
     <Compile Include="Core.Library.Tests\Helpers\DomainHelperTests.cs" />
     <Compile Include="Core.Library.Tests\Helpers\JsonHelper_Tests.cs" />
     <Compile Include="Core.Library.Tests\Helpers\XmlHelper_Tests.cs" />
+    <Compile Include="Core.Library.Tests\Utilities\SafeWebServiceTests.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Mocks\ApiMocks\Requests\IServiceRequest.cs" />
     <Compile Include="Mocks\ApiMocks\Requests\PurchaseRequest.cs" />
     <Compile Include="Mocks\ApiMocks\ReflectorApiMock.cs" />

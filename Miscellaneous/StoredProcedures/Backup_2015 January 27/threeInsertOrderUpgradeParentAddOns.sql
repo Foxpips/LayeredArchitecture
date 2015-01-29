@@ -1,2 +1,0 @@
-00000000000000000000000GRANT EXECUTE ON threeInsertOrderUpgradeParentAddOns TO b4nuser
-GO

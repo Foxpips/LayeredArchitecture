@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Configuration;
+using System.Web.Mvc;
 
 using Service.Layer.ScriptRunnerService.Collections;
 using Service.Layer.ScriptRunnerService.Runner;
@@ -20,7 +21,10 @@ namespace SqlAgentUIRunner.Controllers
         [HttpPost]
         public ActionResult Update(string environmentDdl)
         {
-            _updateTaskManager.AddTask(1, () => new SprocRunner(environmentDdl).RunProceduresIntoDatabase());
+            _updateTaskManager.AddTask(1,
+                () =>
+                    new SprocRunner(environmentDdl, ConfigurationManager.AppSettings["rootDir"])
+                        .RunProceduresIntoDatabase());
             _updateTaskManager.RunTasks();
             _targetServer = environmentDdl;
             return RedirectToAction("Index");

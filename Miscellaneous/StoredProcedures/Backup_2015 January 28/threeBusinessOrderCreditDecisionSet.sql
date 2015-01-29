@@ -1,4 +1,0 @@
-00000000000000000000000000000000000GRANT EXECUTE ON threeBusinessOrderCreditDecisionSet TO b4nuser
-GO
-GRANT EXECUTE ON threeBusinessOrderCreditDecisionSet TO reportuser
-GO

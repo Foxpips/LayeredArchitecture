@@ -1,4 +1,0 @@
-0000000000000000000000000000000000GRANT EXECUTE ON threePersonPhoneNumberUpdate TO b4nuser
-GO
-GRANT EXECUTE ON threePersonPhoneNumberUpdate TO reportuser
-GO

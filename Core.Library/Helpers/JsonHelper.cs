@@ -1,6 +1,7 @@
 ﻿using System.IO;
 
 using Framework.Layer.Handlers;
+using Framework.Layer.Handlers.Methods;
 
 using Newtonsoft.Json;
 
@@ -18,16 +19,16 @@ namespace Core.Library.Helpers
             return SafeExecutionHandler.Try(() => JsonConvert.SerializeObject(item));
         }
 
-        public static TType DeserializeJson<TType>(string filename, string directory)
+        public static TType DeserializeJsonFromFile<TType>(string filePath)
         {
             return SafeExecutionHandler.Try(() =>
             {
-                var content = File.ReadAllText(Path.Combine(directory, filename));
+                var content = File.ReadAllText(filePath);
                 return JsonConvert.DeserializeObject<TType>(content);
             });
         }
 
-        public static void SerializeJson<TType>(TType item, string path)
+        public static void SerializeJsonToFile<TType>(TType item, string path)
         {
             SafeExecutionHandler.Try(() =>
             {

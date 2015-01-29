@@ -2,11 +2,12 @@
 using System.Linq;
 
 using Business.Logic.Layer.Pocos;
+using Business.Logic.Layer.Pocos.Data;
 
 using Data.Access.Layer.EntityFramework.Contexts;
 using Data.Access.Layer.EntityFramework.Managers;
 
-using Framework.Layer.Transactions;
+using Framework.Layer.Handlers.Transactions;
 
 using NUnit.Framework;
 

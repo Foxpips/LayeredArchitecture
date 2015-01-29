@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -14,15 +13,13 @@ namespace Service.Layer.ScriptRunnerService.Agents
         private readonly SqlCollection _sqlCollection;
         private string DatabaseConnection { get; set; }
         private string SprocDirLocation { get; set; }
-        private const string SPROCROOT =
-            @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Miscellaneous\StoredProcedures\";
 
-        public SqlAgent(String database, String rootDir)
+        public SqlAgent(string database, string rootDir, string collectionOutput = @"..\..\..\Miscellaneous\StoredProcedures")
         {
             DatabaseConnection = database;
             SprocDirLocation = rootDir;
             _sqlCollection = new SqlCollection(SqlManager.GetSprocs_InDatabase_List(database),
-                SqlManager.GetSprocs_UnderVersionControl(rootDir));
+                SqlManager.GetSprocs_UnderVersionControl(collectionOutput));
         }
 
         public IEnumerable<string> GetProcs_Missing_FromVersionControl_List()
@@ -37,7 +34,7 @@ namespace Service.Layer.ScriptRunnerService.Agents
 
         internal void DropExistingSprocs()
         {
-            const string dropsprocsTxt = SPROCROOT + "DropSprocs.txt";
+             string dropsprocsTxt = SprocDirLocation + "DropSprocs.txt";
             var streamWriter = new StreamWriter(dropsprocsTxt);
             foreach (string proc in _sqlCollection.Dblist)
             {
@@ -54,7 +51,7 @@ namespace Service.Layer.ScriptRunnerService.Agents
 
         public void GenerateProcs_NotInDatabase_File()
         {
-            var streamWriter = new StreamWriter(SPROCROOT + "NewSprocs.txt");
+            var streamWriter = new StreamWriter(SprocDirLocation + "NewSprocs.txt");
             foreach (
                 string proc in
                     _sqlCollection.Locallist.Where(proc => !_sqlCollection.Dblist.Contains(proc)).ToList())
@@ -66,7 +63,7 @@ namespace Service.Layer.ScriptRunnerService.Agents
 
         public void GenerateProcs_NotUnderVersionControl_File()
         {
-            var streamWriter = new StreamWriter(SPROCROOT + "MissingSprocs.txt");
+            var streamWriter = new StreamWriter(SprocDirLocation + "MissingSprocs.txt");
             foreach (
                 string proc in
                     _sqlCollection.Dblist.Where(proc => !_sqlCollection.Locallist.Contains(proc)).ToList())
@@ -80,8 +77,7 @@ namespace Service.Layer.ScriptRunnerService.Agents
         {
             foreach (string procName in SqlManager.GetSprocs_InDatabase_List(DatabaseConnection))
             {
-                SqlManager.BackupSproc(DatabaseConnection, procName);
-                SqlManager.ScriptPermissions(DatabaseConnection);
+                SqlManager.BackupSproc(DatabaseConnection, procName, SprocDirLocation);
             }
         }
     }

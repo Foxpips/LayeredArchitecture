@@ -1,8 +1,0 @@
-0000000000000000000000000000000000GRANT EXECUTE ON h3GiOrderChangeStatus TO b4nuser
-GO
-GRANT EXECUTE ON h3GiOrderChangeStatus TO ofsuser
-GO
-GRANT EXECUTE ON h3GiOrderChangeStatus TO reportuser
-GO
-GRANT EXECUTE ON h3GiOrderChangeStatus TO b4nexcel
-GO

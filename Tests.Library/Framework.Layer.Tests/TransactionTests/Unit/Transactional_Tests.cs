@@ -2,6 +2,7 @@
 using System.Linq;
 
 using Business.Logic.Layer.Pocos;
+using Business.Logic.Layer.Pocos.Data;
 
 using Core.Library.Exceptions;
 using Core.Library.Exceptions.Generic;
@@ -10,7 +11,7 @@ using Core.Library.Exceptions.Generic.Args;
 using Data.Access.Layer.EntityFramework.Contexts;
 using Data.Access.Layer.EntityFramework.Managers;
 
-using Framework.Layer.Transactions;
+using Framework.Layer.Handlers.Transactions;
 
 using NUnit.Framework;
 

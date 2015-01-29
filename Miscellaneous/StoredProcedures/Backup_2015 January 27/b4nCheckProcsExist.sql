@@ -1,2 +1,0 @@
-000000000GRANT EXECUTE ON b4nCheckProcsExist TO b4nuser
-GO

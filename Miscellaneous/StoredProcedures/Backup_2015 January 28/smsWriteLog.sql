@@ -1,6 +1,0 @@
-0000000000000GRANT EXECUTE ON smsWriteLog TO b4nuser
-GO
-GRANT EXECUTE ON smsWriteLog TO ofsuser
-GO
-GRANT EXECUTE ON smsWriteLog TO reportuser
-GO

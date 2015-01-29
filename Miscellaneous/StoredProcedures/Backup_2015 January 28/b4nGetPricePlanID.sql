@@ -1,6 +1,0 @@
-0000000000000000GRANT EXECUTE ON b4nGetPricePlanID TO b4nuser
-GO
-GRANT EXECUTE ON b4nGetPricePlanID TO ofsuser
-GO
-GRANT EXECUTE ON b4nGetPricePlanID TO reportuser
-GO

@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Configuration;
+using System.Web.Mvc;
 
 using Service.Layer.ScriptRunnerService.Runner;
 
@@ -16,7 +17,7 @@ namespace SqlAgentUIRunner.Controllers
 
         public ActionResult Compare(string environmentDdl)
         {
-            _updateTaskManager.AddTask(1, () => new ComparisonRunner(environmentDdl).GenerateSprocComparisonFiles());
+            _updateTaskManager.AddTask(1, () => new ComparisonRunner(environmentDdl, ConfigurationManager.AppSettings["rootDir"]).GenerateSprocComparisonFiles());
             _updateTaskManager.RunTasks();
             return RedirectToAction("Index");
         }

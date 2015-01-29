@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using Business.Logic.Layer.Pocos;
+using Business.Logic.Layer.Pocos.Data;
 
 using NUnit.Framework;
 

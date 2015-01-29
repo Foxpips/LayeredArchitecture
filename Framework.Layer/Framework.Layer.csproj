@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\TaskRunner.Common\bin\Debug\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
@@ -48,11 +51,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Handlers\SafeExecutionHandler.cs" />
+    <Compile Include="Handlers\Methods\SafeExecutionHandler.cs" />
     <Compile Include="Logging\CustomLogger.cs" />
     <Compile Include="Logging\Resource\ResourceLoader.cs" />
+    <Compile Include="Mapping\AutoMapperHelper.cs" />
+    <Compile Include="Mapping\IMapCustom.cs" />
+    <Compile Include="Mapping\IMapFrom.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Transactions\TransactionHandler.cs" />
+    <Compile Include="Handlers\Transactions\TransactionHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

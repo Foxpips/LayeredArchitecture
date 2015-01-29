@@ -1,4 +1,0 @@
-000000000000000000000000GRANT EXECUTE ON threePersonDelete TO b4nuser
-GO
-GRANT EXECUTE ON threePersonDelete TO reportuser
-GO

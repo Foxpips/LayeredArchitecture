@@ -1,6 +1,0 @@
-000000000000000000000000000000GRANT EXECUTE ON h3giClearOrdersDispatched_Temp TO b4nuser
-GO
-GRANT EXECUTE ON h3giClearOrdersDispatched_Temp TO ofsuser
-GO
-GRANT EXECUTE ON h3giClearOrdersDispatched_Temp TO reportuser
-GO

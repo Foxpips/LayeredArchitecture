@@ -1,4 +1,0 @@
-000000000000000000000000000000000GRANT EXECUTE ON h3giCatalogueCreateProductAttribute TO b4nuser
-GO
-GRANT EXECUTE ON h3giCatalogueCreateProductAttribute TO reportuser
-GO

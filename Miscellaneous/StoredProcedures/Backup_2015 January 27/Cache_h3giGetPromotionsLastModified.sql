@@ -1,2 +1,0 @@
-00000000000000GRANT EXECUTE ON Cache_h3giGetPromotionsLastModified TO b4nuser
-GO

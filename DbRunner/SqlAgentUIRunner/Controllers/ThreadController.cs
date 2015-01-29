@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System.Configuration;
+using System.Web.Mvc;
 
 using Service.Layer.ScriptRunnerService.Runner;
 
@@ -17,10 +18,11 @@ namespace SqlAgentUIRunner.Controllers
 
         public ActionResult Progress()
         {
-            _taskManager.AddTask(1, () => new SprocRunner("uatprod").RunProceduresIntoDatabase());
-            _taskManager.AddTask(2, () => new ComparisonRunner("uatprod").GenerateSprocComparisonFiles());
-            _taskManager.AddTask(3, () => new ComparisonRunner("uatprod").GetMissingProcs());
-            _taskManager.AddTask(4, () => new ComparisonRunner("uatprod").GetNewProcs());
+            var appSetting = ConfigurationManager.AppSettings["rootDir"];
+            _taskManager.AddTask(1, () => new SprocRunner("uatprod", appSetting).RunProceduresIntoDatabase());
+            _taskManager.AddTask(2, () => new ComparisonRunner("uatprod", appSetting).GenerateSprocComparisonFiles());
+            _taskManager.AddTask(3, () => new ComparisonRunner("uatprod", appSetting).GetMissingProcs());
+            _taskManager.AddTask(4, () => new ComparisonRunner("uatprod", appSetting).GetNewProcs());
             _taskManager.RunTasks();
             return RedirectToAction("Index");
         }

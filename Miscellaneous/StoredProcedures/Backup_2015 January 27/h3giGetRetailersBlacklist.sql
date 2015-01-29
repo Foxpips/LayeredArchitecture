@@ -1,2 +1,0 @@
-00000000000000000000GRANT EXECUTE ON h3giGetRetailersBlacklist TO b4nuser
-GO

@@ -1,4 +1,0 @@
-000000000000000000000000000000000000000000GRANT EXECUTE ON threeOrganizationAddressUpdate TO b4nuser
-GO
-GRANT EXECUTE ON threeOrganizationAddressUpdate TO reportuser
-GO

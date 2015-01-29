@@ -1,6 +1,4 @@
-﻿using System.Configuration;
-
-using Service.Layer.ScriptRunnerService.Agents;
+﻿using Service.Layer.ScriptRunnerService.Agents;
 
 namespace Service.Layer.ScriptRunnerService.Runner.Base
 {
@@ -8,9 +6,9 @@ namespace Service.Layer.ScriptRunnerService.Runner.Base
     {
         internal SqlAgent Agent { get; set; }
 
-        public RunnerBase(string database)
+        public RunnerBase(string database,string outputPath)
         {
-            Agent = new SqlAgent(ConfigurationManager.AppSettings[database], ConfigurationManager.AppSettings["rootDir"]);
+            Agent = new SqlAgent(database, outputPath);  
         }
     }
 }

@@ -7,9 +7,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
 
-using Business.Logic.Layer.Interfaces;
-
-using Core.Library.Exceptions;
 using Core.Library.Exceptions.Generic;
 using Core.Library.Exceptions.Generic.Args;
 using Core.Library.Helpers;

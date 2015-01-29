@@ -20,13 +20,13 @@ namespace IntegrationTests.ScriptRunnerService
         [Test]
         public void GetMissingProcs_SprocsAreUpdate_SprocsAreRunIn()
         {
-            Assert.That(SqlAgent.GetProcs_Missing_FromVersionControl_List(),Is.Not.Null);
+            Assert.That(SqlAgent.GetProcs_Missing_FromVersionControl_List(), Is.Not.Null);
         }
 
         [Test]
         public void GetNewProcs_SprocsAreUpdate_SprocsAreRunIn()
         {
-            Assert.That(SqlAgent.GetProcs_Missing_FromDatabase_List(),Is.Not.Null);
+            Assert.That(SqlAgent.GetProcs_Missing_FromDatabase_List(), Is.Not.Null);
         }
 
         [Test]

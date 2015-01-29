@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Framework.Layer.Handlers;
+using Framework.Layer.Handlers.Methods;
 
 using NUnit.Framework;
 

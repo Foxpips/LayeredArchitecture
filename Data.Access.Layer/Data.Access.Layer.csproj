@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="EntityDomain\Attributes\DataParamAttribute.cs" />
     <Compile Include="EntityDomain\Attributes\SprocNameAttribute.cs" />
+    <Compile Include="EntityDomain\IEntity.cs" />
     <Compile Include="EntityFramework\Contexts\BloggingContext.cs" />
     <Compile Include="EntityFramework\Contexts\BooksContext.cs" />
     <Compile Include="EntityFramework\Managers\BlogsManager.cs" />

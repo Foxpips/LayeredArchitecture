@@ -6,7 +6,7 @@ namespace Service.Layer.ScriptRunnerService.Runner
 {
     public sealed class SprocRunner : RunnerBase
     {
-        public SprocRunner(string database) : base(database)
+        public SprocRunner(string database, string path) : base(database, path)
         {
         }
 

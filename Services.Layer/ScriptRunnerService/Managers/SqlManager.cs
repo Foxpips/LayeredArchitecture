@@ -49,7 +49,7 @@ namespace Service.Layer.ScriptRunnerService.Managers
             return dbSprocList;
         }
 
-        public static void BackupSproc(string connectionString, string sprocName)
+        public static void BackupSproc(string connectionString, string sprocName, string sprocDirLocation = "")
         {
             var contents = new StringBuilder();
             using (var conn = new SqlConnection(connectionString))
@@ -62,13 +62,14 @@ namespace Service.Layer.ScriptRunnerService.Managers
 
                     while (sqlDataReader.Read())
                     {
-                        contents.Append(sqlDataReader.GetOrdinal("text"));
+                        var ordinal = sqlDataReader.GetOrdinal("text");
+                        contents.Append(sqlDataReader.GetValue(ordinal));
                     }
                     conn.Close();
                 }
 
                 GetSprocPermissions(sprocName, conn, contents);
-                SqlHelper.CreateFile(sprocName, contents.ToString());
+                SqlHelper.CreateFile(sprocName, contents.ToString(), sprocDirLocation);
             }
         }
 
@@ -82,12 +83,13 @@ namespace Service.Layer.ScriptRunnerService.Managers
                 SqlDataReader sqlDataReader = cmd.ExecuteReader();
 
                 while (sqlDataReader.Read())
-                    {
-                        contents.Append(sqlDataReader.GetString(0) + " " + sqlDataReader.GetString(1) + " " + sqlDataReader.GetString(2) +
-                                        " " + sqlDataReader.GetString(3) + " " + sqlDataReader.GetString(4) + " " +
-                                        sqlDataReader.GetString(5));
-                        contents.Append("\nGO" + "\n");
-                    }
+                {
+                    contents.Append(sqlDataReader.GetString(0) + " " + sqlDataReader.GetString(1) + " " +
+                                    sqlDataReader.GetString(2) +
+                                    " " + sqlDataReader.GetString(3) + " " + sqlDataReader.GetString(4) + " " +
+                                    sqlDataReader.GetString(5));
+                    contents.Append("\nGO" + "\n");
+                }
                 conn.Close();
             }
         }
@@ -115,16 +117,16 @@ namespace Service.Layer.ScriptRunnerService.Managers
                     SqlDataReader sqlDataReader = command.ExecuteReader();
                     var contents = new StringBuilder();
                     while (sqlDataReader.Read())
-                        {
-                            contents.Append(sqlDataReader.GetString(0));
-                            contents.Append(sqlDataReader.GetString(1));
-                            contents.Append(sqlDataReader.GetString(2));
-                            contents.Append(sqlDataReader.GetString(3));
-                            contents.Append(sqlDataReader.GetString(4));
-                            contents.Append(sqlDataReader.GetString(5));
-                            contents.Append("\n");
-                        }
-                        SqlHelper.CreateFile("Grant_Permissions", contents.ToString());
+                    {
+                        contents.Append(sqlDataReader.GetString(0));
+                        contents.Append(sqlDataReader.GetString(1));
+                        contents.Append(sqlDataReader.GetString(2));
+                        contents.Append(sqlDataReader.GetString(3));
+                        contents.Append(sqlDataReader.GetString(4));
+                        contents.Append(sqlDataReader.GetString(5));
+                        contents.Append("\n");
+                    }
+                    SqlHelper.CreateFile("Grant_Permissions", contents.ToString());
                 }
             }
         }

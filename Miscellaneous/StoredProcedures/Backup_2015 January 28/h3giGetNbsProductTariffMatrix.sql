@@ -1,2 +1,0 @@
-000000000000000GRANT EXECUTE ON h3giGetNbsProductTariffMatrix TO b4nuser
-GO

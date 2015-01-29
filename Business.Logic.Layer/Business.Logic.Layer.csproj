@@ -41,11 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pocos\Blog.cs" />
-    <Compile Include="Pocos\Book.cs" />
-    <Compile Include="Pocos\Movie.cs" />
-    <Compile Include="Pocos\Post.cs" />
-    <Compile Include="Interfaces\IEntity.cs" />
+    <Compile Include="Pocos\Data\Blog.cs" />
+    <Compile Include="Pocos\Data\Book.cs" />
+    <Compile Include="Pocos\Data\Movie.cs" />
+    <Compile Include="Pocos\Data\Post.cs" />
+    <Compile Include="Pocos\Data\Review.cs" />
+    <Compile Include="Pocos\Sql\SqlServerCredentials.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

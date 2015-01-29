@@ -7,7 +7,7 @@ namespace Service.Layer.ScriptRunnerService.Runner
 {
     public sealed class ComparisonRunner : RunnerBase
     {
-        public ComparisonRunner(string database) : base(database)
+        public ComparisonRunner(string database, string path) : base(database, path)
         {
         }
 

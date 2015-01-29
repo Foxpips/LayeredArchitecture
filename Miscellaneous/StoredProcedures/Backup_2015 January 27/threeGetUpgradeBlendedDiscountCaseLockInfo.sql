@@ -1,2 +1,0 @@
-000000000000000000000000000GRANT EXECUTE ON threeGetUpgradeBlendedDiscountCaseLockInfo TO b4nuser
-GO

@@ -74,7 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ScriptRunnerService\SqlCoreAgentTest.cs" />
-    <Compile Include="ScriptRunnerService\SqlCoreBackupTest.cs" />
+    <Compile Include="ScriptRunnerService\SqlCoreTests.cs" />
     <Compile Include="ScriptRunnerService\SqlCoreManagerTest.cs" />
     <Compile Include="TaskRunnerTests\SqlTaskRunnerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -87,6 +87,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Business.Logic.Layer\Business.Logic.Layer.csproj">
+      <Project>{C5C0BDBF-F2F8-4A3B-98C8-306A12918702}</Project>
+      <Name>Business.Logic.Layer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core.Library\Core.Library.csproj">
       <Project>{C3B4C1F9-0E06-49A3-88F4-FA63749D2D0D}</Project>
       <Name>Core.Library</Name>

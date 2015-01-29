@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-using Business.Logic.Layer.Pocos;
+using Business.Logic.Layer.Pocos.Data;
+using Business.Logic.Layer.Pocos.Sql;
 
 using Core.Library.Helpers;
 
@@ -19,7 +20,7 @@ namespace Tests.Library.Core.Library.Tests.Helpers
         {
             var item = new Book();
             string path = Path.GetFullPath(@"..\..\Core.Library.Tests\SampleJson\SampleJson - BookTest.json");
-            JsonHelper.SerializeJson(item, path);
+            JsonHelper.SerializeJsonToFile(item, path);
             Console.WriteLine(path);
             Assert.That(File.Exists(path), Is.True);
         }
@@ -27,8 +28,8 @@ namespace Tests.Library.Core.Library.Tests.Helpers
         [Test]
         public void Test_Json_Deserialize()
         {
-            var book = JsonHelper.DeserializeJson<Book>("SampleJson.json",
-                @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Tests.Library\Core.Library.Tests\SampleJson");
+            var book = JsonHelper.DeserializeJsonFromFile<Book>(
+                @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Tests.Library\Core.Library.Tests\SampleJson\SampleJson.json");
             Assert.That(book, Is.Not.Null.Or.Empty);
             Assert.That(book.Name, Is.EqualTo("John Carter"));
         }
@@ -36,8 +37,8 @@ namespace Tests.Library.Core.Library.Tests.Helpers
         [Test]
         public void Test_Json_Deserialize_Collection()
         {
-            var books = JsonHelper.DeserializeJson<List<Book>>("SampleJson - Books.json",
-                @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Tests.Library\Core.Library.Tests\SampleJson");
+            var books = JsonHelper.DeserializeJsonFromFile<List<Book>>(
+                @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Tests.Library\Core.Library.Tests\SampleJson\SampleJson - Books.json");
             Assert.That(books.Any());
         }
 
@@ -50,6 +51,18 @@ namespace Tests.Library.Core.Library.Tests.Helpers
             var deserializeJson = JsonHelper.DeserializeJson<Book>(serializeJson);
 
             Assert.That(deserializeJson.Name.Equals(testBook.Name), Is.True);
+        }
+
+        [Test]
+        public void Serialize_ServerCredentials_File()
+        {
+            var sqlServerCredentials = new SqlServerCredentials
+            {
+                ConnectionString = "server=sth3gisql;database=h3gi;uid=sa;pwd=kAnUTr@na5we;app=SqlScriptsRunner",
+                ServerName = "System Test"
+            };
+
+            JsonHelper.SerializeJsonToFile(sqlServerCredentials, @"..\..\..\Miscellaneous\Json\Servers.json");
         }
     }
 }

@@ -1,4 +1,0 @@
-000000000000000000000000000000000000GRANT EXECUTE ON threeBusinessOrderStatusSet TO b4nuser
-GO
-GRANT EXECUTE ON threeBusinessOrderStatusSet TO reportuser
-GO

@@ -8,7 +8,7 @@ namespace SqlAgentUIRunner.Controllers
 {
     public class BackupController : Controller
     {
-        private static readonly TaskManager _updateTaskManager = new TaskManager();
+        public static readonly TaskManager UpdateTaskManager = new TaskManager();
 
         public ActionResult Index()
         {
@@ -18,10 +18,10 @@ namespace SqlAgentUIRunner.Controllers
         [HttpPost]
         public ActionResult Backup(string environmentDdl)
         {
-            _updateTaskManager.AddTask(1, () => new BackupRunner(environmentDdl).BackUpSprocs());
-            _updateTaskManager.RunTasks();
+            UpdateTaskManager.AddTask(1,
+                () => new BackupRunner(environmentDdl).BackUpSprocs());
+            UpdateTaskManager.RunTasks();
             return RedirectToAction("Index");
         }
-
     }
 }

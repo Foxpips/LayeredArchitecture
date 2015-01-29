@@ -216,9 +216,6 @@
     <Compile Include="Infrastructure\Manager\IServiceBusMessageManager.cs" />
     <Compile Include="Infrastructure\Manager\ServiceBusMessageManager.cs" />
     <Compile Include="Infrastructure\Mappers\AutoMapperConfig.cs" />
-    <Compile Include="Infrastructure\Mappers\AutoMapperHelper.cs" />
-    <Compile Include="Infrastructure\Mappers\IMapCustom.cs" />
-    <Compile Include="Infrastructure\Mappers\IMapFrom.cs" />
     <Compile Include="Models\TaskRunnerModels\TaskRunnerPropertyModel.cs" />
     <Compile Include="Controllers\MessageBusController.cs" />
     <Compile Include="Controllers\BackupController.cs" />

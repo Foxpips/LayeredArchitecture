@@ -1,2 +1,0 @@
-000000000000000000000GRANT EXECUTE ON h3giCatalogueActivateAcrossChannel TO b4nuser
-GO

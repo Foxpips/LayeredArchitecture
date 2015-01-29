@@ -1,6 +1,0 @@
-000000000000000000000000000GRANT EXECUTE ON b4nGetHelpHeader TO b4nuser
-GO
-GRANT EXECUTE ON b4nGetHelpHeader TO ofsuser
-GO
-GRANT EXECUTE ON b4nGetHelpHeader TO reportuser
-GO

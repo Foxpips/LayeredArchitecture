@@ -1,4 +1,0 @@
-000000000000GRANT EXECUTE ON threeBusinessPortingNextSequenceNumberGet TO b4nuser
-GO
-GRANT EXECUTE ON threeBusinessPortingNextSequenceNumberGet TO reportuser
-GO

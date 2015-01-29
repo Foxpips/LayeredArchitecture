@@ -1,4 +1,0 @@
-000000000000000000000000GRANT EXECUTE ON h3giCreditCheckAddRecheckOrder TO b4nuser
-GO
-GRANT EXECUTE ON h3giCreditCheckAddRecheckOrder TO experianQueueUser
-GO
