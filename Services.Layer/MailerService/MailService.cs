@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Net.Mail;
 
-namespace TaskRunner.Core.Infrastructure.Helpers
+namespace Service.Layer.MailerService
 {
     public class MailService : IMailService
     {

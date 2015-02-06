@@ -1,12 +1,22 @@
 ﻿using System;
 using System.Threading;
 
+using Framework.Layer.Logging;
+
 using NUnit.Framework;
 
 using Rhino.ServiceBus;
 
+using Service.Layer.EncryptionService.Encryption.Asymmetric;
+using Service.Layer.EncryptionService.Services;
+
+using StructureMap;
+using StructureMap.Configuration.DSL;
+
 using TaskRunner.Common.Messages.Test;
+using TaskRunner.Common.Registries;
 using TaskRunner.Core.BootStrappers;
+using TaskRunner.Core.Infrastructure.Modules;
 using TaskRunner.Core.Reflector;
 using TaskRunner.Core.ServiceBus;
 
@@ -14,7 +24,6 @@ namespace IntegrationTests.TaskRunnerTests
 {
     public class TaskRunnerTest
     {
-        
         [Test]
         public void TaskRunner_SendReceive_Message_Tests()
         {
@@ -28,7 +37,16 @@ namespace IntegrationTests.TaskRunnerTests
             Thread.Sleep(TimeSpan.FromSeconds(2));
         }
 
-      
+        [Test]
+        public void SendMessage_Only_MessageConsumed()
+        {
+            var client = new Client<IOnewayBus>();
+            client.Bus.Send(new HelloWorldCommand {Text = new EncryptionProviderService<Rsa>().Encrypt("Hello")});
+
+            Server<CustomBootStrapper<EncryptionRegistry, ServiceBusRegistry>>.Start();
+            Thread.Sleep(TimeSpan.FromSeconds(2));
+        }
+
         [Test]
         public void TaskRunnerReflector_Tests()
         {
@@ -44,12 +62,27 @@ namespace IntegrationTests.TaskRunnerTests
             }
         }
 
-      
         [Test]
-        public void ConsumeMessage_Only_MessageConsumed()
+        public void Log4Logger_Injection_Test()
         {
-            Server<TaskRunnerBootStrapper>.Start();
-            Thread.Sleep(TimeSpan.FromSeconds(5));
+            var container = new Container(scan => scan.AddRegistry<LoggerMessageRegistry>());
+            Console.WriteLine(container.WhatDoIHave());
+            var messageLogger = container.GetNestedContainer().GetInstance<IMessageLogger>();
+
+            messageLogger.Info("Hey");
+
+//            ObjectFactory.Configure(scan => scan.AddRegistry<LoggerMessageRegistry>());
+//            Console.WriteLine(ObjectFactory.WhatDoIHave());
+//            var instance = ObjectFactory.Container.GetInstance<IMessageLogger>();
+//            instance.Info("Starting TaskRunner");
+        }
+
+        public class LoggerMessageRegistry : Registry
+        {
+            public LoggerMessageRegistry()
+            {
+                Scan(scan => For<IMessageLogger>().Transient().Use(scope => new Log4NetFileLogger()));
+            }
         }
     }
 }

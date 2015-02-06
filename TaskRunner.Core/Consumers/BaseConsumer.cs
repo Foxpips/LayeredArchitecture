@@ -6,7 +6,7 @@ using Rhino.ServiceBus;
 
 using TaskRunner.Core.Infrastructure.Aop;
 
-namespace TaskRunner.Core.Infrastructure.ServiceBus
+namespace TaskRunner.Core.Consumers
 {
     public abstract class BaseConsumer<TMessage> : ConsumerOf<TMessage>
     {

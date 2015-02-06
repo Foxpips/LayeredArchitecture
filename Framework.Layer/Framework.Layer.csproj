@@ -52,6 +52,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logging\CustomLogger.cs" />
+    <Compile Include="Logging\IMessageLogger.cs" />
+    <Compile Include="Logging\Log4NetFileLogger.cs" />
     <Compile Include="Logging\Resource\ResourceLoader.cs" />
     <Compile Include="Mapping\AutoMapperLoader.cs" />
     <Compile Include="Mapping\IMapCustom.cs" />

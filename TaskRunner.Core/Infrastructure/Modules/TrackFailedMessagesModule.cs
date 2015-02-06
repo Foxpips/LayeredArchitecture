@@ -9,9 +9,11 @@ using Rhino.ServiceBus.Impl;
 using Rhino.ServiceBus.Internal;
 using Rhino.ServiceBus.MessageModules;
 
-using TaskRunner.Core.Infrastructure.ServiceBus.Messages;
+using TaskRunner.Common.Messages;
+using TaskRunner.Core.Infrastructure.Configuration;
+using TaskRunner.Core.Infrastructure.Extenders;
 
-namespace TaskRunner.Core.Infrastructure.ServiceBus
+namespace TaskRunner.Core.Infrastructure.Modules
 {
     public class TrackFailedMessagesModule : IMessageModule
     {

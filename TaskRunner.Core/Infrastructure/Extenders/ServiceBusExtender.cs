@@ -8,13 +8,13 @@ using Common.Logging;
 using Rhino.ServiceBus;
 using Rhino.ServiceBus.Internal;
 
+using Service.Layer.MailerService;
+
 using StructureMap;
 
-using TaskRunner.Core.Infrastructure.Helpers;
-
-namespace TaskRunner.Core.Infrastructure.ServiceBus
+namespace TaskRunner.Core.Infrastructure.Extenders
 {
-    public static class ServiceBusExtensions
+    public static class ServiceBusExtender
     {
         private static readonly ILog _logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 

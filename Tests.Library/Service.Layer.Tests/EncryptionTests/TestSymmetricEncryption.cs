@@ -43,15 +43,6 @@ namespace Tests.Library.Service.Layer.Tests.EncryptionTests
         }
 
         [Test]
-        public void Symmetric_BaseClass_NotImplemented()
-        {
-            var providerBase = new SymmetricEncryptionProviderBase("", "");
-
-            Assert.Throws<NotImplementedException>(() => providerBase.Encrypt(""));
-            Assert.Throws<NotImplementedException>(() => providerBase.Decrypt(""));
-        }
-
-        [Test]
         public void RsaKey_TestedBehavior_ExpectedResult()
         {
             var rsaKey = new RsaKey();

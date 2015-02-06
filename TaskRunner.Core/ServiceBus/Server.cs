@@ -3,7 +3,9 @@
 using Rhino.ServiceBus.Hosting;
 using Rhino.ServiceBus.Msmq;
 
-using TaskRunner.Core.Infrastructure.ServiceBus;
+using StructureMap;
+
+using TaskRunner.Core.Infrastructure.Configuration;
 
 namespace TaskRunner.Core.ServiceBus
 {
@@ -11,9 +13,12 @@ namespace TaskRunner.Core.ServiceBus
     {
         public static void Start()
         {
-            var logger = new CustomLogger();
+//            var logger = new CustomLogger();
 
-            logger.Log(log => log.Info("Starting TaskRunner"));
+            var instance = ObjectFactory.Container.GetInstance<IMessageLogger>();
+
+            instance.Info("Starting TaskRunner");
+            //            logger.Log(log => log.Info("Starting TaskRunner"));
             PrepareQueues.Prepare(BusConfig.GetBusEndpoint(), QueueType.Standard);
 
             var host = new DefaultHost();

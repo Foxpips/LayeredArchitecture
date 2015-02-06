@@ -61,6 +61,10 @@
     <Compile Include="EncryptionService\Services\EncryptionKeyBuilderService.cs" />
     <Compile Include="EncryptionService\Services\EncryptionProviderService.cs" />
     <Compile Include="EncryptionService\Services\IEncryptionHelper.cs" />
+    <Compile Include="MailerService\FakeMailService.cs" />
+    <Compile Include="MailerService\IMailService.cs" />
+    <Compile Include="MailerService\MailService.cs" />
+    <Compile Include="MailerService\MailType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScriptRunnerService\Agents\SqlAgent.cs" />
     <Compile Include="ScriptRunnerService\Collections\SqlCollection.cs" />

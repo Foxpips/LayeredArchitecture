@@ -3,7 +3,7 @@ using System.Configuration;
 
 using Rhino.ServiceBus.Config;
 
-namespace TaskRunner.Core.Infrastructure.ServiceBus
+namespace TaskRunner.Core.Infrastructure.Configuration
 {
     public static class BusConfig
     {
@@ -12,7 +12,11 @@ namespace TaskRunner.Core.Infrastructure.ServiceBus
 
         public static int GetNumberOfRetries()
         {
-            return _busConfigurationSection.Value.Bus.NumberOfRetries.Value;
+            if (_busConfigurationSection.Value.Bus.NumberOfRetries != null)
+            {
+                return _busConfigurationSection.Value.Bus.NumberOfRetries.Value;
+            }
+            return 0;
         }
 
         public static string GetBusEndpoint()

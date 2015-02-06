@@ -3,7 +3,6 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-using Core.Library.Exceptions;
 using Core.Library.Exceptions.Generic;
 using Core.Library.Exceptions.Generic.Args;
 
@@ -14,7 +13,7 @@ namespace Service.Layer.EncryptionService.Encryption.Symmetric
         protected byte[] _iv;
         protected byte[] _key;
 
-        public SymmetricEncryptionProviderBase(string key, string initializationVector)
+        protected SymmetricEncryptionProviderBase(string key, string initializationVector)
         {
             _iv = Encoding.ASCII.GetBytes(initializationVector);
             _key = Encoding.ASCII.GetBytes(key);

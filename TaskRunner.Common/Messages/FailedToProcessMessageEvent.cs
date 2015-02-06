@@ -1,4 +1,4 @@
-﻿namespace TaskRunner.Core.Infrastructure.ServiceBus.Messages
+﻿namespace TaskRunner.Common.Messages
 {
     public class FailedToProcessMessageEvent
     {

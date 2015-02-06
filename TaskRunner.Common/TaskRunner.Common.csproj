@@ -95,6 +95,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\packages\Rhino.ServiceBus.3.1.1.0\lib\4.0\Rhino.ServiceBus.dll</HintPath>
     </Reference>
+    <Reference Include="Rhino.ServiceBus.StructureMap">
+      <HintPath>..\packages\Rhino.ServiceBus.StructureMap.3.1.1.0\lib\4.0\Rhino.ServiceBus.StructureMap.dll</HintPath>
+    </Reference>
+    <Reference Include="Service.Layer">
+      <HintPath>..\TaskRunner.Core\bin\Debug\Service.Layer.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -108,8 +117,10 @@
   <ItemGroup>
     <Compile Include="Messages\Backup\CleanBackupsCommand.cs" />
     <Compile Include="Messages\Backup\CleanBackupsEvent.cs" />
+    <Compile Include="Messages\FailedToProcessMessageEvent.cs" />
     <Compile Include="Messages\Test\HelloWorldCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registries\EncryptionRegistry.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

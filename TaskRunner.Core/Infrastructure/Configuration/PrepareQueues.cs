@@ -1,4 +1,5 @@
 ﻿//using log4net;
+
 using System;
 using System.Messaging;
 using System.Reflection;
@@ -8,7 +9,7 @@ using Common.Logging;
 using Rhino.ServiceBus;
 using Rhino.ServiceBus.Msmq;
 
-namespace TaskRunner.Core.Infrastructure.ServiceBus
+namespace TaskRunner.Core.Infrastructure.Configuration
 {
     public static class PrepareQueues
     {

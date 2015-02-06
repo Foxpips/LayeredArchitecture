@@ -26,8 +26,7 @@ namespace Framework.Layer.Logging
             XmlConfigurator.Configure(new MemoryStream(buffer));
         }
 
-        public
-            void Log(Action<ILog> work)
+        public void Log(Action<ILog> work)
         {
             work(_logger);
         }

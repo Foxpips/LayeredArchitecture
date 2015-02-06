@@ -19,8 +19,7 @@ namespace Tests.Library.Framework.Layer.Tests.MappingTests
         public void SetUp()
         {
             ExportedTypes = Assembly.GetExecutingAssembly().ExportedTypes.ToList();
-            AutoMapperLoader.LoadMapFromMappings(ExportedTypes);
-            AutoMapperLoader.LoadMapToMappings(ExportedTypes);
+            AutoMapperLoader.LoadAllMappings(ExportedTypes);
         }
 
         public class Animal
@@ -49,12 +48,6 @@ namespace Tests.Library.Framework.Layer.Tests.MappingTests
             var animal = Mapper.Map<Animal>(new Dog {Name = name});
 
             Assert.That(animal.Name.Equals(name));
-        }
-
-        [Test]
-        public void MethodUnderTest_TestedBehavior_ExpectedResult()
-        {
-            AutoMapperLoader.LoadCustomMappings(ExportedTypes);
         }
 
         [Test]

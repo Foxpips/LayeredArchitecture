@@ -1,6 +1,7 @@
 using Rhino.ServiceBus.StructureMap;
 
-using TaskRunner.Core.Registries;
+using TaskRunner.Common.Registries;
+using TaskRunner.Core.Infrastructure.Modules;
 
 namespace TaskRunner.Core.BootStrappers
 {
@@ -10,7 +11,11 @@ namespace TaskRunner.Core.BootStrappers
         {
             base.ConfigureContainer();
 
-            Container.Configure(cfg => cfg.AddRegistry<EncryptionRegistry>());
+            Container.Configure(cfg =>
+            {
+                cfg.AddRegistry<EncryptionRegistry>();
+                cfg.AddRegistry<ServiceBusRegistry>();
+            });
         }
     }
 }

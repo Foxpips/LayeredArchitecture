@@ -1,6 +1,4 @@
-﻿using System;
-
-using Framework.Layer.Logging;
+﻿using Framework.Layer.Logging;
 
 using Rhino.ServiceBus;
 
@@ -22,13 +20,13 @@ namespace TaskRunner.Core.Consumers
         public void Consume(HelloWorldCommand message)
         {
             var logger = new CustomLogger();
+
             logger.Log(log =>
             {
                 log.Info("ConsumingHelloWorldCommand Message!");
-                log.Info("Encrypred Text is: " + _encrpytionProvider.Encrypt(message.Text));
+                log.Info("Encrypted text is: " + message.Text);
+                log.Info("Decrypred Text is: " + _encrpytionProvider.Decrypt(message.Text));
             });
-
-            Console.WriteLine(message.Text);
         }
     }
 }

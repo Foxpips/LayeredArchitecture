@@ -1,4 +1,4 @@
-﻿namespace TaskRunner.Core.Infrastructure.Helpers
+﻿namespace Service.Layer.MailerService
 {
     public interface IMailService
     {
