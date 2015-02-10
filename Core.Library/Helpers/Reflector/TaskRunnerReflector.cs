@@ -4,7 +4,6 @@ using System.Linq;
 using System.Reflection;
 
 using Core.Library.Extensions;
-using Core.Library.Helpers;
 
 using Framework.Layer.Logging;
 
@@ -13,7 +12,7 @@ using Rhino.ServiceBus.Impl;
 
 using StructureMap;
 
-namespace TaskRunner.Core.Reflector
+namespace Core.Library.Helpers.Reflector
 {
     public class TaskRunnerReflector : IReflector
     {

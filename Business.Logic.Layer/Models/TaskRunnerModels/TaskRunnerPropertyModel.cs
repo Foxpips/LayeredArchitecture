@@ -1,4 +1,4 @@
-﻿namespace SqlAgentUIRunner.Models.TaskRunnerModels
+﻿namespace Business.Logic.Layer.Models.TaskRunnerModels
 {
     public class TaskRunnerPropertyModel
     {

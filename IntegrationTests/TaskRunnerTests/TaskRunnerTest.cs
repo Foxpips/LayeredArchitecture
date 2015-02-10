@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading;
 
+using Core.Library.Helpers.Reflector;
+
 using Framework.Layer.Logging;
 
 using NUnit.Framework;
@@ -17,7 +19,6 @@ using TaskRunner.Common.Messages.Test;
 using TaskRunner.Common.Registries;
 using TaskRunner.Core.BootStrappers;
 using TaskRunner.Core.Infrastructure.Modules;
-using TaskRunner.Core.Reflector;
 using TaskRunner.Core.ServiceBus;
 
 namespace IntegrationTests.TaskRunnerTests

@@ -3,8 +3,10 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Threading;
 using System.Web.Mvc;
+
+using Business.Logic.Layer.Models;
+
 using WebMatrix.WebData;
-using SqlAgentUIRunner.Models;
 
 namespace SqlAgentUIRunner.Filters
 {

@@ -218,3 +218,44 @@ SqlAgentUIRunner.Models.TaskRunnerModels.TaskRunnerPropertyModel
 2015-02-10 14:23:42,142 [21] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
 2015-02-10 14:23:42,281 [21] INFO Framework.Layer.Logging.CustomLogger - Sending message to the bus: HelloWorldCommand
 2015-02-10 14:23:42,425 [21] INFO Framework.Layer.Logging.CustomLogger - Message sent successfully!
+2015-02-10 15:01:33,667 [7] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 15:01:37,918 [7] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 15:20:40,773 [72] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 15:20:42,677 [38] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 15:20:46,839 [72] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 15:32:06,815 [63] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 15:32:08,804 [66] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 15:32:10,969 [73] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 16:44:53,146 [7] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 16:44:56,459 [6] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 16:45:00,570 [11] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 16:45:07,981 [24] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 16:45:08,059 [24] ERROR Framework.Layer.Logging.CustomLogger - System.IO.FileLoadException: Could not load file or assembly 'AutoMapper, Version=2.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)
+File name: 'AutoMapper, Version=2.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005'
+   at Core.Library.Managers.ServiceBus.ServiceBusMessageManager.SendMessage(String typeName, TaskRunnerPropertyModel[] propertiesForMessage)
+   at SqlAgentUIRunner.Controllers.MessageBusController.<>c__DisplayClass5.<SendMessage>b__4() in c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\DbRunner\SqlAgentUIRunner\Controllers\MessageBusController.cs:line 38
+   at Core.Library.Helpers.SafeExecutionHelper.Try[TType](Func`1 work) in c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Core.Library\Helpers\SafeExecutionHelper.cs:line 26
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+2015-02-10 16:45:22,212 [6] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 16:45:22,269 [6] ERROR Framework.Layer.Logging.CustomLogger - System.IO.FileLoadException: Could not load file or assembly 'AutoMapper, Version=2.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005' or one of its dependencies. The located assembly's manifest definition does not match the assembly reference. (Exception from HRESULT: 0x80131040)
+File name: 'AutoMapper, Version=2.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005'
+   at Core.Library.Managers.ServiceBus.ServiceBusMessageManager.SendMessage(String typeName, TaskRunnerPropertyModel[] propertiesForMessage)
+   at SqlAgentUIRunner.Controllers.MessageBusController.<>c__DisplayClass5.<SendMessage>b__4() in c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\DbRunner\SqlAgentUIRunner\Controllers\MessageBusController.cs:line 38
+   at Core.Library.Helpers.SafeExecutionHelper.Try[TType](Func`1 work) in c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Core.Library\Helpers\SafeExecutionHelper.cs:line 26
+
+WRN: Assembly binding logging is turned OFF.
+To enable assembly bind failure logging, set the registry value [HKLM\Software\Microsoft\Fusion!EnableLog] (DWORD) to 1.
+Note: There is some performance penalty associated with assembly bind failure logging.
+To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fusion!EnableLog].
+
+2015-02-10 16:49:21,299 [39] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 16:49:25,185 [38] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 16:49:26,430 [42] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 16:49:47,091 [39] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 16:49:47,226 [39] INFO Framework.Layer.Logging.CustomLogger - Sending message to the bus: HelloWorldCommand
+2015-02-10 16:49:47,326 [39] INFO Framework.Layer.Logging.CustomLogger - Message sent successfully!

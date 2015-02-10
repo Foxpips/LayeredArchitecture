@@ -1,9 +1,9 @@
 ﻿using System.Web.Mvc;
 
-using Core.Library.Helpers;
+using Business.Logic.Layer.Models.TaskRunnerModels;
 
-using SqlAgentUIRunner.Infrastructure.Manager;
-using SqlAgentUIRunner.Models.TaskRunnerModels;
+using Core.Library.Helpers;
+using Core.Library.Managers.ServiceBus;
 
 namespace SqlAgentUIRunner.Controllers
 {

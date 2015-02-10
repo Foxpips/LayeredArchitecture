@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace SqlAgentUIRunner.Models.TaskRunnerModels
+namespace Business.Logic.Layer.Models.TaskRunnerModels
 {
     [Serializable]
     public class TaskRunnerMessagesModel

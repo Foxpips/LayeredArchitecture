@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Linq;
 
+using Business.Logic.Layer.Models.TaskRunnerModels;
+
+using Core.Library.Helpers.Reflector;
+using Core.Library.Managers.ServiceBus;
+
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 
 using SqlAgentUIRunner.Controllers;
-using SqlAgentUIRunner.Infrastructure.Manager;
-using SqlAgentUIRunner.Models.TaskRunnerModels;
 
 using TaskRunner.Common.Messages.Test;
-using TaskRunner.Core.Reflector;
 
 namespace IntegrationTests.TaskRunnerTests
 {

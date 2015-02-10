@@ -1,9 +1,9 @@
 ﻿using System.Configuration;
 using System.Web.Mvc;
 
-using Service.Layer.ScriptRunnerService.Runner;
+using Core.Library.Managers.Tasks;
 
-using SqlAgentUIRunner.Infrastructure.Manager;
+using Service.Layer.ScriptRunnerService.Runner;
 
 namespace SqlAgentUIRunner.Controllers
 {

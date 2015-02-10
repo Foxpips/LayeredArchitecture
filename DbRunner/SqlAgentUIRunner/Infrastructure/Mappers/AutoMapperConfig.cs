@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
 
+using Business.Logic.Layer.Models.TaskRunnerModels;
+
 using Core.Library.Extensions;
-
-using SqlAgentUIRunner.Models.TaskRunnerModels;
-
-using TaskRunner.Core.Reflector;
 
 namespace SqlAgentUIRunner.Infrastructure.Mappers
 {

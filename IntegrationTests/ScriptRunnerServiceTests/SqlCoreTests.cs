@@ -16,7 +16,7 @@ using Service.Layer.ScriptRunnerService.SqlManagers;
 
 using SqlAgentUIRunner.Controllers;
 
-namespace IntegrationTests.ScriptRunnerService
+namespace IntegrationTests.ScriptRunnerServiceTests
 {
     [TestFixture]
     internal sealed class SqlCoreTests

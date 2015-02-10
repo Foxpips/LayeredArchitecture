@@ -1,18 +1,21 @@
 ﻿using System;
 
+using Business.Logic.Layer.Models.TaskRunnerModels;
+
+using Core.Library.Managers.ServiceBus;
+
 using NUnit.Framework;
 
-using SqlAgentUIRunner.Infrastructure.Manager;
+using SqlAgentUIRunner.Controllers;
 
+using StructureMap;
 using StructureMap.Configuration.DSL;
 
-using TaskRunner.Core.Reflector;
+using TaskRunner.Common.Registries;
 
-using Container = StructureMap.Container;
-
-namespace SqlAgentUIRunner.Tests
+namespace IntegrationTests.ScriptRunnerServiceTests.IoC
 {
-    public class TestSMap
+    public class ControllerInjectionTests
     {
         [Test]
         public void MethodUnderTest_TestedBehavior_ExpectedResult()
@@ -28,15 +31,33 @@ namespace SqlAgentUIRunner.Tests
         public void TestReflect()
         {
             var container = new Container(new ReflectorRegistry());
-//            Console.WriteLine(container.WhatDoIHave());
 
-            var reflector = container.GetInstance<ServiceBusMessageManager>();
+            var reflector = container.GetInstance<IServiceBusMessageManager>();
 
             var taskRunnerMessagesModel = reflector.BuildMessagesModel();
 
             foreach (var message in taskRunnerMessagesModel.Messages)
             {
                 Console.WriteLine(message);
+            }
+        }
+
+        [Test]
+        public void TestController_TestedBehavior_ExpectedResult()
+        {
+            var container = new Container(new ReflectorRegistry());
+
+            var messageBusController = container.GetInstance<MessageBusController>();
+
+            var jsonResult = messageBusController.GetMessages();
+            var value = (jsonResult.Data as TaskRunnerMessagesModel);
+
+            if (value != null)
+            {
+                foreach (var taskRunnerMessagesModel in value.Messages)
+                {
+                    Console.WriteLine(taskRunnerMessagesModel);
+                }
             }
         }
     }
@@ -86,24 +107,6 @@ namespace SqlAgentUIRunner.Tests
         {
             For<ICreditCard>().Use<MasterCard>().Ctor<string>("output").Is("swiping the master card");
             For<Shopper>().Use<Shopper>().Ctor<string>("path").Is("hello");
-//            ObjectFactory.Container.Configure(x => x.Scan(scan =>
-//            {
-//                For<ICreditCard>().Use<MasterCard>().Ctor<string>("output").Is("swiping the master card");
-//                For<IShopper>().Use<Shopper>().Ctor<string>("path").Is("hello");
-//            }));
-        }
-    }
-
-    public class ReflectorRegistry : Registry
-    {
-        public ReflectorRegistry()
-        {
-            For<IReflector>().Use<TaskRunnerReflector>();
-            For<ServiceBusMessageManager>()
-                .Use<ServiceBusMessageManager>()
-                .Ctor<string>("path")
-                .Is(
-                    @"c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\TaskRunner.Common\bin\Debug\TaskRunner.Common.dll");
         }
     }
 }

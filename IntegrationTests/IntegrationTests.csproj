@@ -81,9 +81,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ScriptRunnerService\SqlCoreAgentTest.cs" />
-    <Compile Include="ScriptRunnerService\SqlCoreTests.cs" />
-    <Compile Include="ScriptRunnerService\SqlCoreManagerTest.cs" />
+    <Compile Include="ScriptRunnerServiceTests\SqlCoreAgentTest.cs" />
+    <Compile Include="ScriptRunnerServiceTests\SqlCoreTests.cs" />
+    <Compile Include="ScriptRunnerServiceTests\SqlCoreManagerTest.cs" />
+    <Compile Include="ScriptRunnerServiceTests\IoC\ControllerInjectionTests.cs" />
     <Compile Include="TaskRunnerTests\SqlTaskRunnerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaskRunnerTests\TaskRunnerTest.cs" />

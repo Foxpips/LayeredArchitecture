@@ -1,6 +1,6 @@
-using SqlAgentUIRunner.Models.TaskRunnerModels;
+using Business.Logic.Layer.Models.TaskRunnerModels;
 
-namespace SqlAgentUIRunner.Infrastructure.Manager
+namespace Core.Library.Managers.ServiceBus
 {
     public interface IServiceBusMessageManager
     {

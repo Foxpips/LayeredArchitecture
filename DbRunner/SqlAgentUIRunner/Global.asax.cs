@@ -4,6 +4,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
+using SqlAgentUIRunner.DependencyResolution;
 using SqlAgentUIRunner.Infrastructure.Factories;
 using SqlAgentUIRunner.Infrastructure.Mappers;
 
@@ -25,7 +26,9 @@ namespace SqlAgentUIRunner
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
 
-            ControllerBuilder.Current.SetControllerFactory(new CustomControllerFactory());
+            StructuremapMvc.Start();
+    
+//            ControllerBuilder.Current.SetControllerFactory(new CustomControllerFactory());
         }
 
         private static void InitializeAutoMapper()

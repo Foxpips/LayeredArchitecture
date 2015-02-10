@@ -3,13 +3,12 @@ using System.Reflection;
 
 using AutoMapper;
 
+using Business.Logic.Layer.Models.TaskRunnerModels;
+
 using Core.Library.Extensions;
+using Core.Library.Helpers.Reflector;
 
-using SqlAgentUIRunner.Models.TaskRunnerModels;
-
-using TaskRunner.Core.Reflector;
-
-namespace SqlAgentUIRunner.Infrastructure.Manager
+namespace Core.Library.Managers.ServiceBus
 {
     public class ServiceBusMessageManager : IServiceBusMessageManager
     {

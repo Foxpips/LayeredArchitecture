@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 using Core.Library.Extensions;
 
-namespace TaskRunner.Core.Reflector
+namespace Core.Library.Helpers.Reflector
 {
     public interface IReflector
     {

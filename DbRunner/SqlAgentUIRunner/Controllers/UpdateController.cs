@@ -1,10 +1,10 @@
 ﻿using System.Configuration;
 using System.Web.Mvc;
 
+using Core.Library.Managers.Tasks;
+
 using Service.Layer.ScriptRunnerService.Collections;
 using Service.Layer.ScriptRunnerService.Runner;
-
-using SqlAgentUIRunner.Infrastructure.Manager;
 
 namespace SqlAgentUIRunner.Controllers
 {
