@@ -208,3 +208,13 @@ SqlAgentUIRunner.Models.TaskRunnerModels.TaskRunnerPropertyModel
 2015-01-28 11:39:10,954 [49] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
 2015-01-28 11:39:13,045 [49] INFO Framework.Layer.Logging.CustomLogger - Sending message to the bus: HelloWorldCommand
 2015-01-28 11:39:23,347 [49] INFO Framework.Layer.Logging.CustomLogger - Message sent successfully!
+2015-02-10 14:23:22,031 [6] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 14:23:24,598 [11] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 14:23:26,279 [23] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 14:23:27,969 [6] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 14:23:30,232 [24] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 14:23:31,632 [23] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 14:23:33,392 [6] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 14:23:42,142 [21] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-10 14:23:42,281 [21] INFO Framework.Layer.Logging.CustomLogger - Sending message to the bus: HelloWorldCommand
+2015-02-10 14:23:42,425 [21] INFO Framework.Layer.Logging.CustomLogger - Message sent successfully!
