@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Threading;
 
+using Business.Objects.Layer.Interfaces.Logging;
+
 using Core.Library.Helpers.Reflector;
 
 using Framework.Layer.Logging;
@@ -71,11 +73,6 @@ namespace IntegrationTests.TaskRunnerTests
             var messageLogger = container.GetNestedContainer().GetInstance<IMessageLogger>();
 
             messageLogger.Info("Hey");
-
-//            ObjectFactory.Configure(scan => scan.AddRegistry<LoggerMessageRegistry>());
-//            Console.WriteLine(ObjectFactory.WhatDoIHave());
-//            var instance = ObjectFactory.Container.GetInstance<IMessageLogger>();
-//            instance.Info("Starting TaskRunner");
         }
 
         public class LoggerMessageRegistry : Registry

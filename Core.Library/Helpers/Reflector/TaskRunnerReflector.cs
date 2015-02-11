@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
+using Business.Objects.Layer.Interfaces.Reflection;
+using Business.Objects.Layer.Pocos.Reflection;
+
 using Core.Library.Extensions;
 
 using Framework.Layer.Logging;

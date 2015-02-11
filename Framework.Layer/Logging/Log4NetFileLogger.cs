@@ -4,6 +4,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
+using Business.Objects.Layer.Interfaces.Logging;
+
 using Framework.Layer.Logging.Resource;
 
 using log4net;

@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -47,21 +50,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\TaskRunnerModels\TaskRunnerMessagesModel.cs" />
-    <Compile Include="Models\TaskRunnerModels\TaskRunnerPropertiesModel.cs" />
-    <Compile Include="Models\TaskRunnerModels\TaskRunnerPropertyModel.cs" />
-    <Compile Include="Pocos\Data\Blog.cs" />
-    <Compile Include="Pocos\Data\Book.cs" />
-    <Compile Include="Pocos\Data\Movie.cs" />
-    <Compile Include="Pocos\Data\Post.cs" />
-    <Compile Include="Pocos\Data\Review.cs" />
-    <Compile Include="Pocos\Sql\SqlServerCredentials.cs" />
+    <Compile Include="Managers\ServiceBus\IServiceBusMessageManager.cs" />
+    <Compile Include="Managers\ServiceBus\ServiceBusMessageManager.cs" />
+    <Compile Include="Managers\Tasks\TaskManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business.Objects.Layer\Business.Objects.Layer.csproj">
+      <Project>{b9e3a8ff-4b44-49e0-9c4d-1e3086354090}</Project>
+      <Name>Business.Objects.Layer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

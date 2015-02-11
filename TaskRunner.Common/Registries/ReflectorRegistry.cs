@@ -1,5 +1,8 @@
-﻿using Core.Library.Helpers.Reflector;
-using Core.Library.Managers.ServiceBus;
+﻿using Business.Logic.Layer.Managers.ServiceBus;
+using Business.Objects.Layer.Interfaces;
+using Business.Objects.Layer.Interfaces.Reflection;
+
+using Core.Library.Helpers.Reflector;
 
 using StructureMap.Configuration.DSL;
 

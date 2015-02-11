@@ -1,14 +1,10 @@
 ﻿using System;
 using System.Linq;
 
+using Business.Objects.Layer.Pocos.Reflection;
+
 namespace Core.Library.Extensions
 {
-    public class PropertyWithValue
-    {
-        public string Name { get; set; }
-        public string Value { get; set; }
-    }
-
     public static class ReflectionExtender
     {
         public static void SetPublicProperties(this object instance, PropertyWithValue[] props)

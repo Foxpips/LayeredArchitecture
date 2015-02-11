@@ -4,10 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 
-using Business.Logic.Layer.Pocos.Sql;
+using Business.Objects.Layer.Pocos.Sql;
 
 using Core.Library.Helpers;
-using Core.Library.Managers;
 
 using NUnit.Framework;
 
@@ -80,7 +79,7 @@ namespace IntegrationTests.ScriptRunnerServiceTests
         [Test]
         public void CompareSprocs_UsingComparisonRunner_Agent()
         {
-            using (var dmanager = new DirectoryManager(ComparisonOutputDirectory, true))
+            using (var dmanager = new DirectoryHelper(ComparisonOutputDirectory, true))
             {
                 var backupRunner =
                     new ComparisonRunner(

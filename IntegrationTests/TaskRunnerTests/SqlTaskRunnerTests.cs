@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 
-using Business.Logic.Layer.Models.TaskRunnerModels;
+using Business.Logic.Layer.Managers.ServiceBus;
+using Business.Objects.Layer.Models.TaskRunnerModels;
 
 using Core.Library.Helpers.Reflector;
-using Core.Library.Managers.ServiceBus;
 
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;

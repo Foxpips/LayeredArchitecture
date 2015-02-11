@@ -259,3 +259,30 @@ To turn this feature off, remove the registry value [HKLM\Software\Microsoft\Fus
 2015-02-10 16:49:47,091 [39] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
 2015-02-10 16:49:47,226 [39] INFO Framework.Layer.Logging.CustomLogger - Sending message to the bus: HelloWorldCommand
 2015-02-10 16:49:47,326 [39] INFO Framework.Layer.Logging.CustomLogger - Message sent successfully!
+2015-02-11 11:31:14,640 [11] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-11 11:31:16,147 [9] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-11 11:31:18,411 [8] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-11 11:31:30,196 [8] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-11 11:31:30,450 [8] ERROR Framework.Layer.Logging.CustomLogger - AutoMapper.AutoMapperMappingException: Missing type map configuration or unsupported mapping.
+
+Mapping types:
+TaskRunnerPropertyModel -> PropertyWithValue
+Business.Objects.Layer.Models.TaskRunnerModels.TaskRunnerPropertyModel -> Business.Objects.Layer.Pocos.Reflection.PropertyWithValue
+
+Destination path:
+PropertyWithValue[][0]
+
+Source value:
+Business.Objects.Layer.Models.TaskRunnerModels.TaskRunnerPropertyModel
+   at AutoMapper.MappingEngine.AutoMapper.IMappingEngineRunner.Map(ResolutionContext context)
+   at AutoMapper.Mappers.EnumerableMapperBase`1.Map(ResolutionContext context, IMappingEngineRunner mapper)
+   at AutoMapper.MappingEngine.AutoMapper.IMappingEngineRunner.Map(ResolutionContext context)
+   at AutoMapper.MappingEngine.Map(Object source, Type sourceType, Type destinationType, Action`1 opts)
+   at AutoMapper.MappingEngine.Map[TDestination](Object source, Action`1 opts)
+   at AutoMapper.MappingEngine.Map[TDestination](Object source)
+   at AutoMapper.Mapper.Map[TDestination](Object source)
+   at Business.Logic.Layer.Managers.ServiceBus.ServiceBusMessageManager.SendMessage(String typeName, TaskRunnerPropertyModel[] propertiesForMessage) in c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Business.Logic.Layer\Managers\ServiceBus\ServiceBusMessageManager.cs:line 49
+   at SqlAgentUIRunner.Controllers.MessageBusController.<>c__DisplayClass5.<SendMessage>b__4() in c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\DbRunner\SqlAgentUIRunner\Controllers\MessageBusController.cs:line 38
+   at Core.Library.Helpers.SafeExecutionHelper.Try[TType](Func`1 work) in c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Core.Library\Helpers\SafeExecutionHelper.cs:line 26
+2015-02-11 11:32:04,970 [8] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus
+2015-02-11 11:32:05,533 [10] INFO Framework.Layer.Logging.CustomLogger - Configuring the service bus

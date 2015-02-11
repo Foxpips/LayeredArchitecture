@@ -9,7 +9,6 @@ namespace Core.Library.Exceptions.Generic
     {
         private readonly TExceptionArgs _args;
 
-        
         public CustomException(TExceptionArgs args)
         {
             _args = args;

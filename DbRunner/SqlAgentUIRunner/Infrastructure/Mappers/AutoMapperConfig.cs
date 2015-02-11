@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
 
-using Business.Logic.Layer.Models.TaskRunnerModels;
-
-using Core.Library.Extensions;
+using Business.Objects.Layer.Models.TaskRunnerModels;
+using Business.Objects.Layer.Pocos.Reflection;
 
 namespace SqlAgentUIRunner.Infrastructure.Mappers
 {

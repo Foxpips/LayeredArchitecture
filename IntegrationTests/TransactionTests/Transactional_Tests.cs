@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-using Business.Logic.Layer.Pocos.Data;
+using Business.Objects.Layer.Pocos.Data;
 
 using Core.Library.Exceptions.Generic;
 using Core.Library.Exceptions.Generic.Args;

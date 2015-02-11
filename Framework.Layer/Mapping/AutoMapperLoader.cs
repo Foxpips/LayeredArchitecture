@@ -4,6 +4,8 @@ using System.Linq;
 
 using AutoMapper;
 
+using Business.Objects.Layer.Interfaces.AutoMapper;
+
 namespace Framework.Layer.Mapping
 {
     public class AutoMapperLoader
@@ -11,8 +13,8 @@ namespace Framework.Layer.Mapping
         public static void LoadAllMappings(IEnumerable<Type> types)
         {
             var typesList = types.ToList();
-            LoadMapFromMappings(typesList, CreateMapFromMappings);
-            LoadMapFromMappings(typesList, CreateMapToMappings);
+
+            LoadToFromMappings(typesList);
             LoadCustomMappings(typesList);
         }
 
@@ -27,40 +29,37 @@ namespace Framework.Layer.Mapping
             }
         }
 
-        private static void LoadMapFromMappings(IEnumerable<Type> types, Action<Type[], Type> createMappings)
+        private static void LoadToFromMappings(IEnumerable<Type> types)
         {
             foreach (var exportedType in types)
             {
-                var imapInterface = exportedType.GetInterfaces();
-                var type = exportedType;
-                createMappings(imapInterface, type);
+                var imapInterfaces = exportedType.GetInterfaces();
+
+                CreateMappings<IMapTo>(imapInterfaces, exportedType,
+                    (genericType, baseType) => Mapper.CreateMap(baseType, genericType));
+
+                CreateMappings<IMapFrom>(imapInterfaces, exportedType,
+                    (genericType, baseType) => Mapper.CreateMap(genericType, baseType));
             }
         }
 
-        private static void CreateMapFromMappings(IEnumerable<Type> imapInterface, Type type)
+        private static void CreateMappings<TMapType>(
+            IEnumerable<Type> imapInterfaces, Type type, Action<Type, Type> map)
         {
-            foreach (var maps in imapInterface.Where(
-                interfaceImplemented =>
-                    interfaceImplemented.IsGenericType && typeof (IMapFrom).IsAssignableFrom(type))
-                .Select(mapping => new {Source = mapping.GetGenericArguments(), Dest = type}))
-            {
-                foreach (var mappableType in maps.Source)
-                {
-                    Mapper.CreateMap(mappableType, maps.Dest);
-                }
-            }
-        }
 
-        private static void CreateMapToMappings(IEnumerable<Type> imapInterface, Type type)
-        {
-            foreach (var maps in imapInterface.Where(
-                interfaceImplemented =>
-                    interfaceImplemented.IsGenericType && typeof (IMapFrom).IsAssignableFrom(type))
-                .Select(mapping => new {Source = mapping.GetGenericArguments(), Dest = type}))
+            var enumerable =
+                imapInterfaces.Where(
+                    interfaceImplemented =>
+                        interfaceImplemented.IsGenericType && typeof (TMapType).IsAssignableFrom(type) &&
+                        interfaceImplemented.Name.Contains(typeof (TMapType).Name));
+
+            foreach (var maps in 
+                enumerable.Select(mapping => new {GenericTypes = mapping.GetGenericArguments(), BaseType = type}))
             {
-                foreach (var mappableType in maps.Source)
+                foreach (var genericType in maps.GenericTypes)
                 {
-                    Mapper.CreateMap(maps.Dest, mappableType);
+                    map(genericType, maps.BaseType);
+                    Mapper.AssertConfigurationIsValid();
                 }
             }
         }

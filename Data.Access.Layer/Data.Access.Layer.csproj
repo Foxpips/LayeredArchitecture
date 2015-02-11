@@ -68,6 +68,10 @@
       <Project>{C5C0BDBF-F2F8-4A3B-98C8-306A12918702}</Project>
       <Name>Business.Logic.Layer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Business.Objects.Layer\Business.Objects.Layer.csproj">
+      <Project>{b9e3a8ff-4b44-49e0-9c4d-1e3086354090}</Project>
+      <Name>Business.Objects.Layer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Core.Library\Core.Library.csproj">
       <Project>{C3B4C1F9-0E06-49A3-88F4-FA63749D2D0D}</Project>
       <Name>Core.Library</Name>

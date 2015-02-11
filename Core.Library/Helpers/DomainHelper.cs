@@ -10,6 +10,6 @@ namespace Core.Library.Helpers
             return AppDomain.CurrentDomain.GetAssemblies()
                 .SelectMany(x => x.GetTypes())
                 .FirstOrDefault(x => x.Name == typeName);
-        } 
+        }
     }
 }

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-using Business.Logic.Layer.Pocos.Data;
-using Business.Logic.Layer.Pocos.Sql;
+using Business.Objects.Layer.Pocos.Data;
+using Business.Objects.Layer.Pocos.Sql;
 
 using Core.Library.Helpers;
 

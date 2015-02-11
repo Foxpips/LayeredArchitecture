@@ -1,12 +1,13 @@
-﻿using System.Web;
+﻿using System.Reflection;
+using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-using SqlAgentUIRunner.DependencyResolution;
-using SqlAgentUIRunner.Infrastructure.Factories;
-using SqlAgentUIRunner.Infrastructure.Mappers;
+using Business.Objects.Layer.Interfaces.AutoMapper;
+
+using Framework.Layer.Mapping;
 
 namespace SqlAgentUIRunner
 {
@@ -17,7 +18,8 @@ namespace SqlAgentUIRunner
     {
         protected void Application_Start()
         {
-            InitializeAutoMapper();
+            AutoMapperLoader.LoadAllMappings(typeof(IMapCustom).Assembly.ExportedTypes);
+
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
@@ -27,13 +29,13 @@ namespace SqlAgentUIRunner
             AuthConfig.RegisterAuth();
 
             StructuremapMvc.Start();
-    
+
 //            ControllerBuilder.Current.SetControllerFactory(new CustomControllerFactory());
         }
 
-        private static void InitializeAutoMapper()
-        {
-            AutoMapperConfig.RegisterMappings();
-        }
+//        private static void InitializeAutoMapper()
+//        {
+//            AutoMapperConfig.RegisterMappings();
+//        }
     }
 }

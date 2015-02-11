@@ -1,6 +1,6 @@
 ﻿using System.IO;
 
-using Business.Logic.Layer.Pocos.Data;
+using Business.Objects.Layer.Pocos.Data;
 
 using Core.Library.Helpers;
 
@@ -33,8 +33,6 @@ namespace Tests.Library.Core.Library.Tests.HelpersTests
             {
                 File.Delete(path);
             }
-
-            
 
             const string movieName = "The Princess Bride";
             XmlHelper.SerializeXml(

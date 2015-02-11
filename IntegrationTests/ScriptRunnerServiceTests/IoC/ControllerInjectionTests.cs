@@ -1,8 +1,7 @@
 ﻿using System;
 
-using Business.Logic.Layer.Models.TaskRunnerModels;
-
-using Core.Library.Managers.ServiceBus;
+using Business.Logic.Layer.Managers.ServiceBus;
+using Business.Objects.Layer.Models.TaskRunnerModels;
 
 using NUnit.Framework;
 
