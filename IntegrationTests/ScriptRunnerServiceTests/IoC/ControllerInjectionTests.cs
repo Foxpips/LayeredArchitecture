@@ -3,6 +3,8 @@
 using Business.Logic.Layer.Managers.ServiceBus;
 using Business.Logic.Layer.Models.TaskRunner;
 
+using Dependency.Resolver.Registries;
+
 using NUnit.Framework;
 
 using SqlAgentUIRunner.Controllers;
@@ -10,9 +12,7 @@ using SqlAgentUIRunner.Controllers;
 using StructureMap;
 using StructureMap.Configuration.DSL;
 
-using TaskRunner.Common.Registries;
-
-namespace IntegrationTests.ScriptRunnerServiceTests.IoC
+namespace Tests.Integration.ScriptRunnerServiceTests.IoC
 {
     public class ControllerInjectionTests
     {

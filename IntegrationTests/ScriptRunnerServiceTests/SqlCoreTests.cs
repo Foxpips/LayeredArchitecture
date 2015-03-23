@@ -31,7 +31,6 @@ namespace Tests.Integration.ScriptRunnerServiceTests
         [SetUp]
         public void Setup()
         {
-            JsonHelper = new JsonHelper(new Log4NetFileLogger(GetType(),Directory.GetCurrentDirectory() + "/SqlCoreTests_Log.txt"));
             _connectionString = JsonHelper.DeserializeJsonFromFile<SqlServerCredentials>(@"..\..\..\Miscellaneous\Json\Servers.json").ConnectionString;
             _rootdirString = @"../../../Miscellaneous\StoredProcedures\";
             BackupsOutputDirectory = @"..\..\..\Miscellaneous\StoredProcedures\Backup_" + DateTime.Now.ToString("yyyy MMMM dd");

@@ -12,20 +12,10 @@ using Data.Access.Layer.EntityFramework.Managers;
 
 using NUnit.Framework;
 
-using StructureMap;
-
-using TaskRunner.Common.Registries;
-
 namespace Tests.Integration.TransactionTests
 {
     public class RollbackOnExceptionTransactionalTests
     {
-        [SetUp]
-        public void Setup()
-        {
-            ObjectFactory.Initialize(x => x.AddRegistry(new LoggerRegistry()));
-        }
-
         [Test]
         public void ThrowCustomException_DatabaseError_ConfirmRollBackSuccessful()
         {

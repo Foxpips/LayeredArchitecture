@@ -1,7 +1,7 @@
 ﻿using System;
 
+using Framework.Layer.Loaders.Resource;
 using Framework.Layer.Logging;
-using Framework.Layer.Logging.Resource;
 
 using NUnit.Framework;
 

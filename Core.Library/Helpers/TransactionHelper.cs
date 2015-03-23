@@ -14,7 +14,7 @@ namespace Core.Library.Helpers
                     Timeout = TransactionManager.MaximumTimeout
                 }))
             {
-                SafeExecutionHelper.Try(work);
+                SafeExecutionHelper.ExecuteSafely<TransactionAbortedException>(work);
                 scope.Complete();
             }
         }

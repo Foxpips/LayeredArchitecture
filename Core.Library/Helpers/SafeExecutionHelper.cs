@@ -2,13 +2,20 @@
 
 using Business.Logic.Layer.Interfaces.Logging;
 
-using Framework.Layer.Logging;
+using StructureMap;
 
 namespace Core.Library.Helpers
 {
-    public class SafeExecutionHelper
+    public static class SafeExecutionHelper
     {
-        public static TType ExecuteSafely<TType, TException>(ICustomLogger logger, Func<TType> work)
+        private static readonly ICustomLogger _customLogger;
+
+        static SafeExecutionHelper()
+        {
+            _customLogger = ObjectFactory.Container.GetInstance<ICustomLogger>();
+        }
+
+        public static TType ExecuteSafely<TType, TException>(Func<TType> work)
             where TException : Exception
         {
             try
@@ -17,36 +24,49 @@ namespace Core.Library.Helpers
             }
             catch (TException ex)
             {
-                logger.Error(ex.Message);
+                _customLogger.Error(ex.Message);
             }
 
             return default(TType);
         }
 
-        public static void Try(Action work)
+        public static void ExecuteSafely<TException>(Action work)
+            where TException : Exception
         {
             try
             {
                 work();
             }
-            catch (Exception ex)
+            catch (TException ex)
             {
-                new CustomLogger().Log(msg => msg.Error(ex));
-                throw;
+                _customLogger.Error(ex.Message);
             }
         }
 
-        public static TType Try<TType>(Func<TType> work)
-        {
-            try
-            {
-                return work();
-            }
-            catch (Exception ex)
-            {
-                new CustomLogger().Log(msg => msg.Error(ex));
-                throw;
-            }
-        }
+//        public static void Try(Action work)
+//        {
+//            try
+//            {
+//                work();
+//            }
+//            catch (Exception ex)
+//            {
+//                new CustomLogger().Log(msg => msg.Error(ex));
+//                throw;
+//            }
+//        }
+//
+//        public static TType Try<TType>(Func<TType> work)
+//        {
+//            try
+//            {
+//                return work();
+//            }
+//            catch (Exception ex)
+//            {
+//                new CustomLogger().Log(msg => msg.Error(ex));
+//                throw;
+//            }
+//        }
     }
 }

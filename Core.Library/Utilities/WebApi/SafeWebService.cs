@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Web.Services;
 
+using Business.Logic.Layer.Interfaces.Logging;
+
 using Core.Library.Exceptions.Basic;
 
-using Framework.Layer.Logging;
+using StructureMap;
 
 namespace Core.Library.Utilities.WebApi
 {
     public class SafeWebService : WebService
     {
-        public CustomLogger Logger { get; set; }
+        public ICustomLogger Logger { get; set; }
 
         public SafeWebService()
         {
-            Logger = new CustomLogger();
+            Logger = ObjectFactory.Container.GetInstance<ICustomLogger>();
         }
 
         protected TType Execute<TType>(Func<TType> request)
@@ -24,17 +26,17 @@ namespace Core.Library.Utilities.WebApi
             }
             catch (ApiSoapException ex)
             {
-                Logger.Log(msg => msg.Error(ex));
+                Logger.Error(ex);
                 throw;
             }
             catch (ApiException ex)
             {
-                Logger.Log(msg => msg.Error(ex));
+                Logger.Error(ex);
                 throw;
             }
             catch (Exception ex)
             {
-                Logger.Log(msg => msg.Error(ex));
+                Logger.Error(ex);
                 throw;
             }
         }

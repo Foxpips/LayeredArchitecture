@@ -6,7 +6,7 @@ using AutoMapper;
 
 using Business.Logic.Layer.Interfaces.AutoMapper;
 
-namespace Framework.Layer.Mapping
+namespace Framework.Layer.Loaders.Mapping
 {
     public class AutoMapperLoader
     {

@@ -5,6 +5,11 @@ using Business.Logic.Layer.Interfaces.Logging;
 
 using Core.Library.Helpers.Reflector;
 
+using Dependency.Resolver;
+using Dependency.Resolver.Registries;
+
+using Framework.Layer.Loaders;
+
 using NUnit.Framework;
 
 using Rhino.ServiceBus;
@@ -15,7 +20,6 @@ using Service.Layer.EncryptionService.Services;
 using StructureMap;
 
 using TaskRunner.Common.Messages.Test;
-using TaskRunner.Common.Registries;
 using TaskRunner.Core.BootStrappers;
 using TaskRunner.Core.Infrastructure.Modules;
 using TaskRunner.Core.ServiceBus;
@@ -29,12 +33,7 @@ namespace Tests.Integration.TaskRunnerTests
         [SetUp]
         public void Setup()
         {
-            ObjectFactory.Initialize(x =>
-            {
-                x.AddRegistry(new LoggerRegistry());
-                x.AddRegistry(new EncryptionRegistry());
-            });
-
+            DependencyInjectionLoader.ConfigureDependencies();
             _encryptionProviderService = ObjectFactory.Container.GetInstance<IEncryptionProviderService>();
         }
 

@@ -1,7 +1,5 @@
 ﻿using System;
 
-using Framework.Layer.Logging;
-
 namespace Core.Library.Exceptions.Generic.Args
 {
     public class DatabaseErrorExceptionArgs : ExceptionArgsBase
@@ -15,7 +13,7 @@ namespace Core.Library.Exceptions.Generic.Args
 
         public override void Handle()
         {
-            new CustomLogger().Log(log => log.Error(Message));
+            Logger.Error(Message);
             Console.WriteLine(Message);
         }
 

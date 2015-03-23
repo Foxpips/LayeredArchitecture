@@ -7,7 +7,7 @@ using System.Web.Routing;
 
 using Business.Logic.Layer.Interfaces.AutoMapper;
 
-using Framework.Layer.Mapping;
+using Framework.Layer.Loaders.Mapping;
 
 namespace SqlAgentUIRunner
 {

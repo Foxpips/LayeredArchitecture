@@ -5,7 +5,7 @@ using Core.Library.Helpers.Reflector;
 
 using StructureMap.Configuration.DSL;
 
-namespace TaskRunner.Common.Registries
+namespace Dependency.Resolver.Registries
 {
     public class ReflectorRegistry : Registry
     {

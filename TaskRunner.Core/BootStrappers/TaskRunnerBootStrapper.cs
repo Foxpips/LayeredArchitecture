@@ -1,6 +1,7 @@
+using Dependency.Resolver.Registries;
+
 using Rhino.ServiceBus.StructureMap;
 
-using TaskRunner.Common.Registries;
 using TaskRunner.Core.Infrastructure.Modules;
 
 namespace TaskRunner.Core.BootStrappers

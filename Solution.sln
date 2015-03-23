@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlAgentUIRunner", "DbRunne
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskScheduler", "TaskScheduler\TaskScheduler.csproj", "{0F65E880-1A79-466C-933F-6BB50CA46E5A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dependency.Resolver", "Dependency.Resolver\Dependency.Resolver.csproj", "{A05BB169-3639-4158-971C-B17F0F443AE9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -121,6 +123,14 @@ Global
 		{0F65E880-1A79-466C-933F-6BB50CA46E5A}.st3|Any CPU.Build.0 = Release|Any CPU
 		{0F65E880-1A79-466C-933F-6BB50CA46E5A}.st3cat|Any CPU.ActiveCfg = Release|Any CPU
 		{0F65E880-1A79-466C-933F-6BB50CA46E5A}.st3cat|Any CPU.Build.0 = Release|Any CPU
+		{A05BB169-3639-4158-971C-B17F0F443AE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A05BB169-3639-4158-971C-B17F0F443AE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A05BB169-3639-4158-971C-B17F0F443AE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A05BB169-3639-4158-971C-B17F0F443AE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A05BB169-3639-4158-971C-B17F0F443AE9}.st3|Any CPU.ActiveCfg = Release|Any CPU
+		{A05BB169-3639-4158-971C-B17F0F443AE9}.st3|Any CPU.Build.0 = Release|Any CPU
+		{A05BB169-3639-4158-971C-B17F0F443AE9}.st3cat|Any CPU.ActiveCfg = Release|Any CPU
+		{A05BB169-3639-4158-971C-B17F0F443AE9}.st3cat|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -117,9 +117,6 @@
     <Compile Include="Messages\FailedToProcessMessageEvent.cs" />
     <Compile Include="Messages\Test\HelloWorldCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registries\EncryptionRegistry.cs" />
-    <Compile Include="Registries\LoggerRegistry.cs" />
-    <Compile Include="Registries\ReflectorRegistry.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

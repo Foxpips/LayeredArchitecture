@@ -1,4 +1,4 @@
-﻿using Framework.Layer.Logging;
+﻿using Business.Logic.Layer.Interfaces.Logging;
 
 using Rhino.ServiceBus;
 
@@ -10,23 +10,20 @@ namespace TaskRunner.Core.Consumers
 {
     public class HelloWorldCommandConsumer : ConsumerOf<HelloWorldCommand>
     {
+        public ICustomLogger Logger { get; set; }
         private readonly IEncrpytionProvider _encrpytionProvider;
 
-        public HelloWorldCommandConsumer(IEncrpytionProvider encrpytionProvider)
+        public HelloWorldCommandConsumer(IEncrpytionProvider encrpytionProvider, ICustomLogger logger)
         {
+            Logger = logger;
             _encrpytionProvider = encrpytionProvider;
         }
 
         public void Consume(HelloWorldCommand message)
         {
-            var logger = new CustomLogger();
-
-            logger.Log(log =>
-            {
-                log.Info("ConsumingHelloWorldCommand Message!");
-                log.Info("Encrypted text is: " + message.Text);
-                log.Info("Decrypred Text is: " + _encrpytionProvider.Decrypt(message.Text));
-            });
+            Logger.Info("ConsumingHelloWorldCommand Message!");
+            Logger.Info("Encrypted text is: " + message.Text);
+            Logger.Info("Decrypred Text is: " + _encrpytionProvider.Decrypt(message.Text));
         }
     }
 }

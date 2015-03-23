@@ -2,14 +2,27 @@
 using System.IO;
 using System.Linq;
 
-using Framework.Layer.Logging;
+using Business.Logic.Layer.Interfaces.Logging;
+
+using Dependency.Resolver;
 
 using NUnit.Framework;
+
+using StructureMap;
 
 namespace Tests.Library.Framework.Layer.Tests.LoggingTests
 {
     public class CustomLoggerTests
     {
+        private ICustomLogger _customLogger;
+
+        [SetUp]
+        public void Setup()
+        {
+            DependencyInjectionLoader.ConfigureDependencies();
+            _customLogger = ObjectFactory.Container.GetInstance<ICustomLogger>();
+        }
+
         [Test]
         public void TestCustomLogger_InfoMessage_IsWritten()
         {
@@ -22,8 +35,7 @@ namespace Tests.Library.Framework.Layer.Tests.LoggingTests
 
             Assert.That(() => File.Exists(logFilePath), Is.False);
 
-            var customLogger = new CustomLogger();
-            customLogger.Log(msg => msg.Info(message));
+            _customLogger.Info(message);
 
             Assert.That(() => File.Exists(logFilePath), Is.True);
             Assert.True(File.ReadAllText(logFilePath).Contains(message));

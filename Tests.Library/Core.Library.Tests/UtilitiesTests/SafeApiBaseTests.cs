@@ -2,6 +2,8 @@
 
 using Core.Library.Exceptions.Basic;
 
+using Dependency.Resolver;
+
 using NUnit.Framework;
 
 using Tests.Library.Mocks.ApiMocks;
@@ -16,6 +18,7 @@ namespace Tests.Library.Core.Library.Tests.UtilitiesTests
         [SetUp]
         public void SetUp()
         {
+            DependencyInjectionLoader.ConfigureDependencies();
             ReflectorApiMock = new ReflectorApiMock("username", "password");
         }
 

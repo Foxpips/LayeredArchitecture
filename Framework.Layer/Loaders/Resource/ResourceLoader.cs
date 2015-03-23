@@ -2,13 +2,13 @@
 using System.IO;
 using System.Linq;
 
-namespace Framework.Layer.Logging.Resource
+namespace Framework.Layer.Loaders.Resource
 {
     public class ResourceLoader
     {
         public static string Log4NetConfiguration()
         {
-            var executingAssembly = typeof (CustomLogger).Assembly;
+            var executingAssembly = typeof (ResourceLoader).Assembly;
             string result;
             using (var stream = executingAssembly.GetManifestResourceStream(executingAssembly
                 .GetManifestResourceNames()

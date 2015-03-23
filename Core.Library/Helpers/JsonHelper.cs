@@ -1,44 +1,36 @@
 ﻿using System.IO;
 
-using Business.Logic.Layer.Interfaces.Logging;
-
 using Newtonsoft.Json;
 
 namespace Core.Library.Helpers
 {
     public class JsonHelper
     {
-        private readonly ICustomLogger _logger;
-
-        public JsonHelper(ICustomLogger logger)
+        public static TType DeserializeJson<TType>(string json)
         {
-            _logger = logger;
+            return
+                SafeExecutionHelper.ExecuteSafely<TType, JsonSerializationException>(() =>
+                    JsonConvert.DeserializeObject<TType>(json));
         }
 
-        public TType DeserializeJson<TType>(string json)
+        public static string SerializeJson<TType>(TType item)
         {
-            return SafeExecutionHelper.ExecuteSafely<TType, JsonSerializationException>(_logger,
-                () => JsonConvert.DeserializeObject<TType>(json));
+            return SafeExecutionHelper.ExecuteSafely<string, JsonSerializationException>(() =>
+                JsonConvert.SerializeObject(item));
         }
 
-        public string SerializeJson<TType>(TType item)
+        public static TType DeserializeJsonFromFile<TType>(string filePath)
         {
-            return SafeExecutionHelper.ExecuteSafely<string, JsonSerializationException>(_logger,
-                () => JsonConvert.SerializeObject(item));
-        }
-
-        public TType DeserializeJsonFromFile<TType>(string filePath)
-        {
-            return SafeExecutionHelper.ExecuteSafely<TType, JsonSerializationException>(_logger, () =>
+            return SafeExecutionHelper.ExecuteSafely<TType, JsonSerializationException>(() =>
             {
                 var content = File.ReadAllText(filePath);
                 return JsonConvert.DeserializeObject<TType>(content);
             });
         }
 
-        public void SerializeJsonToFile<TType>(TType item, string path)
+        public static void SerializeJsonToFile<TType>(TType item, string path)
         {
-            SafeExecutionHelper.ExecuteSafely<TType, JsonSerializationException>(_logger, () =>
+            SafeExecutionHelper.ExecuteSafely<TType, JsonSerializationException>(() =>
             {
                 var serializedObject = JsonConvert.SerializeObject(item);
                 File.WriteAllText(path, serializedObject);

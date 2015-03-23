@@ -123,6 +123,10 @@
       <Project>{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}</Project>
       <Name>SqlAgentUIRunner</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Dependency.Resolver\Dependency.Resolver.csproj">
+      <Project>{A05BB169-3639-4158-971C-B17F0F443AE9}</Project>
+      <Name>Dependency.Resolver</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Framework.Layer\Framework.Layer.csproj">
       <Project>{17aaada3-939e-41dd-a5aa-851f93ee6b17}</Project>
       <Name>Framework.Layer</Name>

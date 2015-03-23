@@ -4,7 +4,7 @@ using Service.Layer.EncryptionService.Services;
 
 using StructureMap.Configuration.DSL;
 
-namespace TaskRunner.Common.Registries
+namespace Dependency.Resolver.Registries
 {
     public class EncryptionRegistry : Registry
     {

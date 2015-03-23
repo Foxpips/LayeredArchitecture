@@ -2,6 +2,8 @@
 
 using Core.Library.Helpers;
 
+using Dependency.Resolver;
+
 using NUnit.Framework;
 
 namespace Tests.Library.Framework.Layer.Tests.ExecutionTests
@@ -9,14 +11,20 @@ namespace Tests.Library.Framework.Layer.Tests.ExecutionTests
     [TestFixture]
     public class SafeExecutionTests
     {
+        [SetUp]
+        public void Setup()
+        {
+            DependencyInjectionLoader.ConfigureDependencies();
+        }
+
         [Test]
         public void SafeExecution_TryCatch_WithResultTest()
         {
-            Assert.That(() => SafeExecutionHelper.Try(() =>
+            Assert.That(() => SafeExecutionHelper.ExecuteSafely<NullReferenceException>(() =>
             {
                 Console.WriteLine("");
                 throw new NullReferenceException();
-            }), Throws.TypeOf<NullReferenceException>());
+            }), !Throws.TypeOf<NullReferenceException>());
         }
 
         [Test]
@@ -24,7 +32,7 @@ namespace Tests.Library.Framework.Layer.Tests.ExecutionTests
         {
             try
             {
-                SafeExecutionHelper.Try(() =>
+                SafeExecutionHelper.ExecuteSafely<NullReferenceException>(() =>
                 {
                     Console.WriteLine("");
                     throw new NullReferenceException();
@@ -39,11 +47,10 @@ namespace Tests.Library.Framework.Layer.Tests.ExecutionTests
         [Test]
         public void SafeExecution_TryCatch_WithResultReturned_Test()
         {
-            Assert.That(() => SafeExecutionHelper.Try(() =>
-            {
-                throw new NullReferenceException();
-                return "Test";
-            }), Throws.TypeOf<NullReferenceException>());
+            Assert.That(
+                () =>
+                    SafeExecutionHelper.ExecuteSafely<NullReferenceException>(
+                        () => { throw new NullReferenceException(); }), !Throws.TypeOf<NullReferenceException>());
         }
 
         [Test]
@@ -51,11 +58,7 @@ namespace Tests.Library.Framework.Layer.Tests.ExecutionTests
         {
             try
             {
-                SafeExecutionHelper.Try(() =>
-                {
-                    throw new NullReferenceException();
-                    return "Test";
-                });
+                SafeExecutionHelper.ExecuteSafely<NullReferenceException>(() => { throw new NullReferenceException(); });
             }
             catch (Exception ex)
             {

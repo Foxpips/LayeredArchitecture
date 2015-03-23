@@ -9,7 +9,7 @@ using Business.Logic.Layer.Interfaces.AutoMapper;
 using Business.Logic.Layer.Models.TaskRunner;
 using Business.Logic.Layer.Pocos.Reflection;
 
-using Framework.Layer.Mapping;
+using Framework.Layer.Loaders.Mapping;
 
 using NUnit.Framework;
 

@@ -1,10 +1,10 @@
 ﻿using Business.Logic.Layer.Interfaces.Logging;
 
-using Framework.Layer.Logging;
+using Framework.Layer.Logging.LogTypes;
 
 using StructureMap.Configuration.DSL;
 
-namespace TaskRunner.Common.Registries
+namespace Dependency.Resolver.Registries
 {
     public class LoggerRegistry : Registry
     {

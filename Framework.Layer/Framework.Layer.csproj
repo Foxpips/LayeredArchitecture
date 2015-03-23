@@ -51,18 +51,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Logging\CustomLogger.cs" />
     <Compile Include="Logging\Inspector\LoggerInspector.cs" />
-    <Compile Include="Logging\Log4NetFileLogger.cs" />
-    <Compile Include="Logging\Resource\ResourceLoader.cs" />
-    <Compile Include="Mapping\AutoMapperLoader.cs" />
+    <Compile Include="Logging\LogTypes\ConsoleLogger.cs" />
+    <Compile Include="Logging\LogTypes\Log4NetFileLogger.cs" />
+    <Compile Include="Loaders\Resource\ResourceLoader.cs" />
+    <Compile Include="Loaders\Mapping\AutoMapperLoader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Logging\Resource\log4net.xml" />
+    <EmbeddedResource Include="Loaders\Resource\log4net.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Business.Logic.Layer\Business.Logic.Layer.csproj">

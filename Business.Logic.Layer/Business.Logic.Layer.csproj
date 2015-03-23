@@ -55,6 +55,7 @@
     <Compile Include="Interfaces\AutoMapper\IMapTo.cs" />
     <Compile Include="Interfaces\Logging\ICustomLogger.cs" />
     <Compile Include="Interfaces\Reflection\IReflector.cs" />
+    <Compile Include="Interfaces\Startup\IRunAtStartup.cs" />
     <Compile Include="Managers\ServiceBus\IServiceBusMessageManager.cs" />
     <Compile Include="Managers\ServiceBus\ServiceBusMessageManager.cs" />
     <Compile Include="Managers\Tasks\TaskManager.cs" />

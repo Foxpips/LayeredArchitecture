@@ -6,13 +6,13 @@ using System.Text;
 
 using Business.Logic.Layer.Interfaces.Logging;
 
-using Framework.Layer.Logging.Resource;
+using Framework.Layer.Loaders.Resource;
 
 using log4net;
 using log4net.Appender;
 using log4net.Config;
 
-namespace Framework.Layer.Logging
+namespace Framework.Layer.Logging.LogTypes
 {
     public class Log4NetFileLogger : ICustomLogger
     {
