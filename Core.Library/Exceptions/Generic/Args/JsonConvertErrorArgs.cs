@@ -24,7 +24,7 @@ namespace Core.Library.Exceptions.Generic.Args
 
         public override void Handle()
         {
-            Logger.Log(log => log.Error(Message));
+            Logger.Error(Message);
             Console.WriteLine(Message);
         }
     }

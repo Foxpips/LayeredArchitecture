@@ -1,6 +1,5 @@
-﻿using Business.Logic.Layer.Managers.ServiceBus;
-using Business.Objects.Layer.Interfaces;
-using Business.Objects.Layer.Interfaces.Reflection;
+﻿using Business.Logic.Layer.Interfaces.Reflection;
+using Business.Logic.Layer.Managers.ServiceBus;
 
 using Core.Library.Helpers.Reflector;
 

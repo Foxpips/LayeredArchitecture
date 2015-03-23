@@ -3,9 +3,9 @@ using System.Reflection;
 
 using AutoMapper;
 
-using Business.Objects.Layer.Interfaces.Reflection;
-using Business.Objects.Layer.Models.TaskRunnerModels;
-using Business.Objects.Layer.Pocos.Reflection;
+using Business.Logic.Layer.Interfaces.Reflection;
+using Business.Logic.Layer.Models.TaskRunner;
+using Business.Logic.Layer.Pocos.Reflection;
 
 namespace Business.Logic.Layer.Managers.ServiceBus
 {

@@ -49,22 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Interfaces\AutoMapper\IMapCustom.cs" />
-    <Compile Include="Interfaces\AutoMapper\IMapFrom.cs" />
-    <Compile Include="Interfaces\AutoMapper\IMapTo.cs" />
-    <Compile Include="Interfaces\Logging\IMessageLogger.cs" />
-    <Compile Include="Interfaces\Reflection\IReflector.cs" />
-    <Compile Include="Models\Account\AccountModels.cs" />
-    <Compile Include="Models\TaskRunnerModels\TaskRunnerMessagesModel.cs" />
-    <Compile Include="Models\TaskRunnerModels\TaskRunnerPropertiesModel.cs" />
-    <Compile Include="Models\TaskRunnerModels\TaskRunnerPropertyModel.cs" />
-    <Compile Include="Pocos\Data\Blog.cs" />
-    <Compile Include="Pocos\Data\Book.cs" />
-    <Compile Include="Pocos\Data\Movie.cs" />
-    <Compile Include="Pocos\Data\Post.cs" />
-    <Compile Include="Pocos\Data\Review.cs" />
-    <Compile Include="Pocos\Reflection\PropertyWithValue.cs" />
-    <Compile Include="Pocos\Sql\SqlServerCredentials.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

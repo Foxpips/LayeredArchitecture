@@ -2,8 +2,13 @@
 
 namespace Service.Layer.EncryptionService.Services
 {
-    public class EncryptionProviderService<TEncrpyptionProvider>
-        where TEncrpyptionProvider : IEncrpytionProvider, new()
+    public interface IEncryptionProviderService
+    {
+        string Encrypt(string plaintext);
+        string Decrypt(string ciphertext);
+    }
+
+    public class EncryptionProviderService<TEncrpyptionProvider> : IEncryptionProviderService where TEncrpyptionProvider : IEncrpytionProvider, new()
     {
         private readonly TEncrpyptionProvider _encrpyptionProvider;
 

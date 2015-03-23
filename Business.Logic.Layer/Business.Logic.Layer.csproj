@@ -50,20 +50,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\AutoMapper\IMapCustom.cs" />
+    <Compile Include="Interfaces\AutoMapper\IMapFrom.cs" />
+    <Compile Include="Interfaces\AutoMapper\IMapTo.cs" />
+    <Compile Include="Interfaces\Logging\ICustomLogger.cs" />
+    <Compile Include="Interfaces\Reflection\IReflector.cs" />
     <Compile Include="Managers\ServiceBus\IServiceBusMessageManager.cs" />
     <Compile Include="Managers\ServiceBus\ServiceBusMessageManager.cs" />
     <Compile Include="Managers\Tasks\TaskManager.cs" />
+    <Compile Include="Models\Account\AccountModels.cs" />
+    <Compile Include="Models\TaskRunner\TaskRunnerMessagesModel.cs" />
+    <Compile Include="Models\TaskRunner\TaskRunnerPropertiesModel.cs" />
+    <Compile Include="Models\TaskRunner\TaskRunnerPropertyModel.cs" />
+    <Compile Include="Pocos\Data\Blog.cs" />
+    <Compile Include="Pocos\Data\Book.cs" />
+    <Compile Include="Pocos\Data\Movie.cs" />
+    <Compile Include="Pocos\Data\Post.cs" />
+    <Compile Include="Pocos\Data\Review.cs" />
+    <Compile Include="Pocos\Reflection\PropertyWithValue.cs" />
+    <Compile Include="Pocos\Sql\SqlServerCredentials.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Business.Objects.Layer\Business.Objects.Layer.csproj">
-      <Project>{b9e3a8ff-4b44-49e0-9c4d-1e3086354090}</Project>
-      <Name>Business.Objects.Layer</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

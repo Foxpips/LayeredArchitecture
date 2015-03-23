@@ -2,7 +2,7 @@
 using System.Linq;
 
 using Business.Logic.Layer.Managers.ServiceBus;
-using Business.Objects.Layer.Models.TaskRunnerModels;
+using Business.Logic.Layer.Models.TaskRunner;
 
 using Core.Library.Helpers.Reflector;
 
@@ -13,7 +13,7 @@ using SqlAgentUIRunner.Controllers;
 
 using TaskRunner.Common.Messages.Test;
 
-namespace IntegrationTests.TaskRunnerTests
+namespace Tests.Integration.TaskRunnerTests
 {
     public class SqlTaskRunnerTests
     {

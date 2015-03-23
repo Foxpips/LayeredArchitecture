@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using Business.Objects.Layer.Pocos.Data;
+using Business.Logic.Layer.Pocos.Data;
 
 using NUnit.Framework;
 

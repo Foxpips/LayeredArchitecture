@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-using Business.Objects.Layer.Interfaces.Logging;
+using Business.Logic.Layer.Interfaces.Logging;
 
 using Framework.Layer.Logging.Resource;
 
@@ -14,7 +14,7 @@ using log4net.Config;
 
 namespace Framework.Layer.Logging
 {
-    public class Log4NetFileLogger : IMessageLogger
+    public class Log4NetFileLogger : ICustomLogger
     {
         private ILog Logger { get; set; }
 

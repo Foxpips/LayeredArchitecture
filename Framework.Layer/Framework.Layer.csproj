@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Logging\CustomLogger.cs" />
+    <Compile Include="Logging\Inspector\LoggerInspector.cs" />
     <Compile Include="Logging\Log4NetFileLogger.cs" />
     <Compile Include="Logging\Resource\ResourceLoader.cs" />
     <Compile Include="Mapping\AutoMapperLoader.cs" />
@@ -64,14 +65,12 @@
     <EmbeddedResource Include="Logging\Resource\log4net.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business.Objects.Layer\Business.Objects.Layer.csproj">
-      <Project>{b9e3a8ff-4b44-49e0-9c4d-1e3086354090}</Project>
-      <Name>Business.Objects.Layer</Name>
+    <ProjectReference Include="..\Business.Logic.Layer\Business.Logic.Layer.csproj">
+      <Project>{C5C0BDBF-F2F8-4A3B-98C8-306A12918702}</Project>
+      <Name>Business.Logic.Layer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ExceptionHandling\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

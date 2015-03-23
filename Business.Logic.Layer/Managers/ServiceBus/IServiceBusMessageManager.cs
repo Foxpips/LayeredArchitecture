@@ -1,4 +1,4 @@
-using Business.Objects.Layer.Models.TaskRunnerModels;
+using Business.Logic.Layer.Models.TaskRunner;
 
 namespace Business.Logic.Layer.Managers.ServiceBus
 {

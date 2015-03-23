@@ -1,6 +1,4 @@
-﻿using Business.Objects.Layer.Interfaces.Logging;
-
-using Framework.Layer.Logging;
+﻿using Business.Logic.Layer.Interfaces.Logging;
 
 using Rhino.ServiceBus.Hosting;
 using Rhino.ServiceBus.Msmq;
@@ -17,7 +15,7 @@ namespace TaskRunner.Core.ServiceBus
         {
 //            var logger = new CustomLogger();
 
-            var instance = ObjectFactory.Container.GetInstance<IMessageLogger>();
+            var instance = ObjectFactory.Container.GetInstance<ICustomLogger>();
 
             instance.Info("Starting TaskRunner");
             //            logger.Log(log => log.Info("Starting TaskRunner"));

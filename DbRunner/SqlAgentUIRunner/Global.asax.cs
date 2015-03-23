@@ -5,7 +5,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 
-using Business.Objects.Layer.Interfaces.AutoMapper;
+using Business.Logic.Layer.Interfaces.AutoMapper;
 
 using Framework.Layer.Mapping;
 

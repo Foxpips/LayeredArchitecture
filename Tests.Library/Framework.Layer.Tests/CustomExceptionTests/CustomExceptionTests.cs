@@ -1,16 +1,25 @@
 ﻿using System.Reflection;
 
-using Core.Library.Exceptions;
 using Core.Library.Exceptions.Generic;
 using Core.Library.Exceptions.Generic.Args;
 
 using NUnit.Framework;
+
+using StructureMap;
+
+using TaskRunner.Common.Registries;
 
 namespace Tests.Library.Framework.Layer.Tests.CustomExceptionTests
 {
     [TestFixture]
     public class CustomExceptionTests
     {
+        [SetUp]
+        public void Setup()
+        {
+            ObjectFactory.Initialize(x => x.AddRegistry(new LoggerRegistry()));
+        }
+
         [Test]
         public void MethodUnderTest_TestedBehavior_ExpectedResult()
         {

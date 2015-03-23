@@ -4,9 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 
-using Business.Objects.Layer.Pocos.Sql;
+using Business.Logic.Layer.Pocos.Sql;
 
 using Core.Library.Helpers;
+
+using Framework.Layer.Logging;
 
 using NUnit.Framework;
 
@@ -15,7 +17,7 @@ using Service.Layer.ScriptRunnerService.SqlManagers;
 
 using SqlAgentUIRunner.Controllers;
 
-namespace IntegrationTests.ScriptRunnerServiceTests
+namespace Tests.Integration.ScriptRunnerServiceTests
 {
     [TestFixture]
     internal sealed class SqlCoreTests
@@ -24,17 +26,15 @@ namespace IntegrationTests.ScriptRunnerServiceTests
         private string _rootdirString;
         public string BackupsOutputDirectory { get; set; }
         public string ComparisonOutputDirectory { get; set; }
+        public JsonHelper JsonHelper { get; set; }
 
         [SetUp]
         public void Setup()
         {
-            _connectionString =
-                JsonHelper.DeserializeJsonFromFile<SqlServerCredentials>(@"..\..\..\Miscellaneous\Json\Servers.json")
-                    .ConnectionString;
+            JsonHelper = new JsonHelper(new Log4NetFileLogger(GetType(),Directory.GetCurrentDirectory() + "/SqlCoreTests_Log.txt"));
+            _connectionString = JsonHelper.DeserializeJsonFromFile<SqlServerCredentials>(@"..\..\..\Miscellaneous\Json\Servers.json").ConnectionString;
             _rootdirString = @"../../../Miscellaneous\StoredProcedures\";
-            BackupsOutputDirectory = @"..\..\..\Miscellaneous\StoredProcedures\Backup_" +
-                                     DateTime.Now.ToString("yyyy MMMM dd");
-
+            BackupsOutputDirectory = @"..\..\..\Miscellaneous\StoredProcedures\Backup_" + DateTime.Now.ToString("yyyy MMMM dd");
             ComparisonOutputDirectory = @"..\..\..\Miscellaneous\StoredProcedures\Comparisons\";
         }
 

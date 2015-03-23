@@ -52,6 +52,10 @@
     <Reference Include="Rhino.Mocks">
       <HintPath>..\packages\RhinoMocks.4.0.0-alpha3\lib\net40\Rhino.Mocks.dll</HintPath>
     </Reference>
+    <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -106,10 +110,6 @@
     <ProjectReference Include="..\Business.Logic.Layer\Business.Logic.Layer.csproj">
       <Project>{C5C0BDBF-F2F8-4A3B-98C8-306A12918702}</Project>
       <Name>Business.Logic.Layer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Business.Objects.Layer\Business.Objects.Layer.csproj">
-      <Project>{B9E3A8FF-4B44-49E0-9C4D-1E3086354090}</Project>
-      <Name>Business.Objects.Layer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Core.Library\Core.Library.csproj">
       <Project>{C3B4C1F9-0E06-49A3-88F4-FA63749D2D0D}</Project>

@@ -1,17 +1,19 @@
 ﻿using System;
 
-using Framework.Layer.Logging;
+using Business.Logic.Layer.Interfaces.Logging;
+
+using StructureMap;
 
 namespace Core.Library.Exceptions.Generic.Args
 {
     [Serializable]
     public abstract class ExceptionArgsBase
     {
-        protected CustomLogger Logger { get; set; }
+        protected ICustomLogger Logger { get; set; }
 
         protected ExceptionArgsBase()
         {
-            Logger = new CustomLogger();
+            Logger = ObjectFactory.Container.GetInstance<ICustomLogger>();
         }
 
         protected abstract string Message { get; }

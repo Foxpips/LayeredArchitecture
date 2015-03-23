@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-using Business.Objects.Layer.Pocos.Data;
-using Business.Objects.Layer.Pocos.Sql;
+using Business.Logic.Layer.Interfaces.Logging;
+using Business.Logic.Layer.Pocos.Data;
+using Business.Logic.Layer.Pocos.Sql;
 
 using Core.Library.Helpers;
+
+using Framework.Layer.Logging;
 
 using NUnit.Framework;
 
@@ -15,6 +18,18 @@ namespace Tests.Library.Core.Library.Tests.HelpersTests
     [TestFixture]
     public class JsonHelperTests
     {
+        public ICustomLogger CustomLogger { get; set; }
+        public JsonHelper JsonHelper { get; set; }
+
+        [SetUp]
+        public void Setup()
+        {
+            CustomLogger = new Log4NetFileLogger(GetType(),
+                Directory.GetCurrentDirectory() + "/JsonHelper_Tests_Log.txt");
+
+            JsonHelper = new JsonHelper(CustomLogger);
+        }
+
         [Test]
         public void Test_Json_Serialize()
         {

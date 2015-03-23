@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-using Business.Objects.Layer.Pocos.Reflection;
+using Business.Logic.Layer.Pocos.Reflection;
 
 namespace Core.Library.Extensions
 {

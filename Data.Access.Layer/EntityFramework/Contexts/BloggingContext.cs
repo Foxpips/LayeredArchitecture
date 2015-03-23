@@ -1,6 +1,6 @@
 ﻿using System.Data.Entity;
 
-using Business.Objects.Layer.Pocos.Data;
+using Business.Logic.Layer.Pocos.Data;
 
 namespace Data.Access.Layer.EntityFramework.Contexts
 {

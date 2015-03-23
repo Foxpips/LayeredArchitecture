@@ -390,10 +390,6 @@
       <Project>{c5c0bdbf-f2f8-4a3b-98c8-306a12918702}</Project>
       <Name>Business.Logic.Layer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Business.Objects.Layer\Business.Objects.Layer.csproj">
-      <Project>{b9e3a8ff-4b44-49e0-9c4d-1e3086354090}</Project>
-      <Name>Business.Objects.Layer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\Core.Library\Core.Library.csproj">
       <Project>{c3b4c1f9-0e06-49a3-88f4-fa63749d2d0d}</Project>
       <Name>Core.Library</Name>

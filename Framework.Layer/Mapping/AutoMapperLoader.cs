@@ -4,7 +4,7 @@ using System.Linq;
 
 using AutoMapper;
 
-using Business.Objects.Layer.Interfaces.AutoMapper;
+using Business.Logic.Layer.Interfaces.AutoMapper;
 
 namespace Framework.Layer.Mapping
 {

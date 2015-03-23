@@ -1,7 +1,6 @@
 ﻿using System;
 
-using Business.Objects.Layer.Pocos;
-using Business.Objects.Layer.Pocos.Reflection;
+using Business.Logic.Layer.Pocos.Reflection;
 
 using Core.Library.Extensions;
 

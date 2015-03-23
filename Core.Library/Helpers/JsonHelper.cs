@@ -1,36 +1,48 @@
 ﻿using System.IO;
 
+using Business.Logic.Layer.Interfaces.Logging;
+
 using Newtonsoft.Json;
 
 namespace Core.Library.Helpers
 {
     public class JsonHelper
     {
-        public static TType DeserializeJson<TType>(string json)
+        private readonly ICustomLogger _logger;
+
+        public JsonHelper(ICustomLogger logger)
         {
-            return SafeExecutionHelper.Try(() => JsonConvert.DeserializeObject<TType>(json));
+            _logger = logger;
         }
 
-        public static string SerializeJson<TType>(TType item)
+        public TType DeserializeJson<TType>(string json)
         {
-            return SafeExecutionHelper.Try(() => JsonConvert.SerializeObject(item));
+            return SafeExecutionHelper.ExecuteSafely<TType, JsonSerializationException>(_logger,
+                () => JsonConvert.DeserializeObject<TType>(json));
         }
 
-        public static TType DeserializeJsonFromFile<TType>(string filePath)
+        public string SerializeJson<TType>(TType item)
         {
-            return SafeExecutionHelper.Try(() =>
+            return SafeExecutionHelper.ExecuteSafely<string, JsonSerializationException>(_logger,
+                () => JsonConvert.SerializeObject(item));
+        }
+
+        public TType DeserializeJsonFromFile<TType>(string filePath)
+        {
+            return SafeExecutionHelper.ExecuteSafely<TType, JsonSerializationException>(_logger, () =>
             {
                 var content = File.ReadAllText(filePath);
                 return JsonConvert.DeserializeObject<TType>(content);
             });
         }
 
-        public static void SerializeJsonToFile<TType>(TType item, string path)
+        public void SerializeJsonToFile<TType>(TType item, string path)
         {
-            SafeExecutionHelper.Try(() =>
+            SafeExecutionHelper.ExecuteSafely<TType, JsonSerializationException>(_logger, () =>
             {
                 var serializedObject = JsonConvert.SerializeObject(item);
                 File.WriteAllText(path, serializedObject);
+                return default(TType);
             });
         }
     }

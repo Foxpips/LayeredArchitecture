@@ -17,13 +17,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskRunner.Common", "TaskRu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskRunner.Core", "TaskRunner.Core\TaskRunner.Core.csproj", "{7A069A5C-21EC-4222-A1E1-759F1344DB66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntegrationTests", "IntegrationTests\IntegrationTests.csproj", "{48317EEB-2F1D-44F3-BA66-D6197B8D0AF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Integration", "IntegrationTests\Tests.Integration.csproj", "{48317EEB-2F1D-44F3-BA66-D6197B8D0AF7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Logic.Layer", "Business.Logic.Layer\Business.Logic.Layer.csproj", "{C5C0BDBF-F2F8-4A3B-98C8-306A12918702}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlAgentUIRunner", "DbRunner\SqlAgentUIRunner\SqlAgentUIRunner.csproj", "{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Objects.Layer", "Business.Objects.Layer\Business.Objects.Layer.csproj", "{B9E3A8FF-4B44-49E0-9C4D-1E3086354090}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskScheduler", "TaskScheduler\TaskScheduler.csproj", "{0F65E880-1A79-466C-933F-6BB50CA46E5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -113,14 +113,14 @@ Global
 		{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}.st3|Any CPU.Build.0 = Release|Any CPU
 		{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}.st3cat|Any CPU.ActiveCfg = Release|Any CPU
 		{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}.st3cat|Any CPU.Build.0 = Release|Any CPU
-		{B9E3A8FF-4B44-49E0-9C4D-1E3086354090}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B9E3A8FF-4B44-49E0-9C4D-1E3086354090}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B9E3A8FF-4B44-49E0-9C4D-1E3086354090}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B9E3A8FF-4B44-49E0-9C4D-1E3086354090}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B9E3A8FF-4B44-49E0-9C4D-1E3086354090}.st3|Any CPU.ActiveCfg = Release|Any CPU
-		{B9E3A8FF-4B44-49E0-9C4D-1E3086354090}.st3|Any CPU.Build.0 = Release|Any CPU
-		{B9E3A8FF-4B44-49E0-9C4D-1E3086354090}.st3cat|Any CPU.ActiveCfg = Release|Any CPU
-		{B9E3A8FF-4B44-49E0-9C4D-1E3086354090}.st3cat|Any CPU.Build.0 = Release|Any CPU
+		{0F65E880-1A79-466C-933F-6BB50CA46E5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F65E880-1A79-466C-933F-6BB50CA46E5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F65E880-1A79-466C-933F-6BB50CA46E5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F65E880-1A79-466C-933F-6BB50CA46E5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F65E880-1A79-466C-933F-6BB50CA46E5A}.st3|Any CPU.ActiveCfg = Release|Any CPU
+		{0F65E880-1A79-466C-933F-6BB50CA46E5A}.st3|Any CPU.Build.0 = Release|Any CPU
+		{0F65E880-1A79-466C-933F-6BB50CA46E5A}.st3cat|Any CPU.ActiveCfg = Release|Any CPU
+		{0F65E880-1A79-466C-933F-6BB50CA46E5A}.st3cat|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
