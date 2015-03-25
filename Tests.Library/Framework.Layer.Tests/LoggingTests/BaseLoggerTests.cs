@@ -7,7 +7,7 @@ using Service.Layer.EncryptionService.Services;
 
 using Aes = Service.Layer.EncryptionService.Encryption.Symmetric.Aes;
 
-namespace Tests.Library.Framework.Layer.Tests.LoggingTests
+namespace Tests.Unit.Framework.Layer.Tests.LoggingTests
 {
     public class BaseLoggerTests : SymmetricEncryptionProviderBase
     {

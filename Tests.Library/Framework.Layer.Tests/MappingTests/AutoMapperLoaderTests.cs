@@ -13,7 +13,7 @@ using Framework.Layer.Loaders.Mapping;
 
 using NUnit.Framework;
 
-namespace Tests.Library.Framework.Layer.Tests.MappingTests
+namespace Tests.Unit.Framework.Layer.Tests.MappingTests
 {
     public class AutoMapperLoaderTests
     {

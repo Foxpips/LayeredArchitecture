@@ -64,6 +64,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Quartz\BaseSchedule.cs" />
+    <Compile Include="Quartz\QuartzGroups.cs" />
+    <Compile Include="Quartz\QuartzJobFactory.cs" />
+    <Compile Include="Quartz\QuartzService.cs" />
+    <Compile Include="Quartz\Registries\QuartzRegistry.cs" />
     <Compile Include="SchedulerService.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -82,6 +87,21 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business.Logic.Layer\Business.Logic.Layer.csproj">
+      <Project>{C5C0BDBF-F2F8-4A3B-98C8-306A12918702}</Project>
+      <Name>Business.Logic.Layer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core.Library\Core.Library.csproj">
+      <Project>{C3B4C1F9-0E06-49A3-88F4-FA63749D2D0D}</Project>
+      <Name>Core.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Dependency.Resolver\Dependency.Resolver.csproj">
+      <Project>{A05BB169-3639-4158-971C-B17F0F443AE9}</Project>
+      <Name>Dependency.Resolver</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

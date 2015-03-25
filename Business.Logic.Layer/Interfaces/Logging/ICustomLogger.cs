@@ -7,5 +7,6 @@
         void Error(object message);
         void Fatal(object message);
         void Warn(object message);
+        void ErrorFormat(string format, params object[] args);
     }
 }

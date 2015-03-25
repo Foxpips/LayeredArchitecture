@@ -1,10 +1,10 @@
 using Core.Library.Utilities.WebApi;
 
-using Tests.Library.Mocks.ApiMocks.Clients;
-using Tests.Library.Mocks.ApiMocks.Requests;
-using Tests.Library.Mocks.ApiMocks.Responses;
+using Tests.Unit.Mocks.ApiMocks.Clients;
+using Tests.Unit.Mocks.ApiMocks.Requests;
+using Tests.Unit.Mocks.ApiMocks.Responses;
 
-namespace Tests.Library.Mocks.ApiMocks
+namespace Tests.Unit.Mocks.ApiMocks
 {
     public class ReflectorApiMock : SafeApiBase
     {

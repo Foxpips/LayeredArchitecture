@@ -6,7 +6,7 @@ using Core.Library.Utilities.WebApi;
 
 using NUnit.Framework;
 
-namespace Tests.Library.Core.Library.Tests.UtilitiesTests
+namespace Tests.Unit.Core.Library.Tests.UtilitiesTests
 {
     public class SafeWebServiceTests : SafeWebService
     {

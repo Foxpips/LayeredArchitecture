@@ -5,10 +5,8 @@ using Business.Logic.Layer.Interfaces.Logging;
 
 using Core.Library.Helpers.Reflector;
 
-using Dependency.Resolver;
+using Dependency.Resolver.Loaders;
 using Dependency.Resolver.Registries;
-
-using Framework.Layer.Loaders;
 
 using NUnit.Framework;
 
@@ -33,7 +31,7 @@ namespace Tests.Integration.TaskRunnerTests
         [SetUp]
         public void Setup()
         {
-            DependencyInjectionLoader.ConfigureDependencies();
+            DependencyManager.ConfigureStartupDependencies();
             _encryptionProviderService = ObjectFactory.Container.GetInstance<IEncryptionProviderService>();
         }
 
@@ -46,7 +44,7 @@ namespace Tests.Integration.TaskRunnerTests
                 Text = _encryptionProviderService.Encrypt("Hello there world!")
             });
 
-            Server<TaskRunnerBootStrapper>.Start();
+            Server.Start<TaskRunnerBootStrapper>();
             Thread.Sleep(TimeSpan.FromSeconds(2));
         }
 
@@ -56,7 +54,7 @@ namespace Tests.Integration.TaskRunnerTests
             var client = new Client<IOnewayBus>();
             client.Bus.Send(new HelloWorldCommand {Text = _encryptionProviderService.Encrypt("Hello")});
 
-            Server<CustomBootStrapper<EncryptionRegistry, ServiceBusRegistry>>.Start();
+            Server.Start<CustomBootStrapper<EncryptionRegistry, ServiceBusRegistry>>();
             Thread.Sleep(TimeSpan.FromSeconds(2));
         }
 

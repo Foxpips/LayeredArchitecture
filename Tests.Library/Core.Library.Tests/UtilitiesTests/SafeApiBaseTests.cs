@@ -2,14 +2,14 @@
 
 using Core.Library.Exceptions.Basic;
 
-using Dependency.Resolver;
+using Dependency.Resolver.Loaders;
 
 using NUnit.Framework;
 
-using Tests.Library.Mocks.ApiMocks;
-using Tests.Library.Mocks.ApiMocks.Responses;
+using Tests.Unit.Mocks.ApiMocks;
+using Tests.Unit.Mocks.ApiMocks.Responses;
 
-namespace Tests.Library.Core.Library.Tests.UtilitiesTests
+namespace Tests.Unit.Core.Library.Tests.UtilitiesTests
 {
     public class SafeApiBaseTests
     {
@@ -18,7 +18,7 @@ namespace Tests.Library.Core.Library.Tests.UtilitiesTests
         [SetUp]
         public void SetUp()
         {
-            DependencyInjectionLoader.ConfigureDependencies();
+            DependencyManager.ConfigureStartupDependencies();
             ReflectorApiMock = new ReflectorApiMock("username", "password");
         }
 

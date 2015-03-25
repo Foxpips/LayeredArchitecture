@@ -2,6 +2,6 @@
 {
     public interface IRunAtStartup
     {
-        void Initialize();
+        void Execute();
     }
 }

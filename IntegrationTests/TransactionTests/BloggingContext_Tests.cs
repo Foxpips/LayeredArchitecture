@@ -8,12 +8,20 @@ using Core.Library.Helpers;
 using Data.Access.Layer.EntityFramework.Contexts;
 using Data.Access.Layer.EntityFramework.Managers;
 
+using Dependency.Resolver.Loaders;
+
 using NUnit.Framework;
 
-namespace IntegrationTests.TransactionTests
+namespace Tests.Integration.TransactionTests
 {
     public class BloggingContextTests
     {
+        [SetUp]
+        public void SetUp()
+        {
+            DependencyManager.ConfigureStartupDependencies();
+        }
+
         [Test]
         public void SaveBlog_Test()
         {

@@ -4,13 +4,13 @@ using System.Linq;
 
 using Business.Logic.Layer.Interfaces.Logging;
 
-using Dependency.Resolver;
+using Dependency.Resolver.Loaders;
 
 using NUnit.Framework;
 
 using StructureMap;
 
-namespace Tests.Library.Framework.Layer.Tests.LoggingTests
+namespace Tests.Unit.Framework.Layer.Tests.LoggingTests
 {
     public class CustomLoggerTests
     {
@@ -19,7 +19,8 @@ namespace Tests.Library.Framework.Layer.Tests.LoggingTests
         [SetUp]
         public void Setup()
         {
-            DependencyInjectionLoader.ConfigureDependencies();
+            DependencyManager.ConfigureStartupDependencies();
+
             _customLogger = ObjectFactory.Container.GetInstance<ICustomLogger>();
         }
 

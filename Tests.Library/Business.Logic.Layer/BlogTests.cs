@@ -5,7 +5,7 @@ using Business.Logic.Layer.Pocos.Data;
 
 using NUnit.Framework;
 
-namespace Tests.Library.Business.Logic.Layer
+namespace Tests.Unit.Business.Logic.Layer
 {
     [TestFixture]
     public class BlogTests

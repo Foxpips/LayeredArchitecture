@@ -5,7 +5,7 @@ using Core.Library.Exceptions.Generic.Args;
 
 using NUnit.Framework;
 
-namespace Tests.Library.Framework.Layer.Tests.CustomExceptionTests
+namespace Tests.Unit.Framework.Layer.Tests.CustomExceptionTests
 {
     [TestFixture]
     public class CustomExceptionTests

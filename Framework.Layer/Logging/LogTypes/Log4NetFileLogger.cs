@@ -72,5 +72,10 @@ namespace Framework.Layer.Logging.LogTypes
         {
             Logger.Warn(message);
         }
+
+        public void ErrorFormat(string format, params object[] args)
+        {
+            Logger.ErrorFormat(format, args);
+        }
     }
 }

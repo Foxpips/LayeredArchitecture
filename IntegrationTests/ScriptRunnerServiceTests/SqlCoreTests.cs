@@ -8,7 +8,7 @@ using Business.Logic.Layer.Pocos.Sql;
 
 using Core.Library.Helpers;
 
-using Framework.Layer.Logging;
+using Dependency.Resolver.Loaders;
 
 using NUnit.Framework;
 
@@ -31,9 +31,13 @@ namespace Tests.Integration.ScriptRunnerServiceTests
         [SetUp]
         public void Setup()
         {
-            _connectionString = JsonHelper.DeserializeJsonFromFile<SqlServerCredentials>(@"..\..\..\Miscellaneous\Json\Servers.json").ConnectionString;
+            DependencyManager.ConfigureStartupDependencies();
+            _connectionString =
+                JsonHelper.DeserializeJsonFromFile<SqlServerCredentials>(@"..\..\..\Miscellaneous\Json\Servers.json")
+                    .ConnectionString;
             _rootdirString = @"../../../Miscellaneous\StoredProcedures\";
-            BackupsOutputDirectory = @"..\..\..\Miscellaneous\StoredProcedures\Backup_" + DateTime.Now.ToString("yyyy MMMM dd");
+            BackupsOutputDirectory = @"..\..\..\Miscellaneous\StoredProcedures\Backup_" +
+                                     DateTime.Now.ToString("yyyy MMMM dd");
             ComparisonOutputDirectory = @"..\..\..\Miscellaneous\StoredProcedures\Comparisons\";
         }
 

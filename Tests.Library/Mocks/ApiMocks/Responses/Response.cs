@@ -1,4 +1,4 @@
-﻿namespace Tests.Library.Mocks.ApiMocks.Responses
+﻿namespace Tests.Unit.Mocks.ApiMocks.Responses
 {
     public class Response
     {

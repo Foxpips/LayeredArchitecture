@@ -1,9 +1,9 @@
 ﻿using System;
 
-using Tests.Library.Mocks.ApiMocks.Requests;
-using Tests.Library.Mocks.ApiMocks.Responses;
+using Tests.Unit.Mocks.ApiMocks.Requests;
+using Tests.Unit.Mocks.ApiMocks.Responses;
 
-namespace Tests.Library.Mocks.ApiMocks.Clients
+namespace Tests.Unit.Mocks.ApiMocks.Clients
 {
     public class ServiceClient : IDisposable
     {

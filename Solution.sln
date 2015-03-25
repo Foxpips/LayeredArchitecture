@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service.Layer", "Services.L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Layer", "Framework.Layer\Framework.Layer.csproj", "{17AAADA3-939E-41DD-A5AA-851F93EE6B17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Library", "Tests.Library\Tests.Library.csproj", "{FF436470-9618-4C74-B49F-EF3C4CA9AB85}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Unit", "Tests.Library\Tests.Unit.csproj", "{FF436470-9618-4C74-B49F-EF3C4CA9AB85}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Library", "Core.Library\Core.Library.csproj", "{C3B4C1F9-0E06-49A3-88F4-FA63749D2D0D}"
 EndProject

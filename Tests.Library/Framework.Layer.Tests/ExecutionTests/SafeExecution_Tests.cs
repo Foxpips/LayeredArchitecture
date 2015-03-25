@@ -2,11 +2,11 @@
 
 using Core.Library.Helpers;
 
-using Dependency.Resolver;
+using Dependency.Resolver.Loaders;
 
 using NUnit.Framework;
 
-namespace Tests.Library.Framework.Layer.Tests.ExecutionTests
+namespace Tests.Unit.Framework.Layer.Tests.ExecutionTests
 {
     [TestFixture]
     public class SafeExecutionTests
@@ -14,7 +14,7 @@ namespace Tests.Library.Framework.Layer.Tests.ExecutionTests
         [SetUp]
         public void Setup()
         {
-            DependencyInjectionLoader.ConfigureDependencies();
+            DependencyManager.ConfigureStartupDependencies();
         }
 
         [Test]

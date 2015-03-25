@@ -18,9 +18,7 @@
 using System.Web.Http;
 using System.Web.Mvc;
 
-using Dependency.Resolver;
-
-using Framework.Layer.Loaders;
+using Dependency.Resolver.Loaders;
 
 using SqlAgentUIRunner;
 using SqlAgentUIRunner.DependencyResolution;
@@ -36,9 +34,10 @@ namespace SqlAgentUIRunner
     {
         public static void Start()
         {
-            DependencyInjectionLoader.ConfigureDependencies();
+            DependencyManager.ConfigureStartupDependencies();
             DependencyResolver.SetResolver(new StructureMapDependencyResolver(ObjectFactory.Container));
-            GlobalConfiguration.Configuration.DependencyResolver = new StructureMapDependencyResolver(ObjectFactory.Container);
+            GlobalConfiguration.Configuration.DependencyResolver =
+                new StructureMapDependencyResolver(ObjectFactory.Container);
         }
     }
 }

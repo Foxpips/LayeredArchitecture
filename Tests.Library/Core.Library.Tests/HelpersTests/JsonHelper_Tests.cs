@@ -8,20 +8,19 @@ using Business.Logic.Layer.Pocos.Sql;
 
 using Core.Library.Helpers;
 
-using Dependency.Resolver;
+using Dependency.Resolver.Loaders;
 
 using NUnit.Framework;
 
-namespace Tests.Library.Core.Library.Tests.HelpersTests
+namespace Tests.Unit.Core.Library.Tests.HelpersTests
 {
     [TestFixture]
     public class JsonHelperTests
     {
-
         [SetUp]
         public void Setup()
         {
-            DependencyInjectionLoader.ConfigureDependencies();
+            DependencyManager.ConfigureStartupDependencies();
         }
 
         [Test]

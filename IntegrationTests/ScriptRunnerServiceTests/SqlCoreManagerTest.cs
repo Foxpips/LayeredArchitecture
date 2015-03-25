@@ -3,7 +3,7 @@ using NUnit.Framework.SyntaxHelpers;
 
 using Service.Layer.ScriptRunnerService.SqlManagers;
 
-namespace IntegrationTests.ScriptRunnerServiceTests
+namespace Tests.Integration.ScriptRunnerServiceTests
 {
     [TestFixture]
     internal sealed class SqlCoreManagerTest

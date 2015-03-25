@@ -8,7 +8,7 @@ using Service.Layer.EncryptionService.Encryption.Symmetric;
 using Service.Layer.EncryptionService.KeyCreation.Keys;
 using Service.Layer.EncryptionService.Services;
 
-namespace Tests.Library.Service.Layer.Tests.EncryptionTests
+namespace Tests.Unit.Service.Layer.Tests.EncryptionTests
 {
     public class TestSymmetricEncryption
     {

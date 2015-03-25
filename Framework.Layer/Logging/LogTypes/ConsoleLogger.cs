@@ -32,5 +32,10 @@ namespace Framework.Layer.Logging.LogTypes
         {
             Console.WriteLine("Warning: " + message);
         }
+
+        public void ErrorFormat(string format, params object[] args)
+        {
+            Console.WriteLine("Warning:{0} ", args[0]);
+        }
     }
 }

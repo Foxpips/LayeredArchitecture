@@ -9,18 +9,16 @@ using TaskRunner.Core.Infrastructure.Configuration;
 
 namespace TaskRunner.Core.ServiceBus
 {
-    public class Server<TBootStrapper> where TBootStrapper : AbstractBootStrapper
+    public class Server
     {
-        public static void Start()
+        public static void Start<TBootStrapper>() where TBootStrapper : AbstractBootStrapper
         {
-//            var logger = new CustomLogger();
+            var logger = ObjectFactory.Container.GetInstance<ICustomLogger>();
 
-            var instance = ObjectFactory.Container.GetInstance<ICustomLogger>();
-
-            instance.Info("Starting TaskRunner");
-            //            logger.Log(log => log.Info("Starting TaskRunner"));
+            logger.Info("Preparing Queues");
             PrepareQueues.Prepare(BusConfig.GetBusEndpoint(), QueueType.Standard);
 
+            logger.Info("Starting TaskRunner");
             var host = new DefaultHost();
             host.Start<TBootStrapper>();
         }

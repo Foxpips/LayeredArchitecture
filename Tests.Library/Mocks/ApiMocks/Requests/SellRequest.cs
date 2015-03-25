@@ -1,4 +1,4 @@
-﻿namespace Tests.Library.Mocks.ApiMocks.Requests
+﻿namespace Tests.Unit.Mocks.ApiMocks.Requests
 {
     public class SellRequest : IServiceRequest
     {

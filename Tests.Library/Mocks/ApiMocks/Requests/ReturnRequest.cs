@@ -2,7 +2,7 @@
 using System.Web.Services.Protocols;
 using System.Xml;
 
-namespace Tests.Library.Mocks.ApiMocks.Requests
+namespace Tests.Unit.Mocks.ApiMocks.Requests
 {
     public class ReturnRequest : IServiceRequest
     {

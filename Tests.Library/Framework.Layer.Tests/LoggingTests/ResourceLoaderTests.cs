@@ -1,11 +1,10 @@
 ﻿using System;
 
 using Framework.Layer.Loaders.Resource;
-using Framework.Layer.Logging;
 
 using NUnit.Framework;
 
-namespace Tests.Library.Framework.Layer.Tests.LoggingTests
+namespace Tests.Unit.Framework.Layer.Tests.LoggingTests
 {
     public class ResourceLoaderTests
     {

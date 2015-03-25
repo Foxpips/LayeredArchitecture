@@ -3,6 +3,7 @@
 using Business.Logic.Layer.Managers.ServiceBus;
 using Business.Logic.Layer.Models.TaskRunner;
 
+using Dependency.Resolver.Loaders;
 using Dependency.Resolver.Registries;
 
 using NUnit.Framework;
@@ -16,6 +17,12 @@ namespace Tests.Integration.ScriptRunnerServiceTests.IoC
 {
     public class ControllerInjectionTests
     {
+        [SetUp]
+        public void SetUp()
+        {
+            DependencyManager.ConfigureStartupDependencies();
+        }
+
         [Test]
         public void MethodUnderTest_TestedBehavior_ExpectedResult()
         {
