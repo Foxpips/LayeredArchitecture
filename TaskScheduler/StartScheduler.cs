@@ -4,7 +4,6 @@ using System.ServiceProcess;
 using Business.Logic.Layer.Interfaces.Logging;
 
 using Dependency.Resolver.Loaders;
-using Dependency.Resolver.Registries;
 
 using StructureMap;
 
@@ -16,8 +15,7 @@ namespace TaskScheduler
 
         static StartScheduler()
         {
-            DependencyManager.AddRegistry<LoggerRegistry>();
-            DependencyManager.ConfigureStartupDependencies();
+            new DependencyManager(ObjectFactory.Container).ConfigureStartupDependencies();
         }
 
         private static void Main()

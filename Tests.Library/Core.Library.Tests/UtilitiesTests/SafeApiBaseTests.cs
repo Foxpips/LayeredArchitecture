@@ -1,5 +1,7 @@
 ﻿using System;
 
+using Business.Logic.Layer.Interfaces.Logging;
+
 using Core.Library.Exceptions.Basic;
 
 using Dependency.Resolver.Loaders;
@@ -18,8 +20,13 @@ namespace Tests.Unit.Core.Library.Tests.UtilitiesTests
         [SetUp]
         public void SetUp()
         {
-            DependencyManager.ConfigureStartupDependencies();
-            ReflectorApiMock = new ReflectorApiMock("username", "password");
+            var dependencyManager = new DependencyManager();
+            dependencyManager.ConfigureStartupDependencies();
+
+            var customLogger = dependencyManager.Container.GetInstance<ICustomLogger>();
+
+            ReflectorApiMock = new ReflectorApiMock("username", "password",
+                customLogger);
         }
 
         [Test]

@@ -15,7 +15,7 @@ namespace Core.Library.Helpers
             _customLogger = ObjectFactory.Container.GetInstance<ICustomLogger>();
         }
 
-        public static TType ExecuteSafely<TType, TException>(Func<TType> work)
+        public static TType ExecuteSafely<TType, TException>(ICustomLogger logger, Func<TType> work)
             where TException : Exception
         {
             try
@@ -24,13 +24,13 @@ namespace Core.Library.Helpers
             }
             catch (TException ex)
             {
-                _customLogger.Error(ex.Message);
+                logger.Error(ex.Message);
             }
 
             return default(TType);
         }
 
-        public static void ExecuteSafely<TException>(Action work)
+        public static void ExecuteSafely<TException>(ICustomLogger logger, Action work)
             where TException : Exception
         {
             try
@@ -39,7 +39,7 @@ namespace Core.Library.Helpers
             }
             catch (TException ex)
             {
-                _customLogger.Error(ex.Message);
+                logger.Error(ex.Message);
             }
         }
     }

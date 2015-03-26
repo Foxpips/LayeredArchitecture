@@ -4,42 +4,43 @@ using Dependency.Resolver.Loaders;
 
 using NUnit.Framework;
 
-using StructureMap;
-
 using Tests.Unit.StructureMapTests.Schedulers;
 
 namespace Tests.Unit.StructureMapTests
 {
     public class StructureMapTests
     {
+        private DependencyManager _dependencyManager;
+
         [SetUp]
         public void Setup()
         {
-            ObjectFactory.Container.Configure(cfg => cfg.For<IContainer>().Use(scope => ObjectFactory.Container));
-            DependencyManager.ConfigureStartupDependencies();
+            _dependencyManager = new DependencyManager();
+            _dependencyManager.ConfigureStartupDependencies();
         }
 
         [Test]
         public void TestRecursive_Type_Resolution()
         {
-            var runAtStartup = ObjectFactory.Container.GetInstance<IRunAtStartup>();
+            var runAtStartup = _dependencyManager.Container.GetInstance<IRunAtStartup>();
             runAtStartup.Execute();
         }
 
         [Test]
         public void Test_ResolutionOfBaseClassDependencies_ThroughDerivedClass()
         {
-            var container = InitialiseDependencies();
+            InitialiseDependencies();
 
-            foreach (IRunAtStartup task in container.GetAllInstances<IRunAtStartup>())
+            foreach (IRunAtStartup task in _dependencyManager.Container.GetAllInstances<IRunAtStartup>())
             {
                 task.Execute();
             }
         }
 
-        public Container InitialiseDependencies()
+        public void InitialiseDependencies()
         {
-            return new Container(cfg =>
+            _dependencyManager.Container.EjectAllInstancesOf<IRunAtStartup>();
+            _dependencyManager.Container.Configure((cfg =>
             {
                 cfg.For<IScheduler>().Use<CustomScheduler>();
                 cfg.Scan(scan =>
@@ -47,7 +48,7 @@ namespace Tests.Unit.StructureMapTests
                     scan.TheCallingAssembly();
                     scan.AddAllTypesOf<IRunAtStartup>();
                 });
-            });
+            }));
         }
     }
 }

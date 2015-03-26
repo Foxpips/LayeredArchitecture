@@ -17,6 +17,8 @@ using Service.Layer.ScriptRunnerService.SqlManagers;
 
 using SqlAgentUIRunner.Controllers;
 
+using StructureMap;
+
 namespace Tests.Integration.ScriptRunnerServiceTests
 {
     [TestFixture]
@@ -31,7 +33,7 @@ namespace Tests.Integration.ScriptRunnerServiceTests
         [SetUp]
         public void Setup()
         {
-            DependencyManager.ConfigureStartupDependencies();
+            new DependencyManager(ObjectFactory.Container).ConfigureStartupDependencies();
             _connectionString =
                 JsonHelper.DeserializeJsonFromFile<SqlServerCredentials>(@"..\..\..\Miscellaneous\Json\Servers.json")
                     .ConnectionString;

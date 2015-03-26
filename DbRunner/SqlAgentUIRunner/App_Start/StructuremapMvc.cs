@@ -34,10 +34,12 @@ namespace SqlAgentUIRunner
     {
         public static void Start()
         {
-            DependencyManager.ConfigureStartupDependencies();
-            DependencyResolver.SetResolver(new StructureMapDependencyResolver(ObjectFactory.Container));
+            var container = ObjectFactory.Container;
+
+            new DependencyManager(container).ConfigureStartupDependencies();
+            DependencyResolver.SetResolver(new StructureMapDependencyResolver(container));
             GlobalConfiguration.Configuration.DependencyResolver =
-                new StructureMapDependencyResolver(ObjectFactory.Container);
+                new StructureMapDependencyResolver(container);
         }
     }
 }

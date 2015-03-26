@@ -9,30 +9,42 @@ namespace Dependency.Resolver.Loaders
 {
     public class DependencyManager
     {
-        public static void ConfigureStartupDependencies()
-        {
-            ObjectFactory.Container.Configure(cfg => cfg.AddRegistry(new DependencyRegistry()));
+        private readonly IContainer _container;
 
-            using (IContainer container = ObjectFactory.Container.GetNestedContainer())
+        public DependencyManager(IContainer container = null)
+        {
+            _container = container ?? new Container();
+        }
+
+        public IContainer Container
+        {
+            get { return _container; }
+        }
+
+        public void ConfigureStartupDependencies()
+        {
+            Container.Configure(cfg => cfg.AddRegistry(new DependencyRegistry()));
+
+//            using (IContainer container = _container.GetNestedContainer())
+//            {
+            foreach (IDependencyBootStrapper startUpDependency in Container.GetAllInstances<IDependencyBootStrapper>())
             {
-                foreach (IDependencyBootStrapper startUpDependency in container.GetAllInstances<IDependencyBootStrapper>())
-                {
-                    startUpDependency.ConfigureContainer();
-                }
+                startUpDependency.ConfigureContainer();
             }
+//            }
         }
 
-        public static void AddRegistry<TRegistry>() where TRegistry : Registry, new()
+        public void AddRegistry<TRegistry>() where TRegistry : Registry, new()
         {
-            ObjectFactory.Container.Configure(cfg => cfg.AddRegistry(new TRegistry()));
+            Container.Configure(cfg => cfg.AddRegistry(new TRegistry()));
         }
 
-        public static void AddRegistries<TRegistry>(params TRegistry[] registries) where TRegistry : Registry, new()
+        public void AddRegistries<TRegistry>(params TRegistry[] registries) where TRegistry : Registry, new()
         {
             foreach (TRegistry registry in registries)
             {
                 TRegistry registryToBeAdded = registry;
-                ObjectFactory.Container.Configure(cfg => cfg.AddRegistry(registryToBeAdded));
+                Container.Configure(cfg => cfg.AddRegistry(registryToBeAdded));
             }
         }
     }

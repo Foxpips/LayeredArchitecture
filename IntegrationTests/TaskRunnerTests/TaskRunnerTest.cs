@@ -31,7 +31,7 @@ namespace Tests.Integration.TaskRunnerTests
         [SetUp]
         public void Setup()
         {
-            DependencyManager.ConfigureStartupDependencies();
+            new DependencyManager(ObjectFactory.Container).ConfigureStartupDependencies();
             _encryptionProviderService = ObjectFactory.Container.GetInstance<IEncryptionProviderService>();
         }
 

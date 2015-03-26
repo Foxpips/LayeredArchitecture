@@ -19,7 +19,7 @@ namespace Dependency.Resolver.Registries
 
         public IContainer ConfigureContainer()
         {
-            ObjectFactory.Container.Configure(cfg =>
+            _container.Configure(cfg =>
             {
                 cfg.For<IRunAtStartup>().Use<StartUpType>();
                 cfg.For<ICustomLogger>().Transient().Use(scope => new Log4NetFileLogger());

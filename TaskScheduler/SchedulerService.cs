@@ -26,10 +26,11 @@ namespace TaskScheduler
 
         protected override void OnStart(string[] args)
         {
-            DependencyManager.AddRegistries<Registry>(new QuartzRegistry());
+            var container = ObjectFactory.Container;
+            new DependencyManager(container).AddRegistries<Registry>(new QuartzRegistry());
 
             new OnewayRhinoServiceBusConfiguration()
-                .UseStructureMap(ObjectFactory.Container)
+                .UseStructureMap(container)
                 .Configure();
 
             _customLogger.Info("Started scheduler service..");

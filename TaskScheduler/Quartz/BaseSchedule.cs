@@ -40,7 +40,7 @@ namespace TaskScheduler.Quartz
                 .WithIdentity(triggerName)
                 .Build();
 
-            SafeExecutionHelper.ExecuteSafely<SchedulerException>(() =>
+            SafeExecutionHelper.ExecuteSafely<SchedulerException>(_customLogger,() =>
             {
                 var dateTimeOffset = ScheduleJob(jobKey, jobDetail, trigger);
                 _customLogger.Info("Scheduled Job:" + jobName + "\n Runs at: " + dateTimeOffset);

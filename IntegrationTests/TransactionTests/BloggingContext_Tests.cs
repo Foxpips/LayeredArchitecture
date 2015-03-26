@@ -12,6 +12,8 @@ using Dependency.Resolver.Loaders;
 
 using NUnit.Framework;
 
+using StructureMap;
+
 namespace Tests.Integration.TransactionTests
 {
     public class BloggingContextTests
@@ -19,7 +21,7 @@ namespace Tests.Integration.TransactionTests
         [SetUp]
         public void SetUp()
         {
-            DependencyManager.ConfigureStartupDependencies();
+            new DependencyManager(ObjectFactory.Container).ConfigureStartupDependencies();
         }
 
         [Test]

@@ -1,3 +1,5 @@
+using Business.Logic.Layer.Interfaces.Logging;
+
 using Core.Library.Utilities.WebApi;
 
 using Tests.Unit.Mocks.ApiMocks.Clients;
@@ -8,8 +10,8 @@ namespace Tests.Unit.Mocks.ApiMocks
 {
     public class ReflectorApiMock : SafeApiBase
     {
-        public ReflectorApiMock(string userName, string password)
-            : base(userName, password)
+        public ReflectorApiMock(string userName, string password, ICustomLogger logger)
+            : base(userName, password, logger)
         {
         }
 
@@ -22,8 +24,8 @@ namespace Tests.Unit.Mocks.ApiMocks
             };
 
             return
-                SafeCall<ServiceClient, PurchaseRequest, Response>(
-                    (client, request) => client.SendRequest(request), purchaseRequest);
+                SafeCall<ServiceClient, PurchaseRequest, Response>((client, request) => client.SendRequest(request),
+                    purchaseRequest);
         }
 
         public Response SendSellItemRequest()

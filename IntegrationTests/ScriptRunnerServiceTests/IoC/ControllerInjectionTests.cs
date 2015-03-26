@@ -20,7 +20,7 @@ namespace Tests.Integration.ScriptRunnerServiceTests.IoC
         [SetUp]
         public void SetUp()
         {
-            DependencyManager.ConfigureStartupDependencies();
+            new DependencyManager(ObjectFactory.Container).ConfigureStartupDependencies();
         }
 
         [Test]

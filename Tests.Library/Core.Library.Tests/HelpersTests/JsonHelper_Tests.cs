@@ -12,15 +12,20 @@ using Dependency.Resolver.Loaders;
 
 using NUnit.Framework;
 
+using StructureMap;
+
 namespace Tests.Unit.Core.Library.Tests.HelpersTests
 {
     [TestFixture]
     public class JsonHelperTests
     {
+        private JsonHelper _jsonHelper;
+
         [SetUp]
         public void Setup()
         {
-            DependencyManager.ConfigureStartupDependencies();
+            _jsonHelper = new JsonHelper();
+            new DependencyManager(ObjectFactory.Container).ConfigureStartupDependencies();
         }
 
         [Test]
@@ -28,7 +33,7 @@ namespace Tests.Unit.Core.Library.Tests.HelpersTests
         {
             var item = new Book();
             string path = Path.GetFullPath(@"..\..\Core.Library.Tests\SampleJsonTests\SampleJsonTests - BookTest.json");
-            JsonHelper.SerializeJsonToFile(item, path);
+            _jsonHelper.SerializeJsonToFile(item, path);
             Console.WriteLine(path);
             Assert.That(File.Exists(path), Is.True);
         }
@@ -36,7 +41,7 @@ namespace Tests.Unit.Core.Library.Tests.HelpersTests
         [Test]
         public void Test_Json_Deserialize()
         {
-            var book = JsonHelper.DeserializeJsonFromFile<Book>(
+            var book = _jsonHelper.DeserializeJsonFromFile<Book>(
                 @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Tests.Library\Core.Library.Tests\SampleJsonTests\SampleJson.json");
             Assert.That(book, Is.Not.Null.Or.Empty);
             Assert.That(book.Name, Is.EqualTo("John Carter"));
@@ -45,7 +50,7 @@ namespace Tests.Unit.Core.Library.Tests.HelpersTests
         [Test]
         public void Test_Json_Deserialize_Collection()
         {
-            var books = JsonHelper.DeserializeJsonFromFile<List<Book>>(
+            var books = _jsonHelper.DeserializeJsonFromFile<List<Book>>(
                 @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Tests.Library\Core.Library.Tests\SampleJsonTests\SampleJson - Books.json");
             Assert.That(books.Any());
         }
@@ -54,9 +59,9 @@ namespace Tests.Unit.Core.Library.Tests.HelpersTests
         public void DeserializeJson_Test()
         {
             var testBook = new Book {Id = 10, Isbn = "213789", Name = "Harry Potter"};
-            var serializeJson = JsonHelper.SerializeJson(testBook);
+            var serializeJson = _jsonHelper.SerializeJson(testBook);
 
-            var deserializeJson = JsonHelper.DeserializeJson<Book>(serializeJson);
+            var deserializeJson = _jsonHelper.DeserializeJson<Book>(serializeJson);
 
             Assert.That(deserializeJson.Name.Equals(testBook.Name), Is.True);
         }
@@ -70,7 +75,7 @@ namespace Tests.Unit.Core.Library.Tests.HelpersTests
                 ServerName = "System Test"
             };
 
-            JsonHelper.SerializeJsonToFile(sqlServerCredentials, @"..\..\..\Miscellaneous\Json\Servers.json");
+            _jsonHelper.SerializeJsonToFile(sqlServerCredentials, @"..\..\..\Miscellaneous\Json\Servers.json");
         }
     }
 }

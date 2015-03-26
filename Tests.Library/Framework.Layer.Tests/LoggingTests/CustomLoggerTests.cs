@@ -8,20 +8,20 @@ using Dependency.Resolver.Loaders;
 
 using NUnit.Framework;
 
-using StructureMap;
-
 namespace Tests.Unit.Framework.Layer.Tests.LoggingTests
 {
     public class CustomLoggerTests
     {
         private ICustomLogger _customLogger;
+        private DependencyManager _dependencyManager;
 
         [SetUp]
         public void Setup()
         {
-            DependencyManager.ConfigureStartupDependencies();
+            _dependencyManager = new DependencyManager();
+            _dependencyManager.ConfigureStartupDependencies();
 
-            _customLogger = ObjectFactory.Container.GetInstance<ICustomLogger>();
+            _customLogger = _dependencyManager.Container.GetInstance<ICustomLogger>();
         }
 
         [Test]

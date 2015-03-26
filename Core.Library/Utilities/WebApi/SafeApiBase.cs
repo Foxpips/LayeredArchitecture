@@ -6,21 +6,19 @@ using Business.Logic.Layer.Interfaces.Logging;
 
 using Core.Library.Exceptions.Basic;
 
-using StructureMap;
-
 namespace Core.Library.Utilities.WebApi
 {
     public abstract class SafeApiBase
     {
-        private readonly ICustomLogger _customLogger;
+        private readonly ICustomLogger _logger;
         protected string UserName { get; set; }
         protected string Password { get; set; }
 
-        protected SafeApiBase(string userName, string password)
+        protected SafeApiBase(string userName, string password, ICustomLogger logger)
         {
+            _logger = logger;
             UserName = userName;
             Password = password;
-            _customLogger = ObjectFactory.Container.GetInstance<ICustomLogger>();
         }
 
         public TResponse SafeCall<TClient, TRequest, TResponse>(
@@ -35,12 +33,12 @@ namespace Core.Library.Utilities.WebApi
                 }
                 catch (SoapException soap)
                 {
-                    _customLogger.Error(soap);
+                    _logger.Error(soap);
                     throw new ApiSoapException(soap.Message, new XmlQualifiedName("SafeCall"), soap.InnerException);
                 }
                 catch (Exception ex)
                 {
-                    _customLogger.Error(ex);
+                    _logger.Error(ex);
                     throw new ApiException(ex.Message, new XmlQualifiedName("SafeCall"), ex.InnerException);
                 }
             }

@@ -1,5 +1,7 @@
 ﻿using System;
 
+using Business.Logic.Layer.Interfaces.Logging;
+
 using Core.Library.Helpers;
 
 using Dependency.Resolver.Loaders;
@@ -11,16 +13,21 @@ namespace Tests.Unit.Framework.Layer.Tests.ExecutionTests
     [TestFixture]
     public class SafeExecutionTests
     {
+        private DependencyManager _dependencyManager;
+        private ICustomLogger _customLogger;
+
         [SetUp]
         public void Setup()
         {
-            DependencyManager.ConfigureStartupDependencies();
+            _dependencyManager = new DependencyManager();
+            _dependencyManager.ConfigureStartupDependencies();
+            _customLogger = _dependencyManager.Container.GetInstance<ICustomLogger>();
         }
 
         [Test]
         public void SafeExecution_TryCatch_WithResultTest()
         {
-            Assert.That(() => SafeExecutionHelper.ExecuteSafely<NullReferenceException>(() =>
+            Assert.That(() => SafeExecutionHelper.ExecuteSafely<NullReferenceException>(_customLogger, () =>
             {
                 Console.WriteLine("");
                 throw new NullReferenceException();
@@ -32,7 +39,7 @@ namespace Tests.Unit.Framework.Layer.Tests.ExecutionTests
         {
             try
             {
-                SafeExecutionHelper.ExecuteSafely<NullReferenceException>(() =>
+                SafeExecutionHelper.ExecuteSafely<NullReferenceException>(_customLogger, () =>
                 {
                     Console.WriteLine("");
                     throw new NullReferenceException();
@@ -49,7 +56,7 @@ namespace Tests.Unit.Framework.Layer.Tests.ExecutionTests
         {
             Assert.That(
                 () =>
-                    SafeExecutionHelper.ExecuteSafely<NullReferenceException>(
+                    SafeExecutionHelper.ExecuteSafely<NullReferenceException>(_customLogger,
                         () => { throw new NullReferenceException(); }), !Throws.TypeOf<NullReferenceException>());
         }
 
@@ -58,7 +65,8 @@ namespace Tests.Unit.Framework.Layer.Tests.ExecutionTests
         {
             try
             {
-                SafeExecutionHelper.ExecuteSafely<NullReferenceException>(() => { throw new NullReferenceException(); });
+                SafeExecutionHelper.ExecuteSafely<NullReferenceException>(_customLogger,
+                    () => { throw new NullReferenceException(); });
             }
             catch (Exception ex)
             {
