@@ -8,13 +8,6 @@ namespace Core.Library.Helpers
 {
     public static class SafeExecutionHelper
     {
-        private static readonly ICustomLogger _customLogger;
-
-        static SafeExecutionHelper()
-        {
-            _customLogger = ObjectFactory.Container.GetInstance<ICustomLogger>();
-        }
-
         public static TType ExecuteSafely<TType, TException>(ICustomLogger logger, Func<TType> work)
             where TException : Exception
         {

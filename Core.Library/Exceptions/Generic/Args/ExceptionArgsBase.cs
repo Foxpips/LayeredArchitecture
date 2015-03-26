@@ -2,7 +2,7 @@
 
 using Business.Logic.Layer.Interfaces.Logging;
 
-using StructureMap;
+using Dependency.Resolver.Loaders;
 
 namespace Core.Library.Exceptions.Generic.Args
 {
@@ -13,7 +13,7 @@ namespace Core.Library.Exceptions.Generic.Args
 
         protected ExceptionArgsBase()
         {
-            Logger = ObjectFactory.Container.GetInstance<ICustomLogger>();
+            Logger = new DependencyManager().ConfigureStartupDependencies().GetInstance<ICustomLogger>();
         }
 
         protected abstract string Message { get; }

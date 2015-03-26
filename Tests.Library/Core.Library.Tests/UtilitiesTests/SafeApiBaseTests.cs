@@ -23,10 +23,10 @@ namespace Tests.Unit.Core.Library.Tests.UtilitiesTests
             var dependencyManager = new DependencyManager();
             dependencyManager.ConfigureStartupDependencies();
 
-            var customLogger = dependencyManager.Container.GetInstance<ICustomLogger>();
+            var logger = dependencyManager.Container.GetInstance<ICustomLogger>();
 
             ReflectorApiMock = new ReflectorApiMock("username", "password",
-                customLogger);
+                logger);
         }
 
         [Test]

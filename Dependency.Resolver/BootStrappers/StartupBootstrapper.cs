@@ -6,26 +6,23 @@ using Framework.Layer.Logging.LogTypes;
 
 using StructureMap;
 
-namespace Dependency.Resolver.Registries
+namespace Dependency.Resolver.BootStrappers
 {
-    public class StartupBootstrapper : IDependencyBootStrapper
+    public class StartupBootstrapper : BootStrapperBase
     {
-        private readonly IContainer _container;
-
-        public StartupBootstrapper(IContainer container)
+        public StartupBootstrapper(IContainer container) : base(container)
         {
-            _container = container;
         }
 
-        public IContainer ConfigureContainer()
+        public override IContainer ConfigureContainer()
         {
-            _container.Configure(cfg =>
+            Container.Configure(cfg =>
             {
                 cfg.For<IRunAtStartup>().Use<StartUpType>();
                 cfg.For<ICustomLogger>().Transient().Use(scope => new Log4NetFileLogger());
             });
 
-            return _container;
+            return Container;
         }
     }
 }

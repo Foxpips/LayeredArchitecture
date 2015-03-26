@@ -21,7 +21,7 @@ namespace Dependency.Resolver.Loaders
             get { return _container; }
         }
 
-        public void ConfigureStartupDependencies()
+        public IContainer ConfigureStartupDependencies()
         {
             Container.Configure(cfg => cfg.AddRegistry(new DependencyRegistry()));
 
@@ -32,6 +32,7 @@ namespace Dependency.Resolver.Loaders
                 startUpDependency.ConfigureContainer();
             }
 //            }
+            return Container;
         }
 
         public void AddRegistry<TRegistry>() where TRegistry : Registry, new()

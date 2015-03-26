@@ -5,7 +5,7 @@ using Business.Logic.Layer.Interfaces.Startup;
 
 using Dependency.Resolver.Loaders;
 
-namespace Dependency.Resolver.Registries
+namespace Dependency.Resolver
 {
     public class TaskManager
     {

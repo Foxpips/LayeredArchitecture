@@ -48,15 +48,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BootStrappers\BootStrapperBase.cs" />
     <Compile Include="BootStrappers\FrameworkDependencyBootStrapper.cs" />
+    <Compile Include="BootStrappers\JsonHelperBootStrapper.cs" />
     <Compile Include="Loaders\DependencyManager.cs" />
     <Compile Include="Registries\DependencyRegistry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registries\EncryptionRegistry.cs" />
     <Compile Include="Registries\LoggerRegistry.cs" />
     <Compile Include="Registries\ReflectorRegistry.cs" />
-    <Compile Include="Registries\StartupBootstrapper.cs" />
-    <Compile Include="Registries\TaskManager.cs" />
+    <Compile Include="BootStrappers\StartupBootstrapper.cs" />
+    <Compile Include="TaskManager.cs" />
     <Compile Include="Registries\TaskRegistry.cs" />
   </ItemGroup>
   <ItemGroup>

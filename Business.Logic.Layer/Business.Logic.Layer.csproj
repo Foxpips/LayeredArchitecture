@@ -56,6 +56,7 @@
     <Compile Include="Interfaces\AutoMapper\IMapCustom.cs" />
     <Compile Include="Interfaces\AutoMapper\IMapFrom.cs" />
     <Compile Include="Interfaces\AutoMapper\IMapTo.cs" />
+    <Compile Include="Interfaces\IoC\IJsonHelper.cs" />
     <Compile Include="Interfaces\Logging\ICustomLogger.cs" />
     <Compile Include="Interfaces\Reflection\IReflector.cs" />
     <Compile Include="Interfaces\Startup\IRunAtShutdown.cs" />

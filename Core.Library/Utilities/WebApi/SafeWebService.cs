@@ -5,7 +5,7 @@ using Business.Logic.Layer.Interfaces.Logging;
 
 using Core.Library.Exceptions.Basic;
 
-using StructureMap;
+using Dependency.Resolver.Loaders;
 
 namespace Core.Library.Utilities.WebApi
 {
@@ -15,7 +15,7 @@ namespace Core.Library.Utilities.WebApi
 
         public SafeWebService()
         {
-            Logger = ObjectFactory.Container.GetInstance<ICustomLogger>();
+            Logger = new DependencyManager().ConfigureStartupDependencies().GetInstance<ICustomLogger>();
         }
 
         protected TType Execute<TType>(Func<TType> request)

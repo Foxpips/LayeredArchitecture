@@ -1,22 +1,19 @@
 ﻿using System.IO;
 
+using Business.Logic.Layer.Interfaces.IoC;
 using Business.Logic.Layer.Interfaces.Logging;
-
-using Dependency.Resolver.Loaders;
 
 using Newtonsoft.Json;
 
 namespace Core.Library.Helpers
 {
-    public class JsonHelper
+    public class JsonHelper : IJsonHelper
     {
         private readonly ICustomLogger _customLogger;
 
-        public JsonHelper()
+        public JsonHelper(ICustomLogger logger)
         {
-            var dependencyManager = new DependencyManager();
-            dependencyManager.ConfigureStartupDependencies();
-            _customLogger = dependencyManager.Container.GetInstance<ICustomLogger>();
+            _customLogger = logger;
         }
 
         public TType DeserializeJson<TType>(string json)
