@@ -8,7 +8,8 @@ namespace Service.Layer.EncryptionService.Services
         string Decrypt(string ciphertext);
     }
 
-    public class EncryptionProviderService<TEncrpyptionProvider> : IEncryptionProviderService where TEncrpyptionProvider : IEncrpytionProvider, new()
+    public class EncryptionProviderService<TEncrpyptionProvider> : IEncryptionProviderService
+        where TEncrpyptionProvider : IEncrpytionProvider, new()
     {
         private readonly TEncrpyptionProvider _encrpyptionProvider;
 

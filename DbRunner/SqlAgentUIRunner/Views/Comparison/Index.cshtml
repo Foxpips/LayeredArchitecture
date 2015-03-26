@@ -26,7 +26,7 @@
 }
 
 <h2>Comparison</h2>
-@using (Html.BeginForm("Compare", "Comparison", FormMethod.Post, new { id = "updateForm" }))
+@using (Html.BeginForm("Compare", "Comparison", FormMethod.Post, new {id = "updateForm"}))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
@@ -35,7 +35,7 @@
         <legend>SprocRunner</legend>
         <div class="row">
             <div class="col-md-3">
-                @Html.DropDownList("environmentDdl", new SelectList(listItems, "Value", "Text"), new { @class = "styled-select" })
+                @Html.DropDownList("environmentDdl", new SelectList(listItems, "Value", "Text"), new {@class = "styled-select"})
             </div>
             <div class="col-md-9">
                 <button type="submit" id="compareBtn" class="btn btn-default">Compare Database</button>

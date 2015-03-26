@@ -6,9 +6,9 @@ namespace Service.Layer.ScriptRunnerService.Runner.Base
     {
         internal SqlAgent Agent { get; set; }
 
-        public RunnerBase(string database,string outputPath)
+        public RunnerBase(string database, string outputPath)
         {
-            Agent = new SqlAgent(database, outputPath);  
+            Agent = new SqlAgent(database, outputPath);
         }
     }
 }

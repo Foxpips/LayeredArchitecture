@@ -6,7 +6,8 @@ namespace Service.Layer.MailerService
 {
     public class MailService : IMailService
     {
-      public void SendMail(int emailFormat, string bcc, string cc, string content, string subject, string @from, string to)
+        public void SendMail(
+            int emailFormat, string bcc, string cc, string content, string subject, string @from, string to)
         {
             if (string.IsNullOrEmpty(from) || string.IsNullOrEmpty(to))
             {
@@ -37,7 +38,6 @@ namespace Service.Layer.MailerService
                     smtpClient.Send(mailMessage);
                 }
             }
-           
         }
     }
 }

@@ -47,10 +47,10 @@ namespace Tests.Unit.Service.Layer.Tests.EncryptionTests
         {
             var rsaKey = new RsaKey();
 
-            Directory.Delete(ConfigurationManager.AppSettings["RsaKeyFolder"],true);
+            Directory.Delete(ConfigurationManager.AppSettings["RsaKeyFolder"], true);
             rsaKey.CreateKeys();
 
-            Assert.That(Directory.Exists(ConfigurationManager.AppSettings["RsaKeyFolder"]),Is.True);
+            Assert.That(Directory.Exists(ConfigurationManager.AppSettings["RsaKeyFolder"]), Is.True);
         }
     }
 }

@@ -2,9 +2,7 @@
 
 using Business.Logic.Layer.Interfaces.Logging;
 
-using Dependency.Resolver;
-using Dependency.Resolver.Containers;
-using Dependency.Resolver.Registries;
+using Dependency.Resolver.Loaders;
 
 using Rhino.ServiceBus;
 using Rhino.ServiceBus.Impl;
@@ -28,7 +26,7 @@ namespace TaskScheduler
 
         protected override void OnStart(string[] args)
         {
-            CustomContainer.AddRegistries<Registry>(new QuartzRegistry());
+            DependencyManager.AddRegistries<Registry>(new QuartzRegistry());
 
             new OnewayRhinoServiceBusConfiguration()
                 .UseStructureMap(ObjectFactory.Container)

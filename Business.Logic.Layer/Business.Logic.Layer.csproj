@@ -39,6 +39,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -57,7 +60,7 @@
     <Compile Include="Interfaces\Reflection\IReflector.cs" />
     <Compile Include="Interfaces\Startup\IRunAtShutdown.cs" />
     <Compile Include="Interfaces\Startup\IRunAtStartup.cs" />
-    <Compile Include="Interfaces\Startup\IStartUpDependency.cs" />
+    <Compile Include="Interfaces\Startup\IDependencyBootStrapper.cs" />
     <Compile Include="Managers\ServiceBus\IServiceBusMessageManager.cs" />
     <Compile Include="Managers\ServiceBus\ServiceBusMessageManager.cs" />
     <Compile Include="Managers\Tasks\TaskManager.cs" />
@@ -72,6 +75,7 @@
     <Compile Include="Pocos\Data\Review.cs" />
     <Compile Include="Pocos\Reflection\PropertyWithValue.cs" />
     <Compile Include="Pocos\Sql\SqlServerCredentials.cs" />
+    <Compile Include="Pocos\StartupTypes\StartUpType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

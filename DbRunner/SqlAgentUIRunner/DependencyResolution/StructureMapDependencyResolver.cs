@@ -16,6 +16,7 @@
 // --------------------------------------------------------------------------------------------------------------------
 
 using System.Web.Http.Dependencies;
+
 using StructureMap;
 
 namespace SqlAgentUIRunner.DependencyResolution
@@ -26,7 +27,6 @@ namespace SqlAgentUIRunner.DependencyResolution
     public class StructureMapDependencyResolver : StructureMapDependencyScope, IDependencyResolver
     {
         #region Constructors and Destructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="StructureMapDependencyResolver"/> class.
         /// </summary>
@@ -37,11 +37,9 @@ namespace SqlAgentUIRunner.DependencyResolution
             : base(container)
         {
         }
-
         #endregion
 
         #region Public Methods and Operators
-
         /// <summary>
         /// The begin scope.
         /// </summary>
@@ -50,10 +48,9 @@ namespace SqlAgentUIRunner.DependencyResolution
         /// </returns>
         public IDependencyScope BeginScope()
         {
-            IContainer child = this.Container.GetNestedContainer();
+            IContainer child = Container.GetNestedContainer();
             return new StructureMapDependencyResolver(child);
         }
-
         #endregion
     }
 }

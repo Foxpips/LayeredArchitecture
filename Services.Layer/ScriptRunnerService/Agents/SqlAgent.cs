@@ -14,7 +14,8 @@ namespace Service.Layer.ScriptRunnerService.Agents
         private string DatabaseConnection { get; set; }
         private string SprocDirLocation { get; set; }
 
-        public SqlAgent(string database, string rootDir, string collectionOutput = @"..\..\..\Miscellaneous\StoredProcedures")
+        public SqlAgent(
+            string database, string rootDir, string collectionOutput = @"..\..\..\Miscellaneous\StoredProcedures")
         {
             DatabaseConnection = database;
             SprocDirLocation = rootDir;
@@ -34,7 +35,7 @@ namespace Service.Layer.ScriptRunnerService.Agents
 
         internal void DropExistingSprocs()
         {
-             string dropsprocsTxt = SprocDirLocation + "DropSprocs.txt";
+            string dropsprocsTxt = SprocDirLocation + "DropSprocs.txt";
             var streamWriter = new StreamWriter(dropsprocsTxt);
             foreach (string proc in _sqlCollection.Dblist)
             {

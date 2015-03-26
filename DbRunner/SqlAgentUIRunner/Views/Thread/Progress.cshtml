@@ -18,7 +18,7 @@
 
 <h2>Database</h2>
 
-@using (Html.BeginForm("PollProgress", "Thread", FormMethod.Post, new { id = "ProgressForm" }))
+@using (Html.BeginForm("PollProgress", "Thread", FormMethod.Post, new {id = "ProgressForm"}))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)

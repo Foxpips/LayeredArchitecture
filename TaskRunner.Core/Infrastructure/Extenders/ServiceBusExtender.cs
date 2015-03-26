@@ -48,7 +48,8 @@ namespace TaskRunner.Core.Infrastructure.Extenders
             mailService.SendMail(0, string.Empty, string.Empty,
                 content,
                 subject,
-                ConfigurationManager.AppSettings["ErrorsEmailSender"], ConfigurationManager.AppSettings["ErrorsEmailRecipient"]);
+                ConfigurationManager.AppSettings["ErrorsEmailSender"],
+                ConfigurationManager.AppSettings["ErrorsEmailRecipient"]);
         }
 
         private static string SerializeMessages(object[] messages)

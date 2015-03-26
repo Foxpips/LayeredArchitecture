@@ -3,6 +3,7 @@
 using Dependency.Resolver.Registries;
 
 using StructureMap;
+using StructureMap.Configuration.DSL;
 
 namespace Dependency.Resolver.Loaders
 {
@@ -14,10 +15,24 @@ namespace Dependency.Resolver.Loaders
 
             using (IContainer container = ObjectFactory.Container.GetNestedContainer())
             {
-                foreach (IStartUpDependency startUpDependency in container.GetAllInstances<IStartUpDependency>())
+                foreach (IDependencyBootStrapper startUpDependency in container.GetAllInstances<IDependencyBootStrapper>())
                 {
-                    startUpDependency.CreateDependency();
+                    startUpDependency.ConfigureContainer();
                 }
+            }
+        }
+
+        public static void AddRegistry<TRegistry>() where TRegistry : Registry, new()
+        {
+            ObjectFactory.Container.Configure(cfg => cfg.AddRegistry(new TRegistry()));
+        }
+
+        public static void AddRegistries<TRegistry>(params TRegistry[] registries) where TRegistry : Registry, new()
+        {
+            foreach (TRegistry registry in registries)
+            {
+                TRegistry registryToBeAdded = registry;
+                ObjectFactory.Container.Configure(cfg => cfg.AddRegistry(registryToBeAdded));
             }
         }
     }

@@ -44,25 +44,25 @@
 #toast-container
 {
     position: fixed;
+    z-index: 9999;
     _position: absolute;    
     _top:expression(eval(document.body.scrollTop + 50));
-    z-index: 9999;
 }
 
 .toastr-element {
+    -moz-border-radius: 3px 3px 3px 3px;
+    -moz-box-shadow: 0 0 12px #999999;
+    -moz-opacity: 0.8;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    -webkit-border-radius: 3px 3px 3px 3px;
+    -webkit-box-shadow: 0 0 12px #999999;
     background-position: 15px center;
     background-repeat: no-repeat;
-    -moz-border-radius: 3px 3px 3px 3px;
-    -webkit-border-radius: 3px 3px 3px 3px;
     border-radius: 3px 3px 3px 3px;
-    -moz-box-shadow: 0 0 12px #999999;
-    -webkit-box-shadow: 0 0 12px #999999;
     box-shadow: 0 0 12px #999999;
     color: #FFFFFF;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
     filter: alpha(opacity=80);
     margin: 0 0 6px;
-    -moz-opacity: 0.8;
     opacity: 0.8;
     padding: 15px 15px 15px 50px;
     width: 300px;
@@ -106,12 +106,12 @@
 #toast-container > :hover
 {
     -moz-box-shadow: 0 0 12px #000000;
+    -moz-opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     -webkit-box-shadow: 0 0 12px #000000;
     box-shadow: 0 0 12px #000000;
     cursor: pointer;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
     filter: alpha(opacity=100);
-    -moz-opacity: 1;
     opacity: 1;
 }
 

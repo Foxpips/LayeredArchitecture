@@ -8,7 +8,8 @@ namespace TaskRunner.Core.Infrastructure.Configuration
     public static class BusConfig
     {
         private static readonly Lazy<BusConfigurationSection> _busConfigurationSection =
-            new Lazy<BusConfigurationSection>(() => (BusConfigurationSection) ConfigurationManager.GetSection("rhino.esb"));
+            new Lazy<BusConfigurationSection>(
+                () => (BusConfigurationSection) ConfigurationManager.GetSection("rhino.esb"));
 
         public static int GetNumberOfRetries()
         {

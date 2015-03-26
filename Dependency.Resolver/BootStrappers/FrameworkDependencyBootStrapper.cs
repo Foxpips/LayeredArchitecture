@@ -6,16 +6,18 @@ using StructureMap;
 
 namespace Dependency.Resolver.BootStrappers
 {
-    public class FrameworkBootStrapper : IStartUpDependency
+    public class FrameworkDependencyBootStrapper : IDependencyBootStrapper
     {
-        public void CreateDependency()
+        public IContainer ConfigureContainer()
         {
-            ObjectFactory.Initialize(x =>
+            ObjectFactory.Container.Configure(x =>
             {
                 x.AddRegistry(new LoggerRegistry());
                 x.AddRegistry(new EncryptionRegistry());
                 x.AddRegistry(new ReflectorRegistry());
             });
+
+            return ObjectFactory.Container;
         }
     }
 }

@@ -48,14 +48,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BootStrappers\FrameworkBootStrapper.cs" />
+    <Compile Include="BootStrappers\FrameworkDependencyBootStrapper.cs" />
     <Compile Include="Loaders\DependencyManager.cs" />
     <Compile Include="Registries\DependencyRegistry.cs" />
-    <Compile Include="Containers\CustomContainer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registries\EncryptionRegistry.cs" />
     <Compile Include="Registries\LoggerRegistry.cs" />
     <Compile Include="Registries\ReflectorRegistry.cs" />
+    <Compile Include="Registries\StartupBootstrapper.cs" />
     <Compile Include="Registries\TaskManager.cs" />
     <Compile Include="Registries\TaskRegistry.cs" />
   </ItemGroup>
@@ -83,6 +83,9 @@
       <Project>{e0bd0195-8064-4b0a-aaac-94ba8852422b}</Project>
       <Name>Service.Layer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Containers\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

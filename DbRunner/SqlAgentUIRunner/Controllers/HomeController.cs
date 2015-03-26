@@ -15,20 +15,20 @@ namespace SqlAgentUIRunner.Controllers
         {
             ViewBag.Message = "Run Database Diagnostics";
 
-            return RedirectToAction("Index","Comparison");
+            return RedirectToAction("Index", "Comparison");
         }
 
         public ActionResult Backup()
         {
             ViewBag.Message = "Run Database Diagnostics";
 
-            return RedirectToAction("Index","Backup");
+            return RedirectToAction("Index", "Backup");
         }
 
         public ActionResult Update()
         {
             ViewBag.Message = "Run Database Updates";
-            return RedirectToAction("Index","Update");
+            return RedirectToAction("Index", "Update");
         }
     }
 }

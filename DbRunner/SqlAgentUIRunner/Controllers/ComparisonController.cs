@@ -10,6 +10,7 @@ namespace SqlAgentUIRunner.Controllers
     public class ComparisonController : Controller
     {
         private static readonly TaskManager _updateTaskManager = new TaskManager();
+
         public ActionResult Index()
         {
             return View();
@@ -17,7 +18,10 @@ namespace SqlAgentUIRunner.Controllers
 
         public ActionResult Compare(string environmentDdl)
         {
-            _updateTaskManager.AddTask(1, () => new ComparisonRunner(environmentDdl, ConfigurationManager.AppSettings["rootDir"]).GenerateSprocComparisonFiles());
+            _updateTaskManager.AddTask(1,
+                () =>
+                    new ComparisonRunner(environmentDdl, ConfigurationManager.AppSettings["rootDir"])
+                        .GenerateSprocComparisonFiles());
             _updateTaskManager.RunTasks();
             return RedirectToAction("Index");
         }

@@ -11,7 +11,7 @@ namespace Dependency.Resolver.Registries
             Scan(scan =>
             {
                 scan.TheCallingAssembly();
-                scan.AddAllTypesOf<IStartUpDependency>();
+                scan.AddAllTypesOf<IDependencyBootStrapper>();
             });
         }
     }

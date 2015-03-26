@@ -46,7 +46,6 @@ namespace Framework.Layer.Loaders.Mapping
         private static void CreateMappings<TMapType>(
             IEnumerable<Type> imapInterfaces, Type type, Action<Type, Type> map)
         {
-
             var enumerable =
                 imapInterfaces.Where(
                     interfaceImplemented =>

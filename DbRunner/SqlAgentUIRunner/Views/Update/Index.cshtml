@@ -1,5 +1,4 @@
 ﻿@using System.Web.UI.WebControls
-
 @{
     ViewBag.Title = "Update";
 }
@@ -37,7 +36,7 @@
         <legend>SprocRunner</legend>
         <div class="row">
             <div class="col-md-3">
-                @Html.DropDownList("environmentDdl", new SelectList(listItems, "Value", "Text"), new { @class = "styled-select" })
+                @Html.DropDownList("environmentDdl", new SelectList(listItems, "Value", "Text"), new {@class = "styled-select"})
             </div>
             <div class="col-md-2">
                 <button type="submit" id="updateBtn" class="btn btn-default">Update Database</button>

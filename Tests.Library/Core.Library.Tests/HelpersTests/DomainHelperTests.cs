@@ -14,9 +14,11 @@ namespace Tests.Unit.Core.Library.Tests.HelpersTests
             var typeName = typeof (PseduoDHelperClass).Name;
             var typeFromAssembly = DomainHelper.GetTypeFromAssembly(typeName);
 
-            Assert.That(typeFromAssembly.Name.Equals(typeName,StringComparison.OrdinalIgnoreCase),Is.True);
+            Assert.That(typeFromAssembly.Name.Equals(typeName, StringComparison.OrdinalIgnoreCase), Is.True);
         }
 
-        public class PseduoDHelperClass { }
+        public class PseduoDHelperClass
+        {
+        }
     }
 }

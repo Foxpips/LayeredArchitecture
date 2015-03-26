@@ -1,6 +1,6 @@
 ﻿using Business.Logic.Layer.Interfaces.Logging;
 
-using Dependency.Resolver.Containers;
+using Dependency.Resolver.Loaders;
 using Dependency.Resolver.Registries;
 
 using NUnit.Framework;
@@ -14,7 +14,7 @@ namespace Tests.Unit.Dependency.Resolver.Tests
         [Test]
         public void CustomContainer_Add_NoInitialize()
         {
-            CustomContainer.AddRegistries(new LoggerRegistry());
+            DependencyManager.AddRegistries(new LoggerRegistry());
 
             var customLogger = ObjectFactory.Container.GetInstance<ICustomLogger>();
             customLogger.Info("Test");

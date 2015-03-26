@@ -1,6 +1,4 @@
-﻿@using System.Web.Mvc.Html
-
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
@@ -19,12 +17,13 @@
     @Scripts.Render("~/bundles/jqueryui")
     <script src="~/Scripts/bootstrap.js"></script>
     <script type="text/javascript">
+    
     </script>
 }
 
 <h2>Database</h2>
 
-@using (Html.BeginForm("Progress", "Thread", FormMethod.Post, new { id = "IndexForm" }))
+@using (Html.BeginForm("Progress", "Thread", FormMethod.Post, new {id = "IndexForm"}))
 {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)

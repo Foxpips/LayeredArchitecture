@@ -19,7 +19,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http.Dependencies;
+
 using Microsoft.Practices.ServiceLocation;
+
 using StructureMap;
 
 namespace SqlAgentUIRunner.DependencyResolution
@@ -30,16 +32,13 @@ namespace SqlAgentUIRunner.DependencyResolution
     public class StructureMapDependencyScope : ServiceLocatorImplBase, IDependencyScope
     {
         #region Constants and Fields
-
         /// <summary>
         /// The container.
         /// </summary>
         protected readonly IContainer Container;
-
         #endregion
 
         #region Constructors and Destructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="StructureMapDependencyScope"/> class.
         /// </summary>
@@ -55,19 +54,17 @@ namespace SqlAgentUIRunner.DependencyResolution
                 throw new ArgumentNullException("container");
             }
 
-            this.Container = container;
+            Container = container;
         }
-
         #endregion
 
         #region Public Methods and Operators
-
         /// <summary>
         /// The dispose.
         /// </summary>
         public void Dispose()
         {
-            this.Container.Dispose();
+            Container.Dispose();
         }
 
         /// <summary>
@@ -89,8 +86,8 @@ namespace SqlAgentUIRunner.DependencyResolution
             try
             {
                 return serviceType.IsAbstract || serviceType.IsInterface
-                           ? this.Container.TryGetInstance(serviceType)
-                           : this.Container.GetInstance(serviceType);
+                    ? Container.TryGetInstance(serviceType)
+                    : Container.GetInstance(serviceType);
             }
             catch
             {
@@ -109,13 +106,11 @@ namespace SqlAgentUIRunner.DependencyResolution
         /// </returns>
         public IEnumerable<object> GetServices(Type serviceType)
         {
-            return this.Container.GetAllInstances(serviceType).Cast<object>();
+            return Container.GetAllInstances(serviceType).Cast<object>();
         }
-
         #endregion
 
         #region Methods
-
         /// <summary>
         /// When implemented by inheriting classes, this method will do the actual work of
         ///        resolving all the requested service instances.
@@ -128,7 +123,7 @@ namespace SqlAgentUIRunner.DependencyResolution
         /// </returns>
         protected override IEnumerable<object> DoGetAllInstances(Type serviceType)
         {
-            return this.Container.GetAllInstances(serviceType).Cast<object>();
+            return Container.GetAllInstances(serviceType).Cast<object>();
         }
 
         /// <summary>
@@ -149,13 +144,12 @@ namespace SqlAgentUIRunner.DependencyResolution
             if (string.IsNullOrEmpty(key))
             {
                 return serviceType.IsAbstract || serviceType.IsInterface
-                           ? this.Container.TryGetInstance(serviceType)
-                           : this.Container.GetInstance(serviceType);
+                    ? Container.TryGetInstance(serviceType)
+                    : Container.GetInstance(serviceType);
             }
 
-            return this.Container.GetInstance(serviceType, key);
+            return Container.GetInstance(serviceType, key);
         }
-
         #endregion
     }
 }

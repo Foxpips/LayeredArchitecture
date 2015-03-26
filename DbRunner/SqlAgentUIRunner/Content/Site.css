@@ -756,9 +756,9 @@ tr.pager td {
     background: url(../Images/b4n.png) no-repeat top left;
     display: block;
     height: 52px;
+    margin-bottom: 15px;
     text-indent: -9999px; /* hides the link text */
     width: 175px;
-    margin-bottom: 15px
 }
 
 .updateLogo {
@@ -808,21 +808,21 @@ tr.pager td {
 
 .loading-spinner {
     background: url(../Images/animated-overlay.gif) no-repeat;
-    width: 32px;
-    height: 32px;
     border: none;
+    height: 32px;
+    width: 32px;
 }
 
 .styled-select {
-    width: 240px;
-    height: 34px;
-    border: 1px solid #000;
-    font-size: 14px;
-    color: #fff;
-    overflow: hidden;
-    background: url(../Images/down_arrow_select.jpg) no-repeat right #444;
-    padding: 5px;
     -webkit-appearance: none;
+    background: url(../Images/down_arrow_select.jpg) no-repeat right #444;
+    border: 1px solid #000;
+    color: #fff;
+    font-size: 14px;
+    height: 34px;
+    overflow: hidden;
+    padding: 5px;
+    width: 240px;
 }
 
 #progressbar {
@@ -835,17 +835,17 @@ tr.pager td {
 }
 
 .Entrybtn {
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
   background: #7634d9;
   background-image: -webkit-linear-gradient(top, #7634d9, #46056b);
   background-image: -moz-linear-gradient(top, #7634d9, #46056b);
   background-image: -ms-linear-gradient(top, #7634d9, #46056b);
   background-image: -o-linear-gradient(top, #7634d9, #46056b);
   background-image: linear-gradient(to bottom, #7634d9, #46056b);
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
   border-radius: 8px;
-  font-family: Arial;
   color: #ffffff;
+  font-family: Arial;
   font-size: 20px;
   padding: 10px 20px 10px 20px;
   text-decoration: none;

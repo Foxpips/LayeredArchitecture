@@ -3,8 +3,6 @@ using System.ServiceProcess;
 
 using Business.Logic.Layer.Interfaces.Logging;
 
-using Dependency.Resolver;
-using Dependency.Resolver.Containers;
 using Dependency.Resolver.Loaders;
 using Dependency.Resolver.Registries;
 
@@ -18,7 +16,7 @@ namespace TaskScheduler
 
         static StartScheduler()
         {
-            CustomContainer.AddRegistry<LoggerRegistry>();
+            DependencyManager.AddRegistry<LoggerRegistry>();
             DependencyManager.ConfigureStartupDependencies();
         }
 

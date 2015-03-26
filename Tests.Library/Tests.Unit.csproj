@@ -101,6 +101,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Framework.Layer.Tests\LoggingTests\ResourceLoaderTests.cs" />
     <Compile Include="Core.Library.Tests\HelpersTests\NativeTypeCheckerTests.cs" />
+    <Compile Include="StructureMapTests\Schedules\BaseSchedule.cs" />
+    <Compile Include="StructureMapTests\Jobs\CatalogueJob.cs" />
+    <Compile Include="StructureMapTests\Schedulers\CustomScheduler.cs" />
+    <Compile Include="StructureMapTests\Jobs\DataJob.cs" />
+    <Compile Include="StructureMapTests\Jobs\IJobbie.cs" />
+    <Compile Include="StructureMapTests\Schedulers\IScheduler.cs" />
+    <Compile Include="StructureMapTests\Schedules\RemoteSchedule.cs" />
+    <Compile Include="StructureMapTests\Schedules\StdSchedule.cs" />
+    <Compile Include="StructureMapTests\StructureMapTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
