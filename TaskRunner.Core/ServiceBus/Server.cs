@@ -11,9 +11,9 @@ namespace TaskRunner.Core.ServiceBus
 {
     public class Server
     {
-        public static void Start<TBootStrapper>() where TBootStrapper : AbstractBootStrapper
+        public static void Start<TBootStrapper>(IContainer container) where TBootStrapper : AbstractBootStrapper
         {
-            var logger = ObjectFactory.Container.GetInstance<ICustomLogger>();
+            var logger = container.GetInstance<ICustomLogger>();
 
             logger.Info("Preparing Queues");
             PrepareQueues.Prepare(BusConfig.GetBusEndpoint(), QueueType.Standard);

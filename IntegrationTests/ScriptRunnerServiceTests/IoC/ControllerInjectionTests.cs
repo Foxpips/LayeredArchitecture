@@ -1,6 +1,6 @@
 ﻿using System;
 
-using Business.Logic.Layer.Managers.ServiceBus;
+using Business.Logic.Layer.Interfaces.ServiceBus;
 using Business.Logic.Layer.Models.TaskRunner;
 
 using Dependency.Resolver.Loaders;

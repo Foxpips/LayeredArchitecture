@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Linq;
 
-using Business.Logic.Layer.Managers.ServiceBus;
+using Business.Logic.Layer.Interfaces.Logging;
 using Business.Logic.Layer.Models.TaskRunner;
 
 using Core.Library.Helpers.Reflector;
+using Core.Library.Managers.ServiceBus;
+
+using Dependency.Resolver.Loaders;
 
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
@@ -17,6 +20,7 @@ namespace Tests.Integration.TaskRunnerTests
 {
     public class SqlTaskRunnerTests
     {
+        private ICustomLogger _customLogger;
         private ServiceBusMessageManager Manager { get; set; }
         private MessageBusController Controller { get; set; }
         private Type MessageType { get; set; }
@@ -24,9 +28,11 @@ namespace Tests.Integration.TaskRunnerTests
         [SetUp]
         public void SetUp()
         {
-            Manager = new ServiceBusMessageManager(new TaskRunnerReflector(),
+            var container = new DependencyManager().ConfigureStartupDependencies();
+            _customLogger = container.GetInstance<ICustomLogger>();
+            Manager = new ServiceBusMessageManager(new TaskRunnerReflector(container),
                 @"c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\TaskRunner.Common\bin\Debug\TaskRunner.Common.dll");
-            Controller = new MessageBusController(Manager);
+            Controller = new MessageBusController(Manager, container);
             MessageType = typeof (HelloWorldCommand);
         }
 

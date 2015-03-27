@@ -8,6 +8,8 @@ using Core.Library.Helpers.Reflector;
 using Dependency.Resolver.Loaders;
 using Dependency.Resolver.Registries;
 
+using log4net.Repository.Hierarchy;
+
 using NUnit.Framework;
 
 using Rhino.ServiceBus;
@@ -27,41 +29,42 @@ namespace Tests.Integration.TaskRunnerTests
     public class TaskRunnerTest
     {
         private IEncryptionProviderService _encryptionProviderService;
+        private IContainer _container;
 
         [SetUp]
         public void Setup()
         {
-            new DependencyManager(ObjectFactory.Container).ConfigureStartupDependencies();
-            _encryptionProviderService = ObjectFactory.Container.GetInstance<IEncryptionProviderService>();
+            _container = new DependencyManager().ConfigureStartupDependencies();
+            _encryptionProviderService = _container.GetInstance<IEncryptionProviderService>();
         }
 
         [Test]
         public void TaskRunner_SendReceive_Message_Tests()
         {
-            var client = new Client<IOnewayBus>();
+            var client = new Client<IOnewayBus>(_container);
             client.Bus.Send(new HelloWorldCommand
             {
                 Text = _encryptionProviderService.Encrypt("Hello there world!")
             });
 
-            Server.Start<TaskRunnerBootStrapper>();
+            Server.Start<TaskRunnerBootStrapper>(_container);
             Thread.Sleep(TimeSpan.FromSeconds(2));
         }
 
         [Test]
         public void SendMessage_Only_MessageConsumed()
         {
-            var client = new Client<IOnewayBus>();
+            var client = new Client<IOnewayBus>(_container);
             client.Bus.Send(new HelloWorldCommand {Text = _encryptionProviderService.Encrypt("Hello")});
 
-            Server.Start<CustomBootStrapper<EncryptionRegistry, ServiceBusRegistry>>();
+            Server.Start<CustomBootStrapper<EncryptionRegistry, ServiceBusRegistry,LoggerRegistry>>(_container);
             Thread.Sleep(TimeSpan.FromSeconds(2));
         }
 
         [Test]
         public void TaskRunnerReflector_Tests()
         {
-            var reflector = new TaskRunnerReflector();
+            var reflector = new TaskRunnerReflector(_container);
 
             var typesFromDll =
                 reflector.GetTypesFromDll(

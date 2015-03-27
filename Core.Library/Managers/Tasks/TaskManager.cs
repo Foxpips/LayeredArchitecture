@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Linq;
+using System.Reflection;
 
 using Business.Logic.Layer.Interfaces.Startup;
 
-using Dependency.Resolver.Loaders;
-
-namespace Dependency.Resolver
+namespace Core.Library.Managers.Tasks
 {
     public class TaskManager
     {
         public static void ExecuteStartupTasks()
         {
-            var exportedTypes = typeof (DependencyManager).Assembly.GetExportedTypes();
+            var exportedTypes = Assembly.GetExecutingAssembly().GetExportedTypes();
 
             foreach (
                 var exportedType in

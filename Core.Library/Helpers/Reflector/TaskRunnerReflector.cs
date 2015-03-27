@@ -10,7 +10,6 @@ using Business.Logic.Layer.Pocos.Reflection;
 using Core.Library.Extensions;
 
 using Rhino.ServiceBus;
-using Rhino.ServiceBus.Impl;
 
 using StructureMap;
 
@@ -19,15 +18,12 @@ namespace Core.Library.Helpers.Reflector
     public class TaskRunnerReflector : IReflector
     {
         private readonly ICustomLogger _customLogger;
+        private readonly IContainer _container;
 
-        public TaskRunnerReflector()
+        public TaskRunnerReflector(IContainer container)
         {
-            _customLogger = ObjectFactory.Container.GetInstance<ICustomLogger>();
-
-            _customLogger.Info("Configuring the service bus");
-            new OnewayRhinoServiceBusConfiguration()
-                .UseStructureMap(ObjectFactory.Container)
-                .Configure();
+            _container = container;
+            _customLogger = container.GetInstance<ICustomLogger>();
         }
 
         public IEnumerable<Type> GetTypesFromDll(string assemblyPath)
@@ -49,7 +45,7 @@ namespace Core.Library.Helpers.Reflector
                 instance.SetPublicProperties(props);
             }
 
-            var bus = ObjectFactory.GetInstance<IOnewayBus>();
+            var bus = _container.GetInstance<IOnewayBus>();
             bus.Send(instance);
 
             _customLogger.Info("Message sent successfully!");

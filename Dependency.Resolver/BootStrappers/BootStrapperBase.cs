@@ -6,13 +6,6 @@ namespace Dependency.Resolver.BootStrappers
 {
     public abstract class BootStrapperBase : IDependencyBootStrapper
     {
-        public IContainer Container { get; set; }
-
-        protected BootStrapperBase(IContainer container)
-        {
-            Container = container;
-        }
-
-        public abstract IContainer ConfigureContainer();
+        public abstract void ConfigureContainer(IContainer container);
     }
 }

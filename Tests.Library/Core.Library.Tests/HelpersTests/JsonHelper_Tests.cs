@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-using Business.Logic.Layer.Interfaces.IoC;
 using Business.Logic.Layer.Pocos.Data;
 using Business.Logic.Layer.Pocos.Sql;
 
@@ -23,9 +22,7 @@ namespace Tests.Unit.Core.Library.Tests.HelpersTests
         [SetUp]
         public void Setup()
         {
-            var dependencyManager = new DependencyManager();
-            dependencyManager.ConfigureStartupDependencies();
-            _jsonHelper = dependencyManager.Container.GetInstance<JsonHelper>();
+            _jsonHelper = new DependencyManager().ConfigureStartupDependencies().GetInstance<JsonHelper>();
         }
 
         [Test]

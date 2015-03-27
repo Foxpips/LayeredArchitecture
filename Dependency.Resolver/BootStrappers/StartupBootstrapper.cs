@@ -10,19 +10,13 @@ namespace Dependency.Resolver.BootStrappers
 {
     public class StartupBootstrapper : BootStrapperBase
     {
-        public StartupBootstrapper(IContainer container) : base(container)
+        public override void ConfigureContainer(IContainer container)
         {
-        }
-
-        public override IContainer ConfigureContainer()
-        {
-            Container.Configure(cfg =>
+            container.Configure(cfg =>
             {
                 cfg.For<IRunAtStartup>().Use<StartUpType>();
                 cfg.For<ICustomLogger>().Transient().Use(scope => new Log4NetFileLogger());
             });
-
-            return Container;
         }
     }
 }

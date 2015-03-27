@@ -78,6 +78,7 @@
     <Compile Include="Core.Library.Tests\HelpersTests\DomainHelperTests.cs" />
     <Compile Include="Core.Library.Tests\HelpersTests\JsonHelper_Tests.cs" />
     <Compile Include="Core.Library.Tests\HelpersTests\XmlHelper_Tests.cs" />
+    <Compile Include="Core.Library.Tests\UtilitiesTests\SafeWebServiceTester.cs" />
     <Compile Include="Core.Library.Tests\UtilitiesTests\SafeWebServiceTests.cs">
       <SubType>Component</SubType>
     </Compile>

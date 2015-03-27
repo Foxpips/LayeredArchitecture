@@ -66,7 +66,7 @@ namespace Tests.Integration.ScriptRunnerServiceTests
             backupController.Backup(
                 _connectionString);
 
-            while (BackupController.UpdateTaskManager.TasksInProgress())
+            while (BackupController.UpdateAsyncTaskManager.TasksInProgress())
             {
                 Thread.Sleep(TimeSpan.FromSeconds(2));
                 Console.WriteLine("Tasks are still running");

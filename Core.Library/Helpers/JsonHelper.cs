@@ -1,13 +1,12 @@
 ﻿using System.IO;
 
-using Business.Logic.Layer.Interfaces.IoC;
 using Business.Logic.Layer.Interfaces.Logging;
 
 using Newtonsoft.Json;
 
 namespace Core.Library.Helpers
 {
-    public class JsonHelper : IJsonHelper
+    public class JsonHelper
     {
         private readonly ICustomLogger _customLogger;
 

@@ -1,50 +1,40 @@
 ﻿using System;
 using System.Xml;
 
+using Business.Logic.Layer.Interfaces.Logging;
+
 using Core.Library.Exceptions.Basic;
 using Core.Library.Utilities.WebApi;
-
-using NUnit.Framework;
 
 namespace Tests.Unit.Core.Library.Tests.UtilitiesTests
 {
     public class SafeWebServiceTests : SafeWebService
     {
-        [Test]
-        public void Test_SafeWebService_Execute()
+        public SafeWebServiceTests(ICustomLogger logger) : base(logger)
+        {
+        }
+
+        public bool SafeWebServiceExecute()
         {
             var s = false;
 
             Execute(() => s = true);
-
-            Assert.True(s);
+            return s;
         }
 
-        [Test]
-        public void Test_SafeWebService_ThrowApiSoapException()
+        public void SafeWebServiceThrowApiSoapException()
         {
-            Assert.Throws<ApiSoapException>(
-                () =>
-                    Execute<object>(
-                        () => { throw new ApiSoapException("Error", new XmlQualifiedName(), new Exception()); }));
+            Execute<object>(() => { throw new ApiSoapException("Error", new XmlQualifiedName(), new Exception()); });
         }
 
-        [Test]
-        public void Test_SafeWebService_ThrowApiException()
+        public void SafeWebServiceThrowApiException()
         {
-            Assert.Throws<ApiException>(
-                () =>
-                    Execute<object>(
-                        () => { throw new ApiException("Error", new XmlQualifiedName(), new Exception()); }));
+            Execute<object>(() => { throw new ApiException("Error", new XmlQualifiedName(), new Exception()); });
         }
 
-        [Test]
-        public void Test_SafeWebService_ThrowException()
+        public void SafeWebServiceThrowException()
         {
-            Assert.Throws<Exception>(
-                () =>
-                    Execute<object>(
-                        () => { throw new Exception("Error"); }));
+            Execute<object>(() => { throw new Exception("Error"); });
         }
     }
 }

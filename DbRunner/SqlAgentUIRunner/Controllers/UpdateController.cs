@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
 using System.Web.Mvc;
 
-using Business.Logic.Layer.Managers.Tasks;
+using Core.Library.Managers.Tasks;
 
 using Service.Layer.ScriptRunnerService.Collections;
 using Service.Layer.ScriptRunnerService.Runner;
@@ -10,7 +10,7 @@ namespace SqlAgentUIRunner.Controllers
 {
     public class UpdateController : Controller
     {
-        private static readonly TaskManager _updateTaskManager = new TaskManager();
+        private static readonly AsyncTaskManager _updateAsyncTaskManager = new AsyncTaskManager();
         private static string _targetServer;
 
         public ActionResult Index()
@@ -21,11 +21,11 @@ namespace SqlAgentUIRunner.Controllers
         [HttpPost]
         public ActionResult Update(string environmentDdl)
         {
-            _updateTaskManager.AddTask(1,
+            _updateAsyncTaskManager.AddTask(1,
                 () =>
                     new SprocRunner(environmentDdl, ConfigurationManager.AppSettings["rootDir"])
                         .RunProceduresIntoDatabase());
-            _updateTaskManager.RunTasks();
+            _updateAsyncTaskManager.RunTasks();
             _targetServer = environmentDdl;
             return RedirectToAction("Index");
         }
@@ -35,7 +35,7 @@ namespace SqlAgentUIRunner.Controllers
         {
             return Json(new
             {
-                inProgress = _updateTaskManager.TasksInProgress(),
+                inProgress = _updateAsyncTaskManager.TasksInProgress(),
                 progressInfo =
                     "<span>Target:" + _targetServer + "</span>"
                     + "<br/><span> Action: Updating" + "</span>"

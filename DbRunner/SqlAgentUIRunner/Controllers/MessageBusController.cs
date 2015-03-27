@@ -2,12 +2,12 @@
 using System.Web.Mvc;
 
 using Business.Logic.Layer.Interfaces.Logging;
-using Business.Logic.Layer.Managers.ServiceBus;
+using Business.Logic.Layer.Interfaces.ServiceBus;
 using Business.Logic.Layer.Models.TaskRunner;
 
 using Core.Library.Helpers;
 
-using Dependency.Resolver.Loaders;
+using StructureMap;
 
 namespace SqlAgentUIRunner.Controllers
 {
@@ -16,12 +16,9 @@ namespace SqlAgentUIRunner.Controllers
         private readonly IServiceBusMessageManager _messageManager;
         private readonly ICustomLogger _customLogger;
 
-        public MessageBusController(IServiceBusMessageManager manager)
+        public MessageBusController(IServiceBusMessageManager manager, IContainer container)
         {
-            var dependencyManager = new DependencyManager();
-            dependencyManager.ConfigureStartupDependencies();
-            _customLogger = dependencyManager.Container.GetInstance<ICustomLogger>();
-
+            _customLogger = container.GetInstance<ICustomLogger>();
             _messageManager = manager;
         }
 

@@ -1,7 +1,7 @@
 ﻿using System.Configuration;
 using System.Web.Mvc;
 
-using Business.Logic.Layer.Managers.Tasks;
+using Core.Library.Managers.Tasks;
 
 using Service.Layer.ScriptRunnerService.Runner;
 
@@ -9,7 +9,7 @@ namespace SqlAgentUIRunner.Controllers
 {
     public class ComparisonController : Controller
     {
-        private static readonly TaskManager _updateTaskManager = new TaskManager();
+        private static readonly AsyncTaskManager _updateAsyncTaskManager = new AsyncTaskManager();
 
         public ActionResult Index()
         {
@@ -18,11 +18,11 @@ namespace SqlAgentUIRunner.Controllers
 
         public ActionResult Compare(string environmentDdl)
         {
-            _updateTaskManager.AddTask(1,
+            _updateAsyncTaskManager.AddTask(1,
                 () =>
                     new ComparisonRunner(environmentDdl, ConfigurationManager.AppSettings["rootDir"])
                         .GenerateSprocComparisonFiles());
-            _updateTaskManager.RunTasks();
+            _updateAsyncTaskManager.RunTasks();
             return RedirectToAction("Index");
         }
     }

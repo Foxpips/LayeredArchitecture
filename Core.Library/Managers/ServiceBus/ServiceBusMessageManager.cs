@@ -4,10 +4,11 @@ using System.Reflection;
 using AutoMapper;
 
 using Business.Logic.Layer.Interfaces.Reflection;
+using Business.Logic.Layer.Interfaces.ServiceBus;
 using Business.Logic.Layer.Models.TaskRunner;
 using Business.Logic.Layer.Pocos.Reflection;
 
-namespace Business.Logic.Layer.Managers.ServiceBus
+namespace Core.Library.Managers.ServiceBus
 {
     public class ServiceBusMessageManager : IServiceBusMessageManager
     {

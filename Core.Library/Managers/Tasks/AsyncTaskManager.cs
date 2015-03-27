@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Business.Logic.Layer.Managers.Tasks
+namespace Core.Library.Managers.Tasks
 {
-    public class TaskManager
+    public class AsyncTaskManager
     {
         public Dictionary<Int32, Action> TaskQueue { get; set; }
         protected Dictionary<Int32, Task> RunningTasks { get; set; }
 
-        public TaskManager()
+        public AsyncTaskManager()
         {
             TaskQueue = new Dictionary<int, Action>();
             RunningTasks = new Dictionary<int, Task>();

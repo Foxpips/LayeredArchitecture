@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-using Business.Logic.Layer.Managers.Tasks;
+using Core.Library.Managers.Tasks;
 
 using Service.Layer.ScriptRunnerService.Runner;
 
@@ -8,7 +8,7 @@ namespace SqlAgentUIRunner.Controllers
 {
     public class BackupController : Controller
     {
-        public static readonly TaskManager UpdateTaskManager = new TaskManager();
+        public static readonly AsyncTaskManager UpdateAsyncTaskManager = new AsyncTaskManager();
 
         public ActionResult Index()
         {
@@ -18,9 +18,9 @@ namespace SqlAgentUIRunner.Controllers
         [HttpPost]
         public ActionResult Backup(string environmentDdl)
         {
-            UpdateTaskManager.AddTask(1,
+            UpdateAsyncTaskManager.AddTask(1,
                 () => new BackupRunner(environmentDdl).BackUpSprocs());
-            UpdateTaskManager.RunTasks();
+            UpdateAsyncTaskManager.RunTasks();
             return RedirectToAction("Index");
         }
     }

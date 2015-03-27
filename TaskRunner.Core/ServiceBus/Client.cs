@@ -9,23 +9,25 @@ namespace TaskRunner.Core.ServiceBus
 {
     public class Client<TBusType> : IDisposable
     {
+        private readonly IContainer _container;
         public TBusType Bus { get; set; }
 
-        public Client()
+        public Client(IContainer container)
         {
+            _container = container;
             if (Bus == null)
             {
                 new OnewayRhinoServiceBusConfiguration()
-                    .UseStructureMap(ObjectFactory.Container)
+                    .UseStructureMap(container)
                     .Configure();
 
-                Bus = ObjectFactory.GetInstance<TBusType>();
+                Bus = container.GetInstance<TBusType>();
             }
         }
 
         public void Dispose()
         {
-            ObjectFactory.Container.Dispose();
+            _container.Dispose();
         }
     }
 }

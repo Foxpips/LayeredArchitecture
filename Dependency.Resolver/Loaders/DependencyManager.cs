@@ -29,7 +29,7 @@ namespace Dependency.Resolver.Loaders
 //            {
             foreach (IDependencyBootStrapper startUpDependency in Container.GetAllInstances<IDependencyBootStrapper>())
             {
-                startUpDependency.ConfigureContainer();
+                startUpDependency.ConfigureContainer(Container);
             }
 //            }
             return Container;
