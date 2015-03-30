@@ -1,12 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Reflection;
-
-using AutoMapper;
 
 using Business.Logic.Layer.Interfaces.Reflection;
 using Business.Logic.Layer.Interfaces.ServiceBus;
 using Business.Logic.Layer.Models.TaskRunner;
-using Business.Logic.Layer.Pocos.Reflection;
 
 namespace Core.Library.Managers.ServiceBus
 {
@@ -41,17 +39,9 @@ namespace Core.Library.Managers.ServiceBus
             return propertiesModel;
         }
 
-        public void SendMessage(string typeName, TaskRunnerPropertyModel[] propertiesForMessage)
+        public Type GetMessage(string typeName)
         {
-            var messageType = Reflector.GetMessageType(typeName);
-
-            if (propertiesForMessage != null && propertiesForMessage.Any())
-            {
-                Reflector.SendMessage(messageType, Mapper.Map<PropertyWithValue[]>(propertiesForMessage));
-                return;
-            }
-
-            Reflector.SendMessage(messageType);
+            return Reflector.GetMessageType(typeName);
         }
     }
 }

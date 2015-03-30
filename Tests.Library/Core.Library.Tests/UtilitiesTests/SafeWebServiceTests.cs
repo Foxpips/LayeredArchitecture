@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Xml;
 
+using Business.Logic.Layer.Exceptions.Basic;
 using Business.Logic.Layer.Interfaces.Logging;
 
-using Core.Library.Exceptions.Basic;
 using Core.Library.Utilities.WebApi;
 
 namespace Tests.Unit.Core.Library.Tests.UtilitiesTests

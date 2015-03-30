@@ -51,7 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EncryptionService\Encryption\Asymmetric\Rsa.cs" />
-    <Compile Include="EncryptionService\Encryption\IEncrpytionProvider.cs" />
     <Compile Include="EncryptionService\Encryption\Symmetric\Aes.cs" />
     <Compile Include="EncryptionService\Encryption\Symmetric\SymmetricEncryptionProviderBase.cs" />
     <Compile Include="EncryptionService\Encryption\Symmetric\TripleDes.cs" />
@@ -60,7 +59,6 @@
     <Compile Include="EncryptionService\KeyCreation\Keys\RsaKey.cs" />
     <Compile Include="EncryptionService\Services\EncryptionKeyBuilderService.cs" />
     <Compile Include="EncryptionService\Services\EncryptionProviderService.cs" />
-    <Compile Include="EncryptionService\Services\IEncryptionHelper.cs" />
     <Compile Include="MailerService\FakeMailService.cs" />
     <Compile Include="MailerService\IMailService.cs" />
     <Compile Include="MailerService\MailService.cs" />
@@ -77,9 +75,9 @@
     <Compile Include="ScriptRunnerService\Runner\SprocRunner.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core.Library\Core.Library.csproj">
-      <Project>{c3b4c1f9-0e06-49a3-88f4-fa63749d2d0d}</Project>
-      <Name>Core.Library</Name>
+    <ProjectReference Include="..\Business.Logic.Layer\Business.Logic.Layer.csproj">
+      <Project>{c5c0bdbf-f2f8-4a3b-98c8-306a12918702}</Project>
+      <Name>Business.Logic.Layer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Framework.Layer\Framework.Layer.csproj">
       <Project>{17AAADA3-939E-41DD-A5AA-851F93EE6B17}</Project>

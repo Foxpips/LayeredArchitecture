@@ -1,7 +1,7 @@
 using System;
 using System.Xml;
 
-namespace Core.Library.Exceptions.Basic
+namespace Business.Logic.Layer.Exceptions.Basic
 {
     public class ApiException : Exception
     {

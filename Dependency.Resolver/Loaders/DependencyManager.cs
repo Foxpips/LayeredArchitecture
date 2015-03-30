@@ -21,18 +21,17 @@ namespace Dependency.Resolver.Loaders
             get { return _container; }
         }
 
-        public IContainer ConfigureStartupDependencies()
+        public IContainer ConfigureStartupDependencies(ContainerType containerType = ContainerType.Standard)
         {
-            Container.Configure(cfg => cfg.AddRegistry(new DependencyRegistry()));
+            var container = containerType.Equals(ContainerType.Nested) ? _container.GetNestedContainer() : _container;
+            container.Configure(cfg => cfg.AddRegistry(new DependencyRegistry()));
 
-//            using (IContainer container = _container.GetNestedContainer())
-//            {
-            foreach (IDependencyBootStrapper startUpDependency in Container.GetAllInstances<IDependencyBootStrapper>())
+            foreach (var startUpDependency in container.GetAllInstances<IDependencyBootStrapper>())
             {
-                startUpDependency.ConfigureContainer(Container);
+                startUpDependency.ConfigureContainer(container);
             }
-//            }
-            return Container;
+
+            return container;
         }
 
         public void AddRegistry<TRegistry>() where TRegistry : Registry, new()

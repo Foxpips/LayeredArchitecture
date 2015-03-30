@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Web.Services;
 
+using Business.Logic.Layer.Exceptions.Basic;
 using Business.Logic.Layer.Interfaces.Logging;
-
-using Core.Library.Exceptions.Basic;
 
 namespace Core.Library.Utilities.WebApi
 {

@@ -1,6 +1,6 @@
-﻿namespace Service.Layer.EncryptionService.Encryption
+﻿namespace Service.Layer.EncryptionService.Services
 {
-    public interface IEncrpytionProvider
+    public interface IEncryptionProviderService
     {
         string Encrypt(string plaintext);
         string Decrypt(string ciphertext);

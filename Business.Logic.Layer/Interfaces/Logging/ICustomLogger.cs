@@ -1,6 +1,8 @@
-﻿namespace Business.Logic.Layer.Interfaces.Logging
+﻿using System;
+
+namespace Business.Logic.Layer.Interfaces.Logging
 {
-    public interface ICustomLogger
+    public interface ICustomLogger : IDisposable
     {
         void Info(object message);
         void Debug(object message);

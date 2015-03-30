@@ -1,6 +1,6 @@
 using System;
 
-namespace Core.Library.Exceptions.Generic.Args
+namespace Business.Logic.Layer.Exceptions.Generic.Args
 {
     public class JsonConvertErrorArgs : ExceptionArgsBase
     {
@@ -24,7 +24,6 @@ namespace Core.Library.Exceptions.Generic.Args
 
         public override void Handle()
         {
-            Logger.Error(Message);
             Console.WriteLine(Message);
         }
     }

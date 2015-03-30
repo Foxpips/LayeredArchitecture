@@ -1,8 +1,7 @@
-﻿using Business.Logic.Layer.Interfaces.Logging;
+﻿using Business.Logic.Layer.Interfaces.Encryption;
+using Business.Logic.Layer.Interfaces.Logging;
 
 using Rhino.ServiceBus;
-
-using Service.Layer.EncryptionService.Encryption;
 
 using TaskRunner.Common.Messages.Test;
 

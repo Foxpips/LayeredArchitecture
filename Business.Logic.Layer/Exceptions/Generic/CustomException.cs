@@ -1,8 +1,8 @@
 ﻿using System;
 
-using Core.Library.Exceptions.Generic.Args;
+using Business.Logic.Layer.Exceptions.Generic.Args;
 
-namespace Core.Library.Exceptions.Generic
+namespace Business.Logic.Layer.Exceptions.Generic
 {
     [Serializable]
     public class CustomException<TExceptionArgs> : Exception where TExceptionArgs : ExceptionArgsBase

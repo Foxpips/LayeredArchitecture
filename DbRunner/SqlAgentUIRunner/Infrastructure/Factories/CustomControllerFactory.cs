@@ -3,10 +3,14 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.SessionState;
 
+using Business.Logic.Layer.Interfaces.Logging;
+
 using Core.Library.Helpers.Reflector;
 using Core.Library.Managers.ServiceBus;
 
 using Dependency.Resolver.Loaders;
+
+using Rhino.ServiceBus;
 
 using SqlAgentUIRunner.Controllers;
 
@@ -19,10 +23,10 @@ namespace SqlAgentUIRunner.Infrastructure.Factories
             if (controllerName.ToUpper().StartsWith("MessageBus".ToUpper()))
             {
                 var container = new DependencyManager().ConfigureStartupDependencies();
-                var controller = new MessageBusController(new ServiceBusMessageManager(
-                    new TaskRunnerReflector(container),
+
+                var controller = new MessageBusController(new ServiceBusMessageManager(new TaskRunnerReflector(),
                     @"c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\TaskRunner.Common\bin\Debug\TaskRunner.Common.dll"),
-                    container);
+                    container.GetInstance<ICustomLogger>(), container.GetInstance<IOnewayBus>());
                 return controller;
             }
             return new DefaultControllerFactory().CreateController(requestContext, controllerName);

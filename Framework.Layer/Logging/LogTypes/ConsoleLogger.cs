@@ -37,5 +37,10 @@ namespace Framework.Layer.Logging.LogTypes
         {
             Console.WriteLine("Warning:{0} ", args[0]);
         }
+
+        public void Dispose()
+        {
+            Console.WriteLine("Calling dispose on logger");
+        }
     }
 }

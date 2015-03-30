@@ -1,3 +1,5 @@
+using System;
+
 using Business.Logic.Layer.Models.TaskRunner;
 
 namespace Business.Logic.Layer.Interfaces.ServiceBus
@@ -6,6 +8,6 @@ namespace Business.Logic.Layer.Interfaces.ServiceBus
     {
         TaskRunnerMessagesModel BuildMessagesModel();
         TaskRunnerPropertiesModel BuildPropertiesModel(string selectedMessageName);
-        void SendMessage(string typeName, TaskRunnerPropertyModel[] propertiesForMessage);
+        Type GetMessage(string typeName);
     }
 }

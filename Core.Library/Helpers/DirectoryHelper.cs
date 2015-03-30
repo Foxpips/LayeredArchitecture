@@ -2,7 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 
-using Core.Library.Exceptions.Basic;
+using Business.Logic.Layer.Exceptions.Basic;
 
 namespace Core.Library.Helpers
 {

@@ -12,6 +12,8 @@ using Dependency.Resolver.Loaders;
 using NUnit.Framework;
 using NUnit.Framework.SyntaxHelpers;
 
+using Rhino.ServiceBus;
+
 using SqlAgentUIRunner.Controllers;
 
 using TaskRunner.Common.Messages.Test;
@@ -20,7 +22,6 @@ namespace Tests.Integration.TaskRunnerTests
 {
     public class SqlTaskRunnerTests
     {
-        private ICustomLogger _customLogger;
         private ServiceBusMessageManager Manager { get; set; }
         private MessageBusController Controller { get; set; }
         private Type MessageType { get; set; }
@@ -29,10 +30,12 @@ namespace Tests.Integration.TaskRunnerTests
         public void SetUp()
         {
             var container = new DependencyManager().ConfigureStartupDependencies();
-            _customLogger = container.GetInstance<ICustomLogger>();
-            Manager = new ServiceBusMessageManager(new TaskRunnerReflector(container),
-                @"c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\TaskRunner.Common\bin\Debug\TaskRunner.Common.dll");
-            Controller = new MessageBusController(Manager, container);
+            Manager =
+                new ServiceBusMessageManager(
+                    new TaskRunnerReflector(),
+                    @"c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\TaskRunner.Common\bin\Debug\TaskRunner.Common.dll");
+            Controller = new MessageBusController(Manager, container.GetInstance<ICustomLogger>(),
+                container.GetInstance<IOnewayBus>());
             MessageType = typeof (HelloWorldCommand);
         }
 

@@ -2,8 +2,6 @@
 
 using Business.Logic.Layer.Interfaces.Logging;
 
-using StructureMap;
-
 namespace Core.Library.Helpers
 {
     public static class SafeExecutionHelper

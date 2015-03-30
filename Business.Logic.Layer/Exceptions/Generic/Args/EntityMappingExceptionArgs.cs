@@ -1,6 +1,6 @@
 using System;
 
-namespace Core.Library.Exceptions.Generic.Args
+namespace Business.Logic.Layer.Exceptions.Generic.Args
 {
     public class EntityMappingExceptionArgs : ExceptionArgsBase
     {

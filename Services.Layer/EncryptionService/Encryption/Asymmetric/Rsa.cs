@@ -4,6 +4,8 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
+using Business.Logic.Layer.Interfaces.Encryption;
+
 namespace Service.Layer.EncryptionService.Encryption.Asymmetric
 {
     public class Rsa : IEncrpytionProvider

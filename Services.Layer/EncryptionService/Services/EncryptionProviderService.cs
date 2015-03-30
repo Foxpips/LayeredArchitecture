@@ -1,13 +1,7 @@
-﻿using Service.Layer.EncryptionService.Encryption;
+﻿using Business.Logic.Layer.Interfaces.Encryption;
 
 namespace Service.Layer.EncryptionService.Services
 {
-    public interface IEncryptionProviderService
-    {
-        string Encrypt(string plaintext);
-        string Decrypt(string ciphertext);
-    }
-
     public class EncryptionProviderService<TEncrpyptionProvider> : IEncryptionProviderService
         where TEncrpyptionProvider : IEncrpytionProvider, new()
     {

@@ -20,7 +20,8 @@ namespace SqlAgentUIRunner.Controllers
         {
             var appSetting = ConfigurationManager.AppSettings["rootDir"];
             _asyncTaskManager.AddTask(1, () => new SprocRunner("uatprod", appSetting).RunProceduresIntoDatabase());
-            _asyncTaskManager.AddTask(2, () => new ComparisonRunner("uatprod", appSetting).GenerateSprocComparisonFiles());
+            _asyncTaskManager.AddTask(2,
+                () => new ComparisonRunner("uatprod", appSetting).GenerateSprocComparisonFiles());
             _asyncTaskManager.AddTask(3, () => new ComparisonRunner("uatprod", appSetting).GetMissingProcs());
             _asyncTaskManager.AddTask(4, () => new ComparisonRunner("uatprod", appSetting).GetNewProcs());
             _asyncTaskManager.RunTasks();

@@ -77,5 +77,10 @@ namespace Framework.Layer.Logging.LogTypes
         {
             Logger.ErrorFormat(format, args);
         }
+
+        public void Dispose()
+        {
+            Logger.Logger.Repository.Shutdown();
+        }
     }
 }

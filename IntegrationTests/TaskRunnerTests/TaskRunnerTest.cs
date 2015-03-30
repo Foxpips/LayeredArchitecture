@@ -8,7 +8,7 @@ using Core.Library.Helpers.Reflector;
 using Dependency.Resolver.Loaders;
 using Dependency.Resolver.Registries;
 
-using log4net.Repository.Hierarchy;
+using Framework.Layer.Logging.LogTypes;
 
 using NUnit.Framework;
 
@@ -41,6 +41,9 @@ namespace Tests.Integration.TaskRunnerTests
         [Test]
         public void TaskRunner_SendReceive_Message_Tests()
         {
+            using (_container.GetNestedContainer())
+            {
+            }
             var client = new Client<IOnewayBus>(_container);
             client.Bus.Send(new HelloWorldCommand
             {
@@ -57,14 +60,14 @@ namespace Tests.Integration.TaskRunnerTests
             var client = new Client<IOnewayBus>(_container);
             client.Bus.Send(new HelloWorldCommand {Text = _encryptionProviderService.Encrypt("Hello")});
 
-            Server.Start<CustomBootStrapper<EncryptionRegistry, ServiceBusRegistry,LoggerRegistry>>(_container);
+            Server.Start<CustomBootStrapper<EncryptionRegistry, ServiceBusRegistry, LoggerRegistry>>(_container);
             Thread.Sleep(TimeSpan.FromSeconds(2));
         }
 
         [Test]
         public void TaskRunnerReflector_Tests()
         {
-            var reflector = new TaskRunnerReflector(_container);
+            var reflector = new TaskRunnerReflector();
 
             var typesFromDll =
                 reflector.GetTypesFromDll(
@@ -87,11 +90,28 @@ namespace Tests.Integration.TaskRunnerTests
         [Test]
         public void Log4Logger_Injection_Test()
         {
-            var container = new Container(scan => scan.AddRegistry<LoggerRegistry>());
-            Console.WriteLine(container.WhatDoIHave());
-            var messageLogger = container.GetNestedContainer().GetInstance<ICustomLogger>();
+            Console.WriteLine(_container.WhatDoIHave());
 
+            _container.Configure(cfg => cfg.For<ICustomLogger>().Use<ConsoleLogger>());
+            var nestedContainer = _container.GetNestedContainer();
+
+            Console.WriteLine(nestedContainer.WhatDoIHave());
+
+            var messageLogger = nestedContainer.GetInstance<ICustomLogger>();
             messageLogger.Info("Hey");
+            nestedContainer.Dispose();
+        }
+
+        [Test]
+        public void IoCContainerTests_Nested_Vs_Standard()
+        {
+            var container = new DependencyManager().ConfigureStartupDependencies(ContainerType.Nested);
+            using (container)
+            {
+                var customLogger = container.GetInstance<ICustomLogger>();
+
+                customLogger.Info("Atomically created logger as Container is a nested Container!");
+            }
         }
     }
 }

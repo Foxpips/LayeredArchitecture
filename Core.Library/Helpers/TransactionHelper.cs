@@ -3,16 +3,15 @@ using System.Transactions;
 
 using Business.Logic.Layer.Interfaces.Logging;
 
-using Dependency.Resolver.Loaders;
+using Framework.Layer.Logging.LogTypes;
 
 namespace Core.Library.Helpers
 {
     public class TransactionHelper
     {
-        public static void Begin(Action work)
+        public static void Begin(Action work, ICustomLogger logger = null)
         {
-            var dependencyManager = new DependencyManager();
-            dependencyManager.ConfigureStartupDependencies();
+            logger = logger ?? new ConsoleLogger();
 
             using (var scope = new TransactionScope(TransactionScopeOption.Required,
                 new TransactionOptions
@@ -21,8 +20,7 @@ namespace Core.Library.Helpers
                     Timeout = TransactionManager.MaximumTimeout
                 }))
             {
-                SafeExecutionHelper.ExecuteSafely<TransactionAbortedException>(
-                    dependencyManager.Container.GetInstance<ICustomLogger>(), work);
+                SafeExecutionHelper.ExecuteSafely<TransactionAbortedException>(logger, work);
                 scope.Complete();
             }
         }

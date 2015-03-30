@@ -1,7 +1,7 @@
 ﻿using System.Reflection;
 
-using Core.Library.Exceptions.Generic;
-using Core.Library.Exceptions.Generic.Args;
+using Business.Logic.Layer.Exceptions.Generic;
+using Business.Logic.Layer.Exceptions.Generic.Args;
 
 using NUnit.Framework;
 

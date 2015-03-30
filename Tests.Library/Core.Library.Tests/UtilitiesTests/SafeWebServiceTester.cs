@@ -1,6 +1,6 @@
 ﻿using System;
 
-using Core.Library.Exceptions.Basic;
+using Business.Logic.Layer.Exceptions.Basic;
 
 using Framework.Layer.Logging.LogTypes;
 
@@ -21,7 +21,6 @@ namespace Tests.Unit.Core.Library.Tests.UtilitiesTests
         [Test]
         public void Test_SafeWebService_Execute()
         {
-            
             Assert.True(_safeWebServiceTests.SafeWebServiceExecute());
         }
 

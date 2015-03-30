@@ -40,9 +40,6 @@
     <Reference Include="Common.Logging.Log4Net1211">
       <HintPath>..\packages\Common.Logging.Log4Net1211.2.1.2\lib\net40\Common.Logging.Log4Net1211.dll</HintPath>
     </Reference>
-    <Reference Include="Dependency.Resolver">
-      <HintPath>..\TaskRunner.Core\bin\Debug\Dependency.Resolver.dll</HintPath>
-    </Reference>
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.1.2.11\lib\net40-full\log4net.dll</HintPath>
     </Reference>
@@ -78,14 +75,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exceptions\Basic\ApiException.cs" />
-    <Compile Include="Exceptions\Basic\ApiSoapException.cs" />
-    <Compile Include="Exceptions\Generic\Args\CryptoServiceExceptionArgs.cs" />
-    <Compile Include="Exceptions\Generic\Args\DatabaseErrorExceptionArgs.cs" />
-    <Compile Include="Exceptions\Generic\Args\EntityMappingExceptionArgs.cs" />
-    <Compile Include="Exceptions\Generic\Args\ExceptionArgsBase.cs" />
-    <Compile Include="Exceptions\Generic\Args\JsonConvertErrorArgs.cs" />
-    <Compile Include="Exceptions\Generic\CustomException.cs" />
     <Compile Include="Extensions\CollectionExtender.cs" />
     <Compile Include="Extensions\ReflectionExtender.cs" />
     <Compile Include="Helpers\DirectoryHelper.cs" />
@@ -96,7 +85,6 @@
     <Compile Include="Helpers\TransactionHelper.cs" />
     <Compile Include="Helpers\TypeCheckerHelper.cs" />
     <Compile Include="Helpers\XmlHelper.cs" />
-    <Compile Include="Exceptions\Basic\DirectoryAlreadyExists.cs" />
     <Compile Include="Helpers\Reflector\TaskRunnerReflector.cs" />
     <Compile Include="Managers\ServiceBus\ServiceBusMessageManager.cs" />
     <Compile Include="Managers\Tasks\AsyncTaskManager.cs" />
