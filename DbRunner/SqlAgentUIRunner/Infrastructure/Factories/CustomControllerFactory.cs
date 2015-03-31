@@ -3,16 +3,17 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.SessionState;
 
-using Business.Logic.Layer.Interfaces.Logging;
-
-using Core.Library.Helpers.Reflector;
-using Core.Library.Managers.ServiceBus;
+using Business.Logic.Layer.Helpers.Reflector;
+using Business.Logic.Layer.Managers.ServiceBus;
+using Business.Objects.Layer.Interfaces.Logging;
 
 using Dependency.Resolver.Loaders;
 
 using Rhino.ServiceBus;
 
 using SqlAgentUIRunner.Controllers;
+
+using TaskRunner.Core.ServiceBus;
 
 namespace SqlAgentUIRunner.Infrastructure.Factories
 {
@@ -26,7 +27,7 @@ namespace SqlAgentUIRunner.Infrastructure.Factories
 
                 var controller = new MessageBusController(new ServiceBusMessageManager(new TaskRunnerReflector(),
                     @"c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\TaskRunner.Common\bin\Debug\TaskRunner.Common.dll"),
-                    container.GetInstance<ICustomLogger>(), container.GetInstance<IOnewayBus>());
+                    container.GetInstance<ICustomLogger>(), new Client<IOnewayBus>(container));
                 return controller;
             }
             return new DefaultControllerFactory().CreateController(requestContext, controllerName);

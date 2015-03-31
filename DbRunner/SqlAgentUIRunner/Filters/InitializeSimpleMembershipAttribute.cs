@@ -4,7 +4,7 @@ using System.Data.Entity.Infrastructure;
 using System.Threading;
 using System.Web.Mvc;
 
-using Business.Logic.Layer.Models.Account;
+using Business.Objects.Layer.Models.Account;
 
 using WebMatrix.WebData;
 

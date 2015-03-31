@@ -1,4 +1,4 @@
-﻿namespace Business.Logic.Layer.Interfaces.AutoMapper
+﻿namespace Business.Objects.Layer.Interfaces.AutoMapper
 {
     public interface IMapTo
     {

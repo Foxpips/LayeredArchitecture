@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Business.Logic.Layer.Models.TaskRunner
+namespace Business.Objects.Layer.Models.TaskRunner
 {
     public class TaskRunnerPropertiesModel
     {

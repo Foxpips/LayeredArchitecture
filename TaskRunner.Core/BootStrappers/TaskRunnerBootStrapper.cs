@@ -16,6 +16,7 @@ namespace TaskRunner.Core.BootStrappers
             {
                 cfg.AddRegistry<EncryptionRegistry>();
                 cfg.AddRegistry<ServiceBusRegistry>();
+                cfg.AddRegistry<LoggerRegistry>();
             });
         }
     }

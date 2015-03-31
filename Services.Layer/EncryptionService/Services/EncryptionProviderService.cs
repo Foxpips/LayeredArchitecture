@@ -1,4 +1,4 @@
-﻿using Business.Logic.Layer.Interfaces.Encryption;
+﻿using Business.Objects.Layer.Interfaces.Encryption;
 
 namespace Service.Layer.EncryptionService.Services
 {

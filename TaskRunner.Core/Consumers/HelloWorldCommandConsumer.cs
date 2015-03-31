@@ -1,5 +1,5 @@
-﻿using Business.Logic.Layer.Interfaces.Encryption;
-using Business.Logic.Layer.Interfaces.Logging;
+﻿using Business.Objects.Layer.Interfaces.Encryption;
+using Business.Objects.Layer.Interfaces.Logging;
 
 using Rhino.ServiceBus;
 

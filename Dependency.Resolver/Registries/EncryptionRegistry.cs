@@ -1,4 +1,4 @@
-using Business.Logic.Layer.Interfaces.Encryption;
+using Business.Objects.Layer.Interfaces.Encryption;
 
 using Service.Layer.EncryptionService.Encryption.Asymmetric;
 using Service.Layer.EncryptionService.Services;

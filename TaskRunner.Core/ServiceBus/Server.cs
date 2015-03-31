@@ -1,4 +1,4 @@
-﻿using Business.Logic.Layer.Interfaces.Logging;
+﻿using Business.Objects.Layer.Interfaces.Logging;
 
 using Rhino.ServiceBus.Hosting;
 using Rhino.ServiceBus.Msmq;

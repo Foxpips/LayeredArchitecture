@@ -2,10 +2,10 @@
 using System.Web.Services.Protocols;
 using System.Xml;
 
-using Business.Logic.Layer.Exceptions.Basic;
-using Business.Logic.Layer.Interfaces.Logging;
+using Business.Objects.Layer.Exceptions.Basic;
+using Business.Objects.Layer.Interfaces.Logging;
 
-namespace Core.Library.Utilities.WebApi
+namespace Business.Logic.Layer.Utilities.WebApi
 {
     public abstract class SafeApiBase
     {

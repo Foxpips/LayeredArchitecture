@@ -1,6 +1,6 @@
 using System;
 
-namespace Business.Logic.Layer.Exceptions.Basic
+namespace Business.Objects.Layer.Exceptions.Basic
 {
     public class DirectoryAlreadyExists : Exception
     {

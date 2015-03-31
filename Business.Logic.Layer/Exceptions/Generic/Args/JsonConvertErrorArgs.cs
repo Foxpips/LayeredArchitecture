@@ -1,6 +1,6 @@
 using System;
 
-namespace Business.Logic.Layer.Exceptions.Generic.Args
+namespace Business.Objects.Layer.Exceptions.Generic.Args
 {
     public class JsonConvertErrorArgs : ExceptionArgsBase
     {

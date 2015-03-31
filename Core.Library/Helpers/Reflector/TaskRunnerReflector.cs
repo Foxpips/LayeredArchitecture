@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-using Business.Logic.Layer.Interfaces.Reflection;
+using Business.Objects.Layer.Interfaces.Reflection;
 
-namespace Core.Library.Helpers.Reflector
+namespace Business.Logic.Layer.Helpers.Reflector
 {
     public class TaskRunnerReflector : IReflector
     {

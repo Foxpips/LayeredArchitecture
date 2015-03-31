@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading;
 
-using Business.Logic.Layer.Interfaces.Logging;
-
-using Core.Library.Helpers.Reflector;
+using Business.Logic.Layer.Helpers.Reflector;
+using Business.Objects.Layer.Interfaces.Encryption;
+using Business.Objects.Layer.Interfaces.Logging;
 
 using Dependency.Resolver.Loaders;
 using Dependency.Resolver.Registries;
@@ -14,8 +14,6 @@ using NUnit.Framework;
 
 using Rhino.ServiceBus;
 using Rhino.ServiceBus.Hosting;
-
-using Service.Layer.EncryptionService.Services;
 
 using StructureMap;
 
@@ -41,9 +39,6 @@ namespace Tests.Integration.TaskRunnerTests
         [Test]
         public void TaskRunner_SendReceive_Message_Tests()
         {
-            using (_container.GetNestedContainer())
-            {
-            }
             var client = new Client<IOnewayBus>(_container);
             client.Bus.Send(new HelloWorldCommand
             {
@@ -105,8 +100,7 @@ namespace Tests.Integration.TaskRunnerTests
         [Test]
         public void IoCContainerTests_Nested_Vs_Standard()
         {
-            var container = new DependencyManager().ConfigureStartupDependencies(ContainerType.Nested);
-            using (container)
+            using (var container = new DependencyManager().ConfigureStartupDependencies(ContainerType.Nested))
             {
                 var customLogger = container.GetInstance<ICustomLogger>();
 

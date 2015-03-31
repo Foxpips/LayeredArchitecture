@@ -1,6 +1,6 @@
 ﻿using StructureMap;
 
-namespace Business.Logic.Layer.Interfaces.Startup
+namespace Dependency.Resolver.BootStrappers
 {
     public interface IDependencyBootStrapper
     {

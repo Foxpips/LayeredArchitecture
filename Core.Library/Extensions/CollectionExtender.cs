@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Core.Library.Extensions
+namespace Business.Logic.Layer.Extensions
 {
     public static class CollectionExtender
     {

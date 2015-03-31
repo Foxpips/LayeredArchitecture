@@ -2,9 +2,9 @@ using System;
 using System.IO;
 using System.Linq;
 
-using Business.Logic.Layer.Exceptions.Basic;
+using Business.Objects.Layer.Exceptions.Basic;
 
-namespace Core.Library.Helpers
+namespace Business.Logic.Layer.Helpers
 {
     public class DirectoryHelper : IDisposable
     {

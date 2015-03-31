@@ -1,4 +1,4 @@
-﻿namespace Business.Logic.Layer.Pocos.Reflection
+﻿namespace Business.Objects.Layer.Pocos.Reflection
 {
     public class PropertyWithValue
     {

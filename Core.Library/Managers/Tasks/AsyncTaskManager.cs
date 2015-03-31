@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Core.Library.Managers.Tasks
+namespace Business.Logic.Layer.Managers.Tasks
 {
     public class AsyncTaskManager
     {

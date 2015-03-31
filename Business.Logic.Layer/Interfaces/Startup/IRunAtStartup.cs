@@ -1,4 +1,4 @@
-﻿namespace Business.Logic.Layer.Interfaces.Startup
+﻿namespace Business.Objects.Layer.Interfaces.Startup
 {
     public interface IRunAtStartup
     {

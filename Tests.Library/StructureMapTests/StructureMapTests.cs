@@ -1,4 +1,4 @@
-﻿using Business.Logic.Layer.Interfaces.Startup;
+﻿using Business.Objects.Layer.Interfaces.Startup;
 
 using Dependency.Resolver.Loaders;
 

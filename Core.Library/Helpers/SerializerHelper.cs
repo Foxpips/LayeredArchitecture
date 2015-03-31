@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Runtime.Serialization;
 
-namespace Core.Library.Helpers
+namespace Business.Logic.Layer.Helpers
 {
     public class SerializerHelper
     {

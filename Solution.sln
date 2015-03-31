@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.Layer", "Framewor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Unit", "Tests.Library\Tests.Unit.csproj", "{FF436470-9618-4C74-B49F-EF3C4CA9AB85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Library", "Core.Library\Core.Library.csproj", "{C3B4C1F9-0E06-49A3-88F4-FA63749D2D0D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Logic.Layer", "Core.Library\Business.Logic.Layer.csproj", "{C3B4C1F9-0E06-49A3-88F4-FA63749D2D0D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskRunner.Common", "TaskRunner.Common\TaskRunner.Common.csproj", "{9E99E507-03DD-4BE3-A7CA-2627937EF93C}"
 EndProject
@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TaskRunner.Core", "TaskRunn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Integration", "IntegrationTests\Tests.Integration.csproj", "{48317EEB-2F1D-44F3-BA66-D6197B8D0AF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Logic.Layer", "Business.Logic.Layer\Business.Logic.Layer.csproj", "{C5C0BDBF-F2F8-4A3B-98C8-306A12918702}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Objects.Layer", "Business.Logic.Layer\Business.Objects.Layer.csproj", "{C5C0BDBF-F2F8-4A3B-98C8-306A12918702}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqlAgentUIRunner", "DbRunner\SqlAgentUIRunner\SqlAgentUIRunner.csproj", "{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}"
 EndProject

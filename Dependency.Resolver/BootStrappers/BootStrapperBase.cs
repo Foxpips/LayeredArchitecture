@@ -1,6 +1,4 @@
-﻿using Business.Logic.Layer.Interfaces.Startup;
-
-using StructureMap;
+﻿using StructureMap;
 
 namespace Dependency.Resolver.BootStrappers
 {

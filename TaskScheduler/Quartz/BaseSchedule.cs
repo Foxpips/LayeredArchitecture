@@ -1,9 +1,8 @@
 ﻿using System;
 
-using Business.Logic.Layer.Interfaces.Logging;
-using Business.Logic.Layer.Interfaces.Startup;
-
-using Core.Library.Helpers;
+using Business.Logic.Layer.Helpers;
+using Business.Objects.Layer.Interfaces.Logging;
+using Business.Objects.Layer.Interfaces.Startup;
 
 using Quartz;
 
@@ -15,11 +14,13 @@ namespace TaskScheduler.Quartz
     {
         private readonly IScheduler _scheduler;
         private readonly ICustomLogger _customLogger;
+        private readonly SafeExecutionHelper _safeExecutionHelper;
 
         protected BaseSchedule(IScheduler scheduler)
         {
             _customLogger = ObjectFactory.Container.GetInstance<ICustomLogger>();
             _scheduler = scheduler;
+            _safeExecutionHelper = new SafeExecutionHelper(_customLogger);
         }
 
         protected abstract TriggerBuilder CreateTrigger();
@@ -40,7 +41,7 @@ namespace TaskScheduler.Quartz
                 .WithIdentity(triggerName)
                 .Build();
 
-            SafeExecutionHelper.ExecuteSafely<SchedulerException>(_customLogger, () =>
+            _safeExecutionHelper.ExecuteSafely<SchedulerException>(() =>
             {
                 var dateTimeOffset = ScheduleJob(jobKey, jobDetail, trigger);
                 _customLogger.Info("Scheduled Job:" + jobName + "\n Runs at: " + dateTimeOffset);

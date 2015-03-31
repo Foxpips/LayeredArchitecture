@@ -1,6 +1,6 @@
-using Business.Logic.Layer.Interfaces.Logging;
-using Business.Logic.Layer.Interfaces.Startup;
-using Business.Logic.Layer.Pocos.StartupTypes;
+using Business.Objects.Layer.Interfaces.Logging;
+using Business.Objects.Layer.Interfaces.Startup;
+using Business.Objects.Layer.Pocos.StartupTypes;
 
 using Framework.Layer.Logging.LogTypes;
 
@@ -15,7 +15,7 @@ namespace Dependency.Resolver.BootStrappers
             container.Configure(cfg =>
             {
                 cfg.For<IRunAtStartup>().Use<StartUpType>();
-                cfg.For<ICustomLogger>().Transient().Use(scope => new Log4NetFileLogger());
+//                cfg.For<ICustomLogger>().Transient().Use(scope => new Log4NetFileLogger());
             });
         }
     }

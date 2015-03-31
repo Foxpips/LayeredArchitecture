@@ -1,7 +1,7 @@
 ﻿using System;
 
-using Business.Logic.Layer.Interfaces.ServiceBus;
-using Business.Logic.Layer.Models.TaskRunner;
+using Business.Objects.Layer.Interfaces.ServiceBus;
+using Business.Objects.Layer.Models.TaskRunner;
 
 using Dependency.Resolver.Loaders;
 using Dependency.Resolver.Registries;
@@ -17,12 +17,6 @@ namespace Tests.Integration.ScriptRunnerServiceTests.IoC
 {
     public class ControllerInjectionTests
     {
-        [SetUp]
-        public void SetUp()
-        {
-            new DependencyManager(ObjectFactory.Container).ConfigureStartupDependencies();
-        }
-
         [Test]
         public void MethodUnderTest_TestedBehavior_ExpectedResult()
         {
@@ -51,19 +45,33 @@ namespace Tests.Integration.ScriptRunnerServiceTests.IoC
         [Test]
         public void TestController_TestedBehavior_ExpectedResult()
         {
-            var container = new Container(new ReflectorRegistry());
-
-            var messageBusController = container.GetInstance<MessageBusController>();
-
-            var jsonResult = messageBusController.GetMessages();
-            var value = (jsonResult.Data as TaskRunnerMessagesModel);
-
-            if (value != null)
+            using (var container = new Container(cfg =>
             {
-                foreach (var taskRunnerMessagesModel in value.Messages)
+                cfg.AddRegistry<ReflectorRegistry>();
+                cfg.AddRegistry<LoggerRegistry>();
+            }).GetNestedContainer())
+            {
+                var messageBusController = container.GetInstance<MessageBusController>();
+
+                var jsonResult = messageBusController.GetMessages();
+                var value = (jsonResult.Data as TaskRunnerMessagesModel);
+
+                if (value != null)
                 {
-                    Console.WriteLine(taskRunnerMessagesModel);
+                    foreach (var taskRunnerMessagesModel in value.Messages)
+                    {
+                        Console.WriteLine(taskRunnerMessagesModel);
+                    }
                 }
+            }
+        }
+
+        [Test]
+        public void TestSendMessage_Using_ResolvedMessageBusController()
+        {
+            using (var container = new DependencyManager().ConfigureStartupDependencies(ContainerType.Nested))
+            {
+                container.GetInstance<MessageBusController>().SendMessage("HelloWorldCommand", null);
             }
         }
     }

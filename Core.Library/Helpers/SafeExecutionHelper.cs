@@ -1,12 +1,26 @@
 ﻿using System;
 
-using Business.Logic.Layer.Interfaces.Logging;
+using Business.Objects.Layer.Interfaces.Logging;
 
-namespace Core.Library.Helpers
+namespace Business.Logic.Layer.Helpers
 {
-    public static class SafeExecutionHelper
+    public enum ExceptionPolicy
     {
-        public static TType ExecuteSafely<TType, TException>(ICustomLogger logger, Func<TType> work)
+        RethrowException,
+        SwallowException
+    }
+
+    public class SafeExecutionHelper : IDisposable
+    {
+        private readonly ICustomLogger _logger;
+
+        public SafeExecutionHelper(ICustomLogger logger)
+        {
+            _logger = logger;
+        }
+
+        public TReturnType ExecuteSafely<TReturnType, TException>(
+            ExceptionPolicy policy, Func<TReturnType> work, Action<TException, ICustomLogger> handle)
             where TException : Exception
         {
             try
@@ -15,13 +29,18 @@ namespace Core.Library.Helpers
             }
             catch (TException ex)
             {
-                logger.Error(ex.Message);
-            }
+                handle(ex, _logger);
+                if (policy.Equals(ExceptionPolicy.RethrowException))
+                {
+                    throw;
+                }
 
-            return default(TType);
+                return default(TReturnType);
+            }
         }
 
-        public static void ExecuteSafely<TException>(ICustomLogger logger, Action work)
+        public void ExecuteSafely<TException>(
+            ExceptionPolicy policy, Action work, Action<TException, ICustomLogger> handle)
             where TException : Exception
         {
             try
@@ -30,8 +49,56 @@ namespace Core.Library.Helpers
             }
             catch (TException ex)
             {
-                logger.Error(ex.Message);
+                handle(ex, _logger);
+
+                if (policy.Equals(ExceptionPolicy.RethrowException))
+                {
+                    throw;
+                }
             }
+        }
+
+        public void ExecuteSafely<TException>(Action work, ExceptionPolicy policy = ExceptionPolicy.RethrowException)
+            where TException : Exception
+        {
+            try
+            {
+                work();
+            }
+            catch (TException ex)
+            {
+                _logger.Error(ex.Message);
+
+                if (policy.Equals(ExceptionPolicy.RethrowException))
+                {
+                    throw;
+                }
+            }
+        }
+
+        public TType ExecuteSafely<TType, TException>(
+            Func<TType> work, ExceptionPolicy policy = ExceptionPolicy.RethrowException)
+            where TException : Exception
+        {
+            try
+            {
+                return work();
+            }
+            catch (TException ex)
+            {
+                _logger.Error(ex.Message);
+
+                if (policy.Equals(ExceptionPolicy.RethrowException))
+                {
+                    throw;
+                }
+            }
+            return default(TType);
+        }
+
+        public void Dispose()
+        {
+            _logger.Dispose();
         }
     }
 }

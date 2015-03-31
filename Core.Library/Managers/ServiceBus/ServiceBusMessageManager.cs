@@ -2,11 +2,11 @@
 using System.Linq;
 using System.Reflection;
 
-using Business.Logic.Layer.Interfaces.Reflection;
-using Business.Logic.Layer.Interfaces.ServiceBus;
-using Business.Logic.Layer.Models.TaskRunner;
+using Business.Objects.Layer.Interfaces.Reflection;
+using Business.Objects.Layer.Interfaces.ServiceBus;
+using Business.Objects.Layer.Models.TaskRunner;
 
-namespace Core.Library.Managers.ServiceBus
+namespace Business.Logic.Layer.Managers.ServiceBus
 {
     public class ServiceBusMessageManager : IServiceBusMessageManager
     {

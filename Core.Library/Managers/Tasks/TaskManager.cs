@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Reflection;
 
-using Business.Logic.Layer.Interfaces.Startup;
+using Business.Objects.Layer.Interfaces.Startup;
 
-namespace Core.Library.Managers.Tasks
+namespace Business.Logic.Layer.Managers.Tasks
 {
     public class TaskManager
     {

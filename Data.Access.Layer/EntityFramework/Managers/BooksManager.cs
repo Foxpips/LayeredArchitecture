@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-using Business.Logic.Layer.Pocos.Data;
+using Business.Objects.Layer.Pocos.Data;
 
 using Data.Access.Layer.EntityFramework.Contexts;
 

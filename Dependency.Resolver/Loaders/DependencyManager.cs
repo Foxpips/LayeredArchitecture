@@ -1,5 +1,4 @@
-﻿using Business.Logic.Layer.Interfaces.Startup;
-
+﻿using Dependency.Resolver.BootStrappers;
 using Dependency.Resolver.Registries;
 
 using StructureMap;

@@ -1,4 +1,4 @@
-﻿namespace Business.Logic.Layer.Interfaces.Encryption
+﻿namespace Business.Objects.Layer.Interfaces.Encryption
 {
     public interface IEncrpytionProvider
     {

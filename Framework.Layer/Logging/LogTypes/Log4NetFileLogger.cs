@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-using Business.Logic.Layer.Interfaces.Logging;
+using Business.Objects.Layer.Interfaces.Logging;
 
 using Framework.Layer.Loaders.Resource;
 
@@ -80,7 +80,7 @@ namespace Framework.Layer.Logging.LogTypes
 
         public void Dispose()
         {
-            Logger.Logger.Repository.Shutdown();
+//            Logger.Logger.Repository.Shutdown();
         }
     }
 }

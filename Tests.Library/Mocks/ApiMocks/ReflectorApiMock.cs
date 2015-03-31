@@ -1,6 +1,5 @@
-using Business.Logic.Layer.Interfaces.Logging;
-
-using Core.Library.Utilities.WebApi;
+using Business.Logic.Layer.Utilities.WebApi;
+using Business.Objects.Layer.Interfaces.Logging;
 
 using Tests.Unit.Mocks.ApiMocks.Clients;
 using Tests.Unit.Mocks.ApiMocks.Requests;

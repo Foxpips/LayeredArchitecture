@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Linq;
 
-using Business.Logic.Layer.Pocos.Reflection;
+using Business.Objects.Layer.Pocos.Reflection;
 
-namespace Core.Library.Extensions
+namespace Business.Logic.Layer.Extensions
 {
     public static class ReflectionExtender
     {
-        public static void SetPublicProperties(this object instance, PropertyWithValue[] props)
+        public static object SetPublicProperties(this object instance, PropertyWithValue[] props)
         {
             var propertyInfos = instance.GetType().GetProperties();
             foreach (var propertyInfo in propertyInfos)
@@ -19,6 +19,7 @@ namespace Core.Library.Extensions
                     propertyInfo.SetValue(instance, convertedValue);
                 }
             }
+            return instance;
         }
     }
 }

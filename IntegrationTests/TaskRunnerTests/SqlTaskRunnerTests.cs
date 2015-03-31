@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Linq;
 
-using Business.Logic.Layer.Interfaces.Logging;
-using Business.Logic.Layer.Models.TaskRunner;
-
-using Core.Library.Helpers.Reflector;
-using Core.Library.Managers.ServiceBus;
+using Business.Logic.Layer.Helpers.Reflector;
+using Business.Logic.Layer.Managers.ServiceBus;
+using Business.Objects.Layer.Interfaces.Logging;
+using Business.Objects.Layer.Models.TaskRunner;
 
 using Dependency.Resolver.Loaders;
 
@@ -17,6 +16,7 @@ using Rhino.ServiceBus;
 using SqlAgentUIRunner.Controllers;
 
 using TaskRunner.Common.Messages.Test;
+using TaskRunner.Core.ServiceBus;
 
 namespace Tests.Integration.TaskRunnerTests
 {
@@ -30,13 +30,14 @@ namespace Tests.Integration.TaskRunnerTests
         public void SetUp()
         {
             var container = new DependencyManager().ConfigureStartupDependencies();
-            Manager =
-                new ServiceBusMessageManager(
-                    new TaskRunnerReflector(),
-                    @"c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\TaskRunner.Common\bin\Debug\TaskRunner.Common.dll");
-            Controller = new MessageBusController(Manager, container.GetInstance<ICustomLogger>(),
-                container.GetInstance<IOnewayBus>());
+
             MessageType = typeof (HelloWorldCommand);
+
+            Manager = new ServiceBusMessageManager(new TaskRunnerReflector(),
+                @"c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\TaskRunner.Common\bin\Debug\TaskRunner.Common.dll");
+
+            Controller = new MessageBusController(Manager, container.GetInstance<ICustomLogger>(),
+                new Client<IOnewayBus>(container));
         }
 
         [Test]

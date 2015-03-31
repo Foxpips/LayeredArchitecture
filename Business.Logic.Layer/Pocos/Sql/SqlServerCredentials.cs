@@ -1,4 +1,4 @@
-﻿namespace Business.Logic.Layer.Pocos.Sql
+﻿namespace Business.Objects.Layer.Pocos.Sql
 {
     public class SqlServerCredentials
     {

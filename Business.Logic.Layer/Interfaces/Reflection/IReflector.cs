@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Business.Logic.Layer.Interfaces.Reflection
+namespace Business.Objects.Layer.Interfaces.Reflection
 {
     public interface IReflector
     {

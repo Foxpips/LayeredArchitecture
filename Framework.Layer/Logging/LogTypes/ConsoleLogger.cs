@@ -1,6 +1,6 @@
 ﻿using System;
 
-using Business.Logic.Layer.Interfaces.Logging;
+using Business.Objects.Layer.Interfaces.Logging;
 
 namespace Framework.Layer.Logging.LogTypes
 {

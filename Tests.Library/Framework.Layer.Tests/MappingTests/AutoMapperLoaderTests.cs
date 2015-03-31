@@ -5,9 +5,9 @@ using System.Reflection;
 
 using AutoMapper;
 
-using Business.Logic.Layer.Interfaces.AutoMapper;
-using Business.Logic.Layer.Models.TaskRunner;
-using Business.Logic.Layer.Pocos.Reflection;
+using Business.Objects.Layer.Interfaces.AutoMapper;
+using Business.Objects.Layer.Models.TaskRunner;
+using Business.Objects.Layer.Pocos.Reflection;
 
 using Framework.Layer.Loaders.Mapping;
 

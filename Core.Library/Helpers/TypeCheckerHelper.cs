@@ -1,6 +1,6 @@
 using System.Linq;
 
-namespace Core.Library.Helpers
+namespace Business.Logic.Layer.Helpers
 {
     public class TypeCheckerHelper
     {

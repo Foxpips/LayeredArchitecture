@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Web.Services;
 
-using Business.Logic.Layer.Exceptions.Basic;
-using Business.Logic.Layer.Interfaces.Logging;
+using Business.Objects.Layer.Exceptions.Basic;
+using Business.Objects.Layer.Interfaces.Logging;
 
-namespace Core.Library.Utilities.WebApi
+namespace Business.Logic.Layer.Utilities.WebApi
 {
     public class SafeWebService : WebService
     {

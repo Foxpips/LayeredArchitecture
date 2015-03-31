@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Business.Logic.Layer.Pocos.Data
+namespace Business.Objects.Layer.Pocos.Data
 {
     public class Blog
     {

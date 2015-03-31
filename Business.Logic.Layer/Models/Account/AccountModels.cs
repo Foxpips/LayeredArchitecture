@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 
-namespace Business.Logic.Layer.Models.Account
+namespace Business.Objects.Layer.Models.Account
 {
     public class UsersContext : DbContext
     {

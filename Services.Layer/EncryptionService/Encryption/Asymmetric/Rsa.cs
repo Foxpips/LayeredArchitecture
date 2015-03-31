@@ -4,7 +4,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-using Business.Logic.Layer.Interfaces.Encryption;
+using Business.Objects.Layer.Interfaces.Encryption;
 
 namespace Service.Layer.EncryptionService.Encryption.Asymmetric
 {

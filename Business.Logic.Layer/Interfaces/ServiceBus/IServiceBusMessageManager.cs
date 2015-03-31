@@ -1,8 +1,8 @@
 using System;
 
-using Business.Logic.Layer.Models.TaskRunner;
+using Business.Objects.Layer.Models.TaskRunner;
 
-namespace Business.Logic.Layer.Interfaces.ServiceBus
+namespace Business.Objects.Layer.Interfaces.ServiceBus
 {
     public interface IServiceBusMessageManager
     {

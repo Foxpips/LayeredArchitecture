@@ -27,7 +27,7 @@ namespace TaskRunner.Core.ServiceBus
 
         public void Dispose()
         {
-            _container.Dispose();
+//            _container.Dispose();
         }
     }
 }

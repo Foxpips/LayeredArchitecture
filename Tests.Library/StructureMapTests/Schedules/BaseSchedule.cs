@@ -1,6 +1,6 @@
 using System;
 
-using Business.Logic.Layer.Interfaces.Startup;
+using Business.Objects.Layer.Interfaces.Startup;
 
 using Tests.Unit.StructureMapTests.Jobs;
 using Tests.Unit.StructureMapTests.Schedulers;

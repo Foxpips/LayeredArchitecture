@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ServiceProcess;
 
-using Business.Logic.Layer.Interfaces.Logging;
+using Business.Objects.Layer.Interfaces.Logging;
 
 using Dependency.Resolver.Loaders;
 

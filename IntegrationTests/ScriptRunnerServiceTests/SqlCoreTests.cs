@@ -4,9 +4,9 @@ using System.IO;
 using System.Linq;
 using System.Threading;
 
-using Business.Logic.Layer.Pocos.Sql;
-
-using Core.Library.Helpers;
+using Business.Logic.Layer.Helpers;
+using Business.Objects.Layer.Interfaces.Logging;
+using Business.Objects.Layer.Pocos.Sql;
 
 using Dependency.Resolver.Loaders;
 
@@ -17,8 +17,6 @@ using Service.Layer.ScriptRunnerService.SqlManagers;
 
 using SqlAgentUIRunner.Controllers;
 
-using StructureMap;
-
 namespace Tests.Integration.ScriptRunnerServiceTests
 {
     [TestFixture]
@@ -28,15 +26,14 @@ namespace Tests.Integration.ScriptRunnerServiceTests
         private string _rootdirString;
         public string BackupsOutputDirectory { get; set; }
         public string ComparisonOutputDirectory { get; set; }
-        public JsonHelper JsonHelper { get; set; }
 
         [SetUp]
         public void Setup()
         {
-            new DependencyManager(ObjectFactory.Container).ConfigureStartupDependencies();
+            var container = new DependencyManager().ConfigureStartupDependencies();
             _connectionString =
-                JsonHelper.DeserializeJsonFromFile<SqlServerCredentials>(@"..\..\..\Miscellaneous\Json\Servers.json")
-                    .ConnectionString;
+                new JsonHelper(container.GetInstance<ICustomLogger>()).DeserializeJsonFromFile<SqlServerCredentials>(
+                    @"..\..\..\Miscellaneous\Json\Servers.json").ConnectionString;
             _rootdirString = @"../../../Miscellaneous\StoredProcedures\";
             BackupsOutputDirectory = @"..\..\..\Miscellaneous\StoredProcedures\Backup_" +
                                      DateTime.Now.ToString("yyyy MMMM dd");

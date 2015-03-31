@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Business.Logic.Layer.Pocos.Data
+namespace Business.Objects.Layer.Pocos.Data
 {
     [Serializable]
     public class Movie

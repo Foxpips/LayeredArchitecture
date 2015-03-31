@@ -1,5 +1,5 @@
-using Business.Logic.Layer.Exceptions.Generic;
-using Business.Logic.Layer.Exceptions.Generic.Args;
+using Business.Objects.Layer.Exceptions.Generic;
+using Business.Objects.Layer.Exceptions.Generic.Args;
 
 namespace Data.Access.Layer.EntityDomain.Repositories
 {

@@ -1,8 +1,7 @@
 ﻿using System;
 
-using Business.Logic.Layer.Interfaces.Logging;
-
-using Core.Library.Helpers;
+using Business.Logic.Layer.Helpers;
+using Business.Objects.Layer.Interfaces.Logging;
 
 using Dependency.Resolver.Loaders;
 
@@ -13,25 +12,28 @@ namespace Tests.Unit.Framework.Layer.Tests.ExecutionTests
     [TestFixture]
     public class SafeExecutionTests
     {
-        private DependencyManager _dependencyManager;
-        private ICustomLogger _customLogger;
+        private SafeExecutionHelper _safeExecutionHelper;
 
         [SetUp]
         public void Setup()
         {
-            _dependencyManager = new DependencyManager();
-            _dependencyManager.ConfigureStartupDependencies();
-            _customLogger = _dependencyManager.Container.GetInstance<ICustomLogger>();
+            using (
+                var customLogger =
+                    new DependencyManager().ConfigureStartupDependencies(ContainerType.Nested)
+                        .GetInstance<ICustomLogger>())
+            {
+                _safeExecutionHelper = new SafeExecutionHelper(customLogger);
+            }
         }
 
         [Test]
         public void SafeExecution_TryCatch_WithResultTest()
         {
-            Assert.That(() => SafeExecutionHelper.ExecuteSafely<NullReferenceException>(_customLogger, () =>
+            Assert.That(() => _safeExecutionHelper.ExecuteSafely<NullReferenceException>(() =>
             {
                 Console.WriteLine("");
                 throw new NullReferenceException();
-            }), !Throws.TypeOf<NullReferenceException>());
+            }), Throws.TypeOf<NullReferenceException>());
         }
 
         [Test]
@@ -39,7 +41,7 @@ namespace Tests.Unit.Framework.Layer.Tests.ExecutionTests
         {
             try
             {
-                SafeExecutionHelper.ExecuteSafely<NullReferenceException>(_customLogger, () =>
+                _safeExecutionHelper.ExecuteSafely<NullReferenceException>(() =>
                 {
                     Console.WriteLine("");
                     throw new NullReferenceException();
@@ -56,8 +58,9 @@ namespace Tests.Unit.Framework.Layer.Tests.ExecutionTests
         {
             Assert.That(
                 () =>
-                    SafeExecutionHelper.ExecuteSafely<NullReferenceException>(_customLogger,
-                        () => { throw new NullReferenceException(); }), !Throws.TypeOf<NullReferenceException>());
+                    _safeExecutionHelper.ExecuteSafely<NullReferenceException>(
+                        () => { throw new NullReferenceException(); }, ExceptionPolicy.SwallowException),
+                !Throws.TypeOf<NullReferenceException>());
         }
 
         [Test]
@@ -65,7 +68,7 @@ namespace Tests.Unit.Framework.Layer.Tests.ExecutionTests
         {
             try
             {
-                SafeExecutionHelper.ExecuteSafely<NullReferenceException>(_customLogger,
+                _safeExecutionHelper.ExecuteSafely<NullReferenceException>(
                     () => { throw new NullReferenceException(); });
             }
             catch (Exception ex)

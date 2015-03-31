@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Business.Logic.Layer.Pocos.Data
+namespace Business.Objects.Layer.Pocos.Data
 {
     [Table("Books")]
     public class Book

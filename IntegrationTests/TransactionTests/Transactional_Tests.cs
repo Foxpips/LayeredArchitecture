@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Linq;
 
-using Business.Logic.Layer.Exceptions.Generic;
-using Business.Logic.Layer.Exceptions.Generic.Args;
-using Business.Logic.Layer.Pocos.Data;
-
-using Core.Library.Helpers;
+using Business.Logic.Layer.Helpers;
+using Business.Objects.Layer.Exceptions.Generic;
+using Business.Objects.Layer.Exceptions.Generic.Args;
+using Business.Objects.Layer.Pocos.Data;
 
 using Data.Access.Layer.EntityFramework.Contexts;
 using Data.Access.Layer.EntityFramework.Managers;

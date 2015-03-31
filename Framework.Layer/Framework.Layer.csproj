@@ -65,9 +65,9 @@
     <EmbeddedResource Include="Loaders\Resource\log4net.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business.Logic.Layer\Business.Logic.Layer.csproj">
+    <ProjectReference Include="..\Business.Logic.Layer\Business.Objects.Layer.csproj">
       <Project>{C5C0BDBF-F2F8-4A3B-98C8-306A12918702}</Project>
-      <Name>Business.Logic.Layer</Name>
+      <Name>Business.Objects.Layer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

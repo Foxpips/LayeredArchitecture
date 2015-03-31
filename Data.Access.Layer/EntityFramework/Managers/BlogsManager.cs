@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Linq;
 
-using Business.Logic.Layer.Pocos.Data;
-
-using Core.Library.Extensions;
+using Business.Logic.Layer.Extensions;
+using Business.Objects.Layer.Pocos.Data;
 
 using Data.Access.Layer.EntityFramework.Contexts;
 

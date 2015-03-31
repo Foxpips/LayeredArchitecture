@@ -1,7 +1,7 @@
-﻿using Business.Logic.Layer.Interfaces.AutoMapper;
-using Business.Logic.Layer.Pocos.Reflection;
+﻿using Business.Objects.Layer.Interfaces.AutoMapper;
+using Business.Objects.Layer.Pocos.Reflection;
 
-namespace Business.Logic.Layer.Models.TaskRunner
+namespace Business.Objects.Layer.Models.TaskRunner
 {
     public class TaskRunnerPropertyModel : IMapTo<PropertyWithValue>
     {

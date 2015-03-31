@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Business.Logic.Layer.Interfaces.Logging
+namespace Business.Objects.Layer.Interfaces.Logging
 {
     public interface ICustomLogger : IDisposable
     {
