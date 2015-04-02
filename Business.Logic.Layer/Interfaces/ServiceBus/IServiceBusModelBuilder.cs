@@ -4,7 +4,7 @@ using Business.Objects.Layer.Models.TaskRunner;
 
 namespace Business.Objects.Layer.Interfaces.ServiceBus
 {
-    public interface IServiceBusMessageManager
+    public interface IServiceBusModelBuilder
     {
         TaskRunnerMessagesModel BuildMessagesModel();
         TaskRunnerPropertiesModel BuildPropertiesModel(string selectedMessageName);

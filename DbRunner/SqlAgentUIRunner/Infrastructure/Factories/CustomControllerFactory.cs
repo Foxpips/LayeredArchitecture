@@ -25,9 +25,9 @@ namespace SqlAgentUIRunner.Infrastructure.Factories
             {
                 var container = new DependencyManager().ConfigureStartupDependencies();
 
-                var controller = new MessageBusController(new ServiceBusMessageManager(new TaskRunnerReflector(),
-                    @"c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\TaskRunner.Common\bin\Debug\TaskRunner.Common.dll"),
-                    container.GetInstance<ICustomLogger>(), new Client<IOnewayBus>(container));
+                var controller = new MessageBusController(new ServiceBusModelBuilder(new TaskRunnerReflector(),
+                    @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\SharedDlls\TaskRunner.Common.dll "),
+                    container.GetInstance<ICustomLogger>(), new MessageBusManager(new Client<IOnewayBus>(container)));
                 return controller;
             }
             return new DefaultControllerFactory().CreateController(requestContext, controllerName);
@@ -46,6 +46,21 @@ namespace SqlAgentUIRunner.Infrastructure.Factories
             {
                 disposable.Dispose();
             }
+        }
+    }
+
+    public class MessageBusManager
+    {
+        private readonly Client<IOnewayBus> _client;
+
+        public MessageBusManager(Client<IOnewayBus> client)
+        {
+            _client = client;
+        }
+
+        public void SendMessage(object message)
+        {
+            _client.Bus.Send(message);
         }
     }
 }

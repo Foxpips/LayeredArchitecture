@@ -14,6 +14,7 @@ using NUnit.Framework.SyntaxHelpers;
 using Rhino.ServiceBus;
 
 using SqlAgentUIRunner.Controllers;
+using SqlAgentUIRunner.Infrastructure.Factories;
 
 using TaskRunner.Common.Messages.Test;
 using TaskRunner.Core.ServiceBus;
@@ -22,7 +23,7 @@ namespace Tests.Integration.TaskRunnerTests
 {
     public class SqlTaskRunnerTests
     {
-        private ServiceBusMessageManager Manager { get; set; }
+        private ServiceBusModelBuilder Manager { get; set; }
         private MessageBusController Controller { get; set; }
         private Type MessageType { get; set; }
 
@@ -33,11 +34,11 @@ namespace Tests.Integration.TaskRunnerTests
 
             MessageType = typeof (HelloWorldCommand);
 
-            Manager = new ServiceBusMessageManager(new TaskRunnerReflector(),
-                @"c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\TaskRunner.Common\bin\Debug\TaskRunner.Common.dll");
+            Manager = new ServiceBusModelBuilder(new TaskRunnerReflector(),
+                @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\SharedDlls\TaskRunner.Common.dll");
 
             Controller = new MessageBusController(Manager, container.GetInstance<ICustomLogger>(),
-                new Client<IOnewayBus>(container));
+                new MessageBusManager(new Client<IOnewayBus>(container)));
         }
 
         [Test]

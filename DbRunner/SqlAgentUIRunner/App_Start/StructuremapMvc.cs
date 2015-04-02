@@ -23,8 +23,6 @@ using Dependency.Resolver.Loaders;
 using SqlAgentUIRunner;
 using SqlAgentUIRunner.DependencyResolution;
 
-using StructureMap;
-
 using WebActivator;
 [assembly: PreApplicationStartMethod(typeof (StructuremapMvc), "Start")]
 
@@ -34,12 +32,9 @@ namespace SqlAgentUIRunner
     {
         public static void Start()
         {
-            var container = ObjectFactory.Container;
-
-            new DependencyManager(container).ConfigureStartupDependencies();
+            var container = new DependencyManager().ConfigureStartupDependencies();
             DependencyResolver.SetResolver(new StructureMapDependencyResolver(container));
-            GlobalConfiguration.Configuration.DependencyResolver =
-                new StructureMapDependencyResolver(container);
+            GlobalConfiguration.Configuration.DependencyResolver = new StructureMapDependencyResolver(container);
         }
     }
 }

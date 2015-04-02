@@ -8,12 +8,12 @@ using Business.Objects.Layer.Models.TaskRunner;
 
 namespace Business.Logic.Layer.Managers.ServiceBus
 {
-    public class ServiceBusMessageManager : IServiceBusMessageManager
+    public class ServiceBusModelBuilder : IServiceBusModelBuilder
     {
         private IReflector Reflector { get; set; }
         private string Path { get; set; }
 
-        public ServiceBusMessageManager(IReflector reflector, string path)
+        public ServiceBusModelBuilder(IReflector reflector, string path)
         {
             Reflector = reflector;
             Path = path;

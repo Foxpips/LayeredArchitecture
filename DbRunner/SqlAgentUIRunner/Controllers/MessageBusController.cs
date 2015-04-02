@@ -12,24 +12,23 @@ using Business.Objects.Layer.Interfaces.ServiceBus;
 using Business.Objects.Layer.Models.TaskRunner;
 using Business.Objects.Layer.Pocos.Reflection;
 
-using Rhino.ServiceBus;
-
-using TaskRunner.Core.ServiceBus;
+using SqlAgentUIRunner.Infrastructure.Factories;
 
 namespace SqlAgentUIRunner.Controllers
 {
     public class MessageBusController : Controller
     {
-        private readonly IServiceBusMessageManager _messageManager;
+        private readonly IServiceBusModelBuilder _modelBuilder;
         private readonly ICustomLogger _customLogger;
-        private readonly Client<IOnewayBus> _client;
         private readonly SafeExecutionHelper _safeExecutionHelper;
+        private readonly MessageBusManager _messageBusManager;
 
-        public MessageBusController(IServiceBusMessageManager manager, ICustomLogger logger, Client<IOnewayBus> client)
+        public MessageBusController(
+            IServiceBusModelBuilder modelBuilder, ICustomLogger logger, MessageBusManager busManager)
         {
-            _client = client;
+            _modelBuilder = modelBuilder;
+            _messageBusManager = busManager;
             _customLogger = logger;
-            _messageManager = manager;
             _safeExecutionHelper = new SafeExecutionHelper(logger);
         }
 
@@ -43,7 +42,7 @@ namespace SqlAgentUIRunner.Controllers
             return
                 Json(
                     _safeExecutionHelper.ExecuteSafely<TaskRunnerMessagesModel, MappingException>(
-                        () => _messageManager.BuildMessagesModel()));
+                        () => _modelBuilder.BuildMessagesModel()));
         }
 
         public JsonResult GetProperties(string selectedMessage)
@@ -51,14 +50,14 @@ namespace SqlAgentUIRunner.Controllers
             return
                 Json(
                     _safeExecutionHelper.ExecuteSafely<TaskRunnerPropertiesModel, MappingException>(
-                        () => _messageManager.BuildPropertiesModel(selectedMessage)));
+                        () => _modelBuilder.BuildPropertiesModel(selectedMessage)));
         }
 
-        public JsonResult SendMessage(string typeName, TaskRunnerPropertyModel[] propertiesForMessage)
+        public JsonResult SendMessage(string typeName,params TaskRunnerPropertyModel[] propertiesForMessage)
         {
             return _safeExecutionHelper.ExecuteSafely<JsonResult, MappingException>(() =>
             {
-                var messageType = _messageManager.GetMessage(typeName);
+                var messageType = _modelBuilder.GetMessage(typeName);
 
                 if (propertiesForMessage != null && propertiesForMessage.Any())
                 {
@@ -88,7 +87,7 @@ namespace SqlAgentUIRunner.Controllers
                 return instance;
             });
 
-            _client.Bus.Send(message);
+            _messageBusManager.SendMessage(message);
             _customLogger.Info("Message sent successfully!");
         }
     }

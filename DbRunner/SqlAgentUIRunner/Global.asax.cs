@@ -8,6 +8,8 @@ using Business.Objects.Layer.Interfaces.AutoMapper;
 
 using Framework.Layer.Loaders.Mapping;
 
+using SqlAgentUIRunner.Infrastructure.Factories;
+
 namespace SqlAgentUIRunner
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
@@ -27,7 +29,7 @@ namespace SqlAgentUIRunner
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
 
-            StructuremapMvc.Start();
+//            StructuremapMvc.Start();
 
 //            ControllerBuilder.Current.SetControllerFactory(new CustomControllerFactory());
         }

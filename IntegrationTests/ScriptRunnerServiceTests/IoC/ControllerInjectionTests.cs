@@ -32,7 +32,7 @@ namespace Tests.Integration.ScriptRunnerServiceTests.IoC
         {
             var container = new Container(new ReflectorRegistry());
 
-            var reflector = container.GetInstance<IServiceBusMessageManager>();
+            var reflector = container.GetInstance<IServiceBusModelBuilder>();
 
             var taskRunnerMessagesModel = reflector.BuildMessagesModel();
 

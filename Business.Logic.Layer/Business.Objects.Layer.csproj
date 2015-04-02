@@ -73,7 +73,7 @@
     <Compile Include="Interfaces\Reflection\IReflector.cs" />
     <Compile Include="Interfaces\Startup\IRunAtShutdown.cs" />
     <Compile Include="Interfaces\Startup\IRunAtStartup.cs" />
-    <Compile Include="Interfaces\ServiceBus\IServiceBusMessageManager.cs" />
+    <Compile Include="Interfaces\ServiceBus\IServiceBusModelBuilder.cs" />
     <Compile Include="Models\Account\AccountModels.cs" />
     <Compile Include="Models\TaskRunner\TaskRunnerMessagesModel.cs" />
     <Compile Include="Models\TaskRunner\TaskRunnerPropertiesModel.cs" />

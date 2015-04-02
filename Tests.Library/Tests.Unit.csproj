@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="Dependency.Resolver.Tests\CustomContainerTests.cs" />
     <Compile Include="Dependency.Resolver.Tests\SafeExecution_Tests.cs" />
+    <Compile Include="Dependency.Resolver.Tests\StructureMapMvcTests.cs" />
     <Compile Include="Framework.Layer.Tests\MappingTests\AutoMapperLoaderTests.cs" />
     <Compile Include="Mocks\ApiMocks\Requests\IServiceRequest.cs" />
     <Compile Include="Mocks\ApiMocks\Requests\PurchaseRequest.cs" />

@@ -86,7 +86,7 @@
     <Compile Include="Helpers\TypeCheckerHelper.cs" />
     <Compile Include="Helpers\XmlHelper.cs" />
     <Compile Include="Helpers\Reflector\TaskRunnerReflector.cs" />
-    <Compile Include="Managers\ServiceBus\ServiceBusMessageManager.cs" />
+    <Compile Include="Managers\ServiceBus\ServiceBusModelBuilder.cs" />
     <Compile Include="Managers\Tasks\AsyncTaskManager.cs" />
     <Compile Include="Managers\Tasks\TaskManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

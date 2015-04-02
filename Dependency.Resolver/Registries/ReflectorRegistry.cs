@@ -12,9 +12,9 @@ namespace Dependency.Resolver.Registries
         public ReflectorRegistry()
         {
             For<IReflector>().Use<TaskRunnerReflector>();
-            For<IServiceBusMessageManager>().Use<ServiceBusMessageManager>().Ctor<string>("path")
+            For<IServiceBusModelBuilder>().Use<ServiceBusModelBuilder>().Ctor<string>("path")
                 .Is(
-                    @"c:\Users\smarkey\Documents\GitHub\LayeredArchitecture\TaskRunner.Common\bin\Debug\TaskRunner.Common.dll");
+                    @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\SharedDlls\TaskRunner.Common.dll");
         }
     }
 }
