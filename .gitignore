@@ -17,4 +17,4 @@ _ReSharper.*/
 *.log
 *.patch
 packages/
-Miscellaneous/
+Miscellaneous/StoredProcedures
