@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 
-[assembly: AssemblyTitle("Business.Objects.Layer")]
+[assembly: AssemblyTitle("Business.Logic.Layer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Business.Objects.Layer")]
+[assembly: AssemblyProduct("Business.Logic.Layer")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -21,7 +21,7 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 
-[assembly: Guid("a0dea6bd-5ca6-46e1-86ed-b6d3be9a0493")]
+[assembly: Guid("f40e8415-8560-4517-bf9c-823bb8692716")]
 
 // Version information for an assembly consists of the following four values:
 //

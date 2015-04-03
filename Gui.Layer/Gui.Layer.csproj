@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SqlAgentUIRunner</RootNamespace>
-    <AssemblyName>SqlAgentUIRunner</AssemblyName>
+    <RootNamespace>Gui.Layer</RootNamespace>
+    <AssemblyName>Gui.Layer</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
@@ -393,31 +393,31 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Business.Logic.Layer\Business.Objects.Layer.csproj">
+    <ProjectReference Include="..\Business.Objects.Layer\Business.Objects.Layer.csproj">
       <Project>{c5c0bdbf-f2f8-4a3b-98c8-306a12918702}</Project>
       <Name>Business.Objects.Layer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Core.Library\Business.Logic.Layer.csproj">
+    <ProjectReference Include="..\Business.Logic.Layer\Business.Logic.Layer.csproj">
       <Project>{c3b4c1f9-0e06-49a3-88f4-fa63749d2d0d}</Project>
       <Name>Business.Logic.Layer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Dependency.Resolver\Dependency.Resolver.csproj">
+    <ProjectReference Include="..\Dependency.Resolver\Dependency.Resolver.csproj">
       <Project>{A05BB169-3639-4158-971C-B17F0F443AE9}</Project>
       <Name>Dependency.Resolver</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Framework.Layer\Framework.Layer.csproj">
+    <ProjectReference Include="..\Framework.Layer\Framework.Layer.csproj">
       <Project>{17AAADA3-939E-41DD-A5AA-851F93EE6B17}</Project>
       <Name>Framework.Layer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Services.Layer\Service.Layer.csproj">
+    <ProjectReference Include="..\Services.Layer\Service.Layer.csproj">
       <Project>{E0BD0195-8064-4B0A-AAAC-94BA8852422B}</Project>
       <Name>Service.Layer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\TaskRunner.Common\TaskRunner.Common.csproj">
+    <ProjectReference Include="..\TaskRunner.Common\TaskRunner.Common.csproj">
       <Project>{9e99e507-03dd-4be3-a7ca-2627937ef93c}</Project>
       <Name>TaskRunner.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\TaskRunner.Core\TaskRunner.Core.csproj">
+    <ProjectReference Include="..\TaskRunner.Core\TaskRunner.Core.csproj">
       <Project>{7A069A5C-21EC-4222-A1E1-759F1344DB66}</Project>
       <Name>TaskRunner.Core</Name>
     </ProjectReference>

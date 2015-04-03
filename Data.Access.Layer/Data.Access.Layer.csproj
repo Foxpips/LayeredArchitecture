@@ -65,13 +65,13 @@
     <Compile Include="SafeDataReader.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business.Logic.Layer\Business.Objects.Layer.csproj">
-      <Project>{C5C0BDBF-F2F8-4A3B-98C8-306A12918702}</Project>
-      <Name>Business.Objects.Layer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Core.Library\Business.Logic.Layer.csproj">
+    <ProjectReference Include="..\Business.Logic.Layer\Business.Logic.Layer.csproj">
       <Project>{C3B4C1F9-0E06-49A3-88F4-FA63749D2D0D}</Project>
       <Name>Business.Logic.Layer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Business.Objects.Layer\Business.Objects.Layer.csproj">
+      <Project>{C5C0BDBF-F2F8-4A3B-98C8-306A12918702}</Project>
+      <Name>Business.Objects.Layer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Framework.Layer\Framework.Layer.csproj">
       <Project>{17aaada3-939e-41dd-a5aa-851f93ee6b17}</Project>

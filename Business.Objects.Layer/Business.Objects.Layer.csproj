@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B9E3A8FF-4B44-49E0-9C4D-1E3086354090}</ProjectGuid>
+    <ProjectGuid>{C5C0BDBF-F2F8-4A3B-98C8-306A12918702}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Business.Objects.Layer</RootNamespace>
@@ -39,8 +39,12 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="StructureMap">
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,12 +53,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\Basic\ApiException.cs" />
+    <Compile Include="Exceptions\Basic\ApiSoapException.cs" />
+    <Compile Include="Exceptions\Basic\DirectoryAlreadyExists.cs" />
+    <Compile Include="Exceptions\Generic\Args\CryptoServiceExceptionArgs.cs" />
+    <Compile Include="Exceptions\Generic\Args\DatabaseErrorExceptionArgs.cs" />
+    <Compile Include="Exceptions\Generic\Args\EntityMappingExceptionArgs.cs" />
+    <Compile Include="Exceptions\Generic\Args\ExceptionArgsBase.cs" />
+    <Compile Include="Exceptions\Generic\Args\JsonConvertErrorArgs.cs" />
+    <Compile Include="Exceptions\Generic\Args\ResolveSafeExecutionHelperTestExceptionArgs.cs" />
+    <Compile Include="Exceptions\Generic\CustomException.cs" />
+    <Compile Include="Interfaces\AutoMapper\IMapCustom.cs" />
+    <Compile Include="Interfaces\AutoMapper\IMapFrom.cs" />
+    <Compile Include="Interfaces\AutoMapper\IMapTo.cs" />
+    <Compile Include="Interfaces\Encryption\IEncrpytionProvider.cs" />
+    <Compile Include="Interfaces\Encryption\IEncryptionHelper.cs" />
+    <Compile Include="Interfaces\Encryption\IEncryptionProviderService.cs" />
+    <Compile Include="Interfaces\Logging\ICustomLogger.cs" />
+    <Compile Include="Interfaces\Reflection\IReflector.cs" />
+    <Compile Include="Interfaces\Startup\IRunAtShutdown.cs" />
+    <Compile Include="Interfaces\Startup\IRunAtStartup.cs" />
+    <Compile Include="Interfaces\ServiceBus\IServiceBusModelBuilder.cs" />
+    <Compile Include="Models\Account\AccountModels.cs" />
+    <Compile Include="Models\TaskRunner\TaskRunnerMessagesModel.cs" />
+    <Compile Include="Models\TaskRunner\TaskRunnerPropertiesModel.cs" />
+    <Compile Include="Models\TaskRunner\TaskRunnerPropertyModel.cs" />
+    <Compile Include="Pocos\Data\Blog.cs" />
+    <Compile Include="Pocos\Data\Book.cs" />
+    <Compile Include="Pocos\Data\Movie.cs" />
+    <Compile Include="Pocos\Data\Post.cs" />
+    <Compile Include="Pocos\Data\Review.cs" />
+    <Compile Include="Pocos\Reflection\PropertyWithValue.cs" />
+    <Compile Include="Pocos\Sql\SqlServerCredentials.cs" />
+    <Compile Include="Pocos\StartupTypes\StartUpType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

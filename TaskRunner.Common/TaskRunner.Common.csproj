@@ -54,14 +54,6 @@
     <None Include="app.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business.Logic.Layer\Business.Objects.Layer.csproj">
-      <Project>{c5c0bdbf-f2f8-4a3b-98c8-306a12918702}</Project>
-      <Name>Business.Objects.Layer</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Core.Library\Business.Logic.Layer.csproj">
-      <Project>{c3b4c1f9-0e06-49a3-88f4-fa63749d2d0d}</Project>
-      <Name>Business.Logic.Layer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Framework.Layer\Framework.Layer.csproj">
       <Project>{17aaada3-939e-41dd-a5aa-851f93ee6b17}</Project>
       <Name>Framework.Layer</Name>

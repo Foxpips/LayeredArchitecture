@@ -75,8 +75,8 @@
     <Compile Include="ScriptRunnerService\Runner\SprocRunner.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business.Logic.Layer\Business.Objects.Layer.csproj">
-      <Project>{c5c0bdbf-f2f8-4a3b-98c8-306a12918702}</Project>
+    <ProjectReference Include="..\Business.Objects.Layer\Business.Objects.Layer.csproj">
+      <Project>{C5C0BDBF-F2F8-4A3B-98C8-306A12918702}</Project>
       <Name>Business.Objects.Layer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Framework.Layer\Framework.Layer.csproj">

@@ -99,11 +99,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business.Logic.Layer\Business.Objects.Layer.csproj">
+    <ProjectReference Include="..\Business.Objects.Layer\Business.Objects.Layer.csproj">
       <Project>{C5C0BDBF-F2F8-4A3B-98C8-306A12918702}</Project>
       <Name>Business.Objects.Layer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Core.Library\Business.Logic.Layer.csproj">
+    <ProjectReference Include="..\Business.Logic.Layer\Business.Logic.Layer.csproj">
       <Project>{C3B4C1F9-0E06-49A3-88F4-FA63749D2D0D}</Project>
       <Name>Business.Logic.Layer</Name>
     </ProjectReference>
@@ -111,9 +111,9 @@
       <Project>{15BA6380-3EF7-4450-9556-643BE8A68D04}</Project>
       <Name>Data.Access.Layer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DbRunner\SqlAgentUIRunner\SqlAgentUIRunner.csproj">
+    <ProjectReference Include="..\Gui.Layer\Gui.Layer.csproj">
       <Project>{5D28A66E-AD36-4A8C-AEE3-021689BAF7F0}</Project>
-      <Name>SqlAgentUIRunner</Name>
+      <Name>Gui.Layer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Dependency.Resolver\Dependency.Resolver.csproj">
       <Project>{A05BB169-3639-4158-971C-B17F0F443AE9}</Project>
