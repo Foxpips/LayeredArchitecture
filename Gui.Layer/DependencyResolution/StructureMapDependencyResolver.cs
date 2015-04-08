@@ -19,7 +19,7 @@ using System.Web.Http.Dependencies;
 
 using StructureMap;
 
-namespace SqlAgentUIRunner.DependencyResolution
+namespace Gui.Layer.DependencyResolution
 {
     /// <summary>
     /// The structure map dependency resolver.

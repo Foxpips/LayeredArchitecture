@@ -1,4 +1,4 @@
-﻿namespace SqlAgentUIRunner
+﻿namespace Gui.Layer
 {
     public static class AuthConfig
     {

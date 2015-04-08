@@ -12,9 +12,9 @@ using Business.Objects.Layer.Interfaces.ServiceBus;
 using Business.Objects.Layer.Models.TaskRunner;
 using Business.Objects.Layer.Pocos.Reflection;
 
-using SqlAgentUIRunner.Infrastructure.Factories;
+using Gui.Layer.Infrastructure.Factories;
 
-namespace SqlAgentUIRunner.Controllers
+namespace Gui.Layer.Controllers
 {
     public class MessageBusController : Controller
     {

@@ -6,9 +6,9 @@ using Business.Objects.Layer.Models.TaskRunner;
 using Dependency.Resolver.Loaders;
 using Dependency.Resolver.Registries;
 
-using NUnit.Framework;
+using Gui.Layer.Controllers;
 
-using SqlAgentUIRunner.Controllers;
+using NUnit.Framework;
 
 using StructureMap;
 using StructureMap.Configuration.DSL;

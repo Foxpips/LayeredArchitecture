@@ -15,7 +15,7 @@ namespace Tests.Unit.Business.Logic.Layer.Tests.HelpersTests
         {
             var movie =
                 XmlHelper.DeserializeXml<Movie>(
-                    @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Tests.Library\Business.Logic.Layer.Tests\SampleXml\SampleXml - Movie.json");
+                    @"..\..\Business.Logic.Layer.Tests\SampleXml\SampleXml - Movie.json");
 
             Assert.That(movie, Is.Not.Null);
             Assert.That(movie.Id.Equals(1));
@@ -26,7 +26,7 @@ namespace Tests.Unit.Business.Logic.Layer.Tests.HelpersTests
         public void Serialize_Movie_XmlTest()
         {
             const string path =
-                @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Tests.Library\Business.Logic.Layer.Tests\SampleXml\SampleXml - MovieOutput.json";
+                @"..\..\Business.Logic.Layer.Tests\SampleXml\SampleXml - MovieOutput.json";
 
             if (File.Exists(path))
             {

@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace SqlAgentUIRunner
+namespace Gui.Layer
 {
     public class BundleConfig
     {

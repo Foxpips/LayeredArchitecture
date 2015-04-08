@@ -10,12 +10,12 @@ using Business.Objects.Layer.Pocos.Sql;
 
 using Dependency.Resolver.Loaders;
 
+using Gui.Layer.Controllers;
+
 using NUnit.Framework;
 
 using Service.Layer.ScriptRunnerService.Runner;
 using Service.Layer.ScriptRunnerService.SqlManagers;
-
-using SqlAgentUIRunner.Controllers;
 
 namespace Tests.Integration.ScriptRunnerServiceTests
 {

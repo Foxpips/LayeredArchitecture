@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace SqlAgentUIRunner
+namespace Gui.Layer
 {
     public class RouteConfig
     {

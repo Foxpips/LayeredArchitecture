@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace SqlAgentUIRunner
+namespace Gui.Layer
 {
     public static class WebApiConfig
     {

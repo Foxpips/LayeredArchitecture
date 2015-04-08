@@ -9,13 +9,13 @@ using Business.Objects.Layer.Interfaces.Logging;
 
 using Dependency.Resolver.Loaders;
 
-using Rhino.ServiceBus;
+using Gui.Layer.Controllers;
 
-using SqlAgentUIRunner.Controllers;
+using Rhino.ServiceBus;
 
 using TaskRunner.Core.ServiceBus;
 
-namespace SqlAgentUIRunner.Infrastructure.Factories
+namespace Gui.Layer.Infrastructure.Factories
 {
     public class CustomControllerFactory : IControllerFactory
     {
@@ -26,7 +26,7 @@ namespace SqlAgentUIRunner.Infrastructure.Factories
                 var container = new DependencyManager().ConfigureStartupDependencies();
 
                 var controller = new MessageBusController(new ServiceBusModelBuilder(new TaskRunnerReflector(),
-                    @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\SharedDlls\TaskRunner.Common.dll "),
+                    @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Miscellaneous\SharedDlls\TaskRunner.Common.dll "),
                     container.GetInstance<ICustomLogger>(), new MessageBusManager(new Client<IOnewayBus>(container)));
                 return controller;
             }

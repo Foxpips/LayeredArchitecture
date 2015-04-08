@@ -8,7 +8,7 @@ using Business.Objects.Layer.Models.Account;
 
 using WebMatrix.WebData;
 
-namespace SqlAgentUIRunner.Filters
+namespace Gui.Layer.Filters
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method, AllowMultiple = false, Inherited = true)]
     public sealed class InitializeSimpleMembershipAttribute : ActionFilterAttribute

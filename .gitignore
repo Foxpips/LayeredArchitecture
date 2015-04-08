@@ -18,3 +18,4 @@ _ReSharper.*/
 *.patch
 packages/
 Miscellaneous/StoredProcedures
+Miscellaneous/EncryptionKeys/

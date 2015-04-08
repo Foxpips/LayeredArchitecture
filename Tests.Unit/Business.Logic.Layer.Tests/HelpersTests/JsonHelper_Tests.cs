@@ -38,7 +38,7 @@ namespace Tests.Unit.Business.Logic.Layer.Tests.HelpersTests
         public void Test_Json_Deserialize()
         {
             var book = _jsonHelper.DeserializeJsonFromFile<Book>(
-                @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Tests.Library\Business.Logic.Layer.Tests\SampleJsonTests\SampleJson.json");
+                @"..\..\Business.Logic.Layer.Tests\SampleJsonTests\SampleJson.json");
             Assert.That(book, Is.Not.Null.Or.Empty);
             Assert.That(book.Name, Is.EqualTo("John Carter"));
         }
@@ -47,7 +47,7 @@ namespace Tests.Unit.Business.Logic.Layer.Tests.HelpersTests
         public void Test_Json_Deserialize_Collection()
         {
             var books = _jsonHelper.DeserializeJsonFromFile<List<Book>>(
-                @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Tests.Library\Business.Logic.Layer.Tests\SampleJsonTests\SampleJson - Books.json");
+                @"..\..\Business.Logic.Layer.Tests\SampleJsonTests\SampleJson - Books.json");
             Assert.That(books.Any());
         }
 

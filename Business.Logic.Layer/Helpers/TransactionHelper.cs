@@ -16,11 +16,6 @@ namespace Business.Logic.Layer.Helpers
             {
                 work();
                 scope.Complete();
-
-                //                new SafeExecutionHelper(logger ?? new ConsoleLogger()).ExecuteSafely<TransactionAbortedException>(
-                //                    ExceptionPolicy.RethrowException,
-                //                    work,
-                //                    (ex, log) => log.Fatal(ex.Message));
             }
         }
     }

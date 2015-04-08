@@ -24,7 +24,7 @@ using Microsoft.Practices.ServiceLocation;
 
 using StructureMap;
 
-namespace SqlAgentUIRunner.DependencyResolution
+namespace Gui.Layer.DependencyResolution
 {
     /// <summary>
     /// The structure map dependency scope.

@@ -1,8 +1,5 @@
-using Business.Objects.Layer.Interfaces.Logging;
 using Business.Objects.Layer.Interfaces.Startup;
 using Business.Objects.Layer.Pocos.StartupTypes;
-
-using Framework.Layer.Logging.LogTypes;
 
 using StructureMap;
 

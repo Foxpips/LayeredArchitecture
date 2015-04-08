@@ -20,13 +20,13 @@ using System.Web.Mvc;
 
 using Dependency.Resolver.Loaders;
 
-using SqlAgentUIRunner;
-using SqlAgentUIRunner.DependencyResolution;
+using Gui.Layer;
+using Gui.Layer.DependencyResolution;
 
 using WebActivator;
 [assembly: PreApplicationStartMethod(typeof (StructuremapMvc), "Start")]
 
-namespace SqlAgentUIRunner
+namespace Gui.Layer
 {
     public static class StructuremapMvc
     {

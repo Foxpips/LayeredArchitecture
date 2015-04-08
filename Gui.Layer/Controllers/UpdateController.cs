@@ -6,7 +6,7 @@ using Business.Logic.Layer.Managers.Tasks;
 using Service.Layer.ScriptRunnerService.Collections;
 using Service.Layer.ScriptRunnerService.Runner;
 
-namespace SqlAgentUIRunner.Controllers
+namespace Gui.Layer.Controllers
 {
     public class UpdateController : Controller
     {

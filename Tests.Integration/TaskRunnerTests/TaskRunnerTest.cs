@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Threading;
 
 using Business.Logic.Layer.Helpers.Reflector;
@@ -62,11 +63,12 @@ namespace Tests.Integration.TaskRunnerTests
         [Test]
         public void TaskRunnerReflector_Tests()
         {
-            var reflector = new TaskRunnerReflector();
+            var reflector = _container.GetInstance<TaskRunnerReflector>();
+            var assemblyPath = Directory.GetCurrentDirectory() + @"\TaskRunner.Common.dll";
 
             var typesFromDll =
                 reflector.GetTypesFromDll(
-                    @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\IntegrationTests\TestDlls\TaskRunner.Common.dll");
+                    assemblyPath);
 
             foreach (var type in typesFromDll)
             {

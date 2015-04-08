@@ -3,7 +3,7 @@
 using Business.Objects.Layer.Models.TaskRunner;
 using Business.Objects.Layer.Pocos.Reflection;
 
-namespace SqlAgentUIRunner.Infrastructure.Mappers
+namespace Gui.Layer.Infrastructure.Mappers
 {
     public class AutoMapperConfig
     {

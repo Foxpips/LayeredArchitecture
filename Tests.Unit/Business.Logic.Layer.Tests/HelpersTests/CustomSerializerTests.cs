@@ -16,7 +16,7 @@ namespace Tests.Unit.Business.Logic.Layer.Tests.HelpersTests
         [SetUp]
         public void Setup()
         {
-            Path = @"C:\Users\smarkey\Desktop\Movie.xml";
+            Path = @"..\..\Business.Logic.Layer.Tests\SampleXml\Movie.xml";
         }
 
         [Test]

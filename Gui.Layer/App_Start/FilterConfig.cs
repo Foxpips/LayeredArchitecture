@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace SqlAgentUIRunner
+namespace Gui.Layer
 {
     public class FilterConfig
     {

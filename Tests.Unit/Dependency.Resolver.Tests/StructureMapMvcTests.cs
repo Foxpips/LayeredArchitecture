@@ -5,9 +5,9 @@ using Dependency.Resolver.Loaders;
 
 using Framework.Layer.Loaders.Mapping;
 
-using NUnit.Framework;
+using Gui.Layer.Controllers;
 
-using SqlAgentUIRunner.Controllers;
+using NUnit.Framework;
 
 namespace Tests.Unit.Dependency.Resolver.Tests
 {

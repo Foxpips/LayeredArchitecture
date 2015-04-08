@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace SqlAgentUIRunner.Controllers
+namespace Gui.Layer.Controllers
 {
     public class HomeController : Controller
     {

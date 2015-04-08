@@ -14,7 +14,7 @@ namespace Dependency.Resolver.Registries
             For<IReflector>().Use<TaskRunnerReflector>();
             For<IServiceBusModelBuilder>().Use<ServiceBusModelBuilder>().Ctor<string>("path")
                 .Is(
-                    @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\SharedDlls\TaskRunner.Common.dll");
+                    @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Miscellaneous\SharedDlls\TaskRunner.Common.dll");
         }
     }
 }
