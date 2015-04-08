@@ -21,7 +21,7 @@
         var data = form.serialize();
 
         $.ajax({
-            url: '/SqlAgentUIRunner/Update/PollProgress/',
+            url: '/GuiLayer/Update/PollProgress/',
             data: data,
             type: 'POST'
         })
