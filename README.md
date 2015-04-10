@@ -1,4 +1,4 @@
-SIoCContainer
+Layered Framework
 =============
 
-Basic IoC container for educational purposes.
+Educational purposes.
