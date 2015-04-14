@@ -6,8 +6,6 @@ using Business.Objects.Layer.Interfaces.Startup;
 
 using Quartz;
 
-using StructureMap;
-
 namespace TaskScheduler.Quartz
 {
     public abstract class BaseSchedule<TJob> : IRunAtStartup where TJob : IJob
@@ -16,9 +14,9 @@ namespace TaskScheduler.Quartz
         private readonly ICustomLogger _customLogger;
         private readonly SafeExecutionHelper _safeExecutionHelper;
 
-        protected BaseSchedule(IScheduler scheduler)
+        protected BaseSchedule(IScheduler scheduler, ICustomLogger logger)
         {
-            _customLogger = ObjectFactory.Container.GetInstance<ICustomLogger>();
+            _customLogger = logger;
             _scheduler = scheduler;
             _safeExecutionHelper = new SafeExecutionHelper(_customLogger);
         }

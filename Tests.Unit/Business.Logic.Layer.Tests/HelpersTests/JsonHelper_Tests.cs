@@ -28,7 +28,8 @@ namespace Tests.Unit.Business.Logic.Layer.Tests.HelpersTests
         public void Test_Json_Serialize()
         {
             var item = new Book();
-            string path = Path.GetFullPath(@"..\..\Business.Logic.Layer.Tests\SampleJsonTests\SampleJsonTests - BookTest.json");
+            string path =
+                Path.GetFullPath(@"..\..\Business.Logic.Layer.Tests\SampleJsonTests\SampleJsonTests - BookTest.json");
             _jsonHelper.SerializeJsonToFile(item, path);
             Console.WriteLine(path);
             Assert.That(File.Exists(path), Is.True);

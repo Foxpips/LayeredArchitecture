@@ -53,7 +53,7 @@ namespace Gui.Layer.Controllers
                         () => _modelBuilder.BuildPropertiesModel(selectedMessage)));
         }
 
-        public JsonResult SendMessage(string typeName,params TaskRunnerPropertyModel[] propertiesForMessage)
+        public JsonResult SendMessage(string typeName, params TaskRunnerPropertyModel[] propertiesForMessage)
         {
             return _safeExecutionHelper.ExecuteSafely<JsonResult, MappingException>(() =>
             {

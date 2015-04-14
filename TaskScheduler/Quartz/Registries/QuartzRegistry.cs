@@ -9,9 +9,9 @@ namespace TaskScheduler.Quartz.Registries
 {
     public class QuartzRegistry : Registry
     {
-        public QuartzRegistry()
+        public QuartzRegistry(IContainer container)
         {
-            For<IJobFactory>().Use(() => new QuartzJobFactory(ObjectFactory.Container));
+            For<IJobFactory>().Use(() => new QuartzJobFactory(container));
             For<IScheduler>().Singleton().Use(() =>
             {
                 var stdSchedulerFactory = new StdSchedulerFactory();
@@ -19,7 +19,7 @@ namespace TaskScheduler.Quartz.Registries
 
                 var scheduler = stdSchedulerFactory.GetScheduler();
 
-                scheduler.JobFactory = ObjectFactory.Container.GetInstance<IJobFactory>();
+                scheduler.JobFactory = container.GetInstance<IJobFactory>();
 
                 return scheduler;
             });

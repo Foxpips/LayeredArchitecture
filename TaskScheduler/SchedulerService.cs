@@ -7,7 +7,6 @@ using Dependency.Resolver.Loaders;
 using Rhino.ServiceBus;
 using Rhino.ServiceBus.Impl;
 
-using StructureMap;
 using StructureMap.Configuration.DSL;
 
 using TaskScheduler.Quartz.Registries;
@@ -17,6 +16,7 @@ namespace TaskScheduler
     public partial class SchedulerService : ServiceBase
     {
         private readonly ICustomLogger _customLogger;
+        private DependencyManager _dependencyManager;
 
         public SchedulerService(ICustomLogger customLogger)
         {
@@ -26,11 +26,11 @@ namespace TaskScheduler
 
         protected override void OnStart(string[] args)
         {
-            var container = ObjectFactory.Container;
-            new DependencyManager(container).AddRegistries<Registry>(new QuartzRegistry());
+            _dependencyManager = new DependencyManager();
+            _dependencyManager.AddRegistries<Registry>(new QuartzRegistry(_dependencyManager.Container));
 
             new OnewayRhinoServiceBusConfiguration()
-                .UseStructureMap(container)
+                .UseStructureMap(_dependencyManager.Container)
                 .Configure();
 
             _customLogger.Info("Started scheduler service..");

@@ -8,8 +8,6 @@ using Business.Objects.Layer.Interfaces.AutoMapper;
 
 using Framework.Layer.Loaders.Mapping;
 
-using Gui.Layer.Infrastructure.Factories;
-
 namespace Gui.Layer
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 

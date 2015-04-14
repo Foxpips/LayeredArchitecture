@@ -12,15 +12,16 @@ namespace TaskScheduler
     internal static class StartScheduler
     {
         private static ICustomLogger _customLogger;
+        private static readonly IContainer _container;
 
         static StartScheduler()
         {
-            new DependencyManager(ObjectFactory.Container).ConfigureStartupDependencies();
+            _container = new DependencyManager().ConfigureStartupDependencies();
         }
 
         private static void Main()
         {
-            _customLogger = ObjectFactory.Container.GetInstance<ICustomLogger>();
+            _customLogger = _container.GetInstance<ICustomLogger>();
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_HandleException;
 
             ServiceBase[] servicesToRun =

@@ -34,7 +34,13 @@ namespace Business.Logic.Layer.Managers.ServiceBus
             {
                 propertiesModel.Properties.AddRange(selectedType
                     .GetProperties()
-                    .Select(property => new TaskRunnerPropertyModel {Name = property.Name, Id = property.Name}));
+                    .Select(
+                        property =>
+                            new TaskRunnerPropertyModel
+                            {
+                                Name = property.Name + " (" + property.PropertyType + ")",
+                                Id = property.Name
+                            }));
             }
             return propertiesModel;
         }

@@ -349,3 +349,8 @@ Business.Objects.Layer.Models.TaskRunnerModels.TaskRunnerPropertyModel
 2015-03-23 12:56:47,399 [10] INFO Framework.Layer.Logging.CustomLogger - Message sent successfully!
 2015-04-02 15:54:35,100 [29] INFO Framework.Layer.Logging.LogTypes.Log4NetFileLogger - Sending message: OrderFinalisedEvent using service bus.
 2015-04-02 15:54:35,190 [29] INFO Framework.Layer.Logging.LogTypes.Log4NetFileLogger - Message sent successfully!
+2015-04-13 16:29:59,807 [16] INFO Framework.Layer.Logging.LogTypes.Log4NetFileLogger - Sending message: HelloWorldCommand using service bus.
+2015-04-13 16:30:02,958 [14] INFO Framework.Layer.Logging.LogTypes.Log4NetFileLogger - Sending message: HelloWorldCommand using service bus.
+2015-04-13 16:30:22,165 [6] INFO Framework.Layer.Logging.LogTypes.Log4NetFileLogger - Sending message: HelloWorldCommand using service bus.
+2015-04-13 16:30:43,922 [6] INFO Framework.Layer.Logging.LogTypes.Log4NetFileLogger - Sending message: HelloWorldCommand using service bus.
+2015-04-13 16:30:43,993 [6] INFO Framework.Layer.Logging.LogTypes.Log4NetFileLogger - Message sent successfully!

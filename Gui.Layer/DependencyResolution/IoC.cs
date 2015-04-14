@@ -15,20 +15,19 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
-
 using StructureMap;
-namespace Gui.Layer.DependencyResolution {
-    public static class IoC {
-        public static IContainer Initialize() {
-            ObjectFactory.Initialize(x =>
-                        {
-                            x.Scan(scan =>
-                                    {
-                                        scan.TheCallingAssembly();
-                                        scan.WithDefaultConventions();
-                                    });
-            //                x.For<IExample>().Use<Example>();
-                        });
+
+namespace Gui.Layer.DependencyResolution
+{
+    public static class IoC
+    {
+        public static IContainer Initialize()
+        {
+            ObjectFactory.Initialize(x => x.Scan(scan =>
+            {
+                scan.TheCallingAssembly();
+                scan.WithDefaultConventions();
+            }));
             return ObjectFactory.Container;
         }
     }
