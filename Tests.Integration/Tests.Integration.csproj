@@ -60,6 +60,10 @@
     <Reference Include="nunit.framework">
       <HintPath>..\..\..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="Quartz, Version=2.2.3.400, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Quartz.2.2.3\lib\net40\Quartz.dll</HintPath>
+    </Reference>
     <Reference Include="Rhino.ServiceBus, Version=3.1.1.0, Culture=neutral, PublicKeyToken=0b3305902db7183f, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Rhino.ServiceBus.3.1.1.0\lib\4.0\Rhino.ServiceBus.dll</HintPath>
@@ -75,6 +79,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -90,11 +95,15 @@
     <Compile Include="TaskRunnerTests\SqlTaskRunnerTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaskRunnerTests\TaskRunnerTest.cs" />
+    <Compile Include="TaskScheduler.Tests\TaskSchedulerTests.cs" />
     <Compile Include="TransactionTests\BloggingContext_Tests.cs" />
     <Compile Include="TransactionTests\Transactional_Tests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
@@ -135,6 +144,10 @@
     <ProjectReference Include="..\TaskRunner.Core\TaskRunner.Core.csproj">
       <Project>{7a069a5c-21ec-4222-a1e1-759f1344db66}</Project>
       <Name>TaskRunner.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskScheduler\TaskScheduler.csproj">
+      <Project>{0F65E880-1A79-466C-933F-6BB50CA46E5A}</Project>
+      <Name>TaskScheduler</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

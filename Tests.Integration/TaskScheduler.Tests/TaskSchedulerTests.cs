@@ -1,9 +1,12 @@
-﻿using System.ServiceProcess;
+﻿using System;
+using System.Reflection;
+using System.Threading;
 
-using Business.Objects.Layer.Interfaces.Logging;
 using Business.Objects.Layer.Interfaces.Startup;
 
 using Dependency.Resolver.Registries;
+
+using NUnit.Framework;
 
 using Rhino.ServiceBus;
 using Rhino.ServiceBus.Impl;
@@ -12,27 +15,23 @@ using StructureMap;
 
 using TaskScheduler.Quartz.Registries;
 
-namespace TaskScheduler
+namespace Tests.Integration.TaskScheduler.Tests
 {
-    public partial class SchedulerService : ServiceBase
+    public class TaskSchedulerTests
     {
-        private readonly ICustomLogger _customLogger;
-
-        public SchedulerService(ICustomLogger customLogger)
+        [Test]
+        public void MethodUnderTest_TestedBehavior_ExpectedResult()
         {
-            _customLogger = customLogger;
-            InitializeComponent();
-        }
-
-        protected override void OnStart(string[] args)
-        {
-            _customLogger.Info("Started scheduler service..");
-
             var container = new Container();
             container.Configure(cfg =>
             {
-                cfg.AddRegistry(new TaskRegistry());
                 cfg.AddRegistry(new QuartzRegistry(container));
+                cfg.AddRegistry(new LoggerRegistry());
+                cfg.Scan(scan =>
+                {
+                    scan.Assembly(Assembly.GetAssembly(typeof (QuartzRegistry)));
+                    scan.AddAllTypesOf<IRunAtStartup>();
+                });
             });
 
             new OnewayRhinoServiceBusConfiguration()
@@ -46,10 +45,14 @@ namespace TaskScheduler
                     task.Execute();
                 }
             }
+
+            Thread.Sleep(TimeSpan.FromSeconds(15));
         }
 
-        protected override void OnStop()
+        private static void ContainerContents(Container container)
         {
+            var whatDoIHave = container.WhatDoIHave();
+            Console.WriteLine(whatDoIHave);
         }
     }
 }

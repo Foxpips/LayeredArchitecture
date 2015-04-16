@@ -22,7 +22,7 @@ namespace TaskScheduler.Quartz
         }
 
         protected abstract TriggerBuilder CreateTrigger();
-        protected abstract QuartzGroups QuartzGroupName { get; set; }
+        protected abstract QuartzGroups QuartzGroupName { get; }
 
         public void Execute()
         {

@@ -76,6 +76,7 @@
     <Compile Include="SchedulerService.Designer.cs">
       <DependentUpon>SchedulerService.cs</DependentUpon>
     </Compile>
+    <Compile Include="Schedules\HelloWorldSchedule.cs" />
     <Compile Include="StartScheduler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -100,6 +101,10 @@
     <ProjectReference Include="..\Dependency.Resolver\Dependency.Resolver.csproj">
       <Project>{A05BB169-3639-4158-971C-B17F0F443AE9}</Project>
       <Name>Dependency.Resolver</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TaskRunner.Common\TaskRunner.Common.csproj">
+      <Project>{9E99E507-03DD-4BE3-A7CA-2627937EF93C}</Project>
+      <Name>TaskRunner.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

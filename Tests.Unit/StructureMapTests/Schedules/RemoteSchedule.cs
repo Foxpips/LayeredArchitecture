@@ -3,7 +3,7 @@ using Tests.Unit.StructureMapTests.Schedulers;
 
 namespace Tests.Unit.StructureMapTests.Schedules
 {
-    public class RemoteSchedule : BaseSchedule<DataJob>
+    public class RemoteSchedule : BaseScheduleDummy<DataJob>
     {
         public RemoteSchedule(IScheduler scheduler)
             : base(scheduler)

@@ -5,23 +5,19 @@ using Business.Objects.Layer.Interfaces.Logging;
 
 using Dependency.Resolver.Loaders;
 
-using StructureMap;
-
 namespace TaskScheduler
 {
     internal static class StartScheduler
     {
-        private static ICustomLogger _customLogger;
-        private static readonly IContainer _container;
+        private static readonly ICustomLogger _customLogger;
 
         static StartScheduler()
         {
-            _container = new DependencyManager().ConfigureStartupDependencies();
+            _customLogger = new DependencyManager().ConfigureStartupDependencies().GetInstance<ICustomLogger>();
         }
 
         private static void Main()
         {
-            _customLogger = _container.GetInstance<ICustomLogger>();
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_HandleException;
 
             ServiceBase[] servicesToRun =
