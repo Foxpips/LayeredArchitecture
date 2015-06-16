@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Tests.Unit</RootNamespace>
     <AssemblyName>Tests.Unit</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -72,6 +73,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business.Logic.Layer.Tests\ExtensionsTests\EnumExtenderTests.cs" />
+    <Compile Include="Mocks\SettingsMocks\TextSettings.cs" />
     <Compile Include="Business.Objects.Layer.Tests\BlogTests.cs" />
     <Compile Include="Business.Logic.Layer.Tests\ExtensionsTests\CollectionExtenderTests.cs" />
     <Compile Include="Business.Logic.Layer.Tests\ExtensionsTests\ReflectionExtenderTests.cs" />
@@ -99,6 +102,7 @@
     <Compile Include="Framework.Layer.Tests\CustomExceptionTests\CustomExceptionTests.cs" />
     <Compile Include="Framework.Layer.Tests\ExecutionTests\SafeExecution_Tests.cs" />
     <Compile Include="Framework.Layer.Tests\LoggingTests\BaseLoggerTests.cs" />
+    <Compile Include="Mocks\EnumMocks\ScheduleEnumMock.cs" />
     <Compile Include="Service.Layer.Tests\EncryptionTests\TestAsymmetricEncryption.cs" />
     <Compile Include="Service.Layer.Tests\EncryptionTests\TestKeyCreation.cs" />
     <Compile Include="Service.Layer.Tests\EncryptionTests\TestSymmetricEncryption.cs" />
