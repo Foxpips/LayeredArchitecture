@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\CollectionExtender.cs" />
+    <Compile Include="Extensions\DateTimeExtender.cs" />
     <Compile Include="Extensions\EnumExtender.cs" />
     <Compile Include="Extensions\ReflectionExtender.cs" />
     <Compile Include="Helpers\DirectoryHelper.cs" />

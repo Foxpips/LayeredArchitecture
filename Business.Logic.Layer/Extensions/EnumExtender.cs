@@ -12,10 +12,15 @@ namespace Business.Logic.Layer.Extensions
             return value == null
                 ? String.Empty
                 : value.GetType().GetFields()
-                    .Where(x => x.FieldType.BaseType == typeof (Enum) && x.Name.Equals(value.ToString()))
+                    .Where(x => x.FieldType.BaseType == typeof(Enum) && x.Name.Equals(value.ToString()))
                     .Select(fieldInfo => fieldInfo.GetCustomAttribute<DescriptionAttribute>())
                     .Single(descriptionAttribute => descriptionAttribute != null)
                     .Description;
+        }
+
+        public static T ToEnum<T>(this string value)
+        {
+            return (T)Enum.Parse(typeof(T), value, true);
         }
     }
 }
