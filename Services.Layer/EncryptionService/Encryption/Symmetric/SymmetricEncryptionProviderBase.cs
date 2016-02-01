@@ -2,14 +2,13 @@
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
-
 using Business.Objects.Layer.Exceptions.Generic;
 using Business.Objects.Layer.Exceptions.Generic.Args;
 using Business.Objects.Layer.Interfaces.Encryption;
 
 namespace Service.Layer.EncryptionService.Encryption.Symmetric
 {
-    public class SymmetricEncryptionProviderBase : IEncrpytionProvider
+    public abstract class SymmetricEncryptionProviderBase : IEncrpytionProvider
     {
         protected byte[] _iv;
         protected byte[] _key;
@@ -20,15 +19,8 @@ namespace Service.Layer.EncryptionService.Encryption.Symmetric
             _key = Encoding.ASCII.GetBytes(key);
         }
 
-        public virtual string Encrypt(string plaintext)
-        {
-            throw new NotImplementedException("The functionality for encryption is defined only in the subclasses");
-        }
-
-        public virtual string Decrypt(string ciphertext)
-        {
-            throw new NotImplementedException("The functionality for decryption is defined only in the subclasses");
-        }
+        public abstract string Encrypt(string plaintext);
+        public abstract string Decrypt(string ciphertext);
 
         protected static byte[] ExecuteCryptoServiceProvider(byte[] data, ICryptoTransform cryptoTransform)
         {

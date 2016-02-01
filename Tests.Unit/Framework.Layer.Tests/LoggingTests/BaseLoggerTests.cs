@@ -36,5 +36,15 @@ namespace Tests.Unit.Framework.Layer.Tests.LoggingTests
             Assert.Throws<CryptographicException>(
                 () => ExecuteCryptoServiceProvider(new byte[10], decryptor));
         }
+
+        public override string Encrypt(string plaintext)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override string Decrypt(string ciphertext)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
