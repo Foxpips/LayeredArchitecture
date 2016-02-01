@@ -50,9 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BootStrappers\BootStrapperBase.cs" />
     <Compile Include="BootStrappers\FrameworkDependencyBootStrapper.cs" />
-    <Compile Include="BootStrappers\IDependencyBootStrapper.cs" />
+    <Compile Include="Interfaces\IDependencyBootStrapper.cs" />
     <Compile Include="BootStrappers\JsonHelperBootStrapper.cs" />
     <Compile Include="BootStrappers\SafeExecutionBootStrapper.cs" />
     <Compile Include="Loaders\ContainerType.cs" />
@@ -90,9 +89,7 @@
       <Name>Service.Layer</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Containers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

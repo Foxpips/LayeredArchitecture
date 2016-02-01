@@ -71,6 +71,7 @@
     <Compile Include="Interfaces\Encryption\IEncrpytionProvider.cs" />
     <Compile Include="Interfaces\Encryption\IEncryptionHelper.cs" />
     <Compile Include="Interfaces\Encryption\IEncryptionProviderService.cs" />
+    <Compile Include="Interfaces\Execution\IExecutionHandler.cs" />
     <Compile Include="Interfaces\Logging\ICustomLogger.cs" />
     <Compile Include="Interfaces\Reflection\IReflector.cs" />
     <Compile Include="Interfaces\Startup\IRunAtShutdown.cs" />

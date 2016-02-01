@@ -1,5 +1,4 @@
-﻿using Dependency.Resolver.BootStrappers;
-
+﻿using Dependency.Resolver.Interfaces;
 using StructureMap.Configuration.DSL;
 
 namespace Dependency.Resolver.Registries

@@ -3,11 +3,8 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-
 using Business.Objects.Layer.Interfaces.Logging;
-
 using Framework.Layer.Loaders.Resource;
-
 using log4net;
 using log4net.Appender;
 using log4net.Config;
@@ -16,6 +13,7 @@ namespace Framework.Layer.Logging.LogTypes
 {
     public class Log4NetFileLogger : ICustomLogger
     {
+        private const string Log4NetFile = "log4net.xml";
         private ILog Logger { get; set; }
 
         public Log4NetFileLogger()
@@ -37,7 +35,8 @@ namespace Framework.Layer.Logging.LogTypes
 
         private static void Configure()
         {
-            XmlConfigurator.Configure(new MemoryStream(Encoding.UTF8.GetBytes(ResourceLoader.Log4NetConfiguration())));
+            XmlConfigurator.Configure(
+                new MemoryStream(Encoding.UTF8.GetBytes(ResourceLoader.GetResourceContent(Log4NetFile))));
         }
 
         private static void SetOutputPath(string outputPath)

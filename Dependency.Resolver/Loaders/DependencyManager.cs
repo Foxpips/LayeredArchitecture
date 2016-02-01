@@ -1,4 +1,5 @@
 ﻿using Dependency.Resolver.BootStrappers;
+using Dependency.Resolver.Interfaces;
 using Dependency.Resolver.Registries;
 
 using StructureMap;
@@ -40,9 +41,9 @@ namespace Dependency.Resolver.Loaders
 
         public void AddRegistries<TRegistry>(params TRegistry[] registries) where TRegistry : Registry, new()
         {
-            foreach (TRegistry registry in registries)
+            foreach (var registry in registries)
             {
-                TRegistry registryToBeAdded = registry;
+                var registryToBeAdded = registry;
                 Container.Configure(cfg => cfg.AddRegistry(registryToBeAdded));
             }
         }

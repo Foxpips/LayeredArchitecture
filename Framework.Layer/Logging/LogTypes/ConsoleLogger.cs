@@ -13,9 +13,9 @@ namespace Framework.Layer.Logging.LogTypes
 
         public void Debug(object message)
         {
-#if DEBUG
+            #if DEBUG
             Console.WriteLine(message);
-#endif
+            #endif
         }
 
         public void Error(object message)

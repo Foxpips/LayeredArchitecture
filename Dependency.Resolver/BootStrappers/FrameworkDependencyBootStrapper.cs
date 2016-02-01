@@ -1,18 +1,19 @@
-﻿using Dependency.Resolver.Registries;
+﻿using Dependency.Resolver.Interfaces;
+using Dependency.Resolver.Registries;
 
 using StructureMap;
 
 namespace Dependency.Resolver.BootStrappers
 {
-    public class FrameworkDependencyBootStrapper : BootStrapperBase
+    public class FrameworkDependencyBootStrapper : IDependencyBootStrapper 
     {
-        public override void ConfigureContainer(IContainer container)
+        public void ConfigureContainer(IContainer container)
         {
-            container.Configure(x =>
+            container.Configure(cfg =>
             {
-                x.AddRegistry(new LoggerRegistry());
-                x.AddRegistry(new EncryptionRegistry());
-                x.AddRegistry(new ReflectorRegistry());
+                cfg.AddRegistry(new LoggerRegistry());
+                cfg.AddRegistry(new EncryptionRegistry());
+                cfg.AddRegistry(new ReflectorRegistry());
             });
         }
     }

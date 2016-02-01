@@ -1,16 +1,10 @@
 ﻿using System;
-
+using Business.Objects.Layer.Interfaces.Execution;
 using Business.Objects.Layer.Interfaces.Logging;
 
 namespace Business.Logic.Layer.Helpers
 {
-    public enum ExceptionPolicy
-    {
-        RethrowException,
-        SwallowException
-    }
-
-    public class SafeExecutionHelper : IDisposable
+    public class SafeExecutionHelper : IExecutionHandler
     {
         private readonly ICustomLogger _logger;
 
@@ -19,8 +13,11 @@ namespace Business.Logic.Layer.Helpers
             _logger = logger;
         }
 
-        public TReturnType ExecuteSafely<TReturnType, TException>(
-            ExceptionPolicy policy, Func<TReturnType> work, Action<TException, ICustomLogger> handle)
+        /// <summary>
+        /// Handle the exception manually through a func
+        /// </summary>
+        /// <returns>Generic value of func</returns>
+        public TReturnType ExecuteSafely<TReturnType, TException>(ExceptionPolicy policy, Func<TReturnType> work, Action<TException, ICustomLogger> handle)
             where TException : Exception
         {
             try
@@ -39,8 +36,10 @@ namespace Business.Logic.Layer.Helpers
             }
         }
 
-        public void ExecuteSafely<TException>(
-            ExceptionPolicy policy, Action work, Action<TException, ICustomLogger> handle)
+        /// <summary>
+        /// Handle the exception manually through a func
+        /// </summary>
+        public void ExecuteSafely<TException>(ExceptionPolicy policy, Action work, Action<TException, ICustomLogger> handle)
             where TException : Exception
         {
             try
@@ -58,6 +57,9 @@ namespace Business.Logic.Layer.Helpers
             }
         }
 
+        /// <summary>
+        /// Simply handle the exception and log an error using the logger
+        /// </summary>
         public void ExecuteSafely<TException>(Action work, ExceptionPolicy policy = ExceptionPolicy.RethrowException)
             where TException : Exception
         {
@@ -76,8 +78,7 @@ namespace Business.Logic.Layer.Helpers
             }
         }
 
-        public TType ExecuteSafely<TType, TException>(
-            Func<TType> work, ExceptionPolicy policy = ExceptionPolicy.RethrowException)
+        public TType ExecuteSafely<TType, TException>(Func<TType> work, ExceptionPolicy policy = ExceptionPolicy.RethrowException)
             where TException : Exception
         {
             try

@@ -1,12 +1,12 @@
 ﻿using Business.Logic.Layer.Helpers;
-
+using Dependency.Resolver.Interfaces;
 using StructureMap;
 
 namespace Dependency.Resolver.BootStrappers
 {
-    public class SafeExecutionBootStrapper : BootStrapperBase
+    public class SafeExecutionBootStrapper : IDependencyBootStrapper
     {
-        public override void ConfigureContainer(IContainer container)
+        public void ConfigureContainer(IContainer container)
         {
             container.Configure(cfg => cfg.AddType(typeof (SafeExecutionHelper)));
         }

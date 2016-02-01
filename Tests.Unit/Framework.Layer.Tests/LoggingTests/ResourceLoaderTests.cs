@@ -11,7 +11,7 @@ namespace Tests.Unit.Framework.Layer.Tests.LoggingTests
         [Test]
         public void GetResourceName()
         {
-            string resourceName = ResourceLoader.Log4NetConfiguration();
+            string resourceName = ResourceLoader.GetResourceContent("log4net.xml");
             Console.WriteLine(resourceName);
             Assert.That(resourceName, Is.Not.Null.Or.Empty);
         }
