@@ -2,8 +2,9 @@
 
 using Rhino.ServiceBus;
 using Rhino.ServiceBus.Impl;
-
+using Rhino.ServiceBus.Msmq;
 using StructureMap;
+using TaskRunner.Core.Infrastructure.Configuration;
 
 namespace TaskRunner.Core.ServiceBus
 {
@@ -13,6 +14,8 @@ namespace TaskRunner.Core.ServiceBus
 
         public Client(IContainer container)
         {
+            PrepareQueues.Prepare(BusConfig.GetBusEndpoint(), QueueType.Standard);
+
             if (Bus == null)
             {
                 new OnewayRhinoServiceBusConfiguration()

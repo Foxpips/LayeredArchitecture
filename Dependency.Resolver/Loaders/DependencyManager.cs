@@ -1,5 +1,4 @@
-﻿using Dependency.Resolver.BootStrappers;
-using Dependency.Resolver.Interfaces;
+﻿using Dependency.Resolver.Interfaces;
 using Dependency.Resolver.Registries;
 
 using StructureMap;
@@ -32,6 +31,12 @@ namespace Dependency.Resolver.Loaders
             }
 
             return container;
+        }
+
+        public void UseBootStrapper<TBootStrapper>() where TBootStrapper : IDependencyBootStrapper, new()
+        {
+            var bootStrapper = new TBootStrapper();
+            bootStrapper.ConfigureContainer(Container);
         }
 
         public void AddRegistry<TRegistry>() where TRegistry : Registry, new()

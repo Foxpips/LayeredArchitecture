@@ -35,7 +35,7 @@ namespace Tests.Integration.TaskRunnerTests
             MessageType = typeof (HelloWorldCommand);
 
             Manager = new ServiceBusModelBuilder(new TaskRunnerReflector(),
-                @"C:\Users\smarkey\Documents\GitHub\LayeredArchitecture\Miscellaneous\SharedDlls\TaskRunner.Common.dll");
+                @"C:\Users\SimonMarkey\Documents\GitHub\LayeredArchitecture\Miscellaneous\SharedDlls\TaskRunner.Common.dll");
 
             Controller = new MessageBusController(Manager, container.GetInstance<ICustomLogger>(),
                 new MessageBusManager(new Client<IOnewayBus>(container)));

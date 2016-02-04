@@ -1,5 +1,6 @@
 ﻿using Dependency.Resolver.Loaders;
 using StructureMap;
+using Tests.Selenium.Configuration.BootStrappers;
 using Tests.Selenium.Configuration.Registries;
 
 namespace Tests.Selenium.Configuration
@@ -10,14 +11,14 @@ namespace Tests.Selenium.Configuration
 
         public IContainer Container
         {
-            get { return _dependencyManager.Container; }    
+            get { return _dependencyManager.Container; }
         }
 
         public SeleniumDependencyResolver()
         {
             _dependencyManager = new DependencyManager();
 //            _dependencyManager.ConfigureStartupDependencies();
-            _dependencyManager.AddRegistry<SeleniumRegistry>();
+            _dependencyManager.UseBootStrapper<SeleniumBootStrapper>();
         }
     }
 }

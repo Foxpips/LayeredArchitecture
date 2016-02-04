@@ -6,16 +6,14 @@ $(function () {
 
     var messageViewModel;
 
-    getData();
-
-    function getData() {
+    (function getData() {
         $.ajax({
                 cache: true,
                 async: true,
                 type: "POST",
                 contentType: "application/json; charset=utf-8",
                 dataType: "json",
-                url: 'GetMessages/'
+                url: "MessageBus/GetMessages/"
             })
             .done(function(response) {
                 try {
@@ -23,7 +21,7 @@ $(function () {
                     ko.applyBindings(messageViewModel);
                 } catch (e) {
                     console.log(e.message);
-                    toastr.error('An unexpected error occured please try again!');
+                    toastr.error("An unexpected error occured please try again!");
                 }
             })
             .fail(function(xhr) {
@@ -31,5 +29,7 @@ $(function () {
                 toastr.error("An unexpected error occured please try again!");
             }).complete(function() {
             });
-    }
+    })
+
+    ();
 });

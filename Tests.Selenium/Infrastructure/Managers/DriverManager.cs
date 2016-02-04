@@ -8,7 +8,6 @@ using Tests.Selenium.Infrastructure.Settings;
 
 namespace Tests.Selenium.Infrastructure.Managers
 {
-    [ExcludeFromCodeCoverage]
     public static class DriverManager
     {
         public static IList<IWebDriver> GetDriverlList()
@@ -23,7 +22,7 @@ namespace Tests.Selenium.Infrastructure.Managers
 
             return new List<IWebDriver>
             {
-               CreateChromeDriver(driverDirectory) 
+                CreateChromeDriver(driverDirectory)
             };
         }
 

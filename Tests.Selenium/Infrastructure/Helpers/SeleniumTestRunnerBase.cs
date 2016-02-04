@@ -6,7 +6,6 @@ using Business.Objects.Layer.Interfaces.Logging;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
-using StructureMap.Pipeline;
 using Tests.Selenium.Configuration;
 using Tests.Selenium.Infrastructure.Managers;
 
@@ -23,6 +22,7 @@ namespace Tests.Selenium.Infrastructure.Helpers
         public void Method_Setup()
         {
             var container = new SeleniumDependencyResolver().Container;
+
             _customLogger = container.GetInstance<ICustomLogger>();
             _safeExecutionHelper = container.GetInstance<IExecutionHandler>();
             _loginManager = container.GetInstance<ILoginManager>();

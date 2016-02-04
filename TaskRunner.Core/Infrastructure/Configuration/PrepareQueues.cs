@@ -80,8 +80,9 @@ namespace TaskRunner.Core.Infrastructure.Configuration
             var queueUri = new Uri(queueName);
             var endpoint = new Endpoint {Uri = queueUri};
 
-            QueueInfo queuePath = MsmqUtil.GetQueuePath(endpoint);
-            EnsureQueueExists(queuePath.QueuePath);
+            QueueInfo queueInfo = MsmqUtil.GetQueuePath(endpoint);
+            CreateQueueIfNotExists(queueInfo.QueuePath);
+            EnsureQueueExists(queueInfo.QueuePath);
 
             /*NOTE:
             If a queue is created this way by a windows service it wont yield the correct permissions

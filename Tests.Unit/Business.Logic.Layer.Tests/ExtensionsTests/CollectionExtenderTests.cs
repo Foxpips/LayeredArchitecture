@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
-
+using System.Linq;
 using Business.Logic.Layer.Extensions;
-
 using NUnit.Framework;
 
 namespace Tests.Unit.Business.Logic.Layer.Tests.ExtensionsTests
@@ -50,12 +49,30 @@ namespace Tests.Unit.Business.Logic.Layer.Tests.ExtensionsTests
             Assert.That(list.Contains("item 5"));
         }
 
-        public IEnumerable<string> GetFakeEnumerable()
+        private static IEnumerable<string> GetFakeEnumerable()
         {
-            for (int i = 1; i <= 5; i++)
+            for (var i = 1; i <= 5; i++)
             {
                 yield return string.Concat("item ", i.ToString(CultureInfo.InvariantCulture));
             }
+        }
+
+        [Test]
+        public void SortSelf_ICollection_Test()
+        {
+            const string item1 = "A";
+            const string item2 = "B";
+
+            //Add B First
+            var list = new List<string> {item2, item1};
+            
+            Console.WriteLine("Unsorted");
+            list.ForEach(Console.WriteLine);
+            
+            Assert.AreSame(list.SortSelf().First(), item1);
+            
+            Console.WriteLine("Sorted"); 
+            list.ForEach(Console.WriteLine);
         }
     }
 }

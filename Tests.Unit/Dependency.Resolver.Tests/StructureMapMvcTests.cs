@@ -26,8 +26,8 @@ namespace Tests.Unit.Dependency.Resolver.Tests
 
             var messageBusController = container.GetInstance<MessageBusController>();
             messageBusController.SendMessage("HelloWorldCommand",
-                new TaskRunnerPropertyModel {Id = "1", Name = "Text", Value = "Hello"},
-                new TaskRunnerPropertyModel {Id = "2", Name = "Count", Value = "1123"});
+                new TaskRunnerPropertyModel {Name = "1", Description = "Text", Value = "Hello"},
+                new TaskRunnerPropertyModel {Name = "2", Description = "Count", Value = "1123"});
         }
     }
 }

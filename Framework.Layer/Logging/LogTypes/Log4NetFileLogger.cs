@@ -79,6 +79,7 @@ namespace Framework.Layer.Logging.LogTypes
 
         public void Dispose()
         {
+            Logger.Logger.Repository.Shutdown();
 //            Logger.Logger.Repository.Shutdown();
         }
     }

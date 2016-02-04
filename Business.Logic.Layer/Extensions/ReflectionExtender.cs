@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Linq;
-
 using Business.Objects.Layer.Pocos.Reflection;
 
 namespace Business.Logic.Layer.Extensions
@@ -9,16 +8,14 @@ namespace Business.Logic.Layer.Extensions
     {
         public static object SetPublicProperties(this object instance, PropertyWithValue[] props)
         {
-            var propertyInfos = instance.GetType().GetProperties();
-            foreach (var propertyInfo in propertyInfos)
+            instance.GetType().GetProperties().ForEach(propertyInfo =>
             {
-                var info = propertyInfo;
-                foreach (var prop in props.Where(prop => info.Name.Equals(prop.Name)))
+                props.Where(prop => propertyInfo.Name.Equals(prop.Name)).ForEach(prop =>
                 {
                     var convertedValue = Convert.ChangeType(prop.Value, propertyInfo.PropertyType);
                     propertyInfo.SetValue(instance, convertedValue);
-                }
-            }
+                });
+            });
             return instance;
         }
     }

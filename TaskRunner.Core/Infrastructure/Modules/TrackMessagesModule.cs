@@ -15,7 +15,7 @@ using TaskRunner.Core.Infrastructure.Extenders;
 
 namespace TaskRunner.Core.Infrastructure.Modules
 {
-    public class TrackFailedMessagesModule : IMessageModule
+    public class TrackMessagesModule : IMessageModule
     {
         private static readonly ILog _logger = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         private int _numberOfRetries;

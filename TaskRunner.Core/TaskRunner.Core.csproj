@@ -99,7 +99,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Infrastructure\Modules\ServiceBusRegistry.cs" />
-    <Compile Include="Infrastructure\Modules\TrackFailedMessagesModule.cs" />
+    <Compile Include="Infrastructure\Modules\TrackMessagesModule.cs" />
     <Compile Include="ServiceBus\Client.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceBus\Server.cs" />

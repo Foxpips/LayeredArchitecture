@@ -69,7 +69,6 @@
     <Compile Include="Interfaces\AutoMapper\IMapFrom.cs" />
     <Compile Include="Interfaces\AutoMapper\IMapTo.cs" />
     <Compile Include="Interfaces\Encryption\IEncrpytionProvider.cs" />
-    <Compile Include="Interfaces\Encryption\IEncryptionHelper.cs" />
     <Compile Include="Interfaces\Encryption\IEncryptionProviderService.cs" />
     <Compile Include="Interfaces\Execution\IExecutionHandler.cs" />
     <Compile Include="Interfaces\Logging\ICustomLogger.cs" />

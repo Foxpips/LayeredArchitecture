@@ -6,7 +6,6 @@
 function ServiceBusViewModel(data) {
     var self = this;
 
-    self.sendMessage = submitMessage;
     self.selectedMessageId = ko.observable();
 
     self.messages = ko.observableArray([]);
@@ -21,7 +20,7 @@ function ServiceBusViewModel(data) {
     }
 
     self.selectedMessageId.subscribe(function (messageId) {
-        getMessageProperties(messageId);
+        self.getMessageProperties(messageId);
     });
 
     function setPropertyInputs(propertyList) {
@@ -30,11 +29,10 @@ function ServiceBusViewModel(data) {
         }
     }
 
-    function getMessageProperties(messageId) {
-
+    self.getMessageProperties = function getMessageProperties(messageId) {
         self.messageProperties.removeAll();
 
-        var dataToSend = { 'selectedMessage': messageId };
+        var dataToSend = { selectedMessage : messageId };
 
         $.ajax({
             cache: true,
@@ -43,13 +41,13 @@ function ServiceBusViewModel(data) {
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             data: JSON.stringify(dataToSend),
-            url: 'GetProperties/'
+            url: "MessageBus/GetProperties"
         }).done(function (response) {
             try {
                 setPropertyInputs(response);
             } catch (e) {
                 console.log(e.message);
-                toastr.error('An unexpected error occured please try again!');
+                toastr.error("An unexpected error occured please try again!");
             }
         }).fail(function (xhr) {
             console.log(xhr.responseText);
@@ -58,7 +56,7 @@ function ServiceBusViewModel(data) {
         });
     }
 
-    function submitMessage() {
+    self.sendMessage = function sendMessage() {
 
         var dataToSend = {
             typeName: self.selectedMessageId(),
@@ -72,14 +70,14 @@ function ServiceBusViewModel(data) {
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             data: ko.toJSON(dataToSend),
-            url: 'SendMessage'
+            url: "MessageBus/SendMessage"
         })
             .done(function (response) {
                 try {
                     toastr.success(response.Message);
                 } catch (e) {
-                    console.log(e.message + ' ' + response);
-                    toastr.error('An unexpected error occured please try again!');
+                    console.log(e.message + " " + response);
+                    toastr.error("An unexpected error occured please try again!");
                 }
             })
             .fail(function (xhr) {

@@ -57,7 +57,7 @@ namespace Tests.Integration.TaskRunnerTests
             client.Bus.Send(new HelloWorldCommand {Text = _encryptionProviderService.Encrypt("Hello")});
 
             Server.Start<CustomBootStrapper<EncryptionRegistry, ServiceBusRegistry, LoggerRegistry>>(_container);
-            Thread.Sleep(TimeSpan.FromSeconds(2));
+            Thread.Sleep(TimeSpan.FromSeconds(4));
         }
 
         [Test]

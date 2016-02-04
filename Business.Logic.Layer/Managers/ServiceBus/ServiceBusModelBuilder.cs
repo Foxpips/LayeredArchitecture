@@ -38,8 +38,8 @@ namespace Business.Logic.Layer.Managers.ServiceBus
                         property =>
                             new TaskRunnerPropertyModel
                             {
-                                Name = property.Name + " (" + property.PropertyType + ")",
-                                Id = property.Name
+                                Description = property.Name + " (" + property.PropertyType + ")",
+                                Name = property.Name
                             }));
             }
             return propertiesModel;

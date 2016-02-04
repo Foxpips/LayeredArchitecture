@@ -45,10 +45,10 @@ namespace Tests.Unit.Framework.Layer.Tests.MappingTests
             ExportedTypes = typeof (TaskRunnerPropertyModel).Assembly.ExportedTypes.ToList();
             AutoMapperLoader.LoadAllMappings(ExportedTypes);
 
-            var taskRunnerPropertyModel = new TaskRunnerPropertyModel {Name = "Cool", Id = "1", Value = "100"};
+            var taskRunnerPropertyModel = new TaskRunnerPropertyModel {Description = "Cool", Name = "1", Value = "100"};
             var propertyWithValue = Mapper.Map<PropertyWithValue>(taskRunnerPropertyModel);
 
-            Console.WriteLine(propertyWithValue.Name);
+            Console.WriteLine(propertyWithValue.Description);
         }
 
         [Test]

@@ -8,7 +8,7 @@ namespace TaskRunner.Core.Infrastructure.Modules
     {
         public ServiceBusRegistry()
         {
-            Scan(scan => For<IMessageModule>().Use<TrackFailedMessagesModule>());
+            Scan(scan => For<IMessageModule>().Use<TrackMessagesModule>());
         }
     }
 }

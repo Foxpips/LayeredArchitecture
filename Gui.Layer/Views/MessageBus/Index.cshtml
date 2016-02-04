@@ -25,21 +25,12 @@
     <legend>SprocRunner</legend>
     <div class="row">
         <div class="col-md-3">
-            @*            @Html.DropDownList("MessagesDdl", new SelectList(Model.Messages), new {@class = "styled-select"})*@
-            @**@
-            @*            @foreach (var prop in @Model.Properties)*@
-            @*            {*@
-            @*                @Html.DisplayFor(modelItem => @prop)*@
-            @*                @Html.TextBox("asd")*@
-            @*            }*@
-
-            @* <select id="messageTypes" data-bind="options: messages, optionsText: 'messageName', optionsValue: 'id',optionsCaption: 'Please Select', value: selectedMessageId"></select>*@
             <select id="messageTypes" data-bind="options: messages, optionsCaption: 'Please Select', value: selectedMessageId"></select>
             <br />
             <br />
 
             <div data-bind="foreach: messageProperties, visible: messageTypeSelected">
-                <span data-bind="text: name"></span>
+                <span data-bind="text: description"></span>
                 <input type="text" data-bind="value: value" />
                 <br />
             </div>
