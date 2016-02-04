@@ -114,7 +114,9 @@
     <Compile Include="StructureMapTests\StructureMapTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Business.Logic.Layer.Tests\SampleJsonTests\SampleJson.json" />
     <None Include="packages.config" />
   </ItemGroup>

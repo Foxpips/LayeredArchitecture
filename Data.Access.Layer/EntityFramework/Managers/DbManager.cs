@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data.Entity;
 
 namespace Data.Access.Layer.EntityFramework.Managers
@@ -14,10 +15,16 @@ namespace Data.Access.Layer.EntityFramework.Managers
         {
             using (var database = new TContext())
             {
-                database.Database.Connection.Open();
+                OpenConnection(database);
                 work(database);
                 database.SaveChanges();
             }
+        }
+
+        private static void OpenConnection(TContext database)
+        {
+//            database.Database.Connection.ConnectionString = ConfigurationManager.AppSettings["entityDb"];
+            database.Database.Connection.Open();
         }
 
         public TReturn Connect<TReturn>(Func<TContext, TReturn> work)
