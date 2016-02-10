@@ -68,6 +68,7 @@
   <ItemGroup>
     <Compile Include="Async.Tests\AsyncTests.cs" />
     <Compile Include="Business.Logic.Layer.Tests\ExtensionsTests\EnumExtenderTests.cs" />
+    <Compile Include="Business.Logic.Layer.Tests\HelpersTests\TypeReflectorTests.cs" />
     <Compile Include="Mocks\SettingsMocks\TextSettings.cs" />
     <Compile Include="Business.Objects.Layer.Tests\BlogTests.cs" />
     <Compile Include="Business.Logic.Layer.Tests\ExtensionsTests\CollectionExtenderTests.cs" />

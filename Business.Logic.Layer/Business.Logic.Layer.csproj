@@ -82,11 +82,13 @@
     <Compile Include="Extensions\EnumExtender.cs" />
     <Compile Include="Extensions\ReflectionExtender.cs" />
     <Compile Include="Helpers\DirectoryHelper.cs" />
+    <Compile Include="Helpers\Reflector\TypeReflector.cs" />
     <Compile Include="Helpers\SafeExecutionHelper.cs" />
     <Compile Include="Helpers\SerializerHelper.cs" />
     <Compile Include="Helpers\DomainHelper.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Helpers\TransactionHelper.cs" />
+    <Compile Include="Helpers\ClassBuilder\ClassBuilder.cs" />
     <Compile Include="Helpers\TypeCheckerHelper.cs" />
     <Compile Include="Helpers\XmlHelper.cs" />
     <Compile Include="Helpers\Reflector\TaskRunnerReflector.cs" />
