@@ -330,6 +330,14 @@
     <Content Include="Images\update.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\extenders\knockout.numeric.extender.js" />
+    <Content Include="Scripts\extenders\knockout.required.extender.js" />
+    <Content Include="Scripts\extensions\jquery.extensions.js" />
+    <Content Include="Scripts\extensions\ko.extensions.js" />
+    <Content Include="Scripts\handlers\knockout.binding.handlers.js" />
+    <Content Include="Scripts\helpers\app.file.helper.js" />
+    <Content Include="Scripts\helpers\app.form.helper.js" />
+    <Content Include="Scripts\helpers\app.vm.helper.js" />
     <Content Include="Scripts\holder.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -356,6 +364,8 @@
     <Content Include="Scripts\ServiceBus\ViewModels\serviceBusViewModel.js" />
     <Content Include="Scripts\ThreadProgressChecker.js" />
     <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\Useful\Helpers.js" />
+    <Content Include="Scripts\viewModels\modalVm.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
