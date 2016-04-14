@@ -10,7 +10,6 @@ namespace Business.Logic.Layer.Helpers.ClassBuilder
     {
         public void BuildItem(string assemblyName)
         {
-
             IEnumerable<CustomAttributeBuilder> assemblyAttributes = new List<CustomAttributeBuilder>();
             AssemblyBuilder assemblyBuilder = Thread.GetDomain().DefineDynamicAssembly(new AssemblyName(assemblyName), AssemblyBuilderAccess.Run, assemblyAttributes);
             ModuleBuilder moduleBuilder = assemblyBuilder.DefineDynamicModule("ModuleName");

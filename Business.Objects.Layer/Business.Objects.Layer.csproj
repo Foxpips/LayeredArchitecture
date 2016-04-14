@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bases\DataAccess\DataConnectionBase.cs" />
     <Compile Include="Exceptions\Basic\ApiException.cs" />
     <Compile Include="Exceptions\Basic\ApiSoapException.cs" />
     <Compile Include="Exceptions\Basic\DirectoryAlreadyExists.cs" />
@@ -68,6 +69,12 @@
     <Compile Include="Interfaces\AutoMapper\IMapCustom.cs" />
     <Compile Include="Interfaces\AutoMapper\IMapFrom.cs" />
     <Compile Include="Interfaces\AutoMapper\IMapTo.cs" />
+    <Compile Include="Interfaces\DataAccess\ICustomerEntity.cs" />
+    <Compile Include="Interfaces\DataAccess\IDataConnectionManager.cs" />
+    <Compile Include="Interfaces\DataAccess\IEntity.cs" />
+    <Compile Include="Interfaces\DataAccess\IEntityMapper.cs" />
+    <Compile Include="Interfaces\DataAccess\IRepository.cs" />
+    <Compile Include="Interfaces\DataAccess\IStorageService.cs" />
     <Compile Include="Interfaces\Encryption\IEncrpytionProvider.cs" />
     <Compile Include="Interfaces\Encryption\IEncryptionProviderService.cs" />
     <Compile Include="Interfaces\Execution\IExecutionHandler.cs" />
@@ -86,6 +93,7 @@
     <Compile Include="Pocos\Data\Post.cs" />
     <Compile Include="Pocos\Data\Review.cs" />
     <Compile Include="Pocos\Reflection\PropertyWithValue.cs" />
+    <Compile Include="Pocos\Sql\SqlEntityProperty.cs" />
     <Compile Include="Pocos\Sql\SqlServerCredentials.cs" />
     <Compile Include="Pocos\StartupTypes\StartUpType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

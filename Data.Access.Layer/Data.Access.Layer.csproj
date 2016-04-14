@@ -55,14 +55,16 @@
   <ItemGroup>
     <Compile Include="EntityDomain\Attributes\DataParamAttribute.cs" />
     <Compile Include="EntityDomain\Attributes\SprocNameAttribute.cs" />
-    <Compile Include="EntityDomain\IEntity.cs" />
+    <Compile Include="EntityDomain\Mappers\SqlEntityMapper.cs" />
     <Compile Include="EntityFramework\Contexts\BloggingContext.cs" />
     <Compile Include="EntityFramework\Contexts\BooksContext.cs" />
     <Compile Include="EntityFramework\Managers\BlogsManager.cs" />
     <Compile Include="EntityFramework\Managers\BooksManager.cs" />
     <Compile Include="EntityFramework\Managers\DbManager.cs" />
-    <Compile Include="EntityDomain\Repositories\CustomerRepository.cs" />
-    <Compile Include="EntityDomain\Repositories\RepositoryBase.cs" />
+    <Compile Include="EntityDomain\Repositories\Customer\CustomerRepository.cs" />
+    <Compile Include="EntityDomain\Services\EntityStorageService.cs" />
+    <Compile Include="DataConnections\Managers\Sql\SqlConnectionManager.cs" />
+    <Compile Include="DataConnections\Managers\Excel\ExcelConnectionManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SafeDataReader.cs" />
   </ItemGroup>

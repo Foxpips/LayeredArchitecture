@@ -113,6 +113,7 @@
     <Compile Include="StructureMapTests\Schedules\RemoteSchedule.cs" />
     <Compile Include="StructureMapTests\Schedules\StdSchedule.cs" />
     <Compile Include="StructureMapTests\StructureMapTests.cs" />
+    <Compile Include="Data.Access.Layer.Tests\SImpleStoreDb.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

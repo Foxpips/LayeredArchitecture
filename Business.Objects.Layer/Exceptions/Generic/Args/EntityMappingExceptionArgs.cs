@@ -15,7 +15,7 @@ namespace Business.Objects.Layer.Exceptions.Generic.Args
         {
             get
             {
-                return String.Format("Failed to Map entity property to sqlEntityProperty of property: {0}", PropertyName);
+                return string.Format("Failed to Map entity property to sqlEntityProperty of property: {0}", PropertyName);
             }
         }
 

@@ -10,7 +10,7 @@ namespace Business.Logic.Layer.Extensions
         public static string Description(this Enum value)
         {
             return value == null
-                ? String.Empty
+                ? string.Empty
                 : value.GetType().GetFields()
                     .Where(x => x.FieldType.BaseType == typeof(Enum) && x.Name.Equals(value.ToString()))
                     .Select(fieldInfo => fieldInfo.GetCustomAttribute<DescriptionAttribute>())
